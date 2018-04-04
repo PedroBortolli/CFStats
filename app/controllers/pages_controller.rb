@@ -1,7 +1,8 @@
-require 'rest-client'
-require 'json'
+require 'global_methods'
 
 class PagesController < ApplicationController
+	include GlobalMethods
+
 	def index
 
 	end
@@ -12,41 +13,27 @@ class PagesController < ApplicationController
 	end
 
 	def result
-	  	#aqui pega da API
-	  	input = params[:param]
-	  	if input.to_s.empty?
-	  		render html: "Please provide a valid Codeforces handle!"
-	  		return
-	  	end
-	  	base = 'http://codeforces.com/api/user.info?handles='
-	  	url = base + input.to_s
-	  	response = RestClient.get(url)
+		input1 = params[:param1]
+		input2 = params[:param2]
 
-	  	#pra printar o json todo com os keys e values
-	  	#render json: response
+		if input1.to_s.empty? or input2.to_s.empty?
+			render html: "Please provide 2 valid Codeforces handles!"
+			return
+		end
 
-	  	#parse o objeto JSON
-	  	parsed = JSON.parse(response)
+		info1 = pull_from_api(input1.to_s)
+		info2 = pull_from_api(input2.to_s)
 
-	  	#pega os values da key "result" e coloca em info
-	  	info = parsed['result'][0]
+		@handle1 = info1['handle']
+		@rating1 = info1['rating']
+		@maxRating1 = info1['maxRating']
 
-	  	#pra printar a organizacao, por exemplo:
-	  	#render html: info['organization']
+		@handle2 = info2['handle']
+		@rating2 = info2['rating']
+		@maxRating2 = info2['maxRating']
 
-	  	#pra printar o status (se deu ok ou nao)
-	  	#render html: parsed['status']
-
-	  	#pra printar o lastname:
-	  	#render html: info['lastName']
-
-	  	@firstName = info['firstName']
-	  	@lastName = info['lastName']
-	  	@organization = info['organization']
-	  	@rating = info['rating'].to_s
-	  	@handle = info['handle']
-
-  end
-
+		@ratingDifference = @rating1-@rating2
+		@maxRatingDifference = @maxRating1-@maxRating2
+	end
 
 end
