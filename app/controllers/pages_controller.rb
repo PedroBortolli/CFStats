@@ -11,9 +11,15 @@ class PagesController < ApplicationController
 		@content = 'Projeto de Técnicas de Programação II'
 	end
 
-	def api
+	def result
 	  	#aqui pega da API
-	  	url = 'http://codeforces.com/api/user.info?handles=PedroBortolli'
+	  	input = params[:param]
+	  	if input.to_s.empty?
+	  		render html: "Please provide a valid Codeforces handle!"
+	  		return
+	  	end
+	  	base = 'http://codeforces.com/api/user.info?handles='
+	  	url = base + input.to_s
 	  	response = RestClient.get(url)
 
 	  	#pra printar o json todo com os keys e values
@@ -39,12 +45,8 @@ class PagesController < ApplicationController
 	  	@organization = info['organization']
 	  	@rating = info['rating'].to_s
 	  	@handle = info['handle']
+
   end
 
-  def search
-    input = params[:param]
-    puts input
-    #render html: @designation
-  end
 
 end
