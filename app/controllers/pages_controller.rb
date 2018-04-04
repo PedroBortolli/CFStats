@@ -40,4 +40,11 @@ class PagesController < ApplicationController
 	  	@rating = info['rating'].to_s
 	  	@handle = info['handle']
   end
+
+  def search
+    input = params[:param]
+    puts input
+    #render html: @designation
+  end
+
 end

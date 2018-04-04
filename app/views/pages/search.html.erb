@@ -1,0 +1,4 @@
+<%= form_tag "/search", method:'get' do %>
+    <%= text_field_tag :param, nil, placeholder: "CF Handle" %>
+    <%= submit_tag "Search" %>
+<% end %>

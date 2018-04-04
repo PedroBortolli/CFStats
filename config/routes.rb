@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'about' => 'pages#about'
   get 'api' => 'pages#api'
-  resources :posts
+  get 'search' => 'pages#search'
+  #resources :posts
 end
