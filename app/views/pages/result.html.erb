@@ -14,7 +14,7 @@
 
 
 </br></br>
-<%= 'You solved ' + @problems.length.to_s + ' common problems!' %><br><br>
+<%= 'You solved ' + @problems.length.to_s + ' problems in common!' %><br><br>
 <% @problems.each do |a| %>
 	<%= a['contestId'].to_s+a['index'].to_s + ' - ' + a['name'].to_s %><br>
 <% end %>
