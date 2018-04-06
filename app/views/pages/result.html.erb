@@ -7,7 +7,14 @@
 <p>User 2: <%= @handle2 %></p>
 <p>Current rating: <%= @rating2 %> (max: <%= @maxRating2 %>)</p>
 
-</br></br>
+</br>
 
 <p>Current rating difference: <%= @ratingDifference %></p>
 <p>Maximum rating difference: <%= @ratingDifference %></p>
+
+
+</br></br>
+<%= 'You solved ' + @problems.length.to_s + ' common problems!' %><br><br>
+<% @problems.each do |a| %>
+	<%= a['contestId'].to_s+a['index'].to_s + ' - ' + a['name'].to_s %><br>
+<% end %>

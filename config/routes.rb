@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'result' => 'pages#result'
   get 'search' => 'pages#search'
+  get 'test' => 'pages#test'
   #resources :posts
 end
