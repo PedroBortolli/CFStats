@@ -1,20 +1,34 @@
 <h1>Result:</h1>
-<p>User 1: <%= @handle1 %></p>
-<p>Current rating: <%= @rating1 %> (max: <%= @maxRating1 %>)</p>
+<p>User 1: <%= @info['handle1']['handle'] %></p>
+<p>Current rating: <%= @info['handle1']['rating'] %> (max: <%= @info['handle2']['maxRating'] %>)</p>
 
-</br>
-
-<p>User 2: <%= @handle2 %></p>
-<p>Current rating: <%= @rating2 %> (max: <%= @maxRating2 %>)</p>
-
-</br>
-
-<p>Current rating difference: <%= @ratingDifference %></p>
-<p>Maximum rating difference: <%= @ratingDifference %></p>
-
-
-</br></br>
-<%= 'You solved ' + @problems.length.to_s + ' problems in common!' %><br><br>
-<% @problems.each do |a| %>
-	<%= a['contestId'].to_s+a['index'].to_s + ' - ' + a['name'].to_s %><br>
+<p>Number of problems solved by tag:</p></br>
+<%= @info['handle1']['tags'].each do |tag, amount| %>
+	<%= tag.to_s + ': ' + amount.to_s %><br>
 <% end %>
+
+</br></br></br>
+
+<p>User 2: <%= @info['handle2']['handle'] %></p>
+<p>Current rating: <%= @info['handle2']['rating'] %> (max: <%= @info['handle2']['maxRating'] %>)</p>
+
+<p>Number of problems solved by tag:</p></br>
+<%= @info['handle2']['tags'].each do |tag, amount| %>
+	<%= tag.to_s + ': ' + amount.to_s %><br>
+<% end %>
+
+</br></br></br></br></br>
+
+<p>Current rating difference: <%= @info['ratingDifference'] %></p>
+<p>Maximum rating difference: <%= @info['maxRatingDifference'] %></p>
+
+
+
+
+</br></br></br></br></br></br></br></br></br></br>
+<%= 'You solved ' + @info['commonProblems'].length.to_s + ' problems in common!' %><br><br>
+<% @info['commonProblems'].each do |problem| %>
+	<%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %><br>
+<% end %>
+
+<br>
