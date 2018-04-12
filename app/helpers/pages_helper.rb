@@ -31,8 +31,9 @@ module PagesHelper
 		problems[1] = get_user_problems(handle1)
 		problems[2] = get_user_problems(handle2)
 		ok = Array.new(3) {Array.new}
+		tags = Hash.new
 		for i in 1..2
-			tags = Hash.new
+			tags.clear
 			problems[i].each do |problem|
 				if problem['verdict'] == 'OK'
 					ok[i].push(problem['problem'])

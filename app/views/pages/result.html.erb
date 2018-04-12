@@ -1,6 +1,6 @@
 <h1>Result:</h1>
 <p>User 1: <%= @info['handle1']['handle'] %></p>
-<p>Current rating: <%= @info['handle1']['rating'] %> (max: <%= @info['handle2']['maxRating'] %>)</p>
+<p>Current rating: <%= @info['handle1']['rating'] %> (max: <%= @info['handle1']['maxRating'] %>)</p>
 
 <p>Number of problems solved by tag:</p></br>
 <%= @info['handle1']['tags'].each do |tag, amount| %>
