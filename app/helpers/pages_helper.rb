@@ -47,9 +47,11 @@ module PagesHelper
 					end
 				end
 			end
-			ret['handle'+i.to_s]['tags'] = tags
+			ret['handle'+i.to_s]['tags'] = tags.clone
 		end
+		
 		ret['commonProblems'] = ok[1] & ok[2]
+
 		return ret
 	end
 

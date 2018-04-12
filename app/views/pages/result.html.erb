@@ -3,7 +3,7 @@
 <p>Current rating: <%= @info['handle1']['rating'] %> (max: <%= @info['handle1']['maxRating'] %>)</p>
 
 <p>Number of problems solved by tag:</p></br>
-<%= @info['handle1']['tags'].each do |tag, amount| %>
+<% @info['handle1']['tags'].each do |tag, amount| %>
 	<%= tag.to_s + ': ' + amount.to_s %><br>
 <% end %>
 
@@ -13,7 +13,7 @@
 <p>Current rating: <%= @info['handle2']['rating'] %> (max: <%= @info['handle2']['maxRating'] %>)</p>
 
 <p>Number of problems solved by tag:</p></br>
-<%= @info['handle2']['tags'].each do |tag, amount| %>
+<% @info['handle2']['tags'].each do |tag, amount| %>
 	<%= tag.to_s + ': ' + amount.to_s %><br>
 <% end %>
 
