@@ -31,19 +31,20 @@ module PagesHelper
 		problems[1] = get_user_problems(handle1)
 		problems[2] = get_user_problems(handle2)
 		ok = Array.new(3) {Array.new}
+		seen = Array.new(3) {Hash.new}
 		tags = Hash.new
 		for i in 1..2
 			tags.clear
-			problems[i].each do |problem|
-				if problem['verdict'] == 'OK'
-					ok[i].push(problem['problem'])
-				end
-				all_tags = problem['problem']['tags']
-				all_tags.each do |tag|
-					if !tags.key?(tag.to_s)
-						tags[tag] = 1
-					else
-						tags[tag] += 1
+			problems[i].each do |submission|
+				if submission['verdict'] == 'OK' and !seen[i].key?(submission)
+					ok[i].push(submission['problem'])
+					seen[i].store(submission, 1)
+					submission['problem']['tags'].each do |tag|
+						if !tags.key?(tag.to_s)
+							tags[tag] = 1
+						else
+							tags[tag] += 1
+						end
 					end
 				end
 			end
@@ -51,7 +52,7 @@ module PagesHelper
 		end
 		
 		ret['commonProblems'] = ok[1] & ok[2]
-
+		#ret = ret.sort_by {|a| a[:contestId]}
 		return ret
 	end
 
