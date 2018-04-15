@@ -60,27 +60,39 @@ module PagesHelper
 		problems[2] = get_user_problems(handle2)
 		ok = Array.new(3) {Array.new}
 		seen = Array.new(3) {Hash.new}
+		unsolved = Array.new(3) {Array.new}
 		tags = Hash.new
 		for i in 1..2
 			tags.clear
 			problems[i].each do |submission|
-				if submission['verdict'] == 'OK' and !seen[i].key?(submission)
-					ok[i].push(submission['problem'])
-					seen[i].store(submission, 1)
-					submission['problem']['tags'].each do |tag|
-						if !tags.key?(tag.to_s)
-							tags[tag] = 1
-						else
-							tags[tag] += 1
+				if !seen[i].key?(submission['problem'])
+					seen[i].store(submission['problem'], 1)
+					if submission['verdict'] == 'OK'
+						ok[i].push(submission['problem'])
+						submission['problem']['tags'].each do |tag|
+							if !tags.key?(tag.to_s)
+								tags[tag] = 1
+							else
+								tags[tag] += 1
+							end
 						end
+					else
+						unsolved[i].push(submission['problem'])
 					end
 				end
 			end
+			info['handle'+i.to_s]['unsolvedProblems'] = unsolved[i]
 			info['handle'+i.to_s]['tags'] = tags.clone
 		end
 		
 		info['commonProblems'] = ok[1] & ok[2]
-		#info = info.sort_by {|a| a[:contestId]}
+		info['commonProblems'].sort_by!{|a| a["contestId"]}
+
+		info['handle1']['tags'] = info['handle1']['tags'].sort_by{|_key, value| -value}.to_h
+		info['handle2']['tags'] = info['handle2']['tags'].sort_by{|_key, value| -value}.to_h
+
+		info['handle1']['unsolvedProblems'].sort_by!{|a| a["contestId"]}
+		info['handle2']['unsolvedProblems'].sort_by!{|a| a["contestId"]}
 
 		contests = contests_info(handle1)
 		info['handle1']['worstRating'] = contests['worstRating']

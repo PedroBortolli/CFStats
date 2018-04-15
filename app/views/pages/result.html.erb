@@ -9,6 +9,12 @@
 	<%= tag.to_s + ': ' + amount.to_s %><br>
 <% end %>
 
+</br>
+<p><%= @info['handle1']['unsolvedProblems'].length.to_s %> problems to do!</p>
+<% @info['handle1']['unsolvedProblems'].each do |problem| %>
+	<%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %><br>
+<% end %>
+
 </br></br></br>
 
 <p>User 2: <%= @info['handle2']['handle'] %></p>
@@ -21,6 +27,11 @@
 	<%= tag.to_s + ': ' + amount.to_s %><br>
 <% end %>
 
+</br>
+<p><%= @info['handle2']['unsolvedProblems'].length.to_s %> problems to do!</p>
+<% @info['handle2']['unsolvedProblems'].each do |problem| %>
+	<%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %><br>
+<% end %>
 
 </br></br></br></br></br>
 
