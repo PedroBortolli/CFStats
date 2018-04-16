@@ -10,15 +10,15 @@ This app is being developed using Ruby on Rails. This project goal is to build a
 
 The first thing to be done is to install some dependencies for Ruby. For this step you must have root privilege. Run the following commands:
 
-``curl - sL https :// deb . nodesource . com / setup_8 . x | sudo -E bash -``
+``curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -``
 
-``curl - sS https :// dl . yarnpkg . com / debian / pubkey . gpg | sudo apt - key add -``
+``curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -``
 
-``echo " deb https :// dl. yarnpkg .com/ debian / stable main " | \ sudo tee / etc / apt / sources . list . d / yarn . list``
+``echo "deb https://dl.yarnpkg.com/debian/stable main" | \ sudo tee /etc/apt/sources.list . d/yarn.list``
 
-``sudo apt - get update``
+``sudo apt-get update``
 
-``sudo apt - get install git - core curl zlib1g - dev build - essential \ libssl - dev libreadline - dev libyaml - dev libsqlite3 - dev sqlite3 \ libxml2 - dev libxslt1 - dev libcurl4 - openssl - dev \ python - software - properties libffi - dev nodejs yarn``
+``sudo apt-get install git-core curl zlib1g-dev build-essential \ libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 \ libxml2-dev libxslt1-dev libcurl4-openssl-dev \ python-software-properties libffi-dev nodejs yarn``
 
 .
 
@@ -27,17 +27,17 @@ Now to install Ruby:
 
 ``cd``
 
-``git clone https :// github . com / rbenv / rbenv . git ~/. rbenv``
+``git clone https://github.com/rbenv/rbenv.git ~/.rbenv``
 
-``echo ’export PATH =" $HOME /. rbenv / bin : $PATH "’ >> ~/. bashrc``
+``echo ’export PATH ="$HOME/.rbenv/bin:$PATH"’ >> ~/.bashrc``
 
-``echo ’eval "$( rbenv init -)"’ >> ~/. bashrc``
+``echo ’eval "$(rbenv init -)"’ >> ~/.bashrc``
 
 ``exec $SHELL``
 
-``git clone https :// github . com / rbenv / ruby - build . git ~/. rbenv / plugins / ruby - build``
+``git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build``
 
-``echo ’export PATH =" $HOME /. rbenv / plugins /ruby - build /bin: $PATH "’ >> ~/.bashrc``
+``echo ’export PATH ="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"’ >> ~/.bashrc``
 
 ``exec $SHELL``
 
@@ -60,7 +60,7 @@ Now to install Rails:
 
 The last thing to do is to install Postgresql. That's the database this app is being built with. Run:
 
-``sudo apt install postgresql -9.5 libpq - dev``
+``sudo apt install postgresql -9.5 libpq-dev``
 
 
 ## Running the app
