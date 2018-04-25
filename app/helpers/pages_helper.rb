@@ -76,7 +76,7 @@ module PagesHelper
 						cpy['url'] = base + cpy['contestId'].to_s + "/problem/" + cpy['index'].to_s
 					end
 					if submission['verdict'] == 'OK'
-						ok[i].push(submission['problem'])
+						ok[i].push(cpy)
 						cpy['tags'].each do |tag|
 							if !tags.key?(tag.to_s)
 								tags[tag] = 1
@@ -85,7 +85,6 @@ module PagesHelper
 							end
 						end
 					else
-						puts(cpy)
 						unsolved[i].push(cpy)
 					end
 				end
@@ -96,6 +95,9 @@ module PagesHelper
 		
 		info['commonProblems'] = ok[1] & ok[2]
 		info['commonProblems'].sort_by!{|a| a["contestId"]}
+
+		info['handle1']['acCount'] = ok[1].size
+		info['handle2']['acCount'] = ok[2].size
 
 		info['handle1']['tags'] = info['handle1']['tags'].sort_by{|_key, value| -value}.to_h
 		info['handle2']['tags'] = info['handle2']['tags'].sort_by{|_key, value| -value}.to_h

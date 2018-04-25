@@ -3,27 +3,26 @@
 
 
 
-<div class = "split centered">
+<div class = "split middle">
 	<div class = "centered">
-		<h1>Result:</h1>
+		<h1>Result</h1>
 
-		<p>Current rating difference: <%= @info['ratingDifference'] %></p>
-		<p>Maximum rating difference: <%= @info['maxRatingDifference'] %></p>
+		<p>Current rating difference: <b><%= @info['ratingDifference'] %></b></p>
 
+		</br>
 
 		<button type="button" onclick=showHide(1)><%= 'You solved ' + @info['commonProblems'].length.to_s + ' problems in common!' %></button>
 		</br>
 
-		<div id = "hidden1">
+		<div id = "hidden1" style="display: none;">
+			</br>
 			<% @info['commonProblems'].each do |problem| %>
 				<a href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
 			<% end %>
 		</div>
 		</br>
-
 	</div>
 </div>
-
 
 
 
@@ -32,18 +31,21 @@
 	<div class = "centered">
 
 
-		<p>User 1: <%= @info['handle1']['handle'] %></p>
+		<h2><%= @info['handle1']['handle'] %></h2>
 		<img src=<%= @info['handle1']['titlePhoto'] %> >
-		<p>Current rating: <%= @info['handle1']['rating'] %></p>
+		<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
 		<p>(min: <%= @info['handle1']['worstRating'] %>) (max: <%= @info['handle1']['maxRating'] %>)</p>
-		<p>Participated in  <%= @info['handle1']['amountContests'] %>  contests!</p>
+		</br>
+		<p>Solved <b><%= @info['handle1']['acCount'] %></b> problems!</p>
+		<p>Participated in <b><%= @info['handle1']['amountContests'] %></b> contests!</p>
 
 		</br>
 		<button type="button" onclick=showHide(2)>Number of problems solved by tag:</button>
 
-		<div id = "hidden2">
+		<div id = "hidden2" style="display: none;">
+			</br>
 			<% @info['handle1']['tags'].each do |tag, amount| %>
-				<%= tag.to_s + ': ' + amount.to_s %><br>
+				<%= tag.to_s %> : <b><%= amount.to_s %></b><br>
 			<% end %>
 		</div>
 
@@ -51,7 +53,8 @@
 
 		<button type="button" onclick=showHide(3)><%= @info['handle1']['unsolvedProblems'].length.to_s %> problems to do!</button>
 
-		<div id = "hidden3">
+		<div id = "hidden3" style="display: none;">
+			</br>
 			<% @info['handle1']['unsolvedProblems'].each do |problem| %>
 				<a href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
 			<% end %>
@@ -62,29 +65,36 @@
 	</div>
 </div>
 
+
+
+
 <div class = "split right">
 	<div class = "centered">
 
-		<p>User 2: <%= @info['handle2']['handle'] %></p>
+		<h2><%= @info['handle2']['handle'] %></h2>
 		<img src=<%= @info['handle2']['titlePhoto'] %> >
-		<p>Current rating: <%= @info['handle2']['rating'] %></p>
+		<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
 		<p>(min: <%= @info['handle2']['worstRating'] %>) (max: <%= @info['handle2']['maxRating'] %>)</p>
-		<p>Participated in  <%= @info['handle2']['amountContests'] %>  contests!</p>
+		</br>
+		<p>Solved <b><%= @info['handle2']['acCount'] %></b> problems!</p>
+		<p>Participated in <b><%= @info['handle2']['amountContests'] %></b> contests!</p>
 
 		</br>
 
 		<button type="button" onclick=showHide(4)>Number of problems solved by tag:</button>
 
-		<div id = "hidden4">
+		<div id = "hidden4" style="display: none;">
+			</br>
 			<% @info['handle2']['tags'].each do |tag, amount| %>
-				<%= tag.to_s + ': ' + amount.to_s %><br>
+				<%= tag.to_s %> : <b><%= amount.to_s %></b><br>
 			<% end %>
 		</div>
 
 		</br>
 		<button type="button" onclick=showHide(5)><%= @info['handle2']['unsolvedProblems'].length.to_s %> problems to do!</button>
 
-		<div id = "hidden5">
+		<div id = "hidden5" style="display: none;">
+			</br>
 			<% @info['handle2']['unsolvedProblems'].each do |problem| %>
 				<a href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
 			<% end %>
