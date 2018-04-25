@@ -67,9 +67,17 @@ module PagesHelper
 			problems[i].each do |submission|
 				if !seen[i].key?(submission['problem'])
 					seen[i].store(submission['problem'], 1)
+					cpy = submission['problem'].clone
+					if cpy['contestId'].to_i < 99999
+						base = "http://www.codeforces.com/problemset/problem/"
+						cpy['url'] = base + cpy['contestId'].to_s + "/" + cpy['index'].to_s
+					else
+						base = "http://www.codeforces.com/gym/"
+						cpy['url'] = base + cpy['contestId'].to_s + "/problem/" + cpy['index'].to_s
+					end
 					if submission['verdict'] == 'OK'
 						ok[i].push(submission['problem'])
-						submission['problem']['tags'].each do |tag|
+						cpy['tags'].each do |tag|
 							if !tags.key?(tag.to_s)
 								tags[tag] = 1
 							else
@@ -77,7 +85,8 @@ module PagesHelper
 							end
 						end
 					else
-						unsolved[i].push(submission['problem'])
+						puts(cpy)
+						unsolved[i].push(cpy)
 					end
 				end
 			end

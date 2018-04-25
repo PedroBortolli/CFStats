@@ -11,5 +11,24 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require_tree .
+//= require_tree
+
+var NO_BUTTONS = 5
+
+window.onload=function(){
+	for (var i = 1; i <= NO_BUTTONS; i++) {
+		var button_to_hide = "hidden" + i
+		document.getElementById(button_to_hide).style.display='none';
+	}
+}
+
+function showHide(button_id) {
+	var button_to_search = "hidden" + button_id
+	var button = document.getElementById(button_to_search);
+	if (button.style.display === "none") {
+		button.style.display = "block";
+	}
+	else {
+		button.style.display = "none";
+	}
+}
