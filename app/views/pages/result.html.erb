@@ -41,11 +41,19 @@
 		</br>
 		<button type="button" onclick=showHide(2)>Number of problems solved by tag:</button>
 
-		<div id = "hidden2" style="display: none;">
+		<div class = "centered" id = "hidden2" style="display: none;">
 			</br>
-			<% @info['handle1']['tags'].each do |tag, amount| %>
+			<div id="tagchart1"></div>
+		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		    <script type="text/javascript">
+		      	// Load google charts
+		      	google.charts.load('current', {'packages':['corechart']});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle1']['tags'].to_json.html_safe %>, "tagchart1");});
+		    </script> 
+
+			<!--<% @info['handle1']['tags'].each do |tag, amount| %>
 				<%= tag.to_s %> : <b><%= amount.to_s %></b><br>
-			<% end %>
+			<% end %>-->
 		</div>
 
 		</br>
@@ -85,9 +93,16 @@
 
 		<div id = "hidden4" style="display: none;">
 			</br>
-			<% @info['handle2']['tags'].each do |tag, amount| %>
+			<div id="tagchart2"></div>
+		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		    <script type="text/javascript">
+		      	// Load google charts
+		      	google.charts.load('current', {'packages':['corechart']});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle2']['tags'].to_json.html_safe %>, "tagchart2");});
+		    </script> 
+			<!--<% @info['handle2']['tags'].each do |tag, amount| %>
 				<%= tag.to_s %> : <b><%= amount.to_s %></b><br>
-			<% end %>
+			<% end %>-->
 		</div>
 
 		</br>

@@ -25,3 +25,19 @@ function showHide(button_id) {
 		button.style.display = "none";
 	}
 }
+
+function drawChart(data, parent_div) {
+	var width = document.getElementById(parent_div).clientWidth;
+	var height = width;
+	result = [["tag","amount"]];
+	Object.keys(data).forEach(function (column) {
+ 		result.push([column,data[column]]);
+	});
+	var datatable = google.visualization.arrayToDataTable(result);
+  	var options = {'title':'Problems by tag', 'backgroundColor':'transparent', 
+  	'width':width, 'height':height, 
+  	'chartArea': {'width': '80%', 'height': '100%'},
+  	'legend': {'position': 'right'}};
+	var chart = new google.visualization.PieChart(document.getElementById(parent_div));
+	chart.draw(datatable, options);
+}
