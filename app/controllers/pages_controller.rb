@@ -17,6 +17,17 @@ class PagesController < ApplicationController
 			return
 		end
 		@info = build_info(handle1, handle2)
+		if @info['handle1']['rating'] >= 2900
+			@first_letter1 =  'legendary-user-first-letter'
+		else
+			@first_letter1 =  color(@info['handle1']['rating'])   
+		end
+
+		if @info['handle2']['rating'] >= 2900
+			@first_letter2 =  'legendary-user-first-letter'
+		else
+			@first_letter2 =  color(@info['handle2']['rating'])   
+		end
 	end
 
 	def test

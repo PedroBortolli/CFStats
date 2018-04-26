@@ -30,8 +30,8 @@
 <div class = "split left">
 	<div class = "centered">
 
-
-		<h2><%= @info['handle1']['handle'] %></h2>
+		<h2 class = "<%= color(@info['handle1']['rating']) %>">
+			<span class = "<%= @first_letter1 %>" ><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
 		<img src=<%= @info['handle1']['titlePhoto'] %> >
 		<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
 		<p>(min: <%= @info['handle1']['worstRating'] %>) (max: <%= @info['handle1']['maxRating'] %>)</p>
@@ -71,7 +71,8 @@
 <div class = "split right">
 	<div class = "centered">
 
-		<h2><%= @info['handle2']['handle'] %></h2>
+		<h2 class = "<%= color(@info['handle2']['rating']) %>">
+			<span class = "<%= @first_letter2 %>" ><%= @info['handle2']['handle'][0] %></span><%= @info['handle2']['handle'][1..-1] %></h2>
 		<img src=<%= @info['handle2']['titlePhoto'] %> >
 		<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
 		<p>(min: <%= @info['handle2']['worstRating'] %>) (max: <%= @info['handle2']['maxRating'] %>)</p>

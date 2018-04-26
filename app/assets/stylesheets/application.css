@@ -51,3 +51,42 @@
   /*transform: translate(-50%, -50%);*/
   text-align: center;
 }
+
+.rated-user {
+    /*font-family: arial;*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.legendary-user-first-letter {
+    color: black;
+}
+
+.user-red {
+    color: red;
+}
+
+.user-orange {
+    color: #FF8C00;
+}
+
+.user-violet {
+    color: #a0a;
+}
+
+.user-blue {
+    color: blue;
+}
+
+.user-cyan {
+    color: #03A89E;
+}
+
+.user-green {
+    color: green;
+}
+
+.user-gray {
+    color: gray;
+}
