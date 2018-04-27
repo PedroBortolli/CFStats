@@ -13,7 +13,7 @@
 //= require rails-ujs
 //= require_tree
 
-var NO_BUTTONS = 6
+var NO_BUTTONS = 12
 
 function showHide(button_id) {
 	var button_to_search = "hidden" + button_id
