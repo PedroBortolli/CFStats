@@ -21,6 +21,30 @@
 			<% end %>
 		</div>
 		</br>
+
+
+		<button type="button" onclick=showHide(6)><%= @info['handle1']['handle'] + ' solved ' + @info['handle1']['uniqueProblems'].length.to_s + ' unique problems!' %></button>
+		</br>
+
+		<div id = "hidden6" style="display: none;">
+			</br>
+			<% @info['handle1']['uniqueProblems'].each do |problem| %>
+				<a href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
+			<% end %>
+		</div>
+
+		</br>
+
+		<button type="button" onclick=showHide(7)><%= @info['handle2']['handle'] + ' solved ' + @info['handle2']['uniqueProblems'].length.to_s + ' unique problems!' %></button>
+		</br>
+
+		<div id = "hidden7" style="display: none;">
+			</br>
+			<% @info['handle2']['uniqueProblems'].each do |problem| %>
+				<a href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
+			<% end %>
+		</div>
+
 	</div>
 </div>
 
@@ -35,7 +59,7 @@
 		<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
 		<p>(min: <%= @info['handle1']['worstRating'] %>) (max: <%= @info['handle1']['maxRating'] %>)</p>
 		</br>
-		<p>Solved <b><%= @info['handle1']['acCount'] %></b> problems!</p>
+		<p>Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!</p>
 		<p>Participated in <b><%= @info['handle1']['amountContests'] %></b> contests!</p>
 
 		</br>
@@ -48,10 +72,10 @@
 		    <script type="text/javascript">
 		      	// Load google charts
 		      	google.charts.load('current', {'packages':['corechart']});
-		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle1']['tags'].to_json.html_safe %>, "tagchart1");});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle1']['problemTags'].to_json.html_safe %>, "tagchart1");});
 		    </script> 
 
-			<!--<% @info['handle1']['tags'].each do |tag, amount| %>
+			<!--<% @info['handle1']['problemTags'].each do |tag, amount| %>
 				<%= tag.to_s %> : <b><%= amount.to_s %></b><br>
 			<% end %>-->
 		</div>
@@ -66,7 +90,6 @@
 				<a href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
 			<% end %>
 		</div>
-
 
 		</br></br></br>
 	</div>
@@ -84,7 +107,7 @@
 		<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
 		<p>(min: <%= @info['handle2']['worstRating'] %>) (max: <%= @info['handle2']['maxRating'] %>)</p>
 		</br>
-		<p>Solved <b><%= @info['handle2']['acCount'] %></b> problems!</p>
+		<p>Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!</p>
 		<p>Participated in <b><%= @info['handle2']['amountContests'] %></b> contests!</p>
 
 		</br>
@@ -98,9 +121,9 @@
 		    <script type="text/javascript">
 		      	// Load google charts
 		      	google.charts.load('current', {'packages':['corechart']});
-		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle2']['tags'].to_json.html_safe %>, "tagchart2");});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle2']['problemTags'].to_json.html_safe %>, "tagchart2");});
 		    </script> 
-			<!--<% @info['handle2']['tags'].each do |tag, amount| %>
+			<!--<% @info['handle2']['problemTags'].each do |tag, amount| %>
 				<%= tag.to_s %> : <b><%= amount.to_s %></b><br>
 			<% end %>-->
 		</div>

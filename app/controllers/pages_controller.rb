@@ -16,7 +16,7 @@ class PagesController < ApplicationController
 			render html: "Please provide 2 valid Codeforces handles!"
 			return
 		end
-		@info = build_info(handle1, handle2)
+		@info = build_result(handle1, handle2)
 		if @info['handle1']['rating'] >= 2900
 			@first_letter1 =  'legendary-user-first-letter'
 		else
