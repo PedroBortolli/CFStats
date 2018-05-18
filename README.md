@@ -57,6 +57,7 @@ Now to install Rails:
 
 ``rbenv rehash``
 
+.
 
 The last thing to do is to install Postgresql. That's the database this app is being built with. Run:
 
@@ -89,6 +90,10 @@ That's it! Now the app server is running locally on your computer! To visit the 
 
 Click on "Compare two users!". Now, type 2 valid Codeforces handles and then click on "Compare!". Another page will be loaded containing information about each individual user and also common information between them.
 
+There will be spoiler tags containing links (to the actual Codeforces website) for each problem solved by each user. Also, a graph is ploted containing the amount of problems solved by tag.
+
+More features to come in the next weeks. Some of the current ones may be changed.
+
 
 ## Who works on this project?
 
@@ -100,8 +105,12 @@ Click on "Compare two users!". Now, type 2 valid Codeforces handles and then cli
 
 ## Important dates
 
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1st deadline:
-*
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1st deadline (May 19th, 2018):
+* Basic structure of the app
+* How to install/use
+* Basic features implemented
+* Basic design of the website implemented
+
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2nd deadline
 *
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3rd deadline
