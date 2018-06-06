@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <html>
   <head>
     <title>Cfstats</title>
@@ -6,6 +7,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+     <div class = "w3-container w3-pale-blue", style = "font-size: 22px"}>
+      <div style = "float: left;">
+        <%= link_to('Home', root_path) %>
+      </div>
+      <div style = "float: right;">
+      <% if user_signed_in? %>
+        <%= link_to "#{current_user.username.to_s}", root_url %>
+        &nbsp;
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+      <% else %>
+        <%= link_to('Login', new_user_session_path)  %>
+        &nbsp;
+        <%= link_to('Sign up', new_user_registration_path) %>
+      <% end %>
+      </div>
+    </div>
+
   </head>
 
   <body>
