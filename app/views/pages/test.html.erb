@@ -1,5 +1,5 @@
 <body class = "background centered">
 	<% for user in UserSetting.all %>
-		<%= user.username %> <%= user.settings %> </br>
+		<%= user.username %> <%= user.settings %> <%= user.friends %></br>
 	<% end %>
 </body>

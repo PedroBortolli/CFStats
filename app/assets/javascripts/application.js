@@ -17,14 +17,14 @@
 var NO_BUTTONS = 12
 
 $(document).ready(function() {
-	$('#add_form').focus();
-	$('#add_form').keypress(function(event) {
+	$('#add_links_form').focus();
+	$('#add_links_form').keypress(function(event) {
 		var key = (event.keyCode ? event.keyCode : event.which);
 		if (key == 13) {
-			var info = $('#add_form').val();
+			var info = $('#add_links_form').val();
 			$.ajax({
 				method: "POST",
-				url: "/add_to_db",
+				url: "/add_links_to_db",
 				data: {name: info},
 				success: function(status) {
 					add_url(info);
@@ -35,14 +35,14 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-	$('#delete_form').focus();
-	$('#delete_form').keypress(function(event) {
+	$('#delete_links_form').focus();
+	$('#delete_links_form').keypress(function(event) {
 		var key = (event.keyCode ? event.keyCode : event.which);
 		if (key == 13) {
-			var info = $('#delete_form').val();
+			var info = $('#delete_links_form').val();
 			$.ajax({
 				method: "POST",
-				url: "/remove_from_db",
+				url: "/remove_links_from_db",
 				data: {name: info},
 				success: function(status) {
 					remove_url(info);
@@ -52,8 +52,44 @@ $(document).ready(function() {
 	});
 });
 
+$(document).ready(function() {
+	$('#add_friends_form').focus();
+	$('#add_friends_form').keypress(function(event) {
+		var key = (event.keyCode ? event.keyCode : event.which);
+		if (key == 13) {
+			var info = $('#add_friends_form').val();
+			$.ajax({
+				method: "POST",
+				url: "/add_friends_to_db",
+				data: {name: info},
+				success: function(status) {
+					add_friend(info);
+				}
+			}); 
+		};
+	});
+});
+
+$(document).ready(function() {
+	$('#delete_friends_form').focus();
+	$('#delete_friends_form').keypress(function(event) {
+		var key = (event.keyCode ? event.keyCode : event.which);
+		if (key == 13) {
+			var info = $('#delete_friends_form').val();
+			$.ajax({
+				method: "POST",
+				url: "/remove_friends_from_db",
+				data: {name: info},
+				success: function(status) {
+					remove_friend(info);
+				}
+			});
+		};
+	});
+});
+
 function add_url(info) {
-	document.getElementById('add_form').value = "";
+	document.getElementById('add_links_form').value = "";
 	if (document.getElementById(info) != null) {
 		return
 	}
@@ -62,7 +98,24 @@ function add_url(info) {
 }
 
 function remove_url(info) {
-	document.getElementById('delete_form').value = "";
+	document.getElementById('delete_links_form').value = "";
+	if (document.getElementById(info) == null) {
+		return
+	}
+	document.getElementById(info).remove()
+}
+
+function add_friend(info) {
+	document.getElementById('add_friends_form').value = "";
+	if (document.getElementById(info) != null) {
+		return
+	}
+	var current_html = document.getElementById('friends').innerHTML
+	document.getElementById('friends').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
+}
+
+function remove_friend(info) {
+	document.getElementById('delete_friends_form').value = "";
 	if (document.getElementById(info) == null) {
 		return
 	}

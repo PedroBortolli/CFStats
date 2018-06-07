@@ -1,15 +1,39 @@
 <body class = "background centered">
 
 	<% if user_signed_in? %>
-		<h3>Hello, <%= current_user.username %>!</h3>    
+		<h4>Hello, <%= current_user.username %>!</h4>
 	<% end %>
 
+
+	</br>
+	<h2> Below you can add/remove Codeforces friends for easy access to their comparisons!</h2>
+
+	</br>
+	<input type="text" id="add_friends_form" placeholder="Add friend">
+	<input type="text" id="delete_friends_form" placeholder="Remove friend">
+
+	</br>
+	</br>
+	<div id = "friends">
+		<% for user in UserSetting.all %>
+			<% if user.username == current_user.username %>
+				<% for friend in user.friends %>
+					<div id = "<%= friend %>">
+						<%= friend %>
+					</div>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
+
+	</br>
+	</br>
 	</br>
 	<h2>Below you can add/remove your custom Codeforces problems that you want to solve in the future!</h2>
 
 	</br>
-	<input type="text" id="add_form" placeholder="Add problem URL" autofocus="true">
-	<input type="text" id="delete_form" placeholder="Remove problem URL">
+	<input type="text" id="add_links_form" placeholder="Add problem URL" autofocus="true">
+	<input type="text" id="delete_links_form" placeholder="Remove problem URL">
 
 	</br>
 	</br>

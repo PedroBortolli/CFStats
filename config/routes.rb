@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   get 'test' => 'pages#test'
   get 'profile' => 'pages#profile'
   post 'add' => 'pages#add'
-  post 'add_to_db' => 'pages#add_to_db'
-  post 'remove_from_db' => 'pages#remove_from_db'
+  post 'add_links_to_db' => 'database#add_links_to_db'
+  post 'remove_links_from_db' => 'database#remove_links_from_db'
+  post 'add_friends_to_db' => 'database#add_friends_to_db'
+  post 'remove_friends_from_db' => 'database#remove_friends_from_db'
+  post 'profile' => 'pages#profile'
   #resources :posts
 end

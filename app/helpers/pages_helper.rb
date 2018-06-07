@@ -169,7 +169,7 @@ module PagesHelper
 			return 'rated-user user-cyan'
 		elsif rating < 1900
 			return 'rated-user user-blue'
-		elsif rating < 2200
+		elsif rating < 2100
 			return 'rated-user user-violet'
 		elsif rating < 2400
 			return 'rated-user user-orange'
