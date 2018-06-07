@@ -1,12 +1,5 @@
-<%= javascript_tag do %>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-	<dt style="height:22px; text-align: center;"><strong>Spoiler:</strong>
-	<input type="button" value="Show" style="width:78px; font-size:10px; margin:0px; padding:0px;" onclick="var spoiler = $(this).parents('.codebox').find('.content').toggle('slow');
-if ( this.value == 'Hide' ) { this.value = 'Show'; } else { this.value = 'Hide'; };
-return false;"></dt>
-<dd><div class="content" name="spoiler" style="display: none;">
-  Holaaaaa, Bienvenido!!!!!
-  
-</div></dd></div>
-<% end %>
+<body class = "background centered">
+	<% for user in UserSetting.all %>
+		<%= user.username %> <%= user.settings %> </br>
+	<% end %>
+</body>

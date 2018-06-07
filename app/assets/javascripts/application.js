@@ -12,8 +12,62 @@
 //
 //= require rails-ujs
 //= require_tree
+//= require jquery
 
 var NO_BUTTONS = 12
+
+$(document).ready(function() {
+	$('#add_form').focus();
+	$('#add_form').keypress(function(event) {
+		var key = (event.keyCode ? event.keyCode : event.which);
+		if (key == 13) {
+			var info = $('#add_form').val();
+			$.ajax({
+				method: "POST",
+				url: "/add_to_db",
+				data: {name: info},
+				success: function(status) {
+					add_url(info);
+				}
+			}); 
+		};
+	});
+});
+
+$(document).ready(function() {
+	$('#delete_form').focus();
+	$('#delete_form').keypress(function(event) {
+		var key = (event.keyCode ? event.keyCode : event.which);
+		if (key == 13) {
+			var info = $('#delete_form').val();
+			$.ajax({
+				method: "POST",
+				url: "/remove_from_db",
+				data: {name: info},
+				success: function(status) {
+					remove_url(info);
+				}
+			});
+		};
+	});
+});
+
+function add_url(info) {
+	document.getElementById('add_form').value = "";
+	if (document.getElementById(info) != null) {
+		return
+	}
+	var current_html = document.getElementById('links').innerHTML
+	document.getElementById('links').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
+}
+
+function remove_url(info) {
+	document.getElementById('delete_form').value = "";
+	if (document.getElementById(info) == null) {
+		return
+	}
+	document.getElementById(info).remove()
+}
 
 function showHide(button_id) {
 	var button_to_search = "hidden" + button_id
