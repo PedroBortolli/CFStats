@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 	before_action :authenticate_user!, :except => [:index, :search, :about, :result, :test]
 
 	include Parser
+	include DatabaseHelper
 
 	def index
 	end
@@ -32,6 +33,7 @@ class PagesController < ApplicationController
 	end
 
 	def test
+		validate("www.codeforces.com", "user")
 	end
 
 end
