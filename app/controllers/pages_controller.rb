@@ -47,7 +47,7 @@ class PagesController < ApplicationController
 		#username = current_user.username
 
 		for user in UserSetting.all
-			user.delete
+			#user.delete
 		end
 		#return
 
