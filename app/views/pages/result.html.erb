@@ -5,13 +5,14 @@
 
 <div class = "split middle">
 	<div class = "centered">
+
 		<h1>Result</h1>
 
 		<p>Current rating difference: <b><%= @info['ratingDifference'] %></b></p>
 
 		</br>
 
-		<button type="button" onclick=showHide(1)>You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
+		<button type="button" class="btn btn-primary"onclick=showHide(1)>You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
 		</br>
 
 		<div id = "hidden1" style="display: none;">

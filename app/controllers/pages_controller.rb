@@ -25,6 +25,8 @@ class PagesController < ApplicationController
 	def result
 		handle1 = params[:param1].to_s
 		handle2 = params[:param2].to_s
+		puts(validate(handle1, "user"))
+		puts(validate(handle2, "user"))
 		if handle1.empty? or handle2.to_s.empty?
 			render html: "Please provide 2 valid Codeforces handles!"
 			return
