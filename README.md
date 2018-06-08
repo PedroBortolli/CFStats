@@ -62,10 +62,13 @@ Now to install Rails:
 The last thing to do is to install Postgresql. That's the database this app is being built with. Run:
 
 ``sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"``
+
 ``wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -```
 
 ``sudo apt-get update``
+
 ``sudo apt-get install postgresql-common``
+
 ``sudo apt-get install postgresql-9.5 libpq-dev``
 
 
@@ -89,8 +92,11 @@ create the db_user user:
 open psql menu to write some commands to give the user permissions:
 
 ``sudo -u postgres psql``
+
 ``postgres=# ALTER USER db_user WITH ENCRYPTED PASSWORD 'db';``
+
 ``postgres=# ALTER USER db_user superuser createrole createdb replication;``
+
 ``postgres=# \q``
 
 Open /etc/postgresql/9.5/main/pg_hba.conf with root access
@@ -100,27 +106,44 @@ Open /etc/postgresql/9.5/main/pg_hba.conf with root access
 Change peer to md5 in these lines.
 
 Before changing
+
 ``# "local" is for Unix domain socket connections only``
+
 ``local   all             all                                     peer``
+
 ``# IPv4 local connections:``
+
 ``host    all             all             127.0.0.1/32            peer``
+
 ``# IPv6 local connections:``
+
 ``host    all             all             ::1/128                 peer``
+
 ``After your change``
+
 ``# "local" is for Unix domain socket connections only``
+
 ``local   all             all                                     md5``
+
 ``# IPv4 local connections:``
+
 ``host    all             all             127.0.0.1/32            md5``
+
 ``# IPv6 local connections:``
+
 ``host    all             all             ::1/128                 md5``
+
+
 Save the file with pressing Ctrl-O. Exit nano with Ctrl-X
 
 Restart postgresql using
+
 ``sudo service postgresql restart``
 
 Them we need to go to the CFStats cloned directory and run the following commands
 
 ``rake db:create``
+
 ``rake db:migrate``
 
 
