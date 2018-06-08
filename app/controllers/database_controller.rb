@@ -2,8 +2,11 @@ class DatabaseController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	before_action :authenticate_user!, :except => [:index, :search, :about, :result, :test]
 
+	include DatabaseHelper
+	include ApiModule
 
 	def update_handle_to_db
+		api_teste
 		to_add = params[:name].to_s
 		user_exists = false
 		@return = false
@@ -24,7 +27,6 @@ class DatabaseController < ApplicationController
 
 
 	def add_links_to_db
-		gon.watch.eae = "kkkk"
 		to_add = params[:name].to_s
 		user_exists = false
 		@return = false
