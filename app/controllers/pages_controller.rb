@@ -44,7 +44,7 @@ class PagesController < ApplicationController
 
 	def test
 		#### metodo para testar novas features, sera apagado futuramente! ####
-		username = current_user.username
+		#username = current_user.username
 
 		for user in UserSetting.all
 			#user.delete

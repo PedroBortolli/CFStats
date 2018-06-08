@@ -1,27 +1,47 @@
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+
 <body class = "background centered">
 
 	<% if user_signed_in? %>
 		<h4>Hello, <%= current_user.username %>!</h4>
 	<% end %>
 
+	</br>
+	</br>
+
+	<p>Below you can add your Codeforces handle so you don't have to type it everytime</p>
+
+	<input type="text" id="update_handle_form" placeholder="Update Codeforces handle">
 
 	</br>
-	<h2> Below you can add/remove Codeforces friends for easy access to their comparisons!</h2>
+	</br>
+	<div id = "handles">
+		<% for user in UserSetting.where(username: current_user.username) %>	
+			<div id = "<%= user.handle %>">
+				<%= user.handle %>
+			</div>
+		<% end %>
+	</div>
 
 	</br>
+	</br>
+	</br>
+	<p> Below you can add/remove Codeforces friends for easy access to their comparisons!</p>
+
 	<input type="text" id="add_friends_form" placeholder="Add friend">
 	<input type="text" id="delete_friends_form" placeholder="Remove friend">
 
 	</br>
 	</br>
 	<div id = "friends">
-		<% for user in UserSetting.all %>
-			<% if user.username == current_user.username %>
-				<% for friend in user.friends %>
-					<div id = "<%= friend %>">
-						<%= friend %>
-					</div>
-				<% end %>
+		<% for user in UserSetting.where(username: current_user.username) %>
+			<% for friend in user.friends %>
+				<div id = "<%= friend %>">
+					<%= friend %>
+				</div>
 			<% end %>
 		<% end %>
 	</div>
@@ -29,22 +49,39 @@
 	</br>
 	</br>
 	</br>
-	<h2>Below you can add/remove your custom Codeforces problems that you want to solve in the future!</h2>
+	<p>Below you can add/remove your custom Codeforces problems that you want to solve in the future!</p>
 
-	</br>
 	<input type="text" id="add_links_form" placeholder="Add problem URL" autofocus="true">
 	<input type="text" id="delete_links_form" placeholder="Remove problem URL">
 
 	</br>
 	</br>
 	<div id = "links">
-		<% for user in UserSetting.all %>
-			<% if user.username == current_user.username %>
-				<% for link in user.settings %>
-					<div id = "<%= link %>">
-						<%= link %>
-					</div>
-				<% end %>
+		<% for user in UserSetting.where(username: current_user.username) %>
+			<% for link in user.settings %>
+				<div id = "<%= link %>">
+					<%= link %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+
+	</br>
+	</br>
+	</br>
+	<p>Below you can add/remove your custom Codeforces contests (regular or gym) that you want to solve in the future!</p>
+	
+	<input type="text" id="add_contests_form" placeholder="Add contest URL">
+	<input type="text" id="delete_contests_form" placeholder="Remove contest URL">
+
+	</br>
+	</br>
+	<div id = "contests">
+		<% for user in UserSetting.where(username: current_user.username) %>
+			<% for contest in user.contests %>
+				<div id = "<%= contest %>">
+					<%= contest %>
+				</div>
 			<% end %>
 		<% end %>
 	</div>
