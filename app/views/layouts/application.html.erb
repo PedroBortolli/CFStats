@@ -5,6 +5,7 @@
   <head>
     <title>Cfstats</title>
     <%= csrf_meta_tags %>
+    <%= include_gon(:init => true, watch: true) %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

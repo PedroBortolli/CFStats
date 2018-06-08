@@ -27,7 +27,9 @@ $(document).ready(function() {
 				url: "/update_handle_to_db",
 				data: {name: info},
 				success: function(status) {
-					update_handle(info);
+					if (status == "true") {
+						update_handle(info);
+					}
 				}
 			}); 
 		};
@@ -45,7 +47,9 @@ $(document).ready(function() {
 				url: "/add_links_to_db",
 				data: {name: info},
 				success: function(status) {
-					add_url(info);
+					if (status == "true") {
+						add_url(info);
+					}
 				}
 			}); 
 		};
@@ -63,7 +67,9 @@ $(document).ready(function() {
 				url: "/remove_links_from_db",
 				data: {name: info},
 				success: function(status) {
-					remove_url(info);
+					if (status == "true") {
+						remove_url(info);
+					}
 				}
 			});
 		};
@@ -81,7 +87,9 @@ $(document).ready(function() {
 				url: "/add_friends_to_db",
 				data: {name: info},
 				success: function(status) {
-					add_friend(info);
+					if (status == "true") {
+						add_friend(info);
+					}
 				}
 			}); 
 		};
@@ -99,7 +107,9 @@ $(document).ready(function() {
 				url: "/remove_friends_from_db",
 				data: {name: info},
 				success: function(status) {
-					remove_friend(info);
+					if (status == "true") {
+						remove_friend(info);
+					}
 				}
 			});
 		};
@@ -117,7 +127,9 @@ $(document).ready(function() {
 				url: "/add_contest_to_db",
 				data: {name: info},
 				success: function(status) {
-					add_contest(info);
+					if (status == "true") {
+						add_contest(info);
+					}
 				}
 			}); 
 		};
@@ -135,7 +147,9 @@ $(document).ready(function() {
 				url: "/remove_contest_from_db",
 				data: {name: info},
 				success: function(status) {
-					remove_contest(info);
+					if (status == "true") {
+						remove_contest(info);
+					}
 				}
 			});
 		};
@@ -143,62 +157,40 @@ $(document).ready(function() {
 });
 
 function update_handle(info) {
-	console.log(document.getElementById(info.toString()))
 	document.getElementById('update_handle_form').value = "";
-	if (document.getElementById(info) != null) {
-		return
-	}
 	document.getElementById('handles').innerHTML = "<div id =" + info + ">" + info + "</div>"
 }
 
 function add_url(info) {
 	document.getElementById('add_links_form').value = "";
-	if (document.getElementById(info) != null) {
-		return
-	}
 	var current_html = document.getElementById('links').innerHTML
 	document.getElementById('links').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
 }
 
 function remove_url(info) {
 	document.getElementById('delete_links_form').value = "";
-	if (document.getElementById(info) == null) {
-		return
-	}
 	document.getElementById(info).remove()
 }
 
 function add_friend(info) {
 	document.getElementById('add_friends_form').value = "";
-	if (document.getElementById(info) != null) {
-		return
-	}
 	var current_html = document.getElementById('friends').innerHTML
 	document.getElementById('friends').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
 }
 
 function remove_friend(info) {
 	document.getElementById('delete_friends_form').value = "";
-	if (document.getElementById(info) == null) {
-		return
-	}
 	document.getElementById(info).remove()
 }
 
 function add_contest(info) {
 	document.getElementById('add_contests_form').value = "";
-	if (document.getElementById(info) != null) {
-		return
-	}
 	var current_html = document.getElementById('contests').innerHTML
 	document.getElementById('contests').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
 }
 
 function remove_contest(info) {
 	document.getElementById('delete_contests_form').value = "";
-	if (document.getElementById(info) == null) {
-		return
-	}
 	document.getElementById(info).remove()
 }
 

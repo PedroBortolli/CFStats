@@ -16,5 +16,4 @@ Rails.application.routes.draw do
   post 'add_contest_to_db' => 'database#add_contest_to_db'
   post 'remove_contest_from_db' => 'database#remove_contest_from_db'
   post 'profile' => 'pages#profile'
-  #resources :posts
 end
