@@ -3,12 +3,13 @@ require 'test_helper'
 
 class UserSettingTest < ActiveSupport::TestCase
   include Api
+  include DatabaseHelper
 
   def setup
-  	@u1 = UserSetting.new(:settings => [], :username => "tourista", :friends => [], 
-  		:contests => [], :handle => "aaaaa")
+  	@u1 = UserSetting.new(:settings => [], :username => "tourist", :friends => [], 
+  		:contests => [], :handle => "tourist")
 	@u2 = UserSetting.new(:settings => [], :username => "i_iiii_iiiii_ii", :friends => [], 
-		:contests => ['120','1500', '9500', '666'], :handle => "aaaaa")  
+		:contests => ['120','1500', '9500', '666'], :handle => "tourist")  
   end
 
   test "users must have a non-empty username" do
@@ -20,8 +21,9 @@ class UserSettingTest < ActiveSupport::TestCase
     assert @u1.username != @u2.username
   end
 
-  test "username is a codeforces user" do
-  	get_user_info(@u1.username)
+  test "handle is a codeforces handle" do
+  	assert validate(@u1.handle, "user")
+  	assert validate(@u2.handle, "user")
   end
 
   test "usernames must have a limit of characters" do
