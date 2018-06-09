@@ -11,8 +11,11 @@ This app is being developed using Ruby on Rails. This project goal is to build a
 The first thing to be done is to install some dependencies for Ruby. For this step you must have root privilege. Run the following commands:
 
 ``curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -``
+
 ``curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -``
+
 ``echo "deb https://dl.yarnpkg.com/debian/stable main" | \ sudo tee /etc/apt/sources.list . d/yarn.list``
+
 ``sudo apt-get update``
 
 ``sudo apt-get install git-core curl zlib1g-dev build-essential \ libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 \ libxml2-dev libxslt1-dev libcurl4-openssl-dev \ python-software-properties libffi-dev nodejs yarn``
@@ -22,21 +25,32 @@ Now to install Ruby:
 
 
 ``cd``
+
 ``git clone https://github.com/rbenv/rbenv.git ~/.rbenv``
+
 ``echo ’export PATH ="$HOME/.rbenv/bin:$PATH"’ >> ~/.bashrc``
+
 ``echo ’eval "$(rbenv init -)"’ >> ~/.bashrc``
+
 ``exec $SHELL``
+
 ``git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build``
+
 ``echo ’export PATH ="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"’ >> ~/.bashrc``
+
 ``exec $SHELL``
+
 ``rbenv install 2.5.0``
+
 ``rbenv global 2.5.0``
+
 ``ruby -v``
 
 &nbsp;
 Now to install Rails:
 
 ``gem install rails -v 5.1.4``
+
 ``rbenv rehash``
 &nbsp;
 
@@ -45,8 +59,11 @@ The last thing to do is to install Postgresql. That's the database this app is b
 ``sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"``
 
 ``wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -``
+
 ``sudo apt-get update``
+
 ``sudo apt-get install postgresql-common``
+
 ``sudo apt-get install postgresql-9.5 libpq-dev``
 
 &nbsp;
@@ -70,33 +87,48 @@ Create the db_user user:
 Open psql menu to write some commands to give the user permissions:
 
 ``sudo -u postgres psql``
+
 ``postgres=# ALTER USER db_user WITH ENCRYPTED PASSWORD 'db';``
+
 ``postgres=# ALTER USER db_user superuser createrole createdb replication;``
+
 ``postgres=# \q``
 
 Open /etc/postgresql/9.5/main/pg_hba.conf with root access:
 
 ``sudo nano /etc/postgresql/9.5/main/pg_hba.conf``
 
+&nbsp;
 Change peer to md5 in these lines:
 
 Before changing:
 
 ``# "local" is for Unix domain socket connections only``
+
 ``local   all             all                                     peer``
+
 ``# IPv4 local connections:``
+
 ``host    all             all             127.0.0.1/32            peer``
+
 ``# IPv6 local connections:``
+
 ``host    all             all             ::1/128                 peer``
 
 After your change:
 
 ``# "local" is for Unix domain socket connections only``
+
 ``local   all             all                                     md5``
+
 ``# IPv4 local connections:``
+
 ``host    all             all             127.0.0.1/32            md5``
+
 ``# IPv6 local connections:``
+
 ``host    all             all             ::1/128                 md5``
+
 
 
 Save the file with pressing Ctrl-O. Exit nano with Ctrl-X
@@ -107,12 +139,14 @@ Restart postgresql using:
 Them go to the CFStats cloned directory and run the following commands:
 
 ``rake db:create``
+
 ``rake db:migrate``
 
 &nbsp;
 ## Running the app server
 
 Run ``rails s``
+
 That's it! Now the app server is running locally on your computer! To visit the webpage, go to your navigator and type ``localhost:3000``
 
 &nbsp;
