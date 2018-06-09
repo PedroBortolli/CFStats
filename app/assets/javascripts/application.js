@@ -28,12 +28,12 @@ $(document).ready(function() {
 				url: "/update_handle_to_db",
 				data: {name: info},
 				success: function(status) {
-					if (status == "true") {
-						update_handle(info);
-						message("add", "handles_notice", "Your Codeforces handle has been updated!")
+					if (status == "false") {
+						message("add", "handles_notice", "Handle " + info + " doesn't exist")
 					}
 					else {
-						message("add", "handles_notice", "Handle " + info + " doesn't exist")
+						update_handle(status);
+						message("add", "handles_notice", "Your Codeforces handle has been updated!")
 					}
 					reset_form("update_handle_form")
 				}
@@ -52,7 +52,7 @@ $(document).ready(function() {
 			$.ajax({
 				method: "POST",
 				url: "/add_links_to_db",
-				data: {name: info},
+				data: {name: cf_like(info)},
 				success: function(status) {
 					if (status == "true") {
 						add_url(info);
@@ -77,7 +77,7 @@ $(document).ready(function() {
 			$.ajax({
 				method: "POST",
 				url: "/remove_links_from_db",
-				data: {name: info},
+				data: {name: cf_like(info)},
 				success: function(status) {
 					if (status == "true") {
 						remove_url(info);
@@ -105,12 +105,12 @@ $(document).ready(function() {
 				url: "/add_friends_to_db",
 				data: {name: info},
 				success: function(status) {
-					if (status == "true") {
-						add_friend(info);
-						message("add", "friends_notice", "Handle <b>" + info + "</b> added as friend")
+					if (status == "false") {
+						message("add", "friends_notice", "Handle doesn't exist")
 					}
 					else {
-						message("add", "friends_notice", "Handle doesn't exist")
+						add_friend(status);
+						message("add", "friends_notice", "Handle <b>" + status + "</b> added as friend")
 					}
 					reset_form("add_friends_form")
 				}
@@ -125,18 +125,18 @@ $(document).ready(function() {
 		var key = (event.keyCode ? event.keyCode : event.which);
 		if (key == 13) {
 			var info = $('#delete_friends_form').val();
-			//message("add", "friends_notice", "Removing <b>" + info + "</b>...")
+			message("add", "friends_notice", "Trying to remove <b>" + info + "</b> from your friend list...")
 			$.ajax({
 				method: "POST",
 				url: "/remove_friends_from_db",
 				data: {name: info},
 				success: function(status) {
-					if (status == "true") {
-						remove_friend(info);
-						message("add", "friends_notice", "Removed <b>" + info + "</b> from your friend list")
+					if (status == "false") {
+						message("add", "friends_notice", "Nothing to remove")
 					}
 					else {
-						message("add", "friends_notice", "Nothing to remove")
+						remove_friend(status);
+						message("add", "friends_notice", "Removed <b>" + status + "</b> from your friend list")
 					}
 					reset_form("delete_friends_form")
 				}
@@ -201,11 +201,13 @@ function update_handle(info) {
 }
 
 function add_url(info) {
+	info = cf_like(info)
 	var current_html = document.getElementById('links').innerHTML
 	document.getElementById('links').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
 }
 
 function remove_url(info) {
+	info = cf_like(info)
 	document.getElementById(info).remove()
 }
 
@@ -225,6 +227,13 @@ function add_contest(info) {
 
 function remove_contest(info) {
 	document.getElementById(info).remove()
+}
+
+function cf_like(info) {
+	var problem_index = info[info.length-1];
+	problem_index = problem_index.toUpperCase();
+	info = info.substr(0, info.length-1) + problem_index
+	return info
 }
 
 function showHide(button_id) {

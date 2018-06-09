@@ -40,7 +40,7 @@ module Api
 				base = "http://codeforces.com/api/user.info?handles="
 				url = base + id.to_s
 				response_from_api = RestClient.get(url)
-				return true
+				return get_user_info(id)['result'][0]['handle']
 			rescue => exception
 				puts("Deu ruim a chamada de API  =>  ", exception.http_code)
 				return false
@@ -64,6 +64,7 @@ module Api
 			
 			id_size = id.length
 			problem_index = id[id_size-1]
+			problem_index.upcase!
 			contest_number = id[0...-1]
 			puts(problem_index, contest_number)
 			for problem in all_problems

@@ -14,18 +14,19 @@ class DatabaseController < ApplicationController
 			return
 		end
 		
+		to_add = validate(to_add, "handle")
+
 		for lines in UserSetting.where(username: current_user.username)
 			user_exists = true
 			lines.handle = to_add
 			lines.save
-			@return = true
 		end
 		if !user_exists
-			new_entry = UserSetting.create(:settings => [], :username => current_user.username, :friends => [], :contests => [], :handle => to_add)
+			new_entry = UserSetting.create(:settings => [], :username => current_user.username, :friends => [], :contests => [], :handle => to_add.to_s)
 			new_entry.save
-			@return = true
 		end
-		render plain: @return.inspect
+		@return = to_add
+		render plain: @return
 		#colocar @return.to_json pra retornar isso como json se quiser
 	end
 
@@ -81,34 +82,36 @@ class DatabaseController < ApplicationController
 			return
 		end
 
+		to_add = validate(to_add, "handle")
+
 		for lines in UserSetting.where(username: current_user.username)
 			user_exists = true
 			all_friends = lines.friends
 			if !(all_friends.include? to_add)
 				lines.friends << to_add
 				lines.save
-				@return = true
 			end
 		end
 		if !user_exists
 			new_entry = UserSetting.create(:settings => [to_add.to_s], :username => current_user.username, :friends => [], :contests => [], :handle => "")
-			@return = true
 		end
-		render plain: @return.inspect
+		@return = to_add
+		render plain: @return
 	end
 
 	def remove_friends_from_db
 		to_delete = params[:name].to_s
-		@return = false
+		to_delete = validate(to_delete, "handle")
+		@return = "false"
 		for lines in UserSetting.where(username: current_user.username)
 			all_friends = lines.friends
 			if all_friends.include? to_delete
 				lines.friends.delete(to_delete)
 				lines.save
-				@return = true
+				@return = to_delete
 			end
 		end
-		render plain: @return.inspect
+		render plain: @return
 	end
 
 	def add_contest_to_db
