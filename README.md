@@ -24,7 +24,10 @@ The first thing to be done is to install some dependencies for Ruby. For this st
 
 ``sudo apt-get install git-core curl zlib1g-dev build-essential \ libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 \ libxml2-dev libxslt1-dev libcurl4-openssl-dev \ python-software-properties libffi-dev nodejs yarn``
 
+
 &nbsp;
+
+
 Now to install Ruby:
 
 
@@ -50,13 +53,19 @@ Now to install Ruby:
 
 ``ruby -v``
 
+
 &nbsp;
+
+
 Now to install Rails:
 
 ``gem install rails -v 5.1.4``
 
 ``rbenv rehash``
+
+
 &nbsp;
+
 
 The last thing to do is to install Postgresql. That's the database this app is being built with. Run:
 
@@ -95,6 +104,10 @@ Create the db_user user:
 
 ``sudo -u postgres createuser db_user``
 
+
+&nbsp;
+
+
 Open psql menu to write some commands to give the user permissions:
 
 ``sudo -u postgres psql``
@@ -105,11 +118,18 @@ Open psql menu to write some commands to give the user permissions:
 
 ``postgres=# \q``
 
+
+&nbsp;
+
+
 Open /etc/postgresql/9.5/main/pg_hba.conf with root access:
 
 ``sudo nano /etc/postgresql/9.5/main/pg_hba.conf``
 
+
 &nbsp;
+
+
 Change peer to md5 in these lines:
 
 Before changing:
@@ -126,6 +146,10 @@ Before changing:
 
 ``host    all             all             ::1/128                 peer``
 
+
+&nbsp;
+
+
 After your change:
 
 ``# "local" is for Unix domain socket connections only``
@@ -141,11 +165,17 @@ After your change:
 ``host    all             all             ::1/128                 md5``
 
 
+&nbsp;
+
 
 Save the file with pressing Ctrl-O. Exit nano with Ctrl-X
 Restart postgresql using:
 
 ``sudo service postgresql restart``
+
+
+&nbsp;
+
 
 Then go to the CFStats cloned directory and run the following commands:
 
