@@ -9,7 +9,7 @@ This app is being developed using Ruby on Rails. This project goal is to build a
 ## How to install
 
 <details>
-	<summary>Click to expand</summary>
+	<summary>Click to expand</summary><p>
 
 	The first thing to be done is to install some dependencies for Ruby. For this step you must have root privilege. Run the following commands:
 
@@ -144,7 +144,7 @@ This app is being developed using Ruby on Rails. This project goal is to build a
 	``rake db:create``
 
 	``rake db:migrate``
-</details>
+</p></details>
 
 &nbsp;
 ## Running the app server
