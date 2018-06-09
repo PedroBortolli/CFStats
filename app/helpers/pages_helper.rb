@@ -1,6 +1,8 @@
 module PagesHelper
 	def color (rating)
-		if rating < 1200
+		if rating.instance_of? String
+			return 'black'
+		elsif rating < 1200
 			return 'rated-user user-gray'
 		elsif rating < 1400
 			return 'rated-user user-green'

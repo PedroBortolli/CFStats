@@ -11,10 +11,10 @@ module Parser
 
 	def build_contests (handle, id, info)
 		contests = get_user_contests(handle)
-		worst_rating = 1500
+		worst_rating = 999999
 		amount_contests = 0
-		max_up = 0
-		max_down = 0
+		max_up = -999999
+		max_down = 999999
 		contests.each do |contest|
 			worst_rating = min(contest['oldRating'], worst_rating)
 			worst_rating = min(contest['newRating'], worst_rating)
@@ -24,9 +24,25 @@ module Parser
 			contest['url'] = "http://codeforces.com/contest/" + contest['contestId'].to_s
 		end
 		info['handle'+id.to_s]['contests'] = contests
-		info['handle'+id.to_s]['worstRating'] = worst_rating
-		info['handle'+id.to_s]['maxUp'] = max_up
-		info['handle'+id.to_s]['maxDown'] = max_down
+		if worst_rating == 999999
+			info['handle'+id.to_s]['worstRating'] = "- "
+		else
+			info['handle'+id.to_s]['worstRating'] = worst_rating
+		end
+		if max_up == -999999
+			info['handle'+id.to_s]['maxUp'] = "-"
+		else
+			info['handle'+id.to_s]['maxUp'] = max_up
+		end
+		if max_down == 999999
+			info['handle'+id.to_s]['maxDown'] = "-"
+		else
+			info['handle'+id.to_s]['maxDown'] = max_down
+		end
+		if amount_contests == 0
+			info['handle'+id.to_s]['rating'] = "Unrated"
+			info['handle'+id.to_s]['maxRating'] = "- "
+		end
 	end
 
 	def build_problems (handle, id, info)
@@ -74,7 +90,11 @@ module Parser
 		info['handle2']['uniqueProblems'] = info['handle2']['acProblems'] - info['handle1']['acProblems']
 		info['handle1']['uniqueProblems'].sort_by!{|a| a["contestId"]}
 		info['handle2']['uniqueProblems'].sort_by!{|a| a["contestId"]}
-		info['ratingDifference'] = info['handle1']['rating'] - info['handle2']['rating']
+		if info['handle1']['rating'] == "Unrated" or info['handle2']['rating'] == "Unrated"
+			info['ratingDifference'] = "?"
+		else
+			info['ratingDifference'] = info['handle1']['rating'] - info['handle2']['rating']
+		end
 
 		commonContests = Array.new
 		seenContests = Hash.new

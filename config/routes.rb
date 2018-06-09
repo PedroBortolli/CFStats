@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'result' => 'pages#result'
   get 'search' => 'pages#search'
-  get 'test' => 'pages#test'
+  #get 'test' => 'pages#test'
   get 'profile' => 'pages#profile'
   post 'add' => 'pages#add'
   post 'update_handle_to_db' => 'database#update_handle_to_db'

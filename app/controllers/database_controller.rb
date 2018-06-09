@@ -2,14 +2,18 @@ class DatabaseController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	before_action :authenticate_user!, :except => [:index, :search, :about, :result, :test]
 
-	include DatabaseHelper
-	include ApiModule
+	include Api
 
 	def update_handle_to_db
-		api_teste
 		to_add = params[:name].to_s
 		user_exists = false
 		@return = false
+
+		if !validate(to_add, "handle")
+			render plain: @return.inspect
+			return
+		end
+		
 		for lines in UserSetting.where(username: current_user.username)
 			user_exists = true
 			lines.handle = to_add
@@ -30,6 +34,12 @@ class DatabaseController < ApplicationController
 		to_add = params[:name].to_s
 		user_exists = false
 		@return = false
+
+		if !validate(to_add, "problem")
+			render plain: @return.inspect
+			return
+		end
+
 		for lines in UserSetting.where(username: current_user.username)
 			user_exists = true
 			all_links = lines.settings
@@ -65,6 +75,12 @@ class DatabaseController < ApplicationController
 		user_exists = false
 		to_add = params[:name].to_s
 		@return = false
+
+		if !validate(to_add, "handle")
+			render plain: @return.inspect
+			return
+		end
+
 		for lines in UserSetting.where(username: current_user.username)
 			user_exists = true
 			all_friends = lines.friends
@@ -99,6 +115,12 @@ class DatabaseController < ApplicationController
 		user_exists = false
 		to_add = params[:name].to_s
 		@return = false
+
+		if !validate(to_add, "contest")
+			render plain: @return.inspect
+			return
+		end
+
 		for lines in UserSetting.where(username: current_user.username)
 			user_exists = true
 			all_contests = lines.contests
