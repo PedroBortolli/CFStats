@@ -9,7 +9,7 @@ class UserSettingTest < ActiveSupport::TestCase
   	@tests = Array.new(10)
 
   	@tests[0] = UserSetting.new(:settings => [], :username => "algumusernameae", :friends => [], 
-  		:contests => [], :handle => "Brelf")
+  		:contests => [], :handle => "brelf")
 	@tests[1] = UserSetting.new(:settings => [], :username => "igual", :friends => [], 
 		:contests => ['120','150', '950'], :handle => "pedrobortolli")
 	@tests[2] = UserSetting.new(:settings => [], :username => "igual2", :friends => [], 
@@ -45,8 +45,8 @@ class UserSettingTest < ActiveSupport::TestCase
   end
 
   test "handle is a codeforces handle" do
-  	for i in 1..@tests.length-1
-	  assert validate(@tests[i].handle, "handle")
+  	for i in 0..@tests.length-1
+  	  assert validate(@tests[i].handle, "handle")
 	end
   end
 
