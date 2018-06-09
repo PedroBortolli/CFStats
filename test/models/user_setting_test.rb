@@ -46,9 +46,7 @@ class UserSettingTest < ActiveSupport::TestCase
 
   test "handle is a codeforces handle" do
   	for i in 1..@tests.length-1
-  	  puts(@tests[i].handle)
-  	   #assert validate("Brelf", "handle")
-	  assert validate(@tests[i].handle, "handle")
+  	  assert validate(@tests[i].handle, "handle")
 	end
   end
 
