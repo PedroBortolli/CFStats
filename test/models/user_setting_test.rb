@@ -22,8 +22,8 @@ class UserSettingTest < ActiveSupport::TestCase
   end
 
   test "handle is a codeforces handle" do
-  	assert validate(@u1.handle, "user")
-  	assert validate(@u2.handle, "user")
+  	assert validate(@u1.handle, "handle")
+  	assert validate(@u2.handle, "handle")
   end
 
   test "usernames must have a limit of characters" do

@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 	before_action :authenticate_user!, :except => [:index, :search, :about, :result, :test]
 
 	include Parser
-	include DatabaseHelper
+	include Api
 
 	def index
 	end
@@ -25,9 +25,7 @@ class PagesController < ApplicationController
 	def result
 		handle1 = params[:param1].to_s
 		handle2 = params[:param2].to_s
-		puts(validate(handle1, "user"))
-		puts(validate(handle2, "user"))
-		if handle1.empty? or handle2.to_s.empty?
+		if !validate(handle1, "handle") or !validate(handle2, "handle")
 			render html: "Please provide 2 valid Codeforces handles!"
 			return
 		end
@@ -35,7 +33,6 @@ class PagesController < ApplicationController
 	end
 
 	def test
-		validate("www.codeforces.com", "user")
 	end
 
 end

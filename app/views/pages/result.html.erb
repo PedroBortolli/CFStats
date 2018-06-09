@@ -12,7 +12,7 @@
 
 		</br>
 
-		<button type="button" class="btn btn-primary"onclick=showHide(1)>You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
+		<button type="button" class="btn btn-primary" onclick=showHide(1)>You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
 		</br>
 
 		<div id = "hidden1" style="display: none;">
@@ -24,7 +24,7 @@
 		</br>
 
 
-		<button type="button" onclick=showHide(2)><%= @info['handle1']['handle']%> solved <b><%= @info['handle1']['uniqueProblems'].length.to_s %></b> unique problems!</button>
+		<button type="button" class="btn btn-primary" onclick=showHide(2)><%= @info['handle1']['handle']%> solved <b><%= @info['handle1']['uniqueProblems'].length.to_s %></b> unique problems!</button>
 		</br>
 
 		<div id = "hidden2" style="display: none;">
@@ -36,7 +36,7 @@
 
 		</br>
 
-		<button type="button" onclick=showHide(3)><%= @info['handle2']['handle']%> solved <b><%= @info['handle2']['uniqueProblems'].length.to_s %></b> unique problems!</button>
+		<button type="button" class="btn btn-primary" onclick=showHide(3)><%= @info['handle2']['handle']%> solved <b><%= @info['handle2']['uniqueProblems'].length.to_s %></b> unique problems!</button>
 		</br>
 
 		<div id = "hidden3" style="display: none;">
@@ -47,7 +47,7 @@
 		</div>
 
 		</br>
-		<button type="button" onclick=showHide(4)><b><%= @info['commonContests'].length %></b> contests both users participated!</button>
+		<button type="button" class="btn btn-primary" onclick=showHide(4)><b><%= @info['commonContests'].length %></b> contests both users participated!</button>
 
 		<div id = "hidden4" style="display: none;">
 			<i><p>In which...</p>
@@ -78,7 +78,7 @@
 		</br>
 		
 
-		<button type="button" onclick=showHide(5)>Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!</button>
+		<button type="button" class="btn btn-primary" onclick=showHide(5)>Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!</button>
 
 		<div id = "hidden5" style="display: none;">
 			</br>
@@ -89,7 +89,8 @@
 		
 
 		</br>
-		<button type="button" onclick=showHide(6)>Chart of problems solved by tag:</button>
+		</br>
+		<button type="button" class="btn btn-primary" onclick=showHide(6)>Chart of problems solved by tag:</button>
 
 		<div class = "centered" id = "hidden6" style="display: none;">
 			</br>
@@ -107,8 +108,9 @@
 		</div>
 
 		</br>
+		</br>
 
-		<button type="button" onclick=showHide(7)>Participated in <b><%= @info['handle1']['contests'].length %></b> contests!</button>
+		<button type="button" class="btn btn-primary" onclick=showHide(7)>Participated in <b><%= @info['handle1']['contests'].length %></b> contests!</button>
 
 		<div id = "hidden7" style="display: none;">
 			</br>
@@ -118,8 +120,9 @@
 		</div>
 
 		</br>
+		</br>
 
-		<button type="button" onclick=showHide(8)><b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!</button>
+		<button type="button" class="btn btn-primary" onclick=showHide(8)><b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!</button>
 
 		<div id = "hidden8" style="display: none;">
 			</br>
@@ -148,7 +151,7 @@
 		<p>Max rating decrease: <b><%= @info['handle2']['maxDown'] %></b></p>
 		</br>
 		
-		<button type="button" onclick=showHide(9)>Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!</button>
+		<button type="button" class="btn btn-primary" onclick=showHide(9)>Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!</button>
 
 		<div id = "hidden9" style="display: none;">
 			</br>
@@ -158,8 +161,9 @@
 		</div>
 
 		</br>
+		</br>
 
-		<button type="button" onclick=showHide(10)>Chart of problems solved by tag:</button>
+		<button type="button" class="btn btn-primary" onclick=showHide(10)>Chart of problems solved by tag:</button>
 
 		<div id = "hidden10" style="display: none;">
 			</br>
@@ -176,8 +180,9 @@
 		</div>
 
 		</br>
+		</br>
 
-		<button type="button" onclick=showHide(11)>Participated in <b><%= @info['handle2']['contests'].length %></b> contests!</button>
+		<button type="button" class="btn btn-primary" onclick=showHide(11)>Participated in <b><%= @info['handle2']['contests'].length %></b> contests!</button>
 
 		<div id = "hidden11" style="display: none;">
 			</br>
@@ -187,7 +192,8 @@
 		</div>
 
 		</br>
-		<button type="button" onclick=showHide(12)><b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!</button>
+		</br>
+		<button type="button" class="btn btn-primary" onclick=showHide(12)><b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!</button>
 
 		<div id = "hidden12" style="display: none;">
 			</br>

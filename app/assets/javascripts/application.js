@@ -22,6 +22,7 @@ $(document).ready(function() {
 		var key = (event.keyCode ? event.keyCode : event.which);
 		if (key == 13) {
 			var info = $('#update_handle_form').val();
+			message("add", "handles_notice", "Searching handle <b>" + info + "</b> on Codeforces...")
 			$.ajax({
 				method: "POST",
 				url: "/update_handle_to_db",
@@ -29,7 +30,12 @@ $(document).ready(function() {
 				success: function(status) {
 					if (status == "true") {
 						update_handle(info);
+						message("add", "handles_notice", "Your Codeforces handle has been updated!")
 					}
+					else {
+						message("add", "handles_notice", "Handle " + info + " doesn't exist")
+					}
+					reset_form("update_handle_form")
 				}
 			}); 
 		};
@@ -42,6 +48,7 @@ $(document).ready(function() {
 		var key = (event.keyCode ? event.keyCode : event.which);
 		if (key == 13) {
 			var info = $('#add_links_form').val();
+			message("add", "links_notice", "Searching problem <b>" + info + "</b> on Codeforces...")
 			$.ajax({
 				method: "POST",
 				url: "/add_links_to_db",
@@ -49,7 +56,12 @@ $(document).ready(function() {
 				success: function(status) {
 					if (status == "true") {
 						add_url(info);
+						message("add", "links_notice", "Problem <b>" + info + "</b> successfully added!")
 					}
+					else {
+						message("add", "links_notice", "Problem <b>" + info + "</b> doesn't exist or has already been added")
+					}
+					reset_form("add_links_form")
 				}
 			}); 
 		};
@@ -69,7 +81,12 @@ $(document).ready(function() {
 				success: function(status) {
 					if (status == "true") {
 						remove_url(info);
+						message("add", "links_notice", "Problem <b>" + info + "</b> removed")
 					}
+					else {
+						message("add", "links_notice", "Nothing to remove")
+					}
+					reset_form("delete_links_form")
 				}
 			});
 		};
@@ -82,6 +99,7 @@ $(document).ready(function() {
 		var key = (event.keyCode ? event.keyCode : event.which);
 		if (key == 13) {
 			var info = $('#add_friends_form').val();
+			message("add", "friends_notice", "Searching handle <b>" + info + "</b> on Codeforces...")
 			$.ajax({
 				method: "POST",
 				url: "/add_friends_to_db",
@@ -89,7 +107,12 @@ $(document).ready(function() {
 				success: function(status) {
 					if (status == "true") {
 						add_friend(info);
+						message("add", "friends_notice", "Handle <b>" + info + "</b> added as friend")
 					}
+					else {
+						message("add", "friends_notice", "Handle doesn't exist")
+					}
+					reset_form("add_friends_form")
 				}
 			}); 
 		};
@@ -102,6 +125,7 @@ $(document).ready(function() {
 		var key = (event.keyCode ? event.keyCode : event.which);
 		if (key == 13) {
 			var info = $('#delete_friends_form').val();
+			//message("add", "friends_notice", "Removing <b>" + info + "</b>...")
 			$.ajax({
 				method: "POST",
 				url: "/remove_friends_from_db",
@@ -109,7 +133,12 @@ $(document).ready(function() {
 				success: function(status) {
 					if (status == "true") {
 						remove_friend(info);
+						message("add", "friends_notice", "Removed <b>" + info + "</b> from your friend list")
 					}
+					else {
+						message("add", "friends_notice", "Nothing to remove")
+					}
+					reset_form("delete_friends_form")
 				}
 			});
 		};
@@ -122,6 +151,7 @@ $(document).ready(function() {
 		var key = (event.keyCode ? event.keyCode : event.which);
 		if (key == 13) {
 			var info = $('#add_contests_form').val();
+			message("add", "contests_notice", "Searching contest <b>" + info + "</b> on Codeforces...")
 			$.ajax({
 				method: "POST",
 				url: "/add_contest_to_db",
@@ -129,7 +159,12 @@ $(document).ready(function() {
 				success: function(status) {
 					if (status == "true") {
 						add_contest(info);
+						message("add", "contests_notice", "Contest <b>" + info + "</b> successfully added")
 					}
+					else {
+						message("add", "contests_notice", "Contest doesn't exist or has already been added")
+					}
+					reset_form("add_contests_form")
 				}
 			}); 
 		};
@@ -149,7 +184,12 @@ $(document).ready(function() {
 				success: function(status) {
 					if (status == "true") {
 						remove_contest(info);
+						message("add", "contests_notice", "Contest <b>" + info + "</b> removed")
 					}
+					else {
+						message("add", "contests_notice", "Nothing to remove")
+					}
+					reset_form("delete_contests_form")
 				}
 			});
 		};
@@ -157,40 +197,33 @@ $(document).ready(function() {
 });
 
 function update_handle(info) {
-	document.getElementById('update_handle_form').value = "";
 	document.getElementById('handles').innerHTML = "<div id =" + info + ">" + info + "</div>"
 }
 
 function add_url(info) {
-	document.getElementById('add_links_form').value = "";
 	var current_html = document.getElementById('links').innerHTML
 	document.getElementById('links').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
 }
 
 function remove_url(info) {
-	document.getElementById('delete_links_form').value = "";
 	document.getElementById(info).remove()
 }
 
 function add_friend(info) {
-	document.getElementById('add_friends_form').value = "";
 	var current_html = document.getElementById('friends').innerHTML
 	document.getElementById('friends').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
 }
 
 function remove_friend(info) {
-	document.getElementById('delete_friends_form').value = "";
 	document.getElementById(info).remove()
 }
 
 function add_contest(info) {
-	document.getElementById('add_contests_form').value = "";
 	var current_html = document.getElementById('contests').innerHTML
 	document.getElementById('contests').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
 }
 
 function remove_contest(info) {
-	document.getElementById('delete_contests_form').value = "";
 	document.getElementById(info).remove()
 }
 
@@ -203,6 +236,19 @@ function showHide(button_id) {
 	else {
 		button.style.display = "none";
 	}
+}
+
+function message(action, form, notice) {
+	if (action == "add") {
+		document.getElementById(form).innerHTML = notice
+	}
+	else if (action == "remove") {
+		document.getElementById(form).innerHTML = notice
+	}
+}
+
+function reset_form(form) {
+	document.getElementById(form).value = "";
 }
 
 function drawChart(data, parent_div) {

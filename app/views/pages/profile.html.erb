@@ -16,6 +16,8 @@
 	<input type="text" id="update_handle_form" placeholder="Update Codeforces handle">
 
 	</br>
+	<div id = "handles_notice"></div>
+
 	</br>
 	<div id = "handles">
 		<% for user in UserSetting.where(username: current_user.username) %>	
@@ -34,6 +36,8 @@
 	<input type="text" id="delete_friends_form" placeholder="Remove friend">
 
 	</br>
+	<div id = "friends_notice"></div>
+	
 	</br>
 	<div id = "friends">
 		<% for user in UserSetting.where(username: current_user.username) %>
@@ -54,6 +58,9 @@
 	<input type="text" id="delete_links_form" placeholder="Remove problem URL">
 
 	</br>
+	<div id = "links_notice"></div>
+
+	</br>
 	</br>
 	<div id = "links">
 		<% for user in UserSetting.where(username: current_user.username) %>
@@ -72,8 +79,9 @@
 	
 	<input type="text" id="add_contests_form" placeholder="Add contest URL">
 	<input type="text" id="delete_contests_form" placeholder="Remove contest URL">
-
 	</br>
+	<div id = "contests_notice"></div>
+
 	</br>
 	<div id = "contests">
 		<% for user in UserSetting.where(username: current_user.username) %>
