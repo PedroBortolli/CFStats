@@ -7,6 +7,11 @@ module Parser
 		result = get_user_info(handle)
 		handle_info = result['result'][0]
 		info['handle'+id.to_s] = handle_info
+		if info['handle'+id.to_s]['rating'] >= 3000
+			info['handle'+id.to_s]['first_letter'+id.to_s] =  'legendary-user-first-letter'
+		else
+			info['handle'+id.to_s]['first_letter'+id.to_s] =  color(info['handle'+id.to_s]['rating'])   
+		end
 	end
 
 	def build_contests (handle, id, info)
