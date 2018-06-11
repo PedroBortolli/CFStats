@@ -197,13 +197,25 @@ $(document).ready(function() {
 });
 
 function update_handle(info) {
-	document.getElementById('handles').innerHTML = "<div id =" + info + ">" + info + "</div>"
+	document.getElementById('handles').innerHTML = "<div id =" + info + ">" +
+													"<a target='_blank'" +
+													"href='http://codeforces.com/profile/" + 
+													info + "'>" + info + "</a>" + "</div>"
 }
 
+http://codeforces.com/contest/990
 function add_url(info) {
 	info = cf_like(info)
+	contest = info.substr(0, info.length-1)
+	index = info[info.length-1]
+	console.log(contest, index)
 	var current_html = document.getElementById('links').innerHTML
-	document.getElementById('links').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
+	document.getElementById('links').innerHTML = current_html +
+												 "<div id =" + info + ">" +
+												 "<a target='_blank'" +
+												 "href='http://codeforces.com/contest/" +
+												 contest + "/problem/" + index +
+												 "'>" + info + "</a>" + "</div>"
 }
 
 function remove_url(info) {
@@ -213,7 +225,12 @@ function remove_url(info) {
 
 function add_friend(info) {
 	var current_html = document.getElementById('friends').innerHTML
-	document.getElementById('friends').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
+	http://codeforces.com/profile/PedroBortolli
+	document.getElementById('friends').innerHTML = current_html +
+												   "<div id =" + info + ">" +
+												   "<a target='_blank'" +
+												   "href='http://codeforces.com/profile/" + 
+												   info + "'>" + info + "</a>" + "</div>"
 }
 
 function remove_friend(info) {
@@ -222,7 +239,11 @@ function remove_friend(info) {
 
 function add_contest(info) {
 	var current_html = document.getElementById('contests').innerHTML
-	document.getElementById('contests').innerHTML = current_html + "<div id =" + info + ">"  + info + "</div>"
+	document.getElementById('contests').innerHTML = current_html + 
+													"<div id =" + info + ">" +
+												 	"<a target='_blank'" +
+												 	"href='http://codeforces.com/contest/" +
+												 	info + "'>" + info + "</a>" + "</div>"
 }
 
 function remove_contest(info) {

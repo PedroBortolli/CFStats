@@ -22,7 +22,9 @@
 	<div id = "handles">
 		<% for user in UserSetting.where(username: current_user.username) %>	
 			<div id = "<%= user.handle %>">
-				<%= user.handle %>
+				<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
+					<%= user.handle %>
+				</a>
 			</div>
 		<% end %>
 	</div>
@@ -43,7 +45,9 @@
 		<% for user in UserSetting.where(username: current_user.username) %>
 			<% for friend in user.friends %>
 				<div id = "<%= friend %>">
-					<%= friend %>
+					<a target='_blank' href='http://codeforces.com/profile/<%= friend %>'>
+						<%= friend %>
+					</a>
 				</div>
 			<% end %>
 		<% end %>
@@ -66,7 +70,9 @@
 		<% for user in UserSetting.where(username: current_user.username) %>
 			<% for link in user.settings %>
 				<div id = "<%= link %>">
-					<%= link %>
+					<a target='_blank' href='http://codeforces.com/contest/<%= link[0, link.length-1] %>/problem/<%= link[link.length-1] %>'>
+						<%= link %>
+					</a>
 				</div>
 			<% end %>
 		<% end %>
@@ -87,7 +93,9 @@
 		<% for user in UserSetting.where(username: current_user.username) %>
 			<% for contest in user.contests %>
 				<div id = "<%= contest %>">
-					<%= contest %>
+					<a target='_blank' href='http://codeforces.com/contest/<%= contest %>'>
+						<%= contest %>
+					</a>
 				</div>
 			<% end %>
 		<% end %>
