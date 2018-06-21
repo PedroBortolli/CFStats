@@ -55,8 +55,7 @@ $(document).ready(function() {
 				data: {name: cf_like(info)},
 				success: function(status) {
 					if (status == "true") {
-						add_url(info);
-						message("add", "links_notice", "Problem <b>" + info + "</b> successfully added!")
+						check_if_problem_solved(info)
 					}
 					else {
 						message("add", "links_notice", "Problem <b>" + info + "</b> doesn't exist or has already been added")
@@ -158,8 +157,7 @@ $(document).ready(function() {
 				data: {name: info},
 				success: function(status) {
 					if (status == "true") {
-						add_contest(info);
-						message("add", "contests_notice", "Contest <b>" + info + "</b> successfully added")
+						check_if_contest_attempted(info)
 					}
 					else {
 						message("add", "contests_notice", "Contest doesn't exist or has already been added")
@@ -196,6 +194,44 @@ $(document).ready(function() {
 	});
 });
 
+function check_if_problem_solved(info) {
+	info = cf_like(info)
+	$.ajax({
+		method: "POST",
+		url: "/retrieve_solved",
+		data: {name: info},
+		success: function(status) {
+			if (String(info) in status) {
+				message("add", "links_notice", "Problem <b>" + info + "</b> added, but you have already solved it")
+				add_url(info, true)
+			}
+			else {
+				message("add", "links_notice", "Problem <b>" + info + "</b> successfully added!")
+				add_url(info, false)
+			}
+		}
+	});
+}
+
+function check_if_contest_attempted(info) {
+message("add", "contests_notice", "Contest <b>" + info + "</b> successfully added")
+	$.ajax({
+		method: "POST",
+		url: "/retrieve_attempted",
+		data: {name: info},
+		success: function(status) {
+			if (String(info) in status) {
+				message("add", "links_notice", "Contest <b>" + info + "</b> added, but you have already attempted to solve problems from it...")
+				add_contest(info, true)
+			}
+			else {
+				message("add", "links_notice", "Contest <b>" + info + "</b> successfully added!")
+				add_contest(info, false)
+			}
+		}
+	});
+}
+
 function update_handle(info) {
 	document.getElementById('handles').innerHTML = "<div id =" + info + ">" +
 													"<a target='_blank'" +
@@ -203,19 +239,16 @@ function update_handle(info) {
 													info + "'>" + info + "</a>" + "</div>"
 }
 
-http://codeforces.com/contest/990
-function add_url(info) {
-	info = cf_like(info)
+function add_url(info, solved) {
 	contest = info.substr(0, info.length-1)
 	index = info[info.length-1]
-	console.log(contest, index)
 	var current_html = document.getElementById('links').innerHTML
-	document.getElementById('links').innerHTML = current_html +
-												 "<div id =" + info + ">" +
-												 "<a target='_blank'" +
-												 "href='http://codeforces.com/contest/" +
-												 contest + "/problem/" + index +
-												 "'>" + info + "</a>" + "</div>"
+	var to_add = current_html + "<div id =" + info + ">" +
+				 "<a target='_blank'" + "href='http://codeforces.com/contest/" +
+				 contest + "/problem/" + index + "'>" + info + "</a>"
+	if (solved) to_add = to_add + " You have already solved this problem</br>"
+	to_add = to_add + "</div>"
+	document.getElementById('links').innerHTML = to_add
 }
 
 function remove_url(info) {
@@ -225,7 +258,6 @@ function remove_url(info) {
 
 function add_friend(info) {
 	var current_html = document.getElementById('friends').innerHTML
-	http://codeforces.com/profile/PedroBortolli
 	document.getElementById('friends').innerHTML = current_html +
 												   "<div id =" + info + ">" +
 												   "<a target='_blank'" +
@@ -237,13 +269,14 @@ function remove_friend(info) {
 	document.getElementById(info).remove()
 }
 
-function add_contest(info) {
+function add_contest(info, attempted) {
 	var current_html = document.getElementById('contests').innerHTML
-	document.getElementById('contests').innerHTML = current_html + 
-													"<div id =" + info + ">" +
-												 	"<a target='_blank'" +
-												 	"href='http://codeforces.com/contest/" +
-												 	info + "'>" + info + "</a>" + "</div>"
+	var to_add = current_html + "<div id =" + info + ">" + "<a target='_blank'" +
+				 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
+	if (attempted) to_add = to_add + " You have already attempted to solve problems from this contest"
+	to_add = to_add + "</div>"
+	document.getElementById('contests').innerHTML = to_add 
+													
 }
 
 function remove_contest(info) {

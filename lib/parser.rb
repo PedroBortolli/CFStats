@@ -131,22 +131,41 @@ module Parser
 				end
 			end
 		end
-		puts(user1_wins)
-		puts(user2_wins)
 		info['handle1']['winsOver'] = user1_wins
 		info['handle2']['winsOver'] = user2_wins
 		info['commonContests'] = commonContests
 	end
 
+	def build_solved_problems_and_attempted_contests (handle)
+		profile_info = build_result(handle, nil)
+		ac_problems = profile_info['handle1']['acProblems']
+		unsolved_problems = profile_info['handle1']['unsolvedProblems']
+		problems_solved = Hash.new
+		contests_attempted = Hash.new
+
+		for ac_problem in ac_problems
+			problems_solved.store(ac_problem['contestId'].to_s + ac_problem['index'], true)
+			contests_attempted.store(ac_problem['contestId'].to_s, true)
+		end
+
+		for unsolved_problem in unsolved_problems
+			contests_attempted.store(unsolved_problem['contestId'].to_s, true)
+		end
+
+		return problems_solved, contests_attempted		
+	end
+
 	def build_result (handle1, handle2)
 		info = Hash.new
 		build_user_info(handle1, 1, info)
-		build_user_info(handle2, 2, info)
 		build_problems(handle1, 1, info)
-		build_problems(handle2, 2, info)
 		build_contests(handle1, 1, info)
-		build_contests(handle2, 2, info)
-		build_common(info)
+		if (handle2 != nil)
+			build_user_info(handle2, 2, info)
+			build_problems(handle2, 2, info)
+			build_contests(handle2, 2, info)
+			build_common(info)
+		end
 		return info
 	end
 end

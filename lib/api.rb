@@ -4,10 +4,10 @@ module Api
 			t1 = Time.now
 			response_from_api = RestClient.get(url)
 			t2 = Time.now
-			puts("pra dar o get  demorou  => " + (t2-t1).to_s)
+			#puts("pra dar o get  demorou  => " + (t2-t1).to_s)
 			parsed_json = JSON.parse(response_from_api)
 			t3 = Time.now
-			puts("pra parsear  demorou  => " + (t3-t2).to_s)
+			#puts("pra parsear  demorou  => " + (t3-t2).to_s)
 			return parsed_json
 		rescue => exception
 			puts("aaaaaaaaaaaa", exception.http_code)

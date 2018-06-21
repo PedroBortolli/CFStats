@@ -73,6 +73,10 @@
 					<a target='_blank' href='http://codeforces.com/contest/<%= link[0, link.length-1] %>/problem/<%= link[link.length-1] %>'>
 						<%= link %>
 					</a>
+					<% if @problems_solved.key?(link) %>
+						You have already solved this problem
+						</br>
+					<% end %>
 				</div>
 			<% end %>
 		<% end %>
@@ -96,6 +100,10 @@
 					<a target='_blank' href='http://codeforces.com/contest/<%= contest %>'>
 						<%= contest %>
 					</a>
+					<% if @contests_attempted.key?(contest) %>
+						You have already attempted to solve problems from this contest
+						</br>
+					<% end %>
 				</div>
 			<% end %>
 		<% end %>
