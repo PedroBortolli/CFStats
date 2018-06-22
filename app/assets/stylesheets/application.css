@@ -1,96 +1,72 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 
-/* Split the screen in half */
-.split {
-  height: 100%;
-  width: 33.33%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
+.split{
+  height:100%;
+  width:33.33%;
+  z-index:1;
+  top:0;
+  position: relative;
+  overflow-x:hidden;
+  padding-top:20px;
+  padding-left:50px
+
 }
 
-/* Control the left side */
-.left {
-  left: 0;
-  background-color: #E0FFFF;
+.left{
+  left:0;
+  background-color:#E0F22F
 }
 
-/* Control the right side */
-.right {
-  right: 0;
-  background-color: #E0FFFF;
+
+.right{
+  right:0;
+  background-color:#E0F33F
 }
 
-.middle {
-	left: 33.33%;
-	right: 33.33%;
-	background-color: #E0FFFF;
+.middle{
+  left:33.33%;
+  right:33.33%;
+  background-color:#E011FF
 }
 
-.background {
-  background-color: #E0FFFF;
+.row {
+  z-index:1;
+  top:0;
+  position: relative;
+  overflow-x:hidden;
+    width: 100vw;
+    height: 40vh;
 }
 
-/* If you want the content centered horizontally and vertically */
-.centered {
-  /*position: absolute;*/
-  top: 50%;
-  left: 50%;
-  /*transform: translate(-50%, -50%);*/
-  text-align: center;
+.background{
+  background-color:#E0FFFF
 }
 
-.rated-user {
-    /*font-family: arial;*/
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-decoration: none;
-    font-weight: bold;
+.centered{
+  top:50%;
+  left:50%;
+  text-align:center}
+
+.rated-user{
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration:none;
+  font-weight:bold
+  }
+
+.legendary-user-first-letter{color:black}.user-red{color:red}.user-orange{color:#FF8C00}.user-violet{color:#a0a}.user-blue{color:blue}.user-cyan{color:#03A89E}.user-green{color:green}.user-gray{color:gray}
+
+
+.row:nth-child(1) {
+  background-color: #aaa;
 }
 
-.legendary-user-first-letter {
-    color: black;
+.row:nth-child(2) {
+  background-color: #ddd;
 }
 
-.user-red {
-    color: red;
+.row:nth-child(3) {
+  background-color: #ccc;
 }
 
-.user-orange {
-    color: #FF8C00;
-}
-
-.user-violet {
-    color: #a0a;
-}
-
-.user-blue {
-    color: blue;
-}
-
-.user-cyan {
-    color: #03A89E;
-}
-
-.user-green {
-    color: green;
-}
-
-.user-gray {
-    color: gray;
-}
+.row:nth-child(4) {
+  background-color: #eee;
+}*/

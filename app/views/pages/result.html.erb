@@ -1,6 +1,142 @@
 <body>
 
-	<div class = "split middle">
+	<div class="row" style="background-color: #ddffff; width: 100vw">
+		<div class="split" style="width: 25vw">
+			<h2 class = "<%= color(@info['handle1']['rating']) %>">
+				<span class = "<%= @info['handle1']['first_letter1'] %>" ><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
+			<img src=<%= @info['handle1']['titlePhoto'] %> >
+			<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
+			<p><i>(min: <%= @info['handle1']['worstRating'] %>)&emsp;(max: <%= @info['handle1']['maxRating'] %>)</i></p>
+			<p>Max rating increase: <b><%= @info['handle1']['maxUp'] %></b></p>
+			<p>Max rating decrease: <b><%= @info['handle1']['maxDown'] %></b></p>
+			</br>
+		</div>
+
+		<div class="split" style="width: 50vw;">
+		</div>
+
+
+		<div class="split" style="position: absolute; width: 25vw; right: 0vw">
+			<h2 class = "<%= color(@info['handle2']['rating']) %>">
+				<span class = "<%= @info['handle2']['first_letter2'] %>" ><%= @info['handle2']['handle'][0] %></span><%= @info['handle2']['handle'][1..-1] %></h2>
+			<img src=<%= @info['handle2']['titlePhoto'] %> >
+			<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
+			<p><i>(min: <%= @info['handle2']['worstRating'] %>)&emsp;(max: <%= @info['handle2']['maxRating'] %>)</i></p>
+			<p>Max rating increase: <b><%= @info['handle2']['maxUp'] %></b></p>
+			<p>Max rating decrease: <b><%= @info['handle2']['maxDown'] %></b></p>
+			</br>
+		</div>
+
+	</div>
+
+
+	<div class="row" style="background-color: #ddffff; height: 27vw">
+		<div class="centered" style="width: 24.7vw">
+			</br>
+			<div id="tagchart1"></div>
+		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		    <script type="text/javascript">
+		      	// Load google charts
+		      	google.charts.load('current', {'packages':['corechart']});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle1']['problemTags'].to_json.html_safe %>, "tagchart1");});
+		    </script> 
+		</div>
+
+		<div class="centered" style=" width: 24.7vw">
+			<button type="button" class="btn btn-primary" onclick=showHide(5)>Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!</button>
+
+			<div id = "hidden5" style="display: none;">
+				</br>
+				<% @info['handle1']['acProblems'].each do |problem| %>
+					<a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a><br>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="width: 24.7vw">
+			<button type="button" class="btn btn-primary" onclick=showHide(7)>Participated in <b>
+				<%= @info['handle1']['contests'].length %></b> contests!
+			</button>
+
+			<div id = "hidden7" style="display: none;">
+				</br>
+				<% @info['handle1']['contests'].each do |contest| %>
+					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style=" width: 24.7vw">
+			<button type="button" class="btn btn-primary" onclick=showHide(8)><b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!</button>
+
+			<div id = "hidden8" style="display: none;">
+				</br>
+				<% @info['handle1']['unsolvedProblems'].each do |problem| %>
+					<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="row" style="background-color: #ddffff, height: 27vw">
+		<div class="centered" style=" width: 24.7vw">
+
+			<div id="tagchart2"></div>
+		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		    <script type="text/javascript">
+		      	// Load google charts
+		      	google.charts.load('current', {'packages':['corechart']});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle2']['problemTags'].to_json.html_safe %>, "tagchart2");});
+		    </script> 
+		</div>
+
+		<div class="centered" style="width: 24.7vw">
+			<button type="button" class="btn btn-primary" onclick=showHide(9)>Solved <b>
+				<%= @info['handle2']['acProblems'].length %></b> problems!
+			</button>
+
+			<div id = "hidden9" style="display: none;">
+				</br>
+				<% @info['handle2']['acProblems'].each do |problem| %>
+					<a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a><br>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style=" width: 24.7vw">
+			<button type="button" class="btn btn-primary" onclick=showHide(11)>Participated in <b>
+				<%= @info['handle2']['contests'].length %></b> contests!
+			</button>
+
+			<div id = "hidden11" style="display: none;">
+				</br>
+				<% @info['handle2']['contests'].each do |contest| %>
+					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style=" width: 24.7vw">
+			<button type="button" class="btn btn-primary" onclick=showHide(12)><b>
+				<%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!
+			</button>
+
+			<div id = "hidden12" style="display: none;">
+				</br>
+				<% @info['handle2']['unsolvedProblems'].each do |problem| %>
+					<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
+				<% end %>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+	<div class="row" style="background-color: #ddffff">
 		<div class = "centered">
 
 			<h1>Result</h1>
@@ -56,154 +192,7 @@
 					<p><%= @info['handle1']['handle'] %>: <b><%= contest['handle1']['rank'] %></b>&emsp;<%= @info['handle2']['handle'] %>: <b><%= contest['handle2']['rank'] %></b></p> 
 				<% end %>
 			</div>
-
 		</div>
 	</div>
 
-
-
-
-	<div class = "split left">
-		<div class = "centered">
-			<h2 class = "<%= color(@info['handle1']['rating']) %>">
-				<span class = "<%= @info['handle1']['first_letter1'] %>" ><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
-			<img src=<%= @info['handle1']['titlePhoto'] %> >
-			<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
-			<p><i>(min: <%= @info['handle1']['worstRating'] %>)&emsp;(max: <%= @info['handle1']['maxRating'] %>)</i></p>
-			<p>Max rating increase: <b><%= @info['handle1']['maxUp'] %></b></p>
-			<p>Max rating decrease: <b><%= @info['handle1']['maxDown'] %></b></p>
-			</br>
-			
-
-			<button type="button" class="btn btn-primary" onclick=showHide(5)>Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!</button>
-
-			<div id = "hidden5" style="display: none;">
-				</br>
-				<% @info['handle1']['acProblems'].each do |problem| %>
-					<a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a><br>
-				<% end %>
-			</div>
-			
-
-			</br>
-			</br>
-			<button type="button" class="btn btn-primary" onclick=showHide(6)>Chart of problems solved by tag:</button>
-
-			<div class = "centered" id = "hidden6" style="display: none;">
-				</br>
-				<div id="tagchart1"></div>
-			    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-			    <script type="text/javascript">
-			      	// Load google charts
-			      	google.charts.load('current', {'packages':['corechart']});
-			      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle1']['problemTags'].to_json.html_safe %>, "tagchart1");});
-			    </script> 
-
-				<!--<% @info['handle1']['problemTags'].each do |tag, amount| %>
-					<%= tag.to_s %> : <b><%= amount.to_s %></b><br>
-				<% end %>-->
-			</div>
-
-			</br>
-			</br>
-
-			<button type="button" class="btn btn-primary" onclick=showHide(7)>Participated in <b><%= @info['handle1']['contests'].length %></b> contests!</button>
-
-			<div id = "hidden7" style="display: none;">
-				</br>
-				<% @info['handle1']['contests'].each do |contest| %>
-					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
-				<% end %>
-			</div>
-
-			</br>
-			</br>
-
-			<button type="button" class="btn btn-primary" onclick=showHide(8)><b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!</button>
-
-			<div id = "hidden8" style="display: none;">
-				</br>
-				<% @info['handle1']['unsolvedProblems'].each do |problem| %>
-					<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
-				<% end %>
-			</div>
-			
-
-			</br></br></br>
-		</div>
-	</div>
-
-
-
-
-	<div class = "split right">
-		<div class = "centered">
-
-			<h2 class = "<%= color(@info['handle2']['rating']) %>">
-				<span class = "<%= @info['handle2']['first_letter2'] %>" ><%= @info['handle2']['handle'][0] %></span><%= @info['handle2']['handle'][1..-1] %></h2>
-			<img src=<%= @info['handle2']['titlePhoto'] %> >
-			<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
-			<p><i>(min: <%= @info['handle2']['worstRating'] %>)&emsp;(max: <%= @info['handle2']['maxRating'] %>)</i></p>
-			<p>Max rating increase: <b><%= @info['handle2']['maxUp'] %></b></p>
-			<p>Max rating decrease: <b><%= @info['handle2']['maxDown'] %></b></p>
-			</br>
-			
-			<button type="button" class="btn btn-primary" onclick=showHide(9)>Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!</button>
-
-			<div id = "hidden9" style="display: none;">
-				</br>
-				<% @info['handle2']['acProblems'].each do |problem| %>
-					<a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a><br>
-				<% end %>
-			</div>
-
-			</br>
-			</br>
-
-			<button type="button" class="btn btn-primary" onclick=showHide(10)>Chart of problems solved by tag:</button>
-
-			<div id = "hidden10" style="display: none;">
-				</br>
-				<div id="tagchart2"></div>
-			    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-			    <script type="text/javascript">
-			      	// Load google charts
-			      	google.charts.load('current', {'packages':['corechart']});
-			      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle2']['problemTags'].to_json.html_safe %>, "tagchart2");});
-			    </script> 
-				<!--<% @info['handle2']['problemTags'].each do |tag, amount| %>
-					<%= tag.to_s %> : <b><%= amount.to_s %></b><br>
-				<% end %>-->
-			</div>
-
-			</br>
-			</br>
-
-			<button type="button" class="btn btn-primary" onclick=showHide(11)>Participated in <b><%= @info['handle2']['contests'].length %></b> contests!</button>
-
-			<div id = "hidden11" style="display: none;">
-				</br>
-				<% @info['handle2']['contests'].each do |contest| %>
-					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
-				<% end %>
-			</div>
-
-			</br>
-			</br>
-			<button type="button" class="btn btn-primary" onclick=showHide(12)><b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!</button>
-
-			<div id = "hidden12" style="display: none;">
-				</br>
-				<% @info['handle2']['unsolvedProblems'].each do |problem| %>
-					<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
-				<% end %>
-			</div>
-
-			</br></br>
-
-		</div>
-	</div>
-
-
-	<br>
 </body>
