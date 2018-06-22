@@ -1,33 +1,33 @@
 <body>
-
-	<div class="row" style="background-color: #ddffff; width: 100vw">
-		<div class="split" style="width: 25vw">
+	<div class="row" style="background-color: #ddffff; width: 100vw; height: 30vw">
+		<div class="split" style="width: 25vw; height: 25vw; float: right;">
 			<h2 class = "<%= color(@info['handle1']['rating']) %>">
 				<span class = "<%= @info['handle1']['first_letter1'] %>" ><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
-			<img src=<%= @info['handle1']['titlePhoto'] %> >
+			<img src=<%= @info['handle1']['titlePhoto'] %> style="width: auto; max-height: 20vh">
 			<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
 			<p><i>(min: <%= @info['handle1']['worstRating'] %>)&emsp;(max: <%= @info['handle1']['maxRating'] %>)</i></p>
 			<p>Max rating increase: <b><%= @info['handle1']['maxUp'] %></b></p>
 			<p>Max rating decrease: <b><%= @info['handle1']['maxDown'] %></b></p>
-			</br>
 		</div>
+
 
 		<div class="split" style="width: 50vw;">
 		</div>
 
 
-		<div class="split" style="position: absolute; width: 25vw; right: 0vw">
+		<div class="split" style="position: absolute; width: 25vw; height: 25vw; right: 0vw">
 			<h2 class = "<%= color(@info['handle2']['rating']) %>">
 				<span class = "<%= @info['handle2']['first_letter2'] %>" ><%= @info['handle2']['handle'][0] %></span><%= @info['handle2']['handle'][1..-1] %></h2>
-			<img src=<%= @info['handle2']['titlePhoto'] %> >
+			<img src=<%= @info['handle2']['titlePhoto'] %> style="width: auto; max-height: 20vh">
 			<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
 			<p><i>(min: <%= @info['handle2']['worstRating'] %>)&emsp;(max: <%= @info['handle2']['maxRating'] %>)</i></p>
 			<p>Max rating increase: <b><%= @info['handle2']['maxUp'] %></b></p>
 			<p>Max rating decrease: <b><%= @info['handle2']['maxDown'] %></b></p>
-			</br>
 		</div>
 
 	</div>
+
+
 
 
 	<div class="row" style="background-color: #ddffff; height: 27vw">
@@ -76,13 +76,15 @@
 				<% end %>
 			</div>
 		</div>
+
 	</div>
 
 
 
-	<div class="row" style="background-color: #ddffff, height: 27vw">
-		<div class="centered" style=" width: 24.7vw">
 
+	<div class="row" style="background-color: #ddffff; height: 27vw">
+		
+		<div class="centered" style=" width: 24.7vw">
 			<div id="tagchart2"></div>
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
@@ -136,63 +138,69 @@
 
 
 
-	<div class="row" style="background-color: #ddffff">
-		<div class = "centered">
+	<div class="row" style="background-color: #ddffff; height: 27vw">
+		
+			<div class="row" style="background-color: #ddffff; height: 8vw; width: 100vw;">
+				<div style="margin: auto; text-align: center">
+					<h1>Result</h1>
+					<p>Current rating difference: <b><%= @info['ratingDifference'] %></b></p>
+				</div>
+			</div>
 
-			<h1>Result</h1>
-
-			<p>Current rating difference: <b><%= @info['ratingDifference'] %></b></p>
-
-			</br>
-
-			<button type="button" class="btn btn-primary" onclick=showHide(1)>You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
-			</br>
-
-			<div id = "hidden1" style="display: none;">
+			<div class="centered" style=" width: 24.7vw">
+				<button type="button" class="btn btn-primary" onclick=showHide(1)>You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
 				</br>
-				<% @info['commonProblems'].each do |problem| %>
-					<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
-				<% end %>
+
+				<div id = "hidden1" style="display: none;">
+					</br>
+					<% @info['commonProblems'].each do |problem| %>
+						<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
+					<% end %>
+				</div>
 			</div>
-			</br>
 
-
-			<button type="button" class="btn btn-primary" onclick=showHide(2)><%= @info['handle1']['handle']%> solved <b><%= @info['handle1']['uniqueProblems'].length.to_s %></b> unique problems!</button>
-			</br>
-
-			<div id = "hidden2" style="display: none;">
+			<div class="centered" style=" width: 24.7vw">
+				<button type="button" class="btn btn-primary" onclick=showHide(2)><%= @info['handle1']['handle']%> solved <b><%= @info['handle1']['uniqueProblems'].length.to_s %></b> unique problems!</button>
 				</br>
-				<% @info['handle1']['uniqueProblems'].each do |problem| %>
-					<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
-				<% end %>
+
+				<div id = "hidden2" style="display: none;">
+					</br>
+					<% @info['handle1']['uniqueProblems'].each do |problem| %>
+						<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
+					<% end %>
+				</div>
 			</div>
 
-			</br>
 
-			<button type="button" class="btn btn-primary" onclick=showHide(3)><%= @info['handle2']['handle']%> solved <b><%= @info['handle2']['uniqueProblems'].length.to_s %></b> unique problems!</button>
-			</br>
-
-			<div id = "hidden3" style="display: none;">
+			<div class="centered" style=" width: 24.7vw">
+				<button type="button" class="btn btn-primary" onclick=showHide(3)><%= @info['handle2']['handle']%> solved <b><%= @info['handle2']['uniqueProblems'].length.to_s %></b> unique problems!</button>
 				</br>
-				<% @info['handle2']['uniqueProblems'].each do |problem| %>
-					<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
-				<% end %>
+
+				<div id = "hidden3" style="display: none;">
+					</br>
+					<% @info['handle2']['uniqueProblems'].each do |problem| %>
+						<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
+					<% end %>
+				</div>
 			</div>
 
-			</br>
-			<button type="button" class="btn btn-primary" onclick=showHide(4)><b><%= @info['commonContests'].length %></b> contests both users participated!</button>
+			<div class="centered" style=" width: 24.7vw">
+				<button type="button" class="btn btn-primary" onclick=showHide(4)><b><%= @info['commonContests'].length %></b> contests both users participated!</button>
 
-			<div id = "hidden4" style="display: none;">
-				<i><p>In which...</p>
-				<p></i><%= @info['handle1']['handle'] %><i> ranked better than </i><%= @info['handle2']['handle'] %><i> <b><%= @info['handle1']['winsOver'] %></b> times</p>
-				<p></i><%= @info['handle2']['handle'] %><i> ranked better than </i><%= @info['handle1']['handle'] %><i> <b><%= @info['handle2']['winsOver'] %></b> times</p></i>
-				</br></br>
-				<% @info['commonContests'].each do |contest| %>
-					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
-					<p><%= @info['handle1']['handle'] %>: <b><%= contest['handle1']['rank'] %></b>&emsp;<%= @info['handle2']['handle'] %>: <b><%= contest['handle2']['rank'] %></b></p> 
-				<% end %>
+				<div id = "hidden4" style="display: none;">
+					<i><p>In which...</p>
+					<p></i><%= @info['handle1']['handle'] %><i> ranked better than </i><%= @info['handle2']['handle'] %><i> <b><%= @info['handle1']['winsOver'] %></b> times</p>
+					<p></i><%= @info['handle2']['handle'] %><i> ranked better than </i><%= @info['handle1']['handle'] %><i> <b><%= @info['handle2']['winsOver'] %></b> times</p></i>
+					</br></br>
+					<% @info['commonContests'].each do |contest| %>
+						<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
+						<p><%= @info['handle1']['handle'] %>: <b><%= contest['handle1']['rank'] %></b>&emsp;<%= @info['handle2']['handle'] %>: <b><%= contest['handle2']['rank'] %></b></p> 
+					<% end %>
+				</div>
 			</div>
+
 		</div>
+
 	</div>
 
 </body>

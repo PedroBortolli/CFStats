@@ -325,7 +325,9 @@ function drawChart(data, parent_div) {
   	var options = {'title':'Problems by tag', 'backgroundColor':'transparent', 
   	'width':width, 'height':height, 
   	'chartArea': {'width': '80%', 'height': '100%'},
-  	'legend': {'position': 'right'}};
+  	'legend': {'position': 'right', 'alignment': 'center'},
+  	'sliceVisibilityThreshold': .03
+  	};
 	var chart = new google.visualization.PieChart(document.getElementById(parent_div));
 	chart.draw(datatable, options);
 }
