@@ -1,9 +1,9 @@
 <body>
-	<div class="row" style="background-color: #ddffff; width: 100vw; height: 30vw">
+	<div class="row big-screen" style="background-color: #ddffff; width: 100vw; height: 30vw">
 		<div class="split" style="width: 25vw; height: 25vw; float: right;">
 			<h2 class = "<%= color(@info['handle1']['rating']) %>">
 				<span class = "<%= @info['handle1']['first_letter1'] %>"><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
-			<img src=<%= @info['handle1']['titlePhoto'] %> style="width: auto; max-height: 20vh" class="img">
+			<img src=<%= @info['handle1']['titlePhoto'] %> style="width: auto; max-height: 20vh">
 			<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
 			<p><i>(min: <%= @info['handle1']['worstRating'] %>)&emsp;(max: <%= @info['handle1']['maxRating'] %>)</i></p>
 			<p>Max rating increase: <b><%= @info['handle1']['maxUp'] %></b></p>
@@ -18,13 +18,33 @@
 		<div class="split" style="position: absolute; width: 25vw; height: 25vw; right: 0vw">
 			<h2 class = "<%= color(@info['handle2']['rating']) %>">
 				<span class = "<%= @info['handle2']['first_letter2'] %>" ><%= @info['handle2']['handle'][0] %></span><%= @info['handle2']['handle'][1..-1] %></h2>
-			<img src=<%= @info['handle2']['titlePhoto'] %> style="width: auto; max-height: 20vh" class="img">
+			<img src=<%= @info['handle2']['titlePhoto'] %> style="width: auto; max-height: 20vh">
 			<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
 			<p><i>(min: <%= @info['handle2']['worstRating'] %>)&emsp;(max: <%= @info['handle2']['maxRating'] %>)</i></p>
 			<p>Max rating increase: <b><%= @info['handle2']['maxUp'] %></b></p>
 			<p>Max rating decrease: <b><%= @info['handle2']['maxDown'] %></b></p>
 		</div>
+	</div>
 
+
+
+	<div class="row small-screen" style="background-color: #ddffff; width: 100vw; height: 30vw">
+		<div class="split" style="width: 50vw; height: 25vw; float: right;">
+			<h2 class = "<%= color(@info['handle1']['rating']) %>" style="font-size: 5vw">
+				<span class = "<%= @info['handle1']['first_letter1'] %>"><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
+			<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
+			<p><i>(min: <%= @info['handle1']['worstRating'] %>)&emsp;(max: <%= @info['handle1']['maxRating'] %>)</i></p>
+			<p>Max rating increase: <b><%= @info['handle1']['maxUp'] %></b></p>
+			<p>Max rating decrease: <b><%= @info['handle1']['maxDown'] %></b></p>
+		</div>
+		<div class="split" style="position: absolute; width: 50vw; height: 25vw; right: 0vw">
+			<h2 class = "<%= color(@info['handle2']['rating']) %>" style="font-size: 5vw">
+				<span class = "<%= @info['handle2']['first_letter2'] %>" ><%= @info['handle2']['handle'][0] %></span><%= @info['handle2']['handle'][1..-1] %></h2>
+			<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
+			<p><i>(min: <%= @info['handle2']['worstRating'] %>)&emsp;(max: <%= @info['handle2']['maxRating'] %>)</i></p>
+			<p>Max rating increase: <b><%= @info['handle2']['maxUp'] %></b></p>
+			<p>Max rating decrease: <b><%= @info['handle2']['maxDown'] %></b></p>
+		</div>
 	</div>
 
 
