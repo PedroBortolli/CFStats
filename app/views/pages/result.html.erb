@@ -18,7 +18,7 @@
 		<div class="split" style="position: absolute; width: 25vw; height: 25vw; right: 0vw">
 			<h2 class = "<%= color(@info['handle2']['rating']) %>">
 				<span class = "<%= @info['handle2']['first_letter2'] %>" ><%= @info['handle2']['handle'][0] %></span><%= @info['handle2']['handle'][1..-1] %></h2>
-			<img src=<%= @info['handle2']['titlePhoto'] %> style="width: auto; max-height: 20vh">
+			<img src=<%= @info['handle2']['titlePhoto'] %> style="width: auto; max-height: 20vh" class="img">
 			<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
 			<p><i>(min: <%= @info['handle2']['worstRating'] %>)&emsp;(max: <%= @info['handle2']['maxRating'] %>)</i></p>
 			<p>Max rating increase: <b><%= @info['handle2']['maxUp'] %></b></p>
