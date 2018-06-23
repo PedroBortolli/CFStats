@@ -2,8 +2,8 @@
 	<div class="row" style="background-color: #ddffff; width: 100vw; height: 30vw">
 		<div class="split" style="width: 25vw; height: 25vw; float: right;">
 			<h2 class = "<%= color(@info['handle1']['rating']) %>">
-				<span class = "<%= @info['handle1']['first_letter1'] %>" ><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
-			<img src=<%= @info['handle1']['titlePhoto'] %> style="width: auto; max-height: 20vh">
+				<span class = "<%= @info['handle1']['first_letter1'] %>"><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
+			<img src=<%= @info['handle1']['titlePhoto'] %> style="width: auto; max-height: 20vh" class="img">
 			<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
 			<p><i>(min: <%= @info['handle1']['worstRating'] %>)&emsp;(max: <%= @info['handle1']['maxRating'] %>)</i></p>
 			<p>Max rating increase: <b><%= @info['handle1']['maxUp'] %></b></p>

@@ -101,3 +101,9 @@ html,body
   padding: 0px;
   overflow-x: hidden; 
 }
+
+@media (max-width: 500px) {
+  .img {
+    display:none;
+  }
+}
