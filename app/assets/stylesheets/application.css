@@ -103,7 +103,13 @@ html,body
 }
 
 @media (max-width: 500px) {
-  .img {
+  .big-screen {
+    display:none;
+  }
+}
+
+@media (min-width: 500px) {
+  .small-screen {
     display:none;
   }
 }
