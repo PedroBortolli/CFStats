@@ -8,17 +8,17 @@
 		<h4>Hello, <%= current_user.username %>!</h4>
 	<% end %>
 
-	</br>
-	</br>
+	<br/>
+	<br/>
 
 	<p>Below you can add your Codeforces handle so you don't have to type it everytime</p>
 
 	<input type="text" id="update_handle_form" placeholder="Update Codeforces handle">
 
-	</br>
+	<br/>
 	<div id = "handles_notice"></div>
 
-	</br>
+	<br/>
 	<div id = "handles">
 		<% for user in UserSetting.where(username: current_user.username) %>	
 			<div id = "<%= user.handle %>">
@@ -29,18 +29,18 @@
 		<% end %>
 	</div>
 
-	</br>
-	</br>
-	</br>
+	<br/>
+	<br/>
+	<br/>
 	<p> Below you can add/remove Codeforces friends for easy access to their comparisons!</p>
 
 	<input type="text" id="add_friends_form" placeholder="Add friend">
 	<input type="text" id="delete_friends_form" placeholder="Remove friend">
 
-	</br>
+	<br/>
 	<div id = "friends_notice"></div>
 	
-	</br>
+	<br/>
 	<div id = "friends">
 		<% for user in UserSetting.where(username: current_user.username) %>
 			<% for friend in user.friends %>
@@ -53,19 +53,19 @@
 		<% end %>
 	</div>
 
-	</br>
-	</br>
-	</br>
+	<br/>
+	<br/>
+	<br/>
 	<p>Below you can add/remove your custom Codeforces problems that you want to solve in the future!</p>
 
 	<input type="text" id="add_links_form" placeholder="Add problem URL">
 	<input type="text" id="delete_links_form" placeholder="Remove problem URL">
 
-	</br>
+	<br/>
 	<div id = "links_notice"></div>
 
-	</br>
-	</br>
+	<br/>
+	<br/>
 	<div id = "links">
 		<% for user in UserSetting.where(username: current_user.username) %>
 			<% for link in user.settings %>
@@ -75,24 +75,24 @@
 					</a>
 					<% if @problems_solved.key?(link) %>
 						You have already solved this problem
-						</br>
+						<br/>
 					<% end %>
 				</div>
 			<% end %>
 		<% end %>
 	</div>
 
-	</br>
-	</br>
-	</br>
+	<br/>
+	<br/>
+	<br/>
 	<p>Below you can add/remove your custom Codeforces contests (regular or gym) that you want to solve in the future!</p>
 	
 	<input type="text" id="add_contests_form" placeholder="Add contest URL">
 	<input type="text" id="delete_contests_form" placeholder="Remove contest URL">
-	</br>
+	<br/>
 	<div id = "contests_notice"></div>
 
-	</br>
+	<br/>
 	<div id = "contests">
 		<% for user in UserSetting.where(username: current_user.username) %>
 			<% for contest in user.contests %>
@@ -102,7 +102,7 @@
 					</a>
 					<% if @contests_attempted.key?(contest) %>
 						You have already attempted to solve problems from this contest
-						</br>
+						<br/>
 					<% end %>
 				</div>
 			<% end %>

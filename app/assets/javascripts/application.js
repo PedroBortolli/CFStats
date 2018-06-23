@@ -290,17 +290,6 @@ function cf_like(info) {
 	return info
 }
 
-function showHide(button_id) {
-	var button_to_search = "hidden" + button_id
-	var button = document.getElementById(button_to_search);
-	if (button.style.display === "none") {
-		button.style.display = "block";
-	}
-	else {
-		button.style.display = "none";
-	}
-}
-
 function message(action, form, notice) {
 	if (action == "add") {
 		document.getElementById(form).innerHTML = notice
