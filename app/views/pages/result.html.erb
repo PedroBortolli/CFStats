@@ -42,10 +42,10 @@
 		    </script> 
 		</div>
 
-		<div class="centered" style=" width: 24.7vw">
-			<button type="button" class="btn btn-primary" onclick=showHide(5)>Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!</button>
-
-			<div id = "hidden5" style="display: none;">
+		<div class="centered" style="height: 100%; width: 24.7vw">
+			Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!
+			<%= text_field_tag :search1, nil, placeholder: "Search problem" %>
+			<div style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				</br>
 				<% @info['handle1']['acProblems'].each do |problem| %>
 					<a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a><br>
@@ -53,12 +53,10 @@
 			</div>
 		</div>
 
-		<div class="centered" style="width: 24.7vw">
-			<button type="button" class="btn btn-primary" onclick=showHide(7)>Participated in <b>
-				<%= @info['handle1']['contests'].length %></b> contests!
-			</button>
-
-			<div id = "hidden7" style="display: none;">
+		<div class="centered" style="height: 100%; width: 24.7vw">
+			Participated in <b><%= @info['handle1']['contests'].length %></b> contests!
+			<%= text_field_tag :search2, nil, placeholder: "Search contest" %>
+			<div style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				</br>
 				<% @info['handle1']['contests'].each do |contest| %>
 					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
@@ -66,10 +64,10 @@
 			</div>
 		</div>
 
-		<div class="centered" style=" width: 24.7vw">
-			<button type="button" class="btn btn-primary" onclick=showHide(8)><b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!</button>
-
-			<div id = "hidden8" style="display: none;">
+		<div class="centered" style="height: 100%; width: 24.7vw">
+			<b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!
+			<%= text_field_tag :search3, nil, placeholder: "Search problem" %>
+			<div style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				</br>
 				<% @info['handle1']['unsolvedProblems'].each do |problem| %>
 					<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
@@ -94,12 +92,10 @@
 		    </script> 
 		</div>
 
-		<div class="centered" style="width: 24.7vw">
-			<button type="button" class="btn btn-primary" onclick=showHide(9)>Solved <b>
-				<%= @info['handle2']['acProblems'].length %></b> problems!
-			</button>
-
-			<div id = "hidden9" style="display: none;">
+		<div class="centered" style="height: 100%; width: 24.7vw">
+			Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!
+			<%= text_field_tag :search4, nil, placeholder: "Search problem" %>
+			<div style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				</br>
 				<% @info['handle2']['acProblems'].each do |problem| %>
 					<a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a><br>
@@ -107,12 +103,10 @@
 			</div>
 		</div>
 
-		<div class="centered" style=" width: 24.7vw">
-			<button type="button" class="btn btn-primary" onclick=showHide(11)>Participated in <b>
-				<%= @info['handle2']['contests'].length %></b> contests!
-			</button>
-
-			<div id = "hidden11" style="display: none;">
+		<div class="centered" style="height: 100%; width: 24.7vw">
+			Participated in <b><%= @info['handle2']['contests'].length %></b> contests!
+			<%= text_field_tag :search5, nil, placeholder: "Search contest" %>
+			<div style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				</br>
 				<% @info['handle2']['contests'].each do |contest| %>
 					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
@@ -120,12 +114,10 @@
 			</div>
 		</div>
 
-		<div class="centered" style=" width: 24.7vw">
-			<button type="button" class="btn btn-primary" onclick=showHide(12)><b>
-				<%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!
-			</button>
-
-			<div id = "hidden12" style="display: none;">
+		<div class="centered" style="height: 100%; width: 24.7vw">
+			<b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!
+			<%= text_field_tag :search6, nil, placeholder: "Search problem" %>
+			<div style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				</br>
 				<% @info['handle2']['unsolvedProblems'].each do |problem| %>
 					<a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a><br>
