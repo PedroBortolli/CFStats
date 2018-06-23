@@ -1,6 +1,6 @@
 <body>
-	<div class="row big-screen" style="background-color: #ddffff; width: 100vw; height: 30vw">
-		<div class="split" style="width: 25vw; height: 25vw; float: right;">
+	<div class="row big-screen" style="background-color: #ddffff; width: 100vw; height: 30vh">
+		<div class="split" style="width: 25vw; float: right;">
 			<h2 class = "<%= color(@info['handle1']['rating']) %>">
 				<span class = "<%= @info['handle1']['first_letter1'] %>"><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
 			<img src=<%= @info['handle1']['titlePhoto'] %> style="width: auto; max-height: 20vh">
@@ -15,7 +15,7 @@
 		</div>
 
 
-		<div class="split" style="position: absolute; width: 25vw; height: 25vw; right: 0vw">
+		<div class="split" style="position: absolute; width: 25vw; right: 0vw">
 			<h2 class = "<%= color(@info['handle2']['rating']) %>">
 				<span class = "<%= @info['handle2']['first_letter2'] %>" ><%= @info['handle2']['handle'][0] %></span><%= @info['handle2']['handle'][1..-1] %></h2>
 			<img src=<%= @info['handle2']['titlePhoto'] %> style="width: auto; max-height: 20vh">
@@ -28,8 +28,8 @@
 
 
 
-	<div class="row small-screen" style="background-color: #ddffff; width: 100vw; height: 30vw">
-		<div class="split" style="width: 50vw; height: 25vw; float: right;">
+	<div class="row small-screen" style="background-color: #ddffff; width: 100vw; height: 30vh">
+		<div class="split" style="width: 50vw; float: right;">
 			<h2 class = "<%= color(@info['handle1']['rating']) %>" style="font-size: 5vw">
 				<span class = "<%= @info['handle1']['first_letter1'] %>"><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
 			<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
@@ -37,7 +37,7 @@
 			<p>Max rating increase: <b><%= @info['handle1']['maxUp'] %></b></p>
 			<p>Max rating decrease: <b><%= @info['handle1']['maxDown'] %></b></p>
 		</div>
-		<div class="split" style="position: absolute; width: 50vw; height: 25vw; right: 0vw">
+		<div class="split" style="position: absolute; width: 50vw; right: 0vw">
 			<h2 class = "<%= color(@info['handle2']['rating']) %>" style="font-size: 5vw">
 				<span class = "<%= @info['handle2']['first_letter2'] %>" ><%= @info['handle2']['handle'][0] %></span><%= @info['handle2']['handle'][1..-1] %></h2>
 			<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
@@ -51,8 +51,8 @@
 
 
 
-	<div class="row" style="background-color: #ddffff; height: 27vw">
-		<div class="centered" style="width: 24.7vw">
+	<div class="row" style="background-color: #ddffff; height: 27vh">
+		<div class="centered" style="width: 24.8vw">
 			<br/>
 			<div id="tagchart1"></div>
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -63,7 +63,7 @@
 		    </script> 
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 100%; width: 24.8vw">
 			Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!
 			<br/>
 			<%= text_field_tag :search1, nil, placeholder: "Search problem", onkeyup: "filter('1')" %>
@@ -76,7 +76,7 @@
 			</div>
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 100%; width: 24.8vw">
 			Participated in <b><%= @info['handle1']['contests'].length %></b> contests!
 			<br/>
 			<%= text_field_tag :search2, nil, placeholder: "Search contest" %>
@@ -89,7 +89,7 @@
 			</div>
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 100%; width: 24.8vw">
 			<b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!
 			<br/>
 			<%= text_field_tag :search3, nil, placeholder: "Search problem" %>
@@ -108,9 +108,9 @@
 
 
 
-	<div class="row" style="background-color: #ddffff; height: 27vw">
+	<div class="row" style="background-color: #ddffff; height: 27vh">
 		
-		<div class="centered" style="width: 24.7vw">
+		<div class="centered" style="width: 24.8vw">
 			<div id="tagchart2"></div>
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
@@ -120,7 +120,7 @@
 		    </script> 
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 100%; width: 24.8vw">
 			Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!
 			<br/>
 			<%= text_field_tag :search4, nil, placeholder: "Search problem" %>
@@ -133,7 +133,7 @@
 			</div>
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 100%; width: 24.8vw">
 			Participated in <b><%= @info['handle2']['contests'].length %></b> contests!
 			<br/>
 			<%= text_field_tag :search5, nil, placeholder: "Search contest" %>
@@ -146,7 +146,7 @@
 			</div>
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 100%; width: 24.8vw">
 			<b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!
 			<br/>
 			<%= text_field_tag :search6, nil, placeholder: "Search problem" %>
@@ -165,7 +165,7 @@
 
 
 
-	<div class="row" style="background-color: #ddffff; height: 27vw">
+	<div class="row" style="background-color: #ddffff; height: 27vh">
 		
 			<!--
 			<div class="row" style="background-color: #ddffff; height: 8vw; width: 100vw;">
@@ -176,7 +176,7 @@
 			</div>
 			-->
 
-			<div class="centered" style="height: 100%; width: 24.7vw">
+			<div class="centered" style="height: 100%; width: 24.8vw">
 				You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
 				<br/>
 				<%= text_field_tag :search7, nil, placeholder: "Search problem" %>
@@ -189,7 +189,7 @@
 				</div>
 			</div>
 
-			<div class="centered" style="height: 100%; width: 24.7vw">
+			<div class="centered" style="height: 100%; width: 24.8vw">
 				<%= @info['handle1']['handle']%> solved <b><%= @info['handle1']['uniqueProblems'].length.to_s %></b> unique problems!
 				<br/>
 				<%= text_field_tag :search8, nil, placeholder: "Search problem" %>
@@ -203,7 +203,7 @@
 			</div>
 
 
-			<div class="centered" style="height: 100%; width: 24.7vw">
+			<div class="centered" style="height: 100%; width: 24.8vw">
 				<%= @info['handle2']['handle']%> solved <b><%= @info['handle2']['uniqueProblems'].length.to_s %></b> unique problems!
 				<br/>
 				<%= text_field_tag :search9, nil, placeholder: "Search problem" %>
@@ -216,7 +216,7 @@
 				</div>
 			</div>
 
-			<div class="centered" style="height: 100%; width: 24.7vw">
+			<div class="centered" style="height: 100%; width: 24.8vw">
 				<b><%= @info['commonContests'].length %></b> contests both users participated!
 				<br/>
 				<!--
