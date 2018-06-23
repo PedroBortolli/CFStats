@@ -46,10 +46,10 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!
 			<br/>
-			<%= text_field_tag :search1, nil, placeholder: "Search problem" %>
+			<%= text_field_tag :search1, nil, placeholder: "Search problem", onkeyup: "filter('1')" %>
 			<br/>
 			<br/>
-			<div style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+			<div id="list1" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				<% @info['handle1']['acProblems'].each do |problem| %>
 					<a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a><br>
 				<% end %>

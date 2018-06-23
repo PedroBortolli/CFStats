@@ -308,15 +308,51 @@ function drawChart(data, parent_div) {
 	var height = width;
 	result = [["tag","amount"]];
 	Object.keys(data).forEach(function (column) {
- 		result.push([column,data[column]]);
+		result.push([column,data[column]]);
 	});
 	var datatable = google.visualization.arrayToDataTable(result);
-  	var options = {'title':'Problems by tag', 'backgroundColor':'transparent', 
-  	'width':width, 'height':height, 
-  	'chartArea': {'width': '80%', 'height': '100%'},
-  	'legend': {'position': 'right', 'alignment': 'center'},
-  	'sliceVisibilityThreshold': .03
-  	};
+	var options = {'title':'Problems by tag', 'backgroundColor':'transparent', 
+	'width':width, 'height':height, 
+	'chartArea': {'width': '80%', 'height': '100%'},
+	'legend': {'position': 'right', 'alignment': 'center'},
+	'sliceVisibilityThreshold': .03
+	};
 	var chart = new google.visualization.PieChart(document.getElementById(parent_div));
 	chart.draw(datatable, options);
+}
+
+function filter(id) {
+    // Declare variables
+    var search_bar = 'search' + id;
+    var list_id = 'list' + id;
+    var input = document.getElementById(search_bar);
+    var input_text = input.value.toLowerCase();
+    var div_to_search = document.getElementById(list_id)
+    var list = div_to_search.getElementsByTagName('a')
+    var sze = list.length
+    for (var i = 0; i < sze; i++) {
+    	console.log(list[i])
+    	console.log(list[i].innerHTML)
+    	if (list[i].innerHTML.toLowerCase().indexOf(input_text) > -1) {
+            list[i].style.display = "";
+        } else {
+            list[i].style.display = "none";
+        }
+    }
+    /*
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+    */
 }
