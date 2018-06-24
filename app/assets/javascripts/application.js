@@ -339,8 +339,8 @@ function drawChart2(data, parent_div, handle1, handle2) {
 		'backgroundColor':'transparent', 
 		'width':width,
 		'height':height,
-		'chartArea': {'width': '80%', 'height': '100%'},
-		'legend': {'poistion': 'bottom', 'alignment': 'center'}
+		'chartArea': {'width': '100%', 'height': '70%'},
+		'legend': {'position': 'bottom', 'alignment': 'center'}
 	};
 	var chart = new google.visualization.LineChart(document.getElementById(parent_div));
 	chart.draw(datatable, options);
