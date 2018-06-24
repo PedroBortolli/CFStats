@@ -112,7 +112,7 @@
 	<div id = "contests_notice"></div>
 
 	<br/>
-	<div id = "contests">
+	<div id = "contests" style="background-color: #ddffff; height: 35vw; overflow: auto;">
 		<% for user in UserSetting.where(username: current_user.username) %>
 			<% for contest in user.contests %>
 				<div id = "<%= contest %>">

@@ -9,10 +9,15 @@ class PagesController < ApplicationController
 	end
 
 	def profile
-		handle = UserSetting.where(username: current_user.username)[0].handle
-		@problems_solved, @contests_attempted = build_solved_problems_and_attempted_contests(handle)
-		@@problems_solved_shared = @problems_solved
-		@@contests_attempted_shared = @contests_attempted
+		if user_signed_in?
+			db_entry = UserSetting.where(username: current_user.username)[0]
+			if db_entry != nil
+				handle = db_entry.handle
+				@problems_solved, @contests_attempted = build_solved_problems_and_attempted_contests(handle)
+				@@problems_solved_shared = @problems_solved
+				@@contests_attempted_shared = @contests_attempted
+			end
+		end
 	end
 
 	def retrieve_solved
