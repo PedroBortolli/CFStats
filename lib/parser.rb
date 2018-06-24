@@ -135,7 +135,7 @@ module Parser
 		info['handle2']['winsOver'] = user2_wins
 		info['commonContests'] = commonContests
 		aux = info['handle1']['contests'] + info['handle2']['contests']
-		info['contests'] = aux.sort{|a,b| a['contestId'] <=> b['contestId']}
+		info['contests'] = aux.sort{|a,b| a['ratingUpdateTimeSeconds'] <=> b['ratingUpdateTimeSeconds']}
 		puts(info['contests'])
 	end
 
@@ -158,6 +158,52 @@ module Parser
 		return problems_solved, contests_attempted		
 	end
 
+	def merge_contests (info)
+		seen = Hash.new
+		contests_merged = Array.new
+		prev1 = 1500
+		prev2 = 1500
+		for contest in info['contests']
+			id = contest['contestId']
+			tme = contest['ratingUpdateTimeSeconds']
+			ok = false
+			if !(seen.key?(id))
+				handle1 = contest['handle']
+				rating1 = contest['newRating']
+				for contest2 in info['contests']
+					id2 = contest2['contestId']
+					if id == id2
+						handle2 = contest2['handle']
+						if handle1 != handle2
+							rating2 = contest2['newRating']
+							if handle1 == info['handle1']['handle']
+								contests_merged.push([tme, rating1, rating2])
+								prev1 = rating1
+								prev2 = rating2
+							else
+								contests_merged.push([tme, rating2, rating1])
+								prev1 = rating2
+								prev2 = rating1
+							end
+							ok = true
+						end
+					end
+				end
+				if !ok
+					if handle1 == info['handle1']['handle']
+						contests_merged.push([tme, rating1, prev2])
+						prev1 = rating1
+					else
+						contests_merged.push([tme, prev1, rating1])
+						prev2 = rating1
+					end
+				end
+				seen.store(id, true)
+			end
+		end
+		info['contestsMerged'] = contests_merged
+	end
+
 	def build_result (handle1, handle2)
 		info = Hash.new
 		build_user_info(handle1, 1, info)
@@ -168,6 +214,7 @@ module Parser
 			build_problems(handle2, 2, info)
 			build_contests(handle2, 2, info)
 			build_common(info)
+			merge_contests(info)
 		end
 		return info
 	end

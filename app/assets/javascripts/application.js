@@ -321,6 +321,34 @@ function drawChart(data, parent_div) {
 	chart.draw(datatable, options);
 }
 
+function drawChart2(data, parent_div, handle1, handle2) {
+	var width = document.getElementById(parent_div).clientWidth;
+	var height = document.getElementById(parent_div).clientHeight;
+	console.log(width);
+	console.log(height);
+	width = 650;
+	height = 240;
+	result = [["date", String(handle1), String(handle2)]];
+	var sze = data.length;
+	for (var i = 0; i < sze; i++) {
+		var secs = Number(data[i][0]);
+		var date = new Date(secs*1000)
+		console.log(date);
+		result.push([date, data[i][1], data[i][2]]);
+	}
+	var datatable = google.visualization.arrayToDataTable(result);
+	var options = {
+		'title': 'Graph Comparison',
+		'backgroundColor':'transparent', 
+		'width':width,
+		'height':height,
+		'chartArea': {'width': '80%', 'height': '100%'},
+		'legend': {'poistion': 'bottom', 'alignment': 'center'}
+	};
+	var chart = new google.visualization.LineChart(document.getElementById(parent_div));
+	chart.draw(datatable, options);
+}
+
 function filter(id) {
 	var search_bar = 'search' + id;
 	var list_id = 'list' + id;
