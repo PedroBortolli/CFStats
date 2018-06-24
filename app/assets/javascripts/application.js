@@ -322,8 +322,8 @@ function drawChart(data, parent_div) {
 }
 
 function drawChart2(data, parent_div, handle1, handle2) {
-	var width = 0.9 * document.getElementById(parent_div).clientWidth;
-	var height = 0.9 * document.getElementById(parent_div).clientHeight;
+	var width = document.getElementById(parent_div).clientWidth;
+	var height = document.getElementById(parent_div).clientHeight;
 
 	result = [["date", String(handle1), String(handle2)]];
 	var sze = data.length;
