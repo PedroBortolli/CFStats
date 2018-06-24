@@ -11,17 +11,13 @@
 		</div>
 
 
-		<div class="split" style="width: 50vw;">
-			<div class="centered" style="width: 24.7vw">
-				<br/>
-				<div id="tagchart3"></div>
-			    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-			    <script type="text/javascript">
-			      	// Load google charts
-			      	google.charts.load('current', {'packages':['corechart']});
-			      	google.charts.setOnLoadCallback(function(){drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart3", "<%= @info['handle1']['handle'] %>", "<%= @info['handle2']['handle'] %>");});
-			    </script> 
-			</div>
+		<div id="tagchart3" class="split" style="width: 50vw;">
+		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		    <script type="text/javascript">
+		      	// Load google charts
+		      	google.charts.load('current', {'packages':['corechart']});
+		      	google.charts.setOnLoadCallback(function(){drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart3", "<%= @info['handle1']['handle'] %>", "<%= @info['handle2']['handle'] %>");});
+		    </script> 
 		</div>
 
 
