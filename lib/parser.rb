@@ -134,6 +134,9 @@ module Parser
 		info['handle1']['winsOver'] = user1_wins
 		info['handle2']['winsOver'] = user2_wins
 		info['commonContests'] = commonContests
+		aux = info['handle1']['contests'] + info['handle2']['contests']
+		info['contests'] = aux.sort{|a,b| a['contestId'] <=> b['contestId']}
+		puts(info['contests'])
 	end
 
 	def build_solved_problems_and_attempted_contests (handle)
