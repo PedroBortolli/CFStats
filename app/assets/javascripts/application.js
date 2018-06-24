@@ -346,9 +346,9 @@ function drawChart2(data, parent_div, handle1, handle2) {
 	chart.draw(datatable, options);
 }
 
-function filter(id) {
+function filter(id, name) {
 	var search_bar = 'search' + id;
-	var list_id = 'list' + id;
+	var list_id = name;
 	var input = document.getElementById(search_bar);
 	var input_text = input.value.toLowerCase();
 	var div_to_search = document.getElementById(list_id)

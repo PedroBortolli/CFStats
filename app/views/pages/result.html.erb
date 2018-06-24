@@ -75,7 +75,7 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!
 			<br/>
-			<%= text_field_tag :search1, nil, placeholder: "Search problem", onkeyup: "filter('1')" %>
+			<%= text_field_tag :search1, nil, placeholder: "Search problem", onkeyup: "filter('1', 'list1')" %>
 			<br/>
 			<br/>
 			<div id="list1" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
@@ -88,7 +88,7 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			Participated in <b><%= @info['handle1']['contests'].length %></b> contests!
 			<br/>
-			<%= text_field_tag :search2, nil, placeholder: "Search contest", onkeyup: "filter('2')" %>
+			<%= text_field_tag :search2, nil, placeholder: "Search contest", onkeyup: "filter('2', 'list2')" %>
 			<br/>
 			<br/>
 			<div id="list2" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
@@ -101,7 +101,7 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			<b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!
 			<br/>
-			<%= text_field_tag :search3, nil, placeholder: "Search problem", onkeyup: "filter('3')" %>
+			<%= text_field_tag :search3, nil, placeholder: "Search problem", onkeyup: "filter('3', 'list3')" %>
 			<br/>
 			<br/>
 			<div id="list3" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
@@ -132,7 +132,7 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!
 			<br/>
-			<%= text_field_tag :search4, nil, placeholder: "Search problem", onkeyup: "filter('4')" %>
+			<%= text_field_tag :search4, nil, placeholder: "Search problem", onkeyup: "filter('4', 'list4')" %>
 			<br/>
 			<br/>
 			<div id="list4" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
@@ -145,7 +145,7 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			Participated in <b><%= @info['handle2']['contests'].length %></b> contests!
 			<br/>
-			<%= text_field_tag :search5, nil, placeholder: "Search contest", onkeyup: "filter('5')"%>
+			<%= text_field_tag :search5, nil, placeholder: "Search contest", onkeyup: "filter('5', 'list5')"%>
 			<br/>
 			<br/>
 			<div id="list5" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
@@ -158,7 +158,7 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			<b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!
 			<br/>
-			<%= text_field_tag :search6, nil, placeholder: "Search problem", onkeyup: "filter('6')" %>
+			<%= text_field_tag :search6, nil, placeholder: "Search problem", onkeyup: "filter('6', 'list6')" %>
 			<br/>
 			<br/>
 			<div id="list6" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
@@ -188,7 +188,7 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
 			<br/>
-			<%= text_field_tag :search7, nil, placeholder: "Search problem", onkeyup: "filter('7')" %>
+			<%= text_field_tag :search7, nil, placeholder: "Search problem", onkeyup: "filter('7', 'list7')" %>
 			<br/>
 			<br/>
 			<div id="list7" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
@@ -201,7 +201,7 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			<%= @info['handle1']['handle']%> solved <b><%= @info['handle1']['uniqueProblems'].length.to_s %></b> unique problems!
 			<br/>
-			<%= text_field_tag :search8, nil, placeholder: "Search problem", onkeyup: "filter('8')" %>
+			<%= text_field_tag :search8, nil, placeholder: "Search problem", onkeyup: "filter('8', 'list8')" %>
 			<br/>
 			<br/>
 			<div id="list8" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
@@ -214,7 +214,7 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			<%= @info['handle2']['handle']%> solved <b><%= @info['handle2']['uniqueProblems'].length.to_s %></b> unique problems!
 			<br/>
-			<%= text_field_tag :search9, nil, placeholder: "Search problem", onkeyup: "filter('9')" %>
+			<%= text_field_tag :search9, nil, placeholder: "Search problem", onkeyup: "filter('9', 'list9')" %>
 			<br/>
 			<br/>
 			<div id="list9" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
@@ -233,7 +233,7 @@
 			<p></i><%= @info['handle2']['handle'] %><i> ranked better than </i><%= @info['handle1']['handle'] %><i> <b><%= @info['handle2']['winsOver'] %></b> times</p></i>
 			<br/><br/>
 			-->
-			<%= text_field_tag :search10, nil, placeholder: "Search contest", onkeyup: "filter('10')" %>
+			<%= text_field_tag :search10, nil, placeholder: "Search contest", onkeyup: "filter('10', 'list10')" %>
 			<br/>
 			<br/>
 			<div id="list10" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">

@@ -56,12 +56,24 @@
 	<br/>
 	<br/>
 	<br/>
-	<p>Below you can add/remove your custom Codeforces problems that you want to solve in the future!</p>
+
+
+	<div class="container">
+
+
+	<div class="fiftyLEFT">
+
+	<p>Add/remove Codeforces problems to upsolve</p>
 
 	<input type="text" id="add_links_form" placeholder="Add problem URL">
 	<input type="text" id="delete_links_form" placeholder="Remove problem URL">
 
 	<br/>
+	<%= text_field_tag :search11, nil, placeholder: "Search problem", onkeyup: "filter('11', 'links')" %>
+
+
+
+
 	<div id = "links_notice"></div>
 
 	<br/>
@@ -70,13 +82,14 @@
 		<% for user in UserSetting.where(username: current_user.username) %>
 			<% for link in user.settings %>
 				<div id = "<%= link %>">
+					<div>
+					<% if @problems_solved.key?(link) %>
+						&emsp;(solved)
+					<% end %>
 					<a target='_blank' href='http://codeforces.com/contest/<%= link[0, link.length-1] %>/problem/<%= link[link.length-1] %>'>
 						<%= link %>
 					</a>
-					<% if @problems_solved.key?(link) %>
-						You have already solved this problem
-						<br/>
-					<% end %>
+					</div>
 				</div>
 			<% end %>
 		<% end %>
@@ -85,7 +98,14 @@
 	<br/>
 	<br/>
 	<br/>
-	<p>Below you can add/remove your custom Codeforces contests (regular or gym) that you want to solve in the future!</p>
+	<br/>
+
+	</div>
+
+
+	<div class="fiftyRIGHT">
+
+	<p>Add/remove Codeforces contests to upsolve</p>
 	
 	<input type="text" id="add_contests_form" placeholder="Add contest URL">
 	<input type="text" id="delete_contests_form" placeholder="Remove contest URL">
@@ -101,12 +121,18 @@
 						<%= contest %>
 					</a>
 					<% if @contests_attempted.key?(contest) %>
-						You have already attempted to solve problems from this contest
-						<br/>
+						&emsp;(attempted)
 					<% end %>
 				</div>
 			<% end %>
 		<% end %>
+	</div>
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+
 	</div>
 
 </body>
