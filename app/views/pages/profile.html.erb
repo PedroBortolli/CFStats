@@ -70,10 +70,7 @@
 
 	<br/>
 	<%= text_field_tag :search11, nil, placeholder: "Search problem", onkeyup: "filter('11', 'links')" %>
-
-
-
-
+	<br/>
 	<div id = "links_notice"></div>
 
 	<br/>
@@ -110,6 +107,8 @@
 	<input type="text" id="add_contests_form" placeholder="Add contest URL">
 	<input type="text" id="delete_contests_form" placeholder="Remove contest URL">
 	<br/>
+	<%= text_field_tag :search12, nil, placeholder: "Search problem", onkeyup: "filter('12', 'contests')" %>
+	<br/>
 	<div id = "contests_notice"></div>
 
 	<br/>
@@ -117,12 +116,12 @@
 		<% for user in UserSetting.where(username: current_user.username) %>
 			<% for contest in user.contests %>
 				<div id = "<%= contest %>">
-					<a target='_blank' href='http://codeforces.com/contest/<%= contest %>'>
-						<%= contest %>
-					</a>
 					<% if @contests_attempted.key?(contest) %>
 						&emsp;(attempted)
 					<% end %>
+					<a target='_blank' href='http://codeforces.com/contest/<%= contest %>'>
+						<%= contest %>
+					</a>
 				</div>
 			<% end %>
 		<% end %>

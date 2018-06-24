@@ -221,11 +221,11 @@ message("add", "contests_notice", "Contest <b>" + info + "</b> successfully adde
 		data: {name: info},
 		success: function(status) {
 			if (String(info) in status) {
-				message("add", "links_notice", "Contest <b>" + info + "</b> added, but you have already attempted to solve problems from it...")
+				message("add", "contests_notice", "Contest <b>" + info + "</b> added, but you have already attempted to solve problems from it...")
 				add_contest(info, true)
 			}
 			else {
-				message("add", "links_notice", "Contest <b>" + info + "</b> successfully added!")
+				message("add", "contests_notice", "Contest <b>" + info + "</b> successfully added!")
 				add_contest(info, false)
 			}
 		}
@@ -339,7 +339,7 @@ function drawChart2(data, parent_div, handle1, handle2) {
 		'backgroundColor':'transparent', 
 		'width':width,
 		'height':height,
-		'chartArea': {'width': '100%', 'height': '70%'},
+		'chartArea': {'width': '85%', 'height': '70%'},
 		'legend': {'position': 'bottom', 'alignment': 'center'}
 	};
 	var chart = new google.visualization.LineChart(document.getElementById(parent_div));
