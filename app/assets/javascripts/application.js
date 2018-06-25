@@ -30,12 +30,14 @@ $(document).ready(function() {
 				success: function(status) {
 					if (status == "false") {
 						message("add", "handles_notice", "Handle " + info + " doesn't exist")
+						reset_form("update_handle_form")
 					}
 					else {
 						update_handle(status);
-						message("add", "handles_notice", "Your Codeforces handle has been updated!")
+						message("add", "handles_notice", "Your Codeforces handle has been updated!<br/>The page will now reload")
+						reset_form("update_handle_form")
+						window.location.reload();
 					}
-					reset_form("update_handle_form")
 				}
 			}); 
 		};
@@ -275,8 +277,7 @@ function add_contest(info, attempted) {
 				 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
 	if (attempted) to_add = to_add + " You have already attempted to solve problems from this contest"
 	to_add = to_add + "</div>"
-	document.getElementById('contests').innerHTML = to_add 
-													
+	document.getElementById('contests').innerHTML = to_add	
 }
 
 function remove_contest(info) {

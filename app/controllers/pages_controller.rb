@@ -51,7 +51,9 @@ class PagesController < ApplicationController
 	end
 
 	def test
-		puts("Eae", @info)
+		puts("Eae:")
+		puts(UserSetting.where(username: current_user.username).length)
+		puts("")
 	end
 
 end
