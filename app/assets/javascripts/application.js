@@ -71,20 +71,23 @@ $(document).ready(function() {
 });
 
 function try_remove_link(info) {
-	$.ajax({
-		method: "POST",
-		url: "/remove_links_from_db",
-		data: {name: cf_like(info)},
-		success: function(status) {
-			if (status == "true") {
-				remove_url(info);
-				message("add", "links_notice", "Problem <b>" + info + "</b> removed")
+	var answer = confirm("Do you really want to remove problem " + info + "?");
+	if (answer) {
+		$.ajax({
+			method: "POST",
+			url: "/remove_links_from_db",
+			data: {name: cf_like(info)},
+			success: function(status) {
+				if (status == "true") {
+					remove_url(info);
+					message("add", "links_notice", "Problem <b>" + info + "</b> removed")
+				}
+				else {
+					message("add", "links_notice", "Nothing to remove")
+				}
 			}
-			else {
-				message("add", "links_notice", "Nothing to remove")
-			}
-		}
-	});
+		});
+	}
 }
 
 
@@ -115,21 +118,24 @@ $(document).ready(function() {
 });
 
 function try_remove_friend(info) {
-	message("add", "friends_notice", "Removing <b>" + info + "</b> from your friend list...")
-	$.ajax({
-		method: "POST",
-		url: "/remove_friends_from_db",
-		data: {name: info},
-		success: function(status) {
-			if (status == "false") {
-				message("add", "friends_notice", "Nothing to remove")
+	var answer = confirm("Do you really want to remove friend " + info + "?");
+	if (answer) {
+		message("add", "friends_notice", "Removing <b>" + info + "</b> from your friend list...")
+		$.ajax({
+			method: "POST",
+			url: "/remove_friends_from_db",
+			data: {name: info},
+			success: function(status) {
+				if (status == "false") {
+					message("add", "friends_notice", "Nothing to remove")
+				}
+				else {
+					remove_friend(status);
+					message("add", "friends_notice", "Removed <b>" + status + "</b> from your friend list")
+				}
 			}
-			else {
-				remove_friend(status);
-				message("add", "friends_notice", "Removed <b>" + status + "</b> from your friend list")
-			}
-		}
-	});
+		});
+	}
 }
 
 $(document).ready(function() {
@@ -158,20 +164,23 @@ $(document).ready(function() {
 });
 
 function try_remove_contest(info) {
-	$.ajax({
-		method: "POST",
-		url: "/remove_contest_from_db",
-		data: {name: info},
-		success: function(status) {
-			if (status == "true") {
-				remove_contest(info);
-				message("add", "contests_notice", "Contest <b>" + info + "</b> removed")
+	var answer = confirm("Do you really want to remove contest " + info + "?");
+	if (answer) {
+		$.ajax({
+			method: "POST",
+			url: "/remove_contest_from_db",
+			data: {name: info},
+			success: function(status) {
+				if (status == "true") {
+					remove_contest(info);
+					message("add", "contests_notice", "Contest <b>" + info + "</b> removed")
+				}
+				else {
+					message("add", "contests_notice", "Nothing to remove")
+				}
 			}
-			else {
-				message("add", "contests_notice", "Nothing to remove")
-			}
-		}
-	});
+		});
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
