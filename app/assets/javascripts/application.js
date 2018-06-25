@@ -338,9 +338,9 @@ function drawChart2(data, parent_div, handle1, handle2) {
 	var options = {
 		'title': 'Graph Comparison',
 		'backgroundColor':'transparent', 
-		'width':width,
-		'height':height,
-		'chartArea': {'width': '85%', 'height': '70%'},
+		'width': width,
+		'height':0.95 * height,
+		'chartArea': {'width': '80%', 'height': '70%'},
 		'legend': {'position': 'bottom', 'alignment': 'center'}
 	};
 	var chart = new google.visualization.LineChart(document.getElementById(parent_div));

@@ -12,12 +12,12 @@
 
 
 		<div class="split" style="width: 50vw; padding-left: 0; padding-top: 0;">
-			<div id="tagchart3" class="centered" style="width: 100%; height: 90%;">
+			<div id="tagchart1" class="centered" style="width: 100%; height: 90%;">
 			    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 			    <script type="text/javascript">
 			      	// Load google charts
 			      	google.charts.load('current', {'packages':['corechart']});
-			      	google.charts.setOnLoadCallback(function(){drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart3", "<%= @info['handle1']['handle'] %>", "<%= @info['handle2']['handle'] %>");});
+			      	google.charts.setOnLoadCallback(function(){drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart1", "<%= @info['handle1']['handle'] %>", "<%= @info['handle2']['handle'] %>");});
 			    </script> 
 			</div>
 		</div>
@@ -33,8 +33,6 @@
 			<p>Max rating decrease: <b><%= @info['handle2']['maxDown'] %></b></p>
 		</div>
 	</div>
-
-
 
 	<div class="row small-screen" style="background-color: #ddffff; width: 100vw; height: 55vh">
 		<div class="split" style="width: 50vw; float: right;">
@@ -55,20 +53,25 @@
 		</div>
 	</div>
 
+	<div id="tagchart2" class="row small-screen" style="background-color: #ddffff; padding-left: 5%; width: 100vw; height: 60vh">
+	    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script type="text/javascript">
+	      	// Load google charts
+	      	google.charts.load('current', {'packages':['corechart']});
+	      	google.charts.setOnLoadCallback(function(){drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart2", "<%= @info['handle1']['handle'] %>", "<%= @info['handle2']['handle'] %>");});
+	    </script> 
+	</div>
 
-
-
-
-	<div class="row" style="background-color: #ddffff; height: 35vw">
+	<div class="row big-screen" style="background-color: #ddffff; height: 35vw">
 
 		<div class="centered" style="width: 24.7vw">
 			<br/>
-			<div id="tagchart1"></div>
+			<div id="tagchart3"></div>
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
 		      	// Load google charts
 		      	google.charts.load('current', {'packages':['corechart']});
-		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle1']['problemTags'].to_json.html_safe %>, "tagchart1");});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle1']['problemTags'].to_json.html_safe %>, "tagchart3");});
 		    </script> 
 		</div>
 
@@ -110,22 +113,71 @@
 				<% end %>
 			</div>
 		</div>
-
 	</div>
 
-
-
-
-
-	<div class="row" style="background-color: #ddffff; height: 35vw">
-
-		<div class="centered" style="width: 24.7vw">
-			<div id="tagchart2"></div>
+	<div class="small-screen" style="background-color: #ddffff;">
+		<div class="centered" style="width: 100vw">
+			<br/>
+			<div id="tagchart4"></div>
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
 		      	// Load google charts
 		      	google.charts.load('current', {'packages':['corechart']});
-		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle2']['problemTags'].to_json.html_safe %>, "tagchart2");});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle1']['problemTags'].to_json.html_safe %>, "tagchart4");});
+		    </script> 
+		</div>
+
+		<div class="centered" style="width: 100vw; height: 60vh;">
+			Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!
+			<br/>
+			<%= text_field_tag :search1, nil, placeholder: "Search problem", onkeyup: "filter('1', 'list1')" %>
+			<br/>
+			<br/>
+			<div id="list1" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+				<% @info['handle1']['acProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="width: 100vw; height: 60vh;">
+			Participated in <b><%= @info['handle1']['contests'].length %></b> contests!
+			<br/>
+			<%= text_field_tag :search2, nil, placeholder: "Search contest", onkeyup: "filter('2', 'list2')" %>
+			<br/>
+			<br/>
+			<div id="list2" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+				<% @info['handle1']['contests'].each do |contest| %>
+					<div><a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="width: 100vw; height: 60vh;">
+			<b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!
+			<br/>
+			<%= text_field_tag :search3, nil, placeholder: "Search problem", onkeyup: "filter('3', 'list3')" %>
+			<br/>
+			<br/>
+			<div id="list3" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+				<% @info['handle1']['unsolvedProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
+				<% end %>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="row big-screen" style="background-color: #ddffff; height: 35vw">
+
+		<div class="centered" style="width: 24.7vw">
+			<div id="tagchart5"></div>
+		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		    <script type="text/javascript">
+		      	// Load google charts
+		      	google.charts.load('current', {'packages':['corechart']});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle2']['problemTags'].to_json.html_safe %>, "tagchart5");});
 		    </script> 
 		</div>
 
@@ -170,11 +222,63 @@
 
 	</div>
 
+	<div class="small-screen" style="background-color: #ddffff;">
+		<div class="centered" style="width: 100vw">
+			<div id="tagchart6"></div>
+		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		    <script type="text/javascript">
+		      	// Load google charts
+		      	google.charts.load('current', {'packages':['corechart']});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle2']['problemTags'].to_json.html_safe %>, "tagchart6");});
+		    </script> 
+		</div>
+
+		<div class="centered" style="width: 100vw; height: 60vh;">
+			Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!
+			<br/>
+			<%= text_field_tag :search4, nil, placeholder: "Search problem", onkeyup: "filter('4', 'list4')" %>
+			<br/>
+			<br/>
+			<div id="list4" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+				<% @info['handle2']['acProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="width: 100vw; height: 60vh;">
+			Participated in <b><%= @info['handle2']['contests'].length %></b> contests!
+			<br/>
+			<%= text_field_tag :search5, nil, placeholder: "Search contest", onkeyup: "filter('5', 'list5')"%>
+			<br/>
+			<br/>
+			<div id="list5" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+				<% @info['handle2']['contests'].each do |contest| %>
+					<div><a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="width: 100vw; height: 60vh;">
+			<b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!
+			<br/>
+			<%= text_field_tag :search6, nil, placeholder: "Search problem", onkeyup: "filter('6', 'list6')" %>
+			<br/>
+			<br/>
+			<div id="list6" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+				<% @info['handle2']['unsolvedProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
+				<% end %>
+			</div>
+		</div>
+
+	</div>
 
 
 
 
-	<div class="row" style="background-color: #ddffff; height: 35vw">
+
+	<div class="row big-screen" style="background-color: #ddffff; height: 35vw">
 
 		<!--
 		<div class="row" style="background-color: #ddffff; height: 8vw; width: 100vw;">
@@ -237,6 +341,83 @@
 			<br/>
 			<br/>
 			<div id="list10" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['commonContests'].each do |contest| %>
+					<div>
+					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
+					<p><%= @info['handle1']['handle'] %>: <b><%= contest['handle1']['rank'] %></b>&emsp;<%= @info['handle2']['handle'] %>: <b><%= contest['handle2']['rank'] %></b></p>
+					</div>
+				<% end %>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+	<div class="small-screen" style="background-color: #ddffff;">
+
+		<!--
+		<div class="row" style="background-color: #ddffff; height: 8vw; width: 100vw;">
+			<div style="margin: auto; text-align: center">
+				<h1>Result</h1>
+				<p>Current rating difference: <b><%= @info['ratingDifference'] %></b></p>
+			</div>
+		</div>
+		-->
+
+		<div class="centered" style="width: 100vw; height: 60vh;">
+			You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
+			<br/>
+			<%= text_field_tag :search7, nil, placeholder: "Search problem", onkeyup: "filter('7', 'list7')" %>
+			<br/>
+			<br/>
+			<div id="list7" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+				<% @info['commonProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="width: 100vw; height: 60vh;">
+			<%= @info['handle1']['handle']%> solved <b><%= @info['handle1']['uniqueProblems'].length.to_s %></b> unique problems!
+			<br/>
+			<%= text_field_tag :search8, nil, placeholder: "Search problem", onkeyup: "filter('8', 'list8')" %>
+			<br/>
+			<br/>
+			<div id="list8" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+				<% @info['handle1']['uniqueProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="width: 100vw; height: 60vh;">
+			<%= @info['handle2']['handle']%> solved <b><%= @info['handle2']['uniqueProblems'].length.to_s %></b> unique problems!
+			<br/>
+			<%= text_field_tag :search9, nil, placeholder: "Search problem", onkeyup: "filter('9', 'list9')" %>
+			<br/>
+			<br/>
+			<div id="list9" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+				<% @info['handle2']['uniqueProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="width: 100vw; height: 60vh;">
+			<b><%= @info['commonContests'].length %></b> contests both users participated!
+			<br/>
+			<!--
+			<i><p>In which...</p>
+			<p></i><%= @info['handle1']['handle'] %><i> ranked better than </i><%= @info['handle2']['handle'] %><i> <b><%= @info['handle1']['winsOver'] %></b> times</p>
+			<p></i><%= @info['handle2']['handle'] %><i> ranked better than </i><%= @info['handle1']['handle'] %><i> <b><%= @info['handle2']['winsOver'] %></b> times</p></i>
+			<br/><br/>
+			-->
+			<%= text_field_tag :search10, nil, placeholder: "Search contest", onkeyup: "filter('10', 'list10')" %>
+			<br/>
+			<br/>
+			<div id="list10" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['commonContests'].each do |contest| %>
 					<div>
 					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
