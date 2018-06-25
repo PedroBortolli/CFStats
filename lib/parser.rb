@@ -161,8 +161,8 @@ module Parser
 	def merge_contests (info)
 		seen = Hash.new
 		contests_merged = Array.new
-		prev1 = 1500
-		prev2 = 1500
+		prev1 = nil
+		prev2 = nil
 		for contest in info['contests']
 			id = contest['contestId']
 			tme = contest['ratingUpdateTimeSeconds']
