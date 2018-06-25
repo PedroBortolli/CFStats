@@ -117,13 +117,11 @@ html,body
 .container
 {
     width:90%;
-    //background-color:red;
     display:inline-block;
 }
 
 .container > .fiftyLEFT
 {
-    //background-color:aqua;
     min-width: 300px;
     width:50%;
     float:left;
@@ -131,7 +129,6 @@ html,body
 
 .container > .fiftyRIGHT
 {
-    //background-color:blue;
     min-width: 300px;
     width:50%;
     float:left;

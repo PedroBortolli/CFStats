@@ -58,7 +58,6 @@
 		<p> Below you can add/remove Codeforces friends for easy access to their comparisons!</p>
 
 		<input type="text" id="add_friends_form" placeholder="Add friend">
-		<input type="text" id="delete_friends_form" placeholder="Remove friend">
 
 		<br/>
 		<div id = "friends_notice"></div>
@@ -71,6 +70,7 @@
 						<a target='_blank' href='http://codeforces.com/profile/<%= friend %>'>
 							<%= friend %>
 						</a>
+						<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_friend('#{friend}')") %>
 					</div>
 				<% end %>
 			<% end %>
@@ -83,77 +83,66 @@
 
 		<div class="container">
 
-
-		<div class="fiftyLEFT">
-
-		<p>Add/remove Codeforces problems to upsolve</p>
-
-		<input type="text" id="add_links_form" placeholder="Add problem URL">
-		<input type="text" id="delete_links_form" placeholder="Remove problem URL">
-
-		<br/>
-		<%= text_field_tag :search11, nil, placeholder: "Search problem", onkeyup: "filter('11', 'links')" %>
-		<br/>
-		<div id = "links_notice"></div>
-
-		<br/>
-		<br/>
-		<div id = "links">
-			<% for user in UserSetting.where(username: current_user.username) %>
-				<% for link in user.settings %>
-					<div id = "<%= link %>">
-						<div>
-						<% if @problems_solved.key?(link) %>
-							&emsp;(solved)
+			<div class="fiftyLEFT">
+				<p>Add/remove Codeforces problems to upsolve</p>
+				<input type="text" id="add_links_form" placeholder="Add problem URL">
+				<br/>
+				<%= text_field_tag :search11, nil, placeholder: "Search problem", onkeyup: "filter('11', 'links')" %>
+				<br/>
+				<div id = "links_notice"></div>
+				<br/>
+				<div id = "links" style="background-color: #ddffff; height: 35vh; overflow: auto;">
+					<% for user in UserSetting.where(username: current_user.username) %>
+						<% for link in user.settings %>
+							<div id = "<%= link %>">
+								<div>
+								<% if @problems_solved.key?(link) %>
+									(solved)
+								<% end %>
+								<a target='_blank' href='http://codeforces.com/contest/<%= link[0, link.length-1] %>/problem/<%= link[link.length-1] %>'>
+									<%= link %>
+								</a>
+								<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_link('#{link}')") %>
+								</div>
+							</div>
 						<% end %>
-						<a target='_blank' href='http://codeforces.com/contest/<%= link[0, link.length-1] %>/problem/<%= link[link.length-1] %>'>
-							<%= link %>
-						</a>
-						</div>
-					</div>
-				<% end %>
-			<% end %>
-		</div>
-
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-
-		</div>
+					<% end %>
+				</div>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+			</div>
 
 
-		<div class="fiftyRIGHT">
-
-		<p>Add/remove Codeforces contests to upsolve</p>
-		
-		<input type="text" id="add_contests_form" placeholder="Add contest URL">
-		<input type="text" id="delete_contests_form" placeholder="Remove contest URL">
-		<br/>
-		<%= text_field_tag :search12, nil, placeholder: "Search problem", onkeyup: "filter('12', 'contests')" %>
-		<br/>
-		<div id = "contests_notice"></div>
-
-		<br/>
-		<div id = "contests" style="background-color: #ddffff; height: 35vw; overflow: auto;">
-			<% for user in UserSetting.where(username: current_user.username) %>
-				<% for contest in user.contests %>
-					<div id = "<%= contest %>">
-						<% if @contests_attempted.key?(contest) %>
-							&emsp;(attempted)
+			<div class="fiftyRIGHT">
+				<p>Add/remove Codeforces contests to upsolve</p>
+				<input type="text" id="add_contests_form" placeholder="Add contest URL">
+				<br/>
+				<%= text_field_tag :search12, nil, placeholder: "Search contest", onkeyup: "filter('12', 'contests')" %>
+				<br/>
+				<div id = "contests_notice"></div>
+				<br/>
+				<div id = "contests" style="background-color: #ddffff; height: 35vh; overflow: auto;">
+					<% for user in UserSetting.where(username: current_user.username) %>
+						<% for contest in user.contests %>
+							<div id = "<%= contest %>">
+								<% if @contests_attempted.key?(contest) %>
+									&emsp;(attempted)
+								<% end %>
+								<a target='_blank' href='http://codeforces.com/contest/<%= contest %>'>
+									<%= contest %>
+								</a>
+								<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_contest('#{contest}')") %>
+							</div>
 						<% end %>
-						<a target='_blank' href='http://codeforces.com/contest/<%= contest %>'>
-							<%= contest %>
-						</a>
-					</div>
-				<% end %>
-			<% end %>
-		</div>
-
-		<br/>
-		<br/>
-		<br/>
-		<br/>
+					<% end %>
+				</div>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+			</div>
 
 		</div>
 	<% end %>
