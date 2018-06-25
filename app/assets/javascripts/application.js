@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require_tree
 //= require jquery
+//= require app_assets
 
 var NO_BUTTONS = 12
 
@@ -69,30 +70,23 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function() {
-	$('#delete_links_form').focus();
-	$('#delete_links_form').keypress(function(event) {
-		var key = (event.keyCode ? event.keyCode : event.which);
-		if (key == 13) {
-			var info = $('#delete_links_form').val();
-			$.ajax({
-				method: "POST",
-				url: "/remove_links_from_db",
-				data: {name: cf_like(info)},
-				success: function(status) {
-					if (status == "true") {
-						remove_url(info);
-						message("add", "links_notice", "Problem <b>" + info + "</b> removed")
-					}
-					else {
-						message("add", "links_notice", "Nothing to remove")
-					}
-					reset_form("delete_links_form")
-				}
-			});
-		};
+function try_remove_link(info) {
+	$.ajax({
+		method: "POST",
+		url: "/remove_links_from_db",
+		data: {name: cf_like(info)},
+		success: function(status) {
+			if (status == "true") {
+				remove_url(info);
+				message("add", "links_notice", "Problem <b>" + info + "</b> removed")
+			}
+			else {
+				message("add", "links_notice", "Nothing to remove")
+			}
+		}
 	});
-});
+}
+
 
 $(document).ready(function() {
 	$('#add_friends_form').focus();
@@ -120,31 +114,23 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function() {
-	$('#delete_friends_form').focus();
-	$('#delete_friends_form').keypress(function(event) {
-		var key = (event.keyCode ? event.keyCode : event.which);
-		if (key == 13) {
-			var info = $('#delete_friends_form').val();
-			message("add", "friends_notice", "Trying to remove <b>" + info + "</b> from your friend list...")
-			$.ajax({
-				method: "POST",
-				url: "/remove_friends_from_db",
-				data: {name: info},
-				success: function(status) {
-					if (status == "false") {
-						message("add", "friends_notice", "Nothing to remove")
-					}
-					else {
-						remove_friend(status);
-						message("add", "friends_notice", "Removed <b>" + status + "</b> from your friend list")
-					}
-					reset_form("delete_friends_form")
-				}
-			});
-		};
+function try_remove_friend(info) {
+	message("add", "friends_notice", "Removing <b>" + info + "</b> from your friend list...")
+	$.ajax({
+		method: "POST",
+		url: "/remove_friends_from_db",
+		data: {name: info},
+		success: function(status) {
+			if (status == "false") {
+				message("add", "friends_notice", "Nothing to remove")
+			}
+			else {
+				remove_friend(status);
+				message("add", "friends_notice", "Removed <b>" + status + "</b> from your friend list")
+			}
+		}
 	});
-});
+}
 
 $(document).ready(function() {
 	$('#add_contests_form').focus();
@@ -171,30 +157,24 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function() {
-	$('#delete_contests_form').focus();
-	$('#delete_contests_form').keypress(function(event) {
-		var key = (event.keyCode ? event.keyCode : event.which);
-		if (key == 13) {
-			var info = $('#delete_contests_form').val();
-			$.ajax({
-				method: "POST",
-				url: "/remove_contest_from_db",
-				data: {name: info},
-				success: function(status) {
-					if (status == "true") {
-						remove_contest(info);
-						message("add", "contests_notice", "Contest <b>" + info + "</b> removed")
-					}
-					else {
-						message("add", "contests_notice", "Nothing to remove")
-					}
-					reset_form("delete_contests_form")
-				}
-			});
-		};
+function try_remove_contest(info) {
+	$.ajax({
+		method: "POST",
+		url: "/remove_contest_from_db",
+		data: {name: info},
+		success: function(status) {
+			if (status == "true") {
+				remove_contest(info);
+				message("add", "contests_notice", "Contest <b>" + info + "</b> removed")
+			}
+			else {
+				message("add", "contests_notice", "Nothing to remove")
+			}
+		}
 	});
-});
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
 
 function check_if_problem_solved(info) {
 	info = cf_like(info)
@@ -245,10 +225,12 @@ function add_url(info, solved) {
 	contest = info.substr(0, info.length-1)
 	index = info[info.length-1]
 	var current_html = document.getElementById('links').innerHTML
-	var to_add = current_html + "<div id =" + info + ">" +
+	var seen = ""
+	if (solved) seen = "(solved) "
+	var to_add = current_html + "<div id =" + info + ">" + seen +
 				 "<a target='_blank'" + "href='http://codeforces.com/contest/" +
 				 contest + "/problem/" + index + "'>" + info + "</a>"
-	if (solved) to_add = to_add + " You have already solved this problem</br>"
+	to_add = to_add + " <img onclick=\"try_remove_link('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";			 
 	to_add = to_add + "</div>"
 	document.getElementById('links').innerHTML = to_add
 }
@@ -260,11 +242,11 @@ function remove_url(info) {
 
 function add_friend(info) {
 	var current_html = document.getElementById('friends').innerHTML
-	document.getElementById('friends').innerHTML = current_html +
-												   "<div id =" + info + ">" +
-												   "<a target='_blank'" +
-												   "href='http://codeforces.com/profile/" + 
-												   info + "'>" + info + "</a>" + "</div>"
+	var to_add = current_html +  "<div id =" + info + ">" + "<a target='_blank'" +
+				 "href='http://codeforces.com/profile/" + info + "'>" + info + "</a>"
+	to_add = to_add + " <img onclick=\"try_remove_friend('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";	 
+	to_add = to_add + "</div>"
+	document.getElementById('friends').innerHTML = to_add
 }
 
 function remove_friend(info) {
@@ -273,11 +255,13 @@ function remove_friend(info) {
 
 function add_contest(info, attempted) {
 	var current_html = document.getElementById('contests').innerHTML
-	var to_add = current_html + "<div id =" + info + ">" + "<a target='_blank'" +
+	var seen = ""
+	if (attempted) seen = "(attempted) "
+	var to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
 				 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
-	if (attempted) to_add = to_add + " You have already attempted to solve problems from this contest"
+	to_add = to_add + " <img onclick=\"try_remove_contest('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";
 	to_add = to_add + "</div>"
-	document.getElementById('contests').innerHTML = to_add	
+	document.getElementById('contests').innerHTML = to_add
 }
 
 function remove_contest(info) {
@@ -364,4 +348,8 @@ function filter(id, name) {
 			list[i].style.display = "none";
 		}
 	}
+}
+
+function test() {
+	console.log("Click on cancel!");
 }
