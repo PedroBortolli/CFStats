@@ -226,7 +226,7 @@ function add_url(info, solved) {
 	index = info[info.length-1]
 	var current_html = document.getElementById('links').innerHTML
 	var seen = ""
-	if (solved) seen = "(solved) "
+	if (solved) seen = "<i>(solved)</i> "
 	var to_add = current_html + "<div id =" + info + ">" + seen +
 				 "<a target='_blank'" + "href='http://codeforces.com/contest/" +
 				 contest + "/problem/" + index + "'>" + info + "</a>"
@@ -256,7 +256,7 @@ function remove_friend(info) {
 function add_contest(info, attempted) {
 	var current_html = document.getElementById('contests').innerHTML
 	var seen = ""
-	if (attempted) seen = "(attempted) "
+	if (attempted) seen = "<i>(attempted)</i> "
 	var to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
 				 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
 	to_add = to_add + " <img onclick=\"try_remove_contest('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";

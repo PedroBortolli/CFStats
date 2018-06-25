@@ -4,9 +4,13 @@
 
 <body class = "background centered">
 
+	<br/>
+	<br/>
+
 	<% if UserSetting.where(username: current_user.username).length == 0 %>
-		<p>This is your first login, welcome!</p>
-		<p>Please insert your Codeforces handle below:</p>
+		<h3>This is your first login, welcome!</h3>
+		<br/>
+		<h3>Please insert your Codeforces handle below:</h3>
 		<br/>
 		<input type="text" id="update_handle_form" placeholder="Update Codeforces handle">
 		<br/>
@@ -28,13 +32,20 @@
 	
 
 		<% if user_signed_in? %>
-			<h4>Hello, <%= current_user.username %>!</h4>
+			<h4>Hello, <%= current_user.username %>! Your current saved CF handle is:</h4> 
 		<% end %>
 
-		<br/>
-		<br/>
-
-		<p>Below you can add your Codeforces handle so you don't have to type it everytime</p>
+		<div id = "handles">
+			<% for user in UserSetting.where(username: current_user.username) %>	
+				<div id = "<%= user.handle %>">
+					<h4>
+					<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
+						<%= user.handle %>
+					</a>
+					</h4>
+				</div>
+			<% end %>
+		</div>
 
 		<input type="text" id="update_handle_form" placeholder="Update Codeforces handle">
 
@@ -42,28 +53,18 @@
 		<div id = "handles_notice"></div>
 
 		<br/>
-		<div id = "handles">
-			<% for user in UserSetting.where(username: current_user.username) %>	
-				<div id = "<%= user.handle %>">
-					<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
-						<%= user.handle %>
-					</a>
-				</div>
-			<% end %>
-		</div>
 
 		<br/>
-		<br/>
-		<br/>
-		<p> Below you can add/remove Codeforces friends for easy access to their comparisons!</p>
+		<h3>Friends</h3>
 
 		<input type="text" id="add_friends_form" placeholder="Add friend">
+		<%= text_field_tag :search11, nil, placeholder: "Search friend", onkeyup: "filter('11', 'friends')" %>
 
 		<br/>
 		<div id = "friends_notice"></div>
 		
 		<br/>
-		<div id = "friends">
+		<div id = "friends" class="border" style="background-color: #ddffff; height: 18vh; left: 50vw; overflow: auto;">
 			<% for user in UserSetting.where(username: current_user.username) %>
 				<% for friend in user.friends %>
 					<div id = "<%= friend %>">
@@ -84,20 +85,19 @@
 		<div class="container">
 
 			<div class="fiftyLEFT">
-				<p>Add/remove Codeforces problems to upsolve</p>
-				<input type="text" id="add_links_form" placeholder="Add problem URL">
-				<br/>
-				<%= text_field_tag :search11, nil, placeholder: "Search problem", onkeyup: "filter('11', 'links')" %>
+				<h3>Problems</h3>
+				<input type="text" id="add_links_form" placeholder="Add problem URL"> 
+				<%= text_field_tag :search12, nil, placeholder: "Search problem", onkeyup: "filter('12', 'links')" %>
 				<br/>
 				<div id = "links_notice"></div>
 				<br/>
-				<div id = "links" style="background-color: #ddffff; height: 35vh; overflow: auto;">
+				<div id = "links" class="border" style="background-color: #ddffff; height: 30vh; overflow: auto;">
 					<% for user in UserSetting.where(username: current_user.username) %>
 						<% for link in user.settings %>
 							<div id = "<%= link %>">
 								<div>
 								<% if @problems_solved.key?(link) %>
-									(solved)
+									<i>(solved)</i>
 								<% end %>
 								<a target='_blank' href='http://codeforces.com/contest/<%= link[0, link.length-1] %>/problem/<%= link[link.length-1] %>'>
 									<%= link %>
@@ -116,19 +116,18 @@
 
 
 			<div class="fiftyRIGHT">
-				<p>Add/remove Codeforces contests to upsolve</p>
-				<input type="text" id="add_contests_form" placeholder="Add contest URL">
-				<br/>
-				<%= text_field_tag :search12, nil, placeholder: "Search contest", onkeyup: "filter('12', 'contests')" %>
+				<h3> Contests </h3>
+				<input type="text" id="add_contests_form" placeholder="Add contest URL"> 
+				<%= text_field_tag :search13, nil, placeholder: "Search contest", onkeyup: "filter('13', 'contests')" %>
 				<br/>
 				<div id = "contests_notice"></div>
 				<br/>
-				<div id = "contests" style="background-color: #ddffff; height: 35vh; overflow: auto;">
+				<div id = "contests" class="border" style="background-color: #ddffff; height: 30vh; overflow: auto;">
 					<% for user in UserSetting.where(username: current_user.username) %>
 						<% for contest in user.contests %>
 							<div id = "<%= contest %>">
 								<% if @contests_attempted.key?(contest) %>
-									&emsp;(attempted)
+									<i>(attempted)</i>
 								<% end %>
 								<a target='_blank' href='http://codeforces.com/contest/<%= contest %>'>
 									<%= contest %>

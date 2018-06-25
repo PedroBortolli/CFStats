@@ -116,20 +116,28 @@ html,body
 
 .container
 {
-    width:90%;
+    width:80%;
     display:inline-block;
 }
 
 .container > .fiftyLEFT
 {
-    min-width: 300px;
+    min-width: 250px;
     width:50%;
     float:left;
 }
 
 .container > .fiftyRIGHT
 {
-    min-width: 300px;
+    min-width: 250px;
     width:50%;
     float:left;
+}
+
+.border {
+  border-radius: 41px 41px 41px 41px;
+  -moz-border-radius: 41px 41px 41px 41px;
+  -webkit-border-radius: 41px 41px 41px 41px;
+  border: 3px solid #000000;
+  /*background: #aad3e0;*/
 }
