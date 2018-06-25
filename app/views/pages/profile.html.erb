@@ -64,7 +64,7 @@
 		<div id = "friends_notice"></div>
 		
 		<br/>
-		<div id = "friends" class="border" style="background-color: #ddffff; height: 18vh; left: 50vw; overflow: auto;">
+		<div id = "friends" class="border" style="margin: 0 auto; background-color: #ddffff; height: 18vh; width: 35vw; overflow: auto;">
 			<% for user in UserSetting.where(username: current_user.username) %>
 				<% for friend in user.friends %>
 					<div id = "<%= friend %>">
