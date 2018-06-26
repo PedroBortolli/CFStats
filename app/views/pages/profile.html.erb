@@ -7,6 +7,18 @@
 	<br/>
 	<br/>
 
+	<% handle = "" %>
+
+	<% for user in UserSetting.where(username: current_user.username) %>	
+		<div id = "<%= user.handle %>">
+			<h4>
+			<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
+				<%= handle = user.handle %>
+			</a>
+			</h4>
+		</div>
+	<% end %>
+
 	<% if UserSetting.where(username: current_user.username).length == 0 %>
 		<h3>This is your first login, welcome!</h3>
 		<br/>
@@ -21,7 +33,7 @@
 			<% for user in UserSetting.where(username: current_user.username) %>	
 				<div id = "<%= user.handle %>">
 					<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
-						<%= user.handle %>
+						<%= handle %>
 					</a>
 				</div>
 			<% end %>
@@ -36,15 +48,6 @@
 		<% end %>
 
 		<div id = "handles">
-			<% for user in UserSetting.where(username: current_user.username) %>	
-				<div id = "<%= user.handle %>">
-					<h4>
-					<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
-						<%= user.handle %>
-					</a>
-					</h4>
-				</div>
-			<% end %>
 		</div>
 
 		<input type="text" id="update_handle_form" placeholder="Update Codeforces handle">
@@ -71,6 +74,8 @@
 						<a target='_blank' href='http://codeforces.com/profile/<%= friend %>'>
 							<%= friend %>
 						</a>
+						&nbsp;
+						<%= image_tag("compare.png", size: "16x16", onclick: "compare('#{handle}', '#{friend}')") %>
 						<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_friend('#{friend}')") %>
 					</div>
 				<% end %>

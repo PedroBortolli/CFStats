@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 			if db_entry != nil
 				handle = db_entry.handle
 				@problems_solved, @contests_attempted = build_solved_problems_and_attempted_contests(handle)
+				@@handle_shared = handle
 				@@problems_solved_shared = @problems_solved
 				@@contests_attempted_shared = @contests_attempted
 			end
@@ -28,6 +29,9 @@ class PagesController < ApplicationController
 		render json: @@contests_attempted_shared
 	end
 
+	def retrieve_handle
+		render html: @@handle_shared
+	end
 
 	def about
 		@title = 'About us'

@@ -141,3 +141,7 @@ html,body
   border: 3px solid #000000;
   /*background: #aad3e0;*/
 }
+
+img:hover {
+    cursor: pointer;
+}
