@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
 	include Parser
 	include Api
+	include ActionView::Helpers::AssetUrlHelper
 
 	def index
 	end
@@ -31,6 +32,16 @@ class PagesController < ApplicationController
 
 	def retrieve_handle
 		render html: @@handle_shared
+	end
+
+	def retrieve_compare_icon_path
+		path = ActionController::Base.helpers.asset_path("compare.png")
+		render html: path
+	end
+
+	def retrieve_cancel_icon_path
+		path = ActionController::Base.helpers.asset_path("cancel.png")
+		render html: path
 	end
 
 	def about
