@@ -50,7 +50,7 @@
 		<input type="text" id="update_handle_form" placeholder="Update Codeforces handle">
 
 		<br/>
-		<div id = "handles_notice"></div>
+		<div id = "handles_notice"><br/></div>
 
 		<br/>
 
@@ -61,7 +61,7 @@
 		<%= text_field_tag :search11, nil, placeholder: "Search friend", onkeyup: "filter('11', 'friends')" %>
 
 		<br/>
-		<div id = "friends_notice"></div>
+		<div id = "friends_notice"><br/></div>
 		
 		<br/>
 		<div id = "friends" class="border" style="margin: 0 auto; background-color: #ddffff; height: 18vh; width: 35vw; overflow: auto;">
@@ -89,7 +89,7 @@
 				<input type="text" id="add_links_form" placeholder="Add problem URL"> 
 				<%= text_field_tag :search12, nil, placeholder: "Search problem", onkeyup: "filter('12', 'links')" %>
 				<br/>
-				<div id = "links_notice"></div>
+				<div id = "links_notice"><br/></div>
 				<br/>
 				<div id = "links" class="border" style="background-color: #ddffff; height: 30vh; overflow: auto;">
 					<% for user in UserSetting.where(username: current_user.username) %>
@@ -120,7 +120,7 @@
 				<input type="text" id="add_contests_form" placeholder="Add contest URL"> 
 				<%= text_field_tag :search13, nil, placeholder: "Search contest", onkeyup: "filter('13', 'contests')" %>
 				<br/>
-				<div id = "contests_notice"></div>
+				<div id = "contests_notice"><br/></div>
 				<br/>
 				<div id = "contests" class="border" style="background-color: #ddffff; height: 30vh; overflow: auto;">
 					<% for user in UserSetting.where(username: current_user.username) %>
@@ -129,7 +129,13 @@
 								<% if @contests_attempted.key?(contest) %>
 									<i>(attempted)</i>
 								<% end %>
-								<a target='_blank' href='http://codeforces.com/contest/<%= contest %>'>
+								<% base = "" %>
+								<% if contest.to_i > 99999 %>
+									<% base = "gym" %>
+								<% else %>
+									<% base = "contest" %>
+								<% end %>
+								<a target='_blank' href='http://codeforces.com/<%= base %>/<%= contest %>'>
 									<%= contest %>
 								</a>
 								<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_contest('#{contest}')") %>

@@ -265,9 +265,16 @@ function remove_friend(info) {
 function add_contest(info, attempted) {
 	var current_html = document.getElementById('contests').innerHTML
 	var seen = ""
+	var to_add = ""
 	if (attempted) seen = "<i>(attempted)</i> "
-	var to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
-				 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
+	if (Number(info) > 99999) {
+		to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
+				 "href='https://codeforces.com/gym/" + info + "'>" + info + "</a>"
+	}
+	else {
+		var to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
+				 	 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
+	}
 	to_add = to_add + " <img onclick=\"try_remove_contest('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";
 	to_add = to_add + "</div>"
 	document.getElementById('contests').innerHTML = to_add
