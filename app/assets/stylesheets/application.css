@@ -106,11 +106,41 @@ html,body
   .big-screen {
     display:none;
   }
+
+  .middle-screen {
+    display: none;
+  }
+
+  .big-head {
+    display: none;
+  }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) and (max-width: 1200px) {
+  .big-screen {
+    display:none;
+  }
+
   .small-screen {
     display:none;
+  }
+
+  .big-head {
+    display: none;
+  }
+}
+
+@media (min-width: 1201px) {
+  .small-screen {
+    display:none;
+  }
+
+  .middle-screen {
+    display: none;
+  }
+
+  .small-head {
+    display: none;
   }
 }
 
