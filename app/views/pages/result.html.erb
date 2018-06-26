@@ -63,7 +63,9 @@
 	</div>
 
 	<div class="row big-screen" style="background-color: #ddffff; height: 35vw">
-
+		<div style="width: 100%; padding-left: 5%">
+			<h4><%= @info['handle1']['handle'] %>'s stats</h4>
+		</div>
 		<div class="centered" style="width: 24.7vw">
 			<br/>
 			<div id="tagchart3"></div>
@@ -75,7 +77,7 @@
 		    </script> 
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 24.7vw">
 			Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!
 			<br/>
 			<%= text_field_tag :search1, nil, placeholder: "Search problem", onkeyup: "filter('1', 'list1')" %>
@@ -88,7 +90,7 @@
 			</div>
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 24.7vw">
 			Participated in <b><%= @info['handle1']['contests'].length %></b> contests!
 			<br/>
 			<%= text_field_tag :search2, nil, placeholder: "Search contest", onkeyup: "filter('2', 'list2')" %>
@@ -101,7 +103,7 @@
 			</div>
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 24.7vw">
 			<b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!
 			<br/>
 			<%= text_field_tag :search3, nil, placeholder: "Search problem", onkeyup: "filter('3', 'list3')" %>
@@ -116,7 +118,10 @@
 	</div>
 
 	<div class="small-screen" style="background-color: #ddffff;">
-		<div class="centered" style="width: 100vw">
+		<div style="width: 100%; padding-left: 5%">
+			<h4><%= @info['handle1']['handle'] %>'s stats</h4>
+		</div>
+		<div class="centered" style="width: 100vw;">
 			<br/>
 			<div id="tagchart4"></div>
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -165,12 +170,12 @@
 				<% end %>
 			</div>
 		</div>
-
 	</div>
 
-
 	<div class="row big-screen" style="background-color: #ddffff; height: 35vw">
-
+		<div style="width: 100%; padding-left: 5%">
+			<h4><%= @info['handle2']['handle'] %>'s stats</h4>
+		</div>
 		<div class="centered" style="width: 24.7vw">
 			<div id="tagchart5"></div>
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -181,7 +186,7 @@
 		    </script> 
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 24.7vw">
 			Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!
 			<br/>
 			<%= text_field_tag :search4, nil, placeholder: "Search problem", onkeyup: "filter('4', 'list4')" %>
@@ -194,7 +199,7 @@
 			</div>
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 24.7vw">
 			Participated in <b><%= @info['handle2']['contests'].length %></b> contests!
 			<br/>
 			<%= text_field_tag :search5, nil, placeholder: "Search contest", onkeyup: "filter('5', 'list5')"%>
@@ -207,7 +212,7 @@
 			</div>
 		</div>
 
-		<div class="centered" style="height: 100%; width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 24.7vw">
 			<b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!
 			<br/>
 			<%= text_field_tag :search6, nil, placeholder: "Search problem", onkeyup: "filter('6', 'list6')" %>
@@ -219,10 +224,12 @@
 				<% end %>
 			</div>
 		</div>
-
 	</div>
 
 	<div class="small-screen" style="background-color: #ddffff;">
+		<div style="width: 100%; padding-left: 5%">
+			<h4><%= @info['handle2']['handle'] %>'s stats</h4>
+		</div>
 		<div class="centered" style="width: 100vw">
 			<div id="tagchart6"></div>
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -271,12 +278,7 @@
 				<% end %>
 			</div>
 		</div>
-
 	</div>
-
-
-
-
 
 	<div class="row big-screen" style="background-color: #ddffff; height: 35vw">
 
@@ -349,11 +351,7 @@
 				<% end %>
 			</div>
 		</div>
-
 	</div>
-
-
-
 
 	<div class="small-screen" style="background-color: #ddffff;">
 
@@ -426,7 +424,5 @@
 				<% end %>
 			</div>
 		</div>
-
 	</div>
-
 </body>
