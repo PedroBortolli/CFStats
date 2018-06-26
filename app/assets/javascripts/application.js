@@ -15,7 +15,14 @@
 //= require jquery
 //= require app_assets
 
-var NO_BUTTONS = 12
+function get_compare_icon_path() {
+	
+}
+
+function ret(x) {
+	console.log("oia o que chegou ==> " + x)
+	return x;
+}
 
 $(document).ready(function() {
 	$('#update_handle_form').focus();
@@ -237,17 +244,23 @@ function update_handle(info) {
 }
 
 function add_url(info, solved) {
-	contest = info.substr(0, info.length-1)
-	index = info[info.length-1]
-	var current_html = document.getElementById('links').innerHTML
-	var seen = ""
-	if (solved) seen = "<i>(solved)</i> "
-	var to_add = current_html + "<div id =" + info + ">" + seen +
-				 "<a target='_blank'" + "href='http://codeforces.com/contest/" +
-				 contest + "/problem/" + index + "'>" + info + "</a>"
-	to_add = to_add + " <img onclick=\"try_remove_link('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";			 
-	to_add = to_add + "</div>"
-	document.getElementById('links').innerHTML = to_add
+	$.ajax({
+		method: "POST",
+		url: "/retrieve_cancel_icon_path",
+		success: function(cancel_path) {
+			contest = info.substr(0, info.length-1)
+			index = info[info.length-1]
+			var current_html = document.getElementById('links').innerHTML
+			var seen = ""
+			if (solved) seen = "<i>(solved)</i> "
+			var to_add = current_html + "<div id =" + info + ">" + seen +
+						 "<a target='_blank'" + "href='http://codeforces.com/contest/" +
+						 contest + "/problem/" + index + "'>" + info + "</a>"
+			to_add = to_add + " <img onclick=\"try_remove_link('" + String(info) + "')\" src='" + cancel_path + "' alt='Cancel' width='16' height='16'>";			 
+			to_add = to_add + "</div>"
+			document.getElementById('links').innerHTML = to_add
+		}
+	});
 }
 
 function remove_url(info) {
@@ -256,13 +269,25 @@ function remove_url(info) {
 }
 
 function add_friend(handle, info) {
-	var current_html = document.getElementById('friends').innerHTML
-	var to_add = current_html +  "<div id =" + info + ">" + "<a target='_blank'" +
-				 "href='http://codeforces.com/profile/" + info + "'>" + info + "</a>" + "&nbsp;"
-	to_add = to_add + " <img onclick=\"compare('" + String(handle) + "', '" + String(info) + "')\" src='/assets/compare.png' alt='Compare' width='16' height='16'>";
-	to_add = to_add + " <img onclick=\"try_remove_friend('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";
-	to_add = to_add + "</div>"
-	document.getElementById('friends').innerHTML = to_add
+	$.ajax({
+		method: "POST",
+		url: "/retrieve_compare_icon_path",
+		success: function(compare_path) {
+			$.ajax({
+				method: "POST",
+				url: "/retrieve_cancel_icon_path",
+				success: function(cancel_path) {
+					var current_html = document.getElementById('friends').innerHTML
+					var to_add = current_html +  "<div id =" + info + ">" + "<a target='_blank'" +
+								 "href='http://codeforces.com/profile/" + info + "'>" + info + "</a>" + "&nbsp;"
+					to_add = to_add + " <img onclick=\"compare('" + String(handle) + "', '" + String(info) + "')\" src='" + compare_path + "' alt='Compare' width='16' height='16'>";
+					to_add = to_add + " <img onclick=\"try_remove_friend('" + String(info) + "')\" src='" + cancel_path + "' alt='Cancel' width='16' height='16'>";
+					to_add = to_add + "</div>"
+					document.getElementById('friends').innerHTML = to_add
+				}
+			});
+		}
+	});
 }
 
 function remove_friend(info) {
@@ -270,21 +295,27 @@ function remove_friend(info) {
 }
 
 function add_contest(info, attempted) {
-	var current_html = document.getElementById('contests').innerHTML
-	var seen = ""
-	var to_add = ""
-	if (attempted) seen = "<i>(attempted)</i> "
-	if (Number(info) > 99999) {
-		to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
-				 "href='https://codeforces.com/gym/" + info + "'>" + info + "</a>"
-	}
-	else {
-		var to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
-				 	 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
-	}
-	to_add = to_add + " <img onclick=\"try_remove_contest('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";
-	to_add = to_add + "</div>"
-	document.getElementById('contests').innerHTML = to_add
+	$.ajax({
+		method: "POST",
+		url: "/retrieve_cancel_icon_path",
+		success: function(cancel_path) {
+			var current_html = document.getElementById('contests').innerHTML
+			var seen = ""
+			var to_add = ""
+			if (attempted) seen = "<i>(attempted)</i> "
+			if (Number(info) > 99999) {
+				to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
+						 "href='https://codeforces.com/gym/" + info + "'>" + info + "</a>"
+			}
+			else {
+				var to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
+						 	 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
+			}
+			to_add = to_add + " <img onclick=\"try_remove_contest('" + String(info) + "')\" src='" + cancel_path + "' alt='Cancel' width='16' height='16'>";
+			to_add = to_add + "</div>"
+			document.getElementById('contests').innerHTML = to_add
+		}
+	});
 }
 
 function remove_contest(info) {

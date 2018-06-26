@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   post 'retrieve_solved' => 'pages#retrieve_solved'
   post 'retrieve_attempted' => 'pages#retrieve_attempted'
   post 'retrieve_handle' => 'pages#retrieve_handle'
+  post 'retrieve_compare_icon_path' => 'pages#retrieve_compare_icon_path'
+  post 'retrieve_cancel_icon_path' => 'pages#retrieve_cancel_icon_path'
 end
