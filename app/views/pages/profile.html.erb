@@ -58,28 +58,32 @@
 		<br/>
 
 		<br/>
-		<h3>Friends</h3>
+		<div class="container">
+			<div class="fiftyCENTER">
+				<h3>Friends</h3>
 
-		<input type="text" id="add_friends_form" placeholder="Add friend">
-		<%= text_field_tag :search11, nil, placeholder: "Search friend", onkeyup: "filter('11', 'friends')" %>
+				<input type="text" id="add_friends_form" placeholder="Add friend">
+				<%= text_field_tag :search11, nil, placeholder: "Search friend", onkeyup: "filter('11', 'friends')" %>
 
-		<br/>
-		<div id = "friends_notice"><br/></div>
-		
-		<br/>
-		<div id = "friends" class="border" style="margin: 0 auto; background-color: #ddffff; height: 18vh; width: 35vw; overflow: auto;">
-			<% for user in UserSetting.where(username: current_user.username) %>
-				<% for friend in user.friends %>
-					<div id = "<%= friend %>">
-						<a target='_blank' href='http://codeforces.com/profile/<%= friend %>'>
-							<%= friend %>
-						</a>
-						&nbsp;
-						<%= image_tag("compare.png", size: "16x16", onclick: "compare('#{handle}', '#{friend}')") %>
-						<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_friend('#{friend}')") %>
-					</div>
-				<% end %>
-			<% end %>
+				<br/>
+				<div id = "friends_notice"><br/></div>
+				
+				<br/>
+				<div id = "friends" class="border" style="margin: 0 auto; background-color: #ddffff; height: 18vh; overflow: auto;">
+					<% for user in UserSetting.where(username: current_user.username) %>
+						<% for friend in user.friends %>
+							<div id = "<%= friend %>">
+								<a target='_blank' href='http://codeforces.com/profile/<%= friend %>'>
+									<%= friend %>
+								</a>
+								&nbsp;
+								<%= image_tag("compare.png", size: "16x16", onclick: "compare('#{handle}', '#{friend}')") %>
+								<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_friend('#{friend}')") %>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
 		</div>
 
 		<br/>

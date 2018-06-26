@@ -164,6 +164,11 @@ html,body
     float:left;
 }
 
+.container > .fiftyCENTER
+{
+    min-width: 250px; width:50%; margin: 0 auto;
+}
+
 .border {
   border-radius: 41px 41px 41px 41px;
   -moz-border-radius: 41px 41px 41px 41px;
