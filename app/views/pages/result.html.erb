@@ -1,5 +1,5 @@
 <body>
-	<div class="row big-screen" style="background-color: #ddffff; width: 100vw; height: 55vh">
+	<div class="row big-head" style="background-color: #ddffff; width: 100vw; height: 55vh">
 		<div class="split" style="width: 25vw; float: right;">
 			<h2 class = "<%= color(@info['handle1']['rating']) %>">
 				<span class = "<%= @info['handle1']['first_letter1'] %>"><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 
-	<div class="row small-screen" style="background-color: #ddffff; width: 100vw; height: 55vh">
+	<div class="row small-head" style="background-color: #ddffff; width: 100vw; height: 55vh">
 		<div class="split" style="width: 50vw; float: right;">
 			<h2 class = "<%= color(@info['handle1']['rating']) %>" style="font-size: 5vw">
 				<span class = "<%= @info['handle1']['first_letter1'] %>"><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
@@ -53,7 +53,7 @@
 		</div>
 	</div>
 
-	<div id="tagchart2" class="row small-screen" style="background-color: #ddffff; padding-left: 5%; width: 100vw; height: 60vh">
+	<div id="tagchart2" class="row small-head" style="background-color: #ddffff; padding-left: 5%; width: 100vw; height: 60vh">
 	    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	    <script type="text/javascript">
 	      	// Load google charts
@@ -117,6 +117,60 @@
 		</div>
 	</div>
 
+	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff;">
+		<div style="width: 100%; padding-left: 5%">
+			<h4><%= @info['handle1']['handle'] %>'s stats</h4>
+		</div>
+		<div class="centered" style="height: 55vw; width: 50%;">
+			<div id="tagchart30"></div>
+		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		    <script type="text/javascript">
+		      	// Load google charts
+		      	google.charts.load('current', {'packages':['corechart']});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle1']['problemTags'].to_json.html_safe %>, "tagchart30");});
+		    </script> 
+		</div>
+
+		<div class="centered" style=" height: 55vw; width: 50%;">
+			Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!
+			<br/>
+			<%= text_field_tag :search4, nil, placeholder: "Search problem", onkeyup: "filter('4', 'list4')" %>
+			<br/>
+			<br/>
+			<div id="list4" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['handle1']['acProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="height: 55vw; width: 50%;">
+			Participated in <b><%= @info['handle1']['contests'].length %></b> contests!
+			<br/>
+			<%= text_field_tag :search5, nil, placeholder: "Search contest", onkeyup: "filter('5', 'list5')" %>
+			<br/>
+			<br/>
+			<div id="list5" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['handle1']['contests'].each do |contest| %>
+					<div><a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="height: 55vw; width: 50%;">
+			<b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!
+			<br/>
+			<%= text_field_tag :search6, nil, placeholder: "Search problem", onkeyup: "filter('6', 'list6')" %>
+			<br/>
+			<br/>
+			<div id="list6" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['handle1']['unsolvedProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
 	<div class="small-screen" style="background-color: #ddffff;">
 		<div style="width: 100%; padding-left: 5%">
 			<h4><%= @info['handle1']['handle'] %>'s stats</h4>
@@ -135,10 +189,10 @@
 		<div class="centered" style="width: 100vw; height: 60vh;">
 			Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!
 			<br/>
-			<%= text_field_tag :search1, nil, placeholder: "Search problem", onkeyup: "filter('1', 'list1')" %>
+			<%= text_field_tag :search7, nil, placeholder: "Search problem", onkeyup: "filter('7', 'list7')" %>
 			<br/>
 			<br/>
-			<div id="list1" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+			<div id="list7" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['handle1']['acProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a></div>
 				<% end %>
@@ -148,10 +202,10 @@
 		<div class="centered" style="width: 100vw; height: 60vh;">
 			Participated in <b><%= @info['handle1']['contests'].length %></b> contests!
 			<br/>
-			<%= text_field_tag :search2, nil, placeholder: "Search contest", onkeyup: "filter('2', 'list2')" %>
+			<%= text_field_tag :search8, nil, placeholder: "Search contest", onkeyup: "filter('8', 'list8')" %>
 			<br/>
 			<br/>
-			<div id="list2" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+			<div id="list8" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['handle1']['contests'].each do |contest| %>
 					<div><a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a></div>
 				<% end %>
@@ -161,10 +215,10 @@
 		<div class="centered" style="width: 100vw; height: 60vh;">
 			<b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!
 			<br/>
-			<%= text_field_tag :search3, nil, placeholder: "Search problem", onkeyup: "filter('3', 'list3')" %>
+			<%= text_field_tag :search9, nil, placeholder: "Search problem", onkeyup: "filter('9', 'list9')" %>
 			<br/>
 			<br/>
-			<div id="list3" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+			<div id="list9" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['handle1']['unsolvedProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
 				<% end %>
@@ -189,10 +243,10 @@
 		<div class="centered" style="height: 90%; width: 24.7vw">
 			Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!
 			<br/>
-			<%= text_field_tag :search4, nil, placeholder: "Search problem", onkeyup: "filter('4', 'list4')" %>
+			<%= text_field_tag :search10, nil, placeholder: "Search problem", onkeyup: "filter('10', 'list10')" %>
 			<br/>
 			<br/>
-			<div id="list4" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+			<div id="list10" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				<% @info['handle2']['acProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a></div>
 				<% end %>
@@ -202,10 +256,10 @@
 		<div class="centered" style="height: 90%; width: 24.7vw">
 			Participated in <b><%= @info['handle2']['contests'].length %></b> contests!
 			<br/>
-			<%= text_field_tag :search5, nil, placeholder: "Search contest", onkeyup: "filter('5', 'list5')"%>
+			<%= text_field_tag :search11, nil, placeholder: "Search contest", onkeyup: "filter('11', 'list11')"%>
 			<br/>
 			<br/>
-			<div id="list5" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+			<div id="list11" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				<% @info['handle2']['contests'].each do |contest| %>
 					<div><a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a></div>
 				<% end %>
@@ -215,10 +269,64 @@
 		<div class="centered" style="height: 90%; width: 24.7vw">
 			<b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!
 			<br/>
-			<%= text_field_tag :search6, nil, placeholder: "Search problem", onkeyup: "filter('6', 'list6')" %>
+			<%= text_field_tag :search12, nil, placeholder: "Search problem", onkeyup: "filter('12', 'list12')" %>
 			<br/>
 			<br/>
-			<div id="list6" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+			<div id="list12" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['handle2']['unsolvedProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff;">
+		<div style="width: 100%; padding-left: 5%">
+			<h4><%= @info['handle2']['handle'] %>'s stats</h4>
+		</div>
+		<div class="centered" style="height: 55vw; width: 50%;">
+			<div id="tagchart40"></div>
+		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		    <script type="text/javascript">
+		      	// Load google charts
+		      	google.charts.load('current', {'packages':['corechart']});
+		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info['handle2']['problemTags'].to_json.html_safe %>, "tagchart40");});
+		    </script> 
+		</div>
+
+		<div class="centered" style="height: 55vw; width: 50%;">
+			Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!
+			<br/>
+			<%= text_field_tag :search13, nil, placeholder: "Search problem", onkeyup: "filter('13', 'list13')" %>
+			<br/>
+			<br/>
+			<div id="list13" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['handle2']['acProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="height: 55vw; width: 50%;">
+			Participated in <b><%= @info['handle2']['contests'].length %></b> contests!
+			<br/>
+			<%= text_field_tag :search14, nil, placeholder: "Search contest", onkeyup: "filter('14', 'list14')"%>
+			<br/>
+			<br/>
+			<div id="list14" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['handle2']['contests'].each do |contest| %>
+					<div><a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="height: 55vw; width: 50%;">
+			<b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!
+			<br/>
+			<%= text_field_tag :search15, nil, placeholder: "Search problem", onkeyup: "filter('15', 'list15')" %>
+			<br/>
+			<br/>
+			<div id="list15" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				<% @info['handle2']['unsolvedProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
 				<% end %>
@@ -243,10 +351,10 @@
 		<div class="centered" style="width: 100vw; height: 60vh;">
 			Solved <b><%= @info['handle2']['acProblems'].length %></b> problems!
 			<br/>
-			<%= text_field_tag :search4, nil, placeholder: "Search problem", onkeyup: "filter('4', 'list4')" %>
+			<%= text_field_tag :search16, nil, placeholder: "Search problem", onkeyup: "filter('16', 'list16')" %>
 			<br/>
 			<br/>
-			<div id="list4" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+			<div id="list16" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['handle2']['acProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> > <%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %> </a></div>
 				<% end %>
@@ -256,10 +364,10 @@
 		<div class="centered" style="width: 100vw; height: 60vh;">
 			Participated in <b><%= @info['handle2']['contests'].length %></b> contests!
 			<br/>
-			<%= text_field_tag :search5, nil, placeholder: "Search contest", onkeyup: "filter('5', 'list5')"%>
+			<%= text_field_tag :search17, nil, placeholder: "Search contest", onkeyup: "filter('17', 'list17')"%>
 			<br/>
 			<br/>
-			<div id="list5" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+			<div id="list17" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['handle2']['contests'].each do |contest| %>
 					<div><a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a></div>
 				<% end %>
@@ -269,10 +377,10 @@
 		<div class="centered" style="width: 100vw; height: 60vh;">
 			<b><%= @info['handle2']['unsolvedProblems'].length.to_s %></b> problems to do!
 			<br/>
-			<%= text_field_tag :search6, nil, placeholder: "Search problem", onkeyup: "filter('6', 'list6')" %>
+			<%= text_field_tag :search18, nil, placeholder: "Search problem", onkeyup: "filter('18', 'list18')" %>
 			<br/>
 			<br/>
-			<div id="list6" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+			<div id="list18" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['handle2']['unsolvedProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
 				<% end %>
@@ -294,10 +402,10 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
 			<br/>
-			<%= text_field_tag :search7, nil, placeholder: "Search problem", onkeyup: "filter('7', 'list7')" %>
+			<%= text_field_tag :search19, nil, placeholder: "Search problem", onkeyup: "filter('19', 'list19')" %>
 			<br/>
 			<br/>
-			<div id="list7" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+			<div id="list19" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				<% @info['commonProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
 				<% end %>
@@ -307,10 +415,10 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			<%= @info['handle1']['handle']%> solved <b><%= @info['handle1']['uniqueProblems'].length.to_s %></b> unique problems!
 			<br/>
-			<%= text_field_tag :search8, nil, placeholder: "Search problem", onkeyup: "filter('8', 'list8')" %>
+			<%= text_field_tag :search20, nil, placeholder: "Search problem", onkeyup: "filter('20', 'list20')" %>
 			<br/>
 			<br/>
-			<div id="list8" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+			<div id="list20" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				<% @info['handle1']['uniqueProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
 				<% end %>
@@ -320,10 +428,10 @@
 		<div class="centered" style="height: 100%; width: 24.7vw">
 			<%= @info['handle2']['handle']%> solved <b><%= @info['handle2']['uniqueProblems'].length.to_s %></b> unique problems!
 			<br/>
-			<%= text_field_tag :search9, nil, placeholder: "Search problem", onkeyup: "filter('9', 'list9')" %>
+			<%= text_field_tag :search21, nil, placeholder: "Search problem", onkeyup: "filter('21', 'list21')" %>
 			<br/>
 			<br/>
-			<div id="list9" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+			<div id="list21" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				<% @info['handle2']['uniqueProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
 				<% end %>
@@ -339,10 +447,83 @@
 			<p></i><%= @info['handle2']['handle'] %><i> ranked better than </i><%= @info['handle1']['handle'] %><i> <b><%= @info['handle2']['winsOver'] %></b> times</p></i>
 			<br/><br/>
 			-->
-			<%= text_field_tag :search10, nil, placeholder: "Search contest", onkeyup: "filter('10', 'list10')" %>
+			<%= text_field_tag :search22, nil, placeholder: "Search contest", onkeyup: "filter('22', 'list22')" %>
 			<br/>
 			<br/>
-			<div id="list10" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+			<div id="list22" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['commonContests'].each do |contest| %>
+					<div>
+					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
+					<p><%= @info['handle1']['handle'] %>: <b><%= contest['handle1']['rank'] %></b>&emsp;<%= @info['handle2']['handle'] %>: <b><%= contest['handle2']['rank'] %></b></p>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff;">
+
+		<!--
+		<div class="row" style="background-color: #ddffff; height: 8vw; width: 100vw;">
+			<div style="margin: auto; text-align: center">
+				<h1>Result</h1>
+				<p>Current rating difference: <b><%= @info['ratingDifference'] %></b></p>
+			</div>
+		</div>
+		-->
+
+		<div class="centered" style="height: 55vw; width: 50%;">
+			You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
+			<br/>
+			<%= text_field_tag :search23, nil, placeholder: "Search problem", onkeyup: "filter('23', 'list23')" %>
+			<br/>
+			<br/>
+			<div id="list23" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['commonProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="height: 55vw; width: 50%;">
+			<%= @info['handle1']['handle']%> solved <b><%= @info['handle1']['uniqueProblems'].length.to_s %></b> unique problems!
+			<br/>
+			<%= text_field_tag :search24, nil, placeholder: "Search problem", onkeyup: "filter('24', 'list24')" %>
+			<br/>
+			<br/>
+			<div id="list24" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['handle1']['uniqueProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="height: 55vw; width: 50%;">
+			<%= @info['handle2']['handle']%> solved <b><%= @info['handle2']['uniqueProblems'].length.to_s %></b> unique problems!
+			<br/>
+			<%= text_field_tag :search25, nil, placeholder: "Search problem", onkeyup: "filter('25', 'list25')" %>
+			<br/>
+			<br/>
+			<div id="list25" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
+				<% @info['handle2']['uniqueProblems'].each do |problem| %>
+					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="centered" style="height: 55vw; width: 50%;">
+			<b><%= @info['commonContests'].length %></b> contests both users participated!
+			<br/>
+			<!--
+			<i><p>In which...</p>
+			<p></i><%= @info['handle1']['handle'] %><i> ranked better than </i><%= @info['handle2']['handle'] %><i> <b><%= @info['handle1']['winsOver'] %></b> times</p>
+			<p></i><%= @info['handle2']['handle'] %><i> ranked better than </i><%= @info['handle1']['handle'] %><i> <b><%= @info['handle2']['winsOver'] %></b> times</p></i>
+			<br/><br/>
+			-->
+			<%= text_field_tag :search26, nil, placeholder: "Search contest", onkeyup: "filter('26', 'list26')" %>
+			<br/>
+			<br/>
+			<div id="list26" style="display:inline-block; height: 80%; width: 90%; overflow: auto;">
 				<% @info['commonContests'].each do |contest| %>
 					<div>
 					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
@@ -367,10 +548,10 @@
 		<div class="centered" style="width: 100vw; height: 60vh;">
 			You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
 			<br/>
-			<%= text_field_tag :search7, nil, placeholder: "Search problem", onkeyup: "filter('7', 'list7')" %>
+			<%= text_field_tag :search27, nil, placeholder: "Search problem", onkeyup: "filter('27', 'list27')" %>
 			<br/>
 			<br/>
-			<div id="list7" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+			<div id="list27" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['commonProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
 				<% end %>
@@ -380,10 +561,10 @@
 		<div class="centered" style="width: 100vw; height: 60vh;">
 			<%= @info['handle1']['handle']%> solved <b><%= @info['handle1']['uniqueProblems'].length.to_s %></b> unique problems!
 			<br/>
-			<%= text_field_tag :search8, nil, placeholder: "Search problem", onkeyup: "filter('8', 'list8')" %>
+			<%= text_field_tag :search28, nil, placeholder: "Search problem", onkeyup: "filter('28', 'list28')" %>
 			<br/>
 			<br/>
-			<div id="list8" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+			<div id="list28" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['handle1']['uniqueProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
 				<% end %>
@@ -393,10 +574,10 @@
 		<div class="centered" style="width: 100vw; height: 60vh;">
 			<%= @info['handle2']['handle']%> solved <b><%= @info['handle2']['uniqueProblems'].length.to_s %></b> unique problems!
 			<br/>
-			<%= text_field_tag :search9, nil, placeholder: "Search problem", onkeyup: "filter('9', 'list9')" %>
+			<%= text_field_tag :search29, nil, placeholder: "Search problem", onkeyup: "filter('29', 'list29')" %>
 			<br/>
 			<br/>
-			<div id="list9" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+			<div id="list29" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['handle2']['uniqueProblems'].each do |problem| %>
 					<div><a target="_blank" href= <%= problem['url'] %> ><%= problem['contestId'].to_s+problem['index'].to_s + ' - ' + problem['name'].to_s %></a></div>
 				<% end %>
@@ -412,10 +593,10 @@
 			<p></i><%= @info['handle2']['handle'] %><i> ranked better than </i><%= @info['handle1']['handle'] %><i> <b><%= @info['handle2']['winsOver'] %></b> times</p></i>
 			<br/><br/>
 			-->
-			<%= text_field_tag :search10, nil, placeholder: "Search contest", onkeyup: "filter('10', 'list10')" %>
+			<%= text_field_tag :search30, nil, placeholder: "Search contest", onkeyup: "filter('30', 'list30')" %>
 			<br/>
 			<br/>
-			<div id="list10" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
+			<div id="list30" style="display:inline-block; height: 70%; width: 70%; overflow: auto;">
 				<% @info['commonContests'].each do |contest| %>
 					<div>
 					<a target="_blank" href= <%= contest['url'] %> > <%= contest['contestName'] %> </a><br>
