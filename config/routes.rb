@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   post 'profile' => 'pages#profile'
   post 'retrieve_solved' => 'pages#retrieve_solved'
   post 'retrieve_attempted' => 'pages#retrieve_attempted'
+  post 'retrieve_handle' => 'pages#retrieve_handle'
 end

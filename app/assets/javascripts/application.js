@@ -107,8 +107,14 @@ $(document).ready(function() {
 						message("add", "friends_notice", "Handle doesn't exist")
 					}
 					else {
-						add_friend(status);
-						message("add", "friends_notice", "Handle <b>" + status + "</b> added as friend")
+						$.ajax({
+							method: "POST",
+							url: "/retrieve_handle",
+							success: function(handle) {
+								add_friend(handle, status);
+								message("add", "friends_notice", "Handle <b>" + status + "</b> added as friend")
+							}
+						})
 					}
 					reset_form("add_friends_form")
 				}
@@ -249,11 +255,12 @@ function remove_url(info) {
 	document.getElementById(info).remove()
 }
 
-function add_friend(info) {
+function add_friend(handle, info) {
 	var current_html = document.getElementById('friends').innerHTML
 	var to_add = current_html +  "<div id =" + info + ">" + "<a target='_blank'" +
-				 "href='http://codeforces.com/profile/" + info + "'>" + info + "</a>"
-	to_add = to_add + " <img onclick=\"try_remove_friend('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";	 
+				 "href='http://codeforces.com/profile/" + info + "'>" + info + "</a>" + "&nbsp;"
+	to_add = to_add + " <img onclick=\"compare('" + String(handle) + "', '" + String(info) + "')\" src='/assets/compare.png' alt='Compare' width='16' height='16'>";
+	to_add = to_add + " <img onclick=\"try_remove_friend('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";
 	to_add = to_add + "</div>"
 	document.getElementById('friends').innerHTML = to_add
 }
@@ -265,9 +272,16 @@ function remove_friend(info) {
 function add_contest(info, attempted) {
 	var current_html = document.getElementById('contests').innerHTML
 	var seen = ""
+	var to_add = ""
 	if (attempted) seen = "<i>(attempted)</i> "
-	var to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
-				 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
+	if (Number(info) > 99999) {
+		to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
+				 "href='https://codeforces.com/gym/" + info + "'>" + info + "</a>"
+	}
+	else {
+		var to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
+				 	 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
+	}
 	to_add = to_add + " <img onclick=\"try_remove_contest('" + String(info) + "')\" src='/assets/cancel.png' alt='Cancel' width='16' height='16'>";
 	to_add = to_add + "</div>"
 	document.getElementById('contests').innerHTML = to_add
@@ -359,6 +373,7 @@ function filter(id, name) {
 	}
 }
 
-function test() {
-	console.log("Click on cancel!");
+function compare(handle1, handle2) {
+	var url = "/result?&param1=" + handle1 + "&param2=" + handle2 + "&commit=Compare%21"
+	window.open(url);
 }
