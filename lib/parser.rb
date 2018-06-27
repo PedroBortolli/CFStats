@@ -85,16 +85,16 @@ module Parser
 		info['handle'+id.to_s]['problemTags'] = problemTags
 		info['handle'+id.to_s]['acProblems'] = acProblems
 		info['handle'+id.to_s]['problemTags'] = info['handle'+id.to_s]['problemTags'].sort_by{|_key, value| -value}.to_h
-		info['handle'+id.to_s]['unsolvedProblems'].sort_by!{|a| a["contestId"]}
+		info['handle'+id.to_s]['unsolvedProblems'].sort_by!{|a| a["contestId"].to_i || 0}
 	end
 
 	def build_common (info)
 		info['commonProblems'] = info['handle1']['acProblems'] & info['handle2']['acProblems']
-		info['commonProblems'].sort_by!{|a| a["contestId"]}
+		info['commonProblems'].sort_by!{|a| a["contestId"].to_i || 0}
 		info['handle1']['uniqueProblems'] = info['handle1']['acProblems'] - info['handle2']['acProblems']
 		info['handle2']['uniqueProblems'] = info['handle2']['acProblems'] - info['handle1']['acProblems']
-		info['handle1']['uniqueProblems'].sort_by!{|a| a["contestId"]}
-		info['handle2']['uniqueProblems'].sort_by!{|a| a["contestId"]}
+		info['handle1']['uniqueProblems'].sort_by!{|a| a["contestId"].to_i || 0}
+		info['handle2']['uniqueProblems'].sort_by!{|a| a["contestId"].to_i || 0}
 		if info['handle1']['rating'] == "Unrated" or info['handle2']['rating'] == "Unrated"
 			info['ratingDifference'] = "?"
 		else
