@@ -27,7 +27,6 @@ class DatabaseController < ApplicationController
 		end
 		@return = to_add
 		render plain: @return
-		#colocar @return.to_json pra retornar isso como json se quiser
 	end
 
 

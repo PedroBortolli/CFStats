@@ -1,16 +1,11 @@
 module Api
 	def call_api (url)
 		begin
-			t1 = Time.now
 			response_from_api = RestClient.get(url)
-			t2 = Time.now
-			#puts("pra dar o get  demorou  => " + (t2-t1).to_s)
 			parsed_json = JSON.parse(response_from_api)
-			t3 = Time.now
-			#puts("pra parsear  demorou  => " + (t3-t2).to_s)
 			return parsed_json
 		rescue => exception
-			puts("aaaaaaaaaaaa", exception.http_code)
+			puts("Bad request  =>  ", exception.http_code)
 		end
 	end
 
@@ -42,7 +37,6 @@ module Api
 				response_from_api = RestClient.get(url)
 				return get_user_info(id)['result'][0]['handle']
 			rescue => exception
-				puts("Deu ruim a chamada de API  =>  ", exception.http_code)
 				return false
 			end
 
@@ -53,7 +47,6 @@ module Api
 				response_from_api = RestClient.get(url)
 				return true
 			rescue => exception
-				puts("Deu ruim a chamada de API  =>  ", exception.http_code)
 				return false
 			end
 
@@ -66,7 +59,6 @@ module Api
 			problem_index = id[id_size-1]
 			problem_index.upcase!
 			contest_number = id[0...-1]
-			puts(problem_index, contest_number)
 			for problem in all_problems
 				if problem["contestId"].to_s == contest_number
 					if problem["index"].to_s == problem_index

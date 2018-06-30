@@ -65,10 +65,4 @@ class PagesController < ApplicationController
 		@info = build_result(handle1, handle2)
 	end
 
-	def test
-		puts("Eae:")
-		puts(UserSetting.where(username: current_user.username).length)
-		puts("")
-	end
-
 end
