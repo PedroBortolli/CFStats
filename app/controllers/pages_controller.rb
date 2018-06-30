@@ -56,8 +56,8 @@ class PagesController < ApplicationController
 	end
 
 	def result
-		handle1 = params[:param1].to_s
-		handle2 = params[:param2].to_s
+		handle1 = params[:param1].to_s.strip
+		handle2 = params[:param2].to_s.strip
 		if !validate(handle1, "handle") or !validate(handle2, "handle")
 			render html: "Please provide 2 valid Codeforces handles!"
 			return
