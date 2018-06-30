@@ -4,6 +4,7 @@ class DatabaseController < ApplicationController
 
 	include Api
 
+	# Updates (or creates if it doesn't exist) CF handle passed by parameter in database
 	def update_handle_to_db
 		to_add = params[:name].to_s
 		user_exists = false
@@ -29,7 +30,7 @@ class DatabaseController < ApplicationController
 		render plain: @return
 	end
 
-
+	# Adds problem link passed by parameter to database
 	def add_links_to_db
 		to_add = params[:name].to_s
 		user_exists = false
@@ -57,6 +58,7 @@ class DatabaseController < ApplicationController
 		render plain: @return.inspect
 	end
 
+	# Removes problem link passed by parameter from database
 	def remove_links_from_db
 		to_delete = params[:name].to_s
 		@return = false
@@ -71,6 +73,7 @@ class DatabaseController < ApplicationController
 		render plain: @return.inspect
 	end
 
+	# Adds friends passed by parameter to database
 	def add_friends_to_db
 		user_exists = false
 		to_add = params[:name].to_s
@@ -98,6 +101,7 @@ class DatabaseController < ApplicationController
 		render plain: @return
 	end
 
+	# Removes friend passed by parameter from database
 	def remove_friends_from_db
 		to_delete = params[:name].to_s
 		to_delete = validate(to_delete, "handle")
@@ -113,6 +117,7 @@ class DatabaseController < ApplicationController
 		render plain: @return
 	end
 
+	# Adds contest passed by parameter to database
 	def add_contest_to_db
 		user_exists = false
 		to_add = params[:name].to_s
@@ -139,6 +144,7 @@ class DatabaseController < ApplicationController
 		render plain: @return.inspect
 	end
 
+	# Removes contest passed by parameter from database
 	def remove_contest_from_db
 		to_delete = params[:name].to_s
 		@return = false

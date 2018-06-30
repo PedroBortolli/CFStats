@@ -1,12 +1,16 @@
 module Utility
+
+	# Returns max element between a and b
 	def max (a, b)
 		a > b ? a : b
 	end
 
+	# Returns min element between a and b
 	def min (a, b)
 		a > b ? b : a
 	end
 
+	# Returns color according to rating number
 	def color (rating)
 		if rating.instance_of? String
 			return 'black'

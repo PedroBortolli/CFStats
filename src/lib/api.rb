@@ -1,4 +1,6 @@
 module Api
+
+	# Generic function to call the API
 	def call_api (url)
 		begin
 			response_from_api = RestClient.get(url)
@@ -9,12 +11,14 @@ module Api
 		end
 	end
 
+	# BasicGeneric function to call the API to retrieve user info
 	def get_user_info (handle)
 		base = 'http://codeforces.com/api/user.info?handles='
 		url = base + handle.to_s
 		return call_api(url)
 	end
 
+	# Basic function to call the API to retrieve user problems
 	def get_user_problems (handle)
 		base = 'http://codeforces.com/api/user.status?handle='
 		url = base + handle.to_s
@@ -22,6 +26,7 @@ module Api
 		return api['result']
 	end
 
+	# Basic function to call the API to retrieve contests solved by an user
 	def get_user_contests (handle)
 		base = 'http://codeforces.com/api/user.rating?handle='
 		url = base + handle.to_s
@@ -29,6 +34,8 @@ module Api
 		return api['result']
 	end
 
+	# Validates all input to check if they are a valid handle, contest or problem on Codeforces
+	# Returns true if valid, false otherwise
 	def validate (id, type)
 		if (type == "handle")
 			begin

@@ -3,6 +3,7 @@ module Parser
 	include Utility
 	include Api
 
+	# Calls CF API and stores basic user information
 	def build_user_info (handle, id, info)
 		result = get_user_info(handle)
 		handle_info = result['result'][0]
@@ -14,6 +15,7 @@ module Parser
 		end
 	end
 
+	# Calls CF API and stores all contests from a user
 	def build_contests (handle, id, info)
 		contests = get_user_contests(handle)
 		worst_rating = 999999
@@ -50,6 +52,7 @@ module Parser
 		end
 	end
 
+	# Calls CF API and stores all problems that a user solved
 	def build_problems (handle, id, info)
 		problems = get_user_problems(handle)
 		acProblems = Array.new
@@ -88,6 +91,7 @@ module Parser
 		info['handle'+id.to_s]['unsolvedProblems'].sort_by!{|a| a["contestId"].to_i || 0}
 	end
 
+	# Builds all information in common between the two users being compared
 	def build_common (info)
 		info['commonProblems'] = info['handle1']['acProblems'] & info['handle2']['acProblems']
 		info['commonProblems'].sort_by!{|a| a["contestId"].to_i || 0}
@@ -138,6 +142,7 @@ module Parser
 		info['contests'] = aux.sort{|a,b| a['ratingUpdateTimeSeconds'] <=> b['ratingUpdateTimeSeconds']}
 	end
 
+	# Builds solved problems and attempted contests from a user
 	def build_solved_problems_and_attempted_contests (handle)
 		profile_info = build_result(handle, nil)
 		ac_problems = profile_info['handle1']['acProblems']
@@ -157,6 +162,7 @@ module Parser
 		return problems_solved, contests_attempted		
 	end
 
+	# Merges all contests from both user to create a timeline of both users' ratings over time
 	def merge_contests (info)
 		seen = Hash.new
 		contests_merged = Array.new
@@ -203,6 +209,7 @@ module Parser
 		info['contestsMerged'] = contests_merged
 	end
 
+	# Calls all the functions above and stores them to the hash "Info" to be returned
 	def build_result (handle1, handle2)
 		info = Hash.new
 		build_user_info(handle1, 1, info)

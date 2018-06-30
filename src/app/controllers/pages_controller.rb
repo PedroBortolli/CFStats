@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 	def index
 	end
 
+	# Builds all information about user logged into the website
 	def profile
 		if user_signed_in?
 			db_entry = UserSetting.where(username: current_user.username)[0]
@@ -22,31 +23,34 @@ class PagesController < ApplicationController
 		end
 	end
 
+	# Returns current user's solved problems to ajax calls
 	def retrieve_solved
 		render json: @@problems_solved_shared
 	end
 
+	# Returns current user's attempted contests to ajax calls
 	def retrieve_attempted
 		render json: @@contests_attempted_shared
 	end
 
+	# Returns current user's handle to ajax calls
 	def retrieve_handle
 		render html: @@handle_shared
 	end
 
+	# Passes path to compare.png to javascript functions
 	def retrieve_compare_icon_path
 		path = ActionController::Base.helpers.asset_path("compare.png")
 		render html: path
 	end
 
+	# Passes path to cancel.png to javascript functions
 	def retrieve_cancel_icon_path
 		path = ActionController::Base.helpers.asset_path("cancel.png")
 		render html: path
 	end
 
 	def about
-		@title = 'About us'
-		@content = 'Projeto de Técnicas de Programação II'
 	end
 
 	def search
@@ -55,6 +59,8 @@ class PagesController < ApplicationController
 	def add
 	end
 
+	# Passes both handles removing leading and trailing whitespaces as parameters to the /result page
+	# alongside with their information to be displayed in their comparison
 	def result
 		handle1 = params[:param1].to_s.strip
 		handle2 = params[:param2].to_s.strip
