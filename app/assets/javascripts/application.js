@@ -369,7 +369,7 @@ function drawChart2(data, parent_div, handle1, handle2) {
 	for (var i = 0; i < sze; i++) {
 		var secs = Number(data[i][0]);
 		var date = new Date(secs*1000)
-		console.log(date);
+		// console.log(date);
 		result.push([date, data[i][1], data[i][2]]);
 	}
 	var datatable = google.visualization.arrayToDataTable(result);
