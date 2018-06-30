@@ -188,6 +188,8 @@ Then go to the CFStats cloned directory and run the following commands:
 &nbsp;
 ## Running the app server
 
+Navigate to the source folder (type ``cd src``)
+
 Run ``rails s``
 
 That's it! Now the app server is running locally on your computer! To visit the webpage, go to your navigator and type ``localhost:3000``
@@ -202,8 +204,11 @@ If anything else goes wrong, please contact us.
 &nbsp;
 ## How to make tests
 
-Simply run ``rake test:models`` to run tests for the models implemented.
-(By the next deadline there will be more tests available for other parts of the application)
+Run ``rake test:models`` to run tests for the models implemented.
+
+Run ``rake test:controllers`` to run tests for the controllers implemented.
+
+
 
 &nbsp;
 ## Usage example
@@ -212,7 +217,9 @@ Click on "Compare two users!". Now, type 2 valid Codeforces handles and then cli
 
 There will be spoiler tags containing links (to the actual Codeforces website) for each problem solved by each user. Also, a graph is ploted containing the amount of problems solved by tag.
 
-New: profile page (requires an account). Click on "Profile" on the index page. There you can add your Codeforces handle, you can add friends, problems and contests to solve later. This feature is still under construction, but it is being developed to be used as some kind of shortcut and as a way to save important Codeforces link to the future.
+Another feature of this project is the profile page (requires an account). Click on "Profile" on the index page. There you can add your Codeforces handle, you can add friends, problems and contests to solve later. This feature is still under construction, but it is being developed to be used as some kind of shortcut and as a way to save important Codeforces link to the future.
+
+The cool thing about the profile page is that it communicates to Codeforces API to retrieve which problems/contests you've already solved/attempted. If it detects that one of these links is not relevant to you anymore it suggets the user to delete them. That way you can easly control your training!
 
 
 
@@ -238,7 +245,13 @@ New: profile page (requires an account). Click on "Profile" on the index page. T
 * Started profile page implementation. Will be finished by the 3rd deadline.
 * User authentication implemented using Devise
 * Update on design of the website. Will be finished by the 3rd deadline.
-* Tests added
+* Model tests added
 * Minor bug fixes
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3rd deadline
-*
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3rd deadline (June 29th, 2018)
+* Profile page finished: now it communicates to Codeforces API to retrieve problems/contests already tried/attempted to notify user
+* Major front end changes: on the comparison page (/result) information is clearer. Instead of ugly buttons to show/hide links, now we only display a few of them in a scrollable box. You can also filter problems by typing part of their name (a substring of it).
+* Also on front end, there's a line graph comparing both users' ratings over time
+* Continuing the changes made to the front end, there's mobile support now. The page gets resized according to the device pixels size.
+* Controller tests added
+* Minor bug fixes
