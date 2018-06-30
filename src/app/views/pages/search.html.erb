@@ -1,12 +1,18 @@
 <body class="background centered">
+
+<br/>
+<br/>
+<br/>
+
 <%= form_tag "/result", method:'get' do %>
 
-<%= text_field_tag :param1, nil, placeholder: "CF Handle1" %>
+<div class="centered">
+<%= text_field_tag :param1, nil, class:"form-control form-control text-center", style:"width: 200px; margin: 0 auto; float: none;", placeholder: "CF Handle1" %>
+</div>
+
+<%= text_field_tag :param2, nil, class:"form-control form-control text-center", style:"width: 200px; margin: 0 auto; float: none;", placeholder: "CF Handle2" %>
 
 <br/>
-<%= text_field_tag :param2, nil, placeholder: "CF Handle2" %>
-
-<br/>
-<%= submit_tag "Compare!" %>
+<%= submit_tag "Compare!", class:"btn btn-primary"%>
 <% end %>
 </div>
