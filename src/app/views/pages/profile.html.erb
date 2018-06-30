@@ -10,13 +10,7 @@
 	<% handle = "" %>
 
 	<% for user in UserSetting.where(username: current_user.username) %>	
-		<div id = "<%= user.handle %>">
-			<h4>
-			<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
-				<%= handle = user.handle %>
-			</a>
-			</h4>
-		</div>
+		<% handle = user.handle %>
 	<% end %>
 
 	<% if UserSetting.where(username: current_user.username).length == 0 %>
@@ -24,12 +18,12 @@
 		<br/>
 		<h3>Please insert your Codeforces handle below:</h3>
 		<br/>
-		<input type="text" id="update_handle_form" placeholder="Update Codeforces handle">
+		<input type="text" class="form-control form-control text-center" style="width: 250px; margin: 0 auto; float: none;" id="update_handle_form" placeholder="Update Codeforces handle">
 		<br/>
 		<div id = "handles_notice"></div>
 
 		<br/>
-		<div id = "handles">
+		<div id = "handles" style="display: none;">
 			<% for user in UserSetting.where(username: current_user.username) %>	
 				<div id = "<%= user.handle %>">
 					<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
@@ -44,13 +38,20 @@
 	
 
 		<% if user_signed_in? %>
-			<h4>Hello, <%= current_user.username %>! Your current saved CF handle is:</h4> 
+			<h4>Hello, <%= current_user.username %>! Your current saved CF handle is:</h4>
+			<div id = "<%= user.handle %>">
+			<h4>
+			<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
+				<%= handle %>
+			</a>
+			</h4>
+		</div>
 		<% end %>
 
-		<div id = "handles">
+		<div id = "handles" style="display: none;">
 		</div>
 
-		<input type="text" id="update_handle_form" placeholder="Update Codeforces handle">
+		<input type="text" class="form-control form-control text-center" style="width: 250px; margin: 0 auto; float: none;" id="update_handle_form" autofocus="true" placeholder="Update Codeforces handle">
 
 		<br/>
 		<div id = "handles_notice"><br/></div>
@@ -62,10 +63,9 @@
 			<div class="fiftyCENTER">
 				<h3>Friends</h3>
 
-				<input type="text" id="add_friends_form" placeholder="Add friend">
-				<%= text_field_tag :search11, nil, placeholder: "Search friend", onkeyup: "filter('11', 'friends')" %>
+				<input type="text" class="form-control form-control text-center" style="width:200px; margin: 0 auto; float: none;" id="add_friends_form" placeholder="Add friend">
+				<%= text_field_tag :search11, nil, class:"form-control form-control text-center", style:"width: 200px; margin: 0 auto; float: none;", placeholder:"Search friend", onkeyup: "filter('11', 'friends')" %>
 
-				<br/>
 				<div id = "friends_notice"><br/></div>
 				
 				<br/>
@@ -95,9 +95,8 @@
 
 			<div class="fiftyLEFT">
 				<h3>Problems</h3>
-				<input type="text" id="add_links_form" placeholder="Add problem URL"> 
-				<%= text_field_tag :search12, nil, placeholder: "Search problem", onkeyup: "filter('12', 'links')" %>
-				<br/>
+				<input type="text" class="form-control form-control text-center" style="width: 200px; margin: 0 auto; float: none;" id="add_links_form" placeholder="Add problem URL"> 
+				<%= text_field_tag :search12, nil, class:"form-control form-control text-center", style:"width: 200px; margin: 0 auto; float: none;", placeholder: "Search problem", onkeyup: "filter('12', 'links')" %>
 				<div id = "links_notice"><br/></div>
 				<br/>
 				<div id = "links" class="border" style="background-color: #ddffff; height: 30vh; overflow: auto;">
@@ -126,9 +125,8 @@
 
 			<div class="fiftyRIGHT">
 				<h3> Contests </h3>
-				<input type="text" id="add_contests_form" placeholder="Add contest URL"> 
-				<%= text_field_tag :search13, nil, placeholder: "Search contest", onkeyup: "filter('13', 'contests')" %>
-				<br/>
+				<input type="text" class="form-control form-control text-center" style="width: 200px; margin: 0 auto; float: none;" id="add_contests_form" placeholder="Add contest URL"> 
+				<%= text_field_tag :search13, nil, class:"form-control form-control text-center", style:"width: 200px; margin: 0 auto; float: none;", placeholder: "Search contest", onkeyup: "filter('13', 'contests')" %>
 				<div id = "contests_notice"><br/></div>
 				<br/>
 				<div id = "contests" class="border" style="background-color: #ddffff; height: 30vh; overflow: auto;">
