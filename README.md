@@ -202,15 +202,6 @@ If anything else goes wrong, please contact us.
 
 
 &nbsp;
-## How to make tests
-
-Run ``rake test:models`` to run tests for the models implemented.
-
-Run ``rake test:controllers`` to run tests for the controllers implemented.
-
-
-
-&nbsp;
 ## Usage example
 
 Click on "Compare two users!". Now, type 2 valid Codeforces handles and then click on "Compare!". Another page will be loaded containing information about each individual user and also common information between them.
@@ -220,6 +211,17 @@ There will be spoiler tags containing links (to the actual Codeforces website) f
 Another feature of this project is the profile page (requires an account). Click on "Profile" on the index page. There you can add your Codeforces handle, you can add friends, problems and contests to solve later. This feature is still under construction, but it is being developed to be used as some kind of shortcut and as a way to save important Codeforces link to the future.
 
 The cool thing about the profile page is that it communicates to Codeforces API to retrieve which problems/contests you've already solved/attempted. If it detects that one of these links is not relevant to you anymore it suggets the user to delete them. That way you can easly control your training!
+
+
+
+&nbsp;
+## How to make tests
+
+We have two automized tests for the project:
+
+Run ``rake test:models`` to run tests for the models implemented.
+
+Run ``rake test:controllers`` to run tests for the controllers implemented.
 
 
 
@@ -255,3 +257,9 @@ The cool thing about the profile page is that it communicates to Codeforces API 
 * Continuing the changes made to the front end, there's mobile support now. The page gets resized according to the device pixels size.
 * Controller tests added
 * Minor bug fixes
+
+
+&nbsp;
+## Features to come
+
+We are aware that the website is a little slow to compare two users. Also, the loading of the /profile page could be a little faster too. We plan to keep saving data from users to our database every few hours (yet to be determined). That way, when trying to compare two users (or access your profile) we can retrieve the needed information from our own database instead of making too many API calls to Codeforces.
