@@ -1,4 +1,5 @@
 <body>
+	<!-- Head of comparison -->
 	<div class="row big-head" style="background-color: #ddffff; width: 100vw; height: 55vh">
 		<div class="split" style="width: 25vw; float: right;">
 			<h2 class = "<%= color(@info['handle1']['rating']) %>">
@@ -48,12 +49,13 @@
 		</div>
 	</div>
 
-	<div id="tagchart2" class="row small-head" style="background-color: red; padding-left: 5%; width: 100vw; height: 100vh">
+	<div id="tagchart2" class="row small-head" style="background-color: #ddffff; padding-left: 5%; width: 100vw; height: 100vh">
 	</div>
 
+	<!-- Handle1 stats -->
 	<div class="row big-screen" style="background-color: #ddffff; height: 35vw">
 		<div style="width: 100%; padding-left: 5%">
-			<h4><%= @info['handle1']['handle'] %>'s stats</h4>
+			<h4 style="text-align: center"><%= @info['handle1']['handle'] %>'s stats</h4>
 		</div>
 		<div class="centered" style="width: 24.7vw">
 			<br/>
@@ -108,7 +110,7 @@
 
 	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff;">
 		<div style="width: 100%; padding-left: 5%">
-			<h4><%= @info['handle1']['handle'] %>'s stats</h4>
+			<h4 style="text-align: center"><%= @info['handle1']['handle'] %>'s stats</h4>
 		</div>
 		<div class="centered" style="height: 55vw; width: 50%;">
 			<div id="tagchart30"></div>
@@ -162,7 +164,7 @@
 
 	<div class="small-screen" style="background-color: #ddffff;">
 		<div style="width: 100%; padding-left: 5%">
-			<h4><%= @info['handle1']['handle'] %>'s stats</h4>
+			<h4 style="text-align: center"><%= @info['handle1']['handle'] %>'s stats</h4>
 		</div>
 		<div class="centered" style="width: 100vw;">
 			<br/>
@@ -215,9 +217,10 @@
 		</div>
 	</div>
 
+	<!-- Handle2 stats -->
 	<div class="row big-screen" style="background-color: #ddffff; height: 35vw">
 		<div style="width: 100%; padding-left: 5%">
-			<h4><%= @info['handle2']['handle'] %>'s stats</h4>
+			<h4 style="text-align: center"><%= @info['handle2']['handle'] %>'s stats</h4>
 		</div>
 		<div class="centered" style="width: 24.7vw">
 			<div id="tagchart5"></div>
@@ -271,7 +274,7 @@
 
 	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff;">
 		<div style="width: 100%; padding-left: 5%">
-			<h4><%= @info['handle2']['handle'] %>'s stats</h4>
+			<h4 style="text-align: center"><%= @info['handle2']['handle'] %>'s stats</h4>
 		</div>
 		<div class="centered" style="height: 55vw; width: 50%;">
 			<div id="tagchart40"></div>
@@ -325,7 +328,7 @@
 
 	<div class="small-screen" style="background-color: #ddffff;">
 		<div style="width: 100%; padding-left: 5%">
-			<h4><%= @info['handle2']['handle'] %>'s stats</h4>
+			<h4 style="text-align: center"><%= @info['handle2']['handle'] %>'s stats</h4>
 		</div>
 		<div class="centered" style="width: 100vw">
 			<div id="tagchart6"></div>
@@ -377,8 +380,11 @@
 		</div>
 	</div>
 
+	<!-- Common stats -->
 	<div class="row big-screen" style="background-color: #ddffff; height: 35vw">
-
+		<div style="width: 100%; padding-left: 5%">
+			<h4 style="text-align: center">Common stats</h4>
+		</div>
 		<!--
 		<div class="row" style="background-color: #ddffff; height: 8vw; width: 100vw;">
 			<div style="margin: auto; text-align: center">
@@ -451,7 +457,9 @@
 	</div>
 
 	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff;">
-
+		<div style="width: 100%; padding-left: 5%">
+			<h4 style="text-align: center">Common stats</h4>
+		</div>
 		<!--
 		<div class="row" style="background-color: #ddffff; height: 8vw; width: 100vw;">
 			<div style="margin: auto; text-align: center">
@@ -524,7 +532,9 @@
 	</div>
 
 	<div class="small-screen" style="background-color: #ddffff;">
-
+		<div style="width: 100%; padding-left: 5%">
+			<h4 style="text-align: center">Common stats</h4>
+		</div>
 		<!--
 		<div class="row" style="background-color: #ddffff; height: 8vw; width: 100vw;">
 			<div style="margin: auto; text-align: center">
