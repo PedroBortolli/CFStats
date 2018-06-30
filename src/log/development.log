@@ -4904,3 +4904,546 @@ Processing by PagesController#result as HTML
 Completed 200 OK in 7471ms (Views: 47.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:40:50 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (47.0ms)
+Completed 200 OK in 7533ms (Views: 76.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:42:08 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 7621ms (Views: 92.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:42:51 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 7247ms (Views: 52.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:43:42 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 7137ms (Views: 97.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:44:23 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 7182ms (Views: 51.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:46:25 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (26.9ms)
+Completed 200 OK in 7671ms (Views: 49.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:46:48 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 7630ms (Views: 51.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:47:18 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 7385ms (Views: 47.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:47:54 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 12483ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:48:32 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 6985ms (Views: 48.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:48:48 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 7282ms (Views: 50.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:49:22 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 7646ms (Views: 59.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:49:57 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 11365ms (Views: 42.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:50:30 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 7377ms (Views: 47.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:51:03 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 7138ms (Views: 49.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:51:25 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.3ms)
+Completed 200 OK in 7477ms (Views: 53.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:52:05 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 7198ms (Views: 51.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:53:50 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 7223ms (Views: 96.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:54:40 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 7211ms (Views: 102.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:55:27 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 7238ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:57:35 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 7226ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:58:02 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 7278ms (Views: 99.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:58:31 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 7146ms (Views: 53.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:58:59 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 8535ms (Views: 95.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:59:17 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 7264ms (Views: 95.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 22:59:46 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (41.2ms)
+Completed 200 OK in 7062ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:00:44 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 7037ms (Views: 97.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:01:00 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 7006ms (Views: 98.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:01:26 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 7324ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:02:08 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (28.6ms)
+Completed 200 OK in 7014ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:02:42 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 7080ms (Views: 48.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:03:36 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 7579ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:04:18 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 7088ms (Views: 47.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:05:32 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 7360ms (Views: 39.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:05:49 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 7223ms (Views: 32.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:06:52 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 7199ms (Views: 50.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:07:39 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 7059ms (Views: 49.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:09:15 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 7563ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:10:26 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 7733ms (Views: 62.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:11:10 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 7165ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:13:42 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 7665ms (Views: 61.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:17:24 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 7898ms (Views: 55.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:17:52 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 7089ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:18:14 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 7134ms (Views: 49.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:18:41 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 7311ms (Views: 54.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:20:06 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 7096ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:20:20 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 7265ms (Views: 51.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:20:38 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 6952ms (Views: 48.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:21:07 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 7502ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:21:33 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 7400ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:21:52 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 2550ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `http_code' for #<SocketError:0x007fb446a34880>):
+  
+lib/api.rb:10:in `rescue in call_api'
+lib/api.rb:5:in `call_api'
+lib/api.rb:18:in `get_user_info'
+lib/parser.rb:8:in `build_user_info'
+lib/parser.rb:215:in `build_result'
+app/controllers/pages_controller.rb:71:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:21:58 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 7068ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:22:38 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 7433ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:23:01 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 7496ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:23:18 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 6974ms (Views: 50.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:23:32 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 7145ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:23:48 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 7122ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:25:23 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 7180ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:25:58 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 7027ms (Views: 58.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:27:00 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (32.7ms)
+Completed 200 OK in 7290ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:27:37 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 6964ms (Views: 34.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:28:13 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (28.6ms)
+Completed 200 OK in 6981ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:28:46 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 6956ms (Views: 47.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:29:55 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 7946ms (Views: 53.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:30:20 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 6980ms (Views: 49.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:30:49 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 6988ms (Views: 52.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=naoseicodar&commit=Compare%21" for 127.0.0.1 at 2018-06-29 23:31:07 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"naoseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 6982ms (Views: 40.6ms | ActiveRecord: 0.0ms)
+
+
