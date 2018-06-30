@@ -1,6 +1,6 @@
 <body>
 	<!-- Head of comparison -->
-	<div class="row big-head" style="background-color: #ddffff; width: 100vw; height: 55vh">
+	<div class="row big-head" style="background-color: #ddffff; width: 100vw; height: 55vh; margin: 0px;">
 		<div class="split" style="width: 25vw; float: right;">
 			<h2 class = "<%= color(@info['handle1']['rating']) %>">
 				<span class = "<%= @info['handle1']['first_letter1'] %>"><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
@@ -31,7 +31,7 @@
 		</div>
 	</div>
 
-	<div class="row small-head" style="background-color: #ddffff; width: 100vw; height: 70vh">
+	<div class="row small-head" style="background-color: #ddffff; width: 100vw; height: 70vh; margin: 0px;">
 		<div class="split" style="width: 50vw; float: right;">
 			<h2 class = "<%= color(@info['handle1']['rating']) %>" style="font-size: 5vw">
 				<span class = "<%= @info['handle1']['first_letter1'] %>"><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
@@ -58,11 +58,11 @@
 	</div>
 
 	<!-- Handle1 stats -->
-	<div class="row big-screen" style="background-color: #ddffff; height: 35vw; padding-top: 2%">
+	<div class="row big-screen" style="background-color: #ddffff; height: 35vw; padding-top: 2%; margin: 0px;">
 		<div style="width: 100%; padding-left: 5%">
 			<h4 style="text-align: center"><%= @info['handle1']['handle'] %>'s stats</h4>
 		</div>
-		<div class="centered" style="width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 25vw">
 			<br/>
 			<div id="tagchart3"></div>
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -73,7 +73,7 @@
 		    </script> 
 		</div>
 
-		<div class="centered" style="height: 90%; width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 25vw">
 			Solved <b><%= @info['handle1']['acProblems'].length %></b> problems!
 			<br/>
 			<%= text_field_tag :search1, nil, placeholder: "Search problem", onkeyup: "filter('1', 'list1')" %>
@@ -86,7 +86,7 @@
 			</div>
 		</div>
 
-		<div class="centered" style="height: 90%; width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 25vw">
 			Participated in <b><%= @info['handle1']['contests'].length %></b> contests!
 			<br/>
 			<%= text_field_tag :search2, nil, placeholder: "Search contest", onkeyup: "filter('2', 'list2')" %>
@@ -99,7 +99,7 @@
 			</div>
 		</div>
 
-		<div class="centered" style="height: 90%; width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 25vw">
 			<b><%= @info['handle1']['unsolvedProblems'].length.to_s %></b> problems to do!
 			<br/>
 			<%= text_field_tag :search3, nil, placeholder: "Search problem", onkeyup: "filter('3', 'list3')" %>
@@ -113,7 +113,7 @@
 		</div>
 	</div>
 
-	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff;">
+	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff; margin: 0px;">
 		<div style="width: 100%; padding-left: 5%">
 			<h4 style="text-align: center"><%= @info['handle1']['handle'] %>'s stats</h4>
 		</div>
@@ -223,11 +223,11 @@
 	</div>
 
 	<!-- Handle2 stats -->
-	<div class="row big-screen" style="background-color: #ddffff; height: 35vw; padding-top: 2%">
+	<div class="row big-screen" style="background-color: #ddffff; height: 35vw; padding-top: 2%; margin: 0px;">
 		<div style="width: 100%; padding-left: 5%">
 			<h4 style="text-align: center"><%= @info['handle2']['handle'] %>'s stats</h4>
 		</div>
-		<div class="centered" style="width: 24.7vw">
+		<div class="centered" style="height: 90%; width: 24.7vw">
 			<div id="tagchart5"></div>
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
@@ -277,7 +277,7 @@
 		</div>
 	</div>
 
-	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff;">
+	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff; margin: 0px;">
 		<div style="width: 100%; padding-left: 5%">
 			<h4 style="text-align: center"><%= @info['handle2']['handle'] %>'s stats</h4>
 		</div>
@@ -386,7 +386,7 @@
 	</div>
 
 	<!-- Common stats -->
-	<div class="row big-screen" style="background-color: #ddffff; height: 35vw; padding-top: 2%">
+	<div class="row big-screen" style="background-color: #ddffff; height: 35vw; padding-top: 2%; margin: 0px;">
 		<div style="width: 100%; padding-left: 5%">
 			<h4 style="text-align: center">Common stats</h4>
 		</div>
@@ -461,7 +461,7 @@
 		</div>
 	</div>
 
-	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff;">
+	<div class="row middle-screen" style="height: 120vw; background-color: #ddffff; margin: 0px;">
 		<div style="width: 100%; padding-left: 5%">
 			<h4 style="text-align: center">Common stats</h4>
 		</div>
