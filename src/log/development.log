@@ -6887,3 +6887,151 @@ Processing by PagesController#result as HTML
 Completed 200 OK in 12317ms (Views: 134.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-07-06 01:15:15 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 319ms (Views: 309.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-07-06 01:15:18 -0300
+Processing by PagesController#search as HTML
+  Rendering pages/search.html.erb within layouts/application
+  Rendered pages/search.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 52ms (Views: 50.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=csacademy&commit=Compare%21" for 127.0.0.1 at 2018-07-06 01:15:25 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"csacademy", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 6159ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `>=' for nil:NilClass):
+  
+lib/parser.rb:11:in `build_user_info'
+lib/parser.rb:219:in `build_result'
+app/controllers/pages_controller.rb:71:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=csacademy&commit=Compare%21" for 127.0.0.1 at 2018-07-06 01:16:27 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"csacademy", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 6038ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `>=' for nil:NilClass):
+  
+lib/parser.rb:12:in `build_user_info'
+lib/parser.rb:220:in `build_result'
+app/controllers/pages_controller.rb:71:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=numseicodar&param2=csacademy&commit=Compare%21" for 127.0.0.1 at 2018-07-06 01:20:44 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"numseicodar", "param2"=>"csacademy", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (35.2ms)
+Completed 200 OK in 12192ms (Views: 58.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-06 01:21:26 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 61ms (Views: 37.9ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-07-06 01:21:35 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u2rFVfnbSd/MlvnUl5wGrc0XhaWTvkEUKShclsQiT7hplYWPkhGjb8/1Lw8eXP+8zCa2oblWV/lfQdaIiJ661w==", "user"=>{"login"=>"a", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (lower(username) = 'a' OR lower(email) = 'a') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-07-06 04:21:35.689841"], ["last_sign_in_at", "2018-06-30 00:40:36.753883"], ["sign_in_count", 6], ["updated_at", "2018-07-06 04:21:35.691028"], ["id", 1]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/profile
+Completed 302 Found in 166ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-07-06 01:21:35 -0300
+Processing by PagesController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (1.1ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendering pages/profile.html.erb within layouts/application
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendered pages/profile.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 8864ms (Views: 38.8ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/update_handle_to_db" for 127.0.0.1 at 2018-07-06 01:21:52 -0300
+Processing by DatabaseController#update_handle_to_db as */*
+  Parameters: {"name"=>"csacademy"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (1.1ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "user_settings" SET "handle" = $1, "updated_at" = $2 WHERE "user_settings"."id" = $3[0m  [["handle", "csacademy"], ["updated_at", "2018-07-06 04:21:55.368920"], ["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 2795ms (Views: 3.6ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-07-06 01:21:55 -0300
+Processing by PagesController#profile as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (2.4ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendering pages/profile.html.erb within layouts/application
+  [1m[36mCACHE UserSetting Load (0.1ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.1ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendered pages/profile.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 2153ms (Views: 52.3ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/update_handle_to_db" for 127.0.0.1 at 2018-07-06 01:22:09 -0300
+Processing by DatabaseController#update_handle_to_db as */*
+  Parameters: {"name"=>"pedrobortolli"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (1.2ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[33mUPDATE "user_settings" SET "handle" = $1, "updated_at" = $2 WHERE "user_settings"."id" = $3[0m  [["handle", "PedroBortolli"], ["updated_at", "2018-07-06 04:22:11.843789"], ["id", 1]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering text template
+  Rendered text template (0.1ms)
+Completed 200 OK in 2803ms (Views: 1.3ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-07-06 01:22:11 -0300
+Processing by PagesController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (1.4ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendering pages/profile.html.erb within layouts/application
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendered pages/profile.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 7070ms (Views: 46.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-07-06 01:22:20 -0300
+Processing by PagesController#profile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (0.9ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendering pages/profile.html.erb within layouts/application
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.1ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendered pages/profile.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 9158ms (Views: 46.6ms | ActiveRecord: 1.9ms)
+
+

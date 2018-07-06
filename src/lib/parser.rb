@@ -7,10 +7,14 @@ module Parser
 	def build_user_info (handle, id, info)
 		result = get_user_info(handle)
 		handle_info = result['result'][0]
+		puts(handle_info)
 		info['handle'+id.to_s] = handle_info
-		if info['handle'+id.to_s]['rating'] >= 3000
+		if info['handle'+id.to_s].key?('rating') and info['handle'+id.to_s]['rating'] >= 3000
 			info['handle'+id.to_s]['first_letter'+id.to_s] =  'legendary-user-first-letter'
 		else
+			if !info['handle'+id.to_s].key?('rating')
+				info['handle'+id.to_s]['rating'] = "Unrated"
+			end
 			info['handle'+id.to_s]['first_letter'+id.to_s] =  color(info['handle'+id.to_s]['rating'])   
 		end
 	end
@@ -47,7 +51,6 @@ module Parser
 			info['handle'+id.to_s]['maxDown'] = max_down
 		end
 		if amount_contests == 0
-			info['handle'+id.to_s]['rating'] = "Unrated"
 			info['handle'+id.to_s]['maxRating'] = "- "
 		end
 	end
