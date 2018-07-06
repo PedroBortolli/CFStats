@@ -361,27 +361,149 @@ function drawChart(data, parent_div) {
 }
 
 function drawChart2(data, parent_div, handle1, handle2) {
-	var width = document.getElementById(parent_div).clientWidth;
-	var height = document.getElementById(parent_div).clientHeight;
+	var datatable = new google.visualization.DataTable();
+    datatable.addColumn('date', 'date');
+    datatable.addColumn('number', String(handle1));
+    datatable.addColumn('number', String(handle2));
+    datatable.addColumn('number', 'Newbie');
+    datatable.addColumn('number', 'Pupil');
+    datatable.addColumn('number', 'Specialist');
+    datatable.addColumn('number', 'Expert');
+    datatable.addColumn('number', 'Candidate Master');
+    datatable.addColumn('number', 'Master');
+    datatable.addColumn('number', 'International Master');
+    datatable.addColumn('number', 'Grandmaster');
+    datatable.addColumn('number', 'International Grandmaster');
+    datatable.addColumn('number', 'Legendary Grandmaster');
+    
+    var big = 0;
+    var small = 10000;
+    
+    for (var i = 0; i < data.length; i++) {
+    	var secs = Number(data[i][0]);
+		var date = new Date(secs*1000);
 
-	result = [["date", String(handle1), String(handle2)]];
-	var sze = data.length;
-	for (var i = 0; i < sze; i++) {
-		var secs = Number(data[i][0]);
-		var date = new Date(secs*1000)
-		// console.log(date);
-		result.push([date, data[i][1], data[i][2]]);
-	}
-	var datatable = google.visualization.arrayToDataTable(result);
-	var options = {
-		'backgroundColor':'transparent', 
-		'width': width,
-		'height': 0.95 * height,
-		'chartArea': {'width': '80%', 'height': '70%'},
-		'legend': {'position': 'bottom', 'alignment': 'center'},
-	};
-	var chart = new google.visualization.LineChart(document.getElementById(parent_div));
-	chart.draw(datatable, options);
+		if (data[i][1] == null) {
+			if (data[i][2] != null) {
+        		small = Math.min(small, data[i][2]);
+        		big = Math.max(big, data[i][2]);
+			}
+		} else {
+			if (data[i][2] == null) {
+        		small = Math.min(small, data[i][1]);
+        		big = Math.max(big, data[i][1]);
+			} else {
+				small = Math.min(small, data[i][1]);
+				small = Math.min(small, data[i][2]);
+
+				big = Math.max(big, data[i][1]);
+				big = Math.max(big, data[i][2]);
+			}
+		}
+
+        datatable.addRow([date, data[i][1], data[i][2], 1200, 200, 200, 300, 200, 200, 100, 200, 400, 2000]);
+    }
+    
+    var chart = new google.visualization.ComboChart(document.getElementById(parent_div));
+    
+    chart.draw(datatable, {
+    	backgroundColor: 'transparent',
+        width: document.getElementById(parent_div).clientWidth,
+        height: 0.95 * document.getElementById(parent_div).clientHeight,
+        isStacked: true,
+        vAxis: {
+            viewWindow: {
+            	min: Math.min(1000, small - 0.1 * Math.abs(small)),
+            	max: Math.max(2000, 1.1 * big)
+            },
+            ticks: [1200,1400,1600,1900,2100,
+              			2300,2400,2600,3000],
+            textStyle: {
+            		fontSize: 10
+            },
+        	format: ''
+        },
+        series: {
+            0: {
+                type: 'line'
+            },
+            1: {
+                type: 'line'
+            },
+            2: {
+                lineWidth: 0,
+                type: 'area',
+                visibleInLegend: false,
+                enableInteractivity: false,
+                color: '#bfbfbf'
+            },
+            3: {
+                lineWidth: 0,
+                type: 'area',
+                visibleInLegend: false,
+                enableInteractivity: false,
+                color: '#00ff55'
+            },
+            4: {
+                lineWidth: 0,
+                type: 'area',
+                visibleInLegend: false,
+                enableInteractivity: false,
+                color: '#66d9ff'
+            },
+            5: {
+                lineWidth: 0,
+                type: 'area',
+                visibleInLegend: false,
+                enableInteractivity: false,
+                color: '#3722f6'
+            },
+            6: {
+                lineWidth: 0,
+                type: 'area',
+                visibleInLegend: false,
+                enableInteractivity: false,
+                color: '#cc33ff'
+            },
+            7: {
+                lineWidth: 0,
+                type: 'area',
+                visibleInLegend: false,
+                enableInteractivity: false,
+                color: '#ffff66'
+            },
+            8: {
+                lineWidth: 0,
+                type: 'area',
+                visibleInLegend: false,
+                enableInteractivity: false,
+                color: '#ff6600'
+            },
+            9: {
+                lineWidth: 0,
+                type: 'area',
+                visibleInLegend: false,
+                enableInteractivity: false,
+                color: '#ff6666'
+            },
+            10: {
+                lineWidth: 0,
+                type: 'area',
+                visibleInLegend: false,
+                enableInteractivity: false,
+                color: '#e60000'
+            },
+            11: {
+                lineWidth: 0,
+                type: 'area',
+                visibleInLegend: false,
+                enableInteractivity: false,
+                color: '#AC0000'
+            }
+        },
+        chartArea: {'width': '80%', 'height': '70%'},
+		legend: {'position': 'bottom', 'alignment': 'center'}
+    });
 }
 
 function filter(id, name) {

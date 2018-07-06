@@ -6486,3 +6486,404 @@ Processing by PagesController#index as HTML
 Completed 200 OK in 35ms (Views: 30.7ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-07-05 10:13:54 -0300
+  [1m[35m (16.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 420ms (Views: 386.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-05 10:19:09 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 300ms (Views: 290.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-07-05 10:19:11 -0300
+Processing by PagesController#search as HTML
+  Rendering pages/search.html.erb within layouts/application
+  Rendered pages/search.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 58ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:19:15 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (49.5ms)
+Completed 200 OK in 11802ms (Views: 64.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:20:43 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (56.7ms)
+Completed 200 OK in 11223ms (Views: 114.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:21:45 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (52.5ms)
+Completed 200 OK in 10945ms (Views: 110.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:22:21 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (49.8ms)
+Completed 200 OK in 11340ms (Views: 107.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:22:58 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (50.3ms)
+Completed 200 OK in 11657ms (Views: 109.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:23:47 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (49.9ms)
+Completed 200 OK in 11055ms (Views: 126.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:24:48 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (48.5ms)
+Completed 200 OK in 10981ms (Views: 107.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:37:09 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (51.4ms)
+Completed 200 OK in 11565ms (Views: 115.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:37:40 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (105.3ms)
+Completed 200 OK in 11044ms (Views: 176.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:46:04 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 12212ms (Views: 117.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:46:34 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (50.9ms)
+Completed 200 OK in 10874ms (Views: 66.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:47:11 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (48.3ms)
+Completed 200 OK in 10965ms (Views: 106.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:47:50 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (64.2ms)
+Completed 200 OK in 11260ms (Views: 128.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:48:59 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (53.5ms)
+Completed 200 OK in 11701ms (Views: 121.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:51:23 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (66.4ms)
+Completed 200 OK in 11487ms (Views: 279.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:52:01 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (52.1ms)
+Completed 200 OK in 11031ms (Views: 138.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:53:26 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (70.7ms)
+Completed 200 OK in 11900ms (Views: 91.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:53:57 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (53.7ms)
+Completed 200 OK in 12032ms (Views: 127.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:54:29 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (50.6ms)
+Completed 200 OK in 12122ms (Views: 110.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:55:28 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (54.8ms)
+Completed 200 OK in 11455ms (Views: 115.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:56:41 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (70.7ms)
+Completed 200 OK in 11570ms (Views: 130.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:58:12 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (61.0ms)
+Completed 200 OK in 15817ms (Views: 123.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 10:59:14 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (58.3ms)
+Completed 200 OK in 11571ms (Views: 125.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 11:00:30 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 12205ms (Views: 121.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 11:01:15 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (65.3ms)
+Completed 200 OK in 11815ms (Views: 79.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 11:02:55 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (73.6ms)
+Completed 200 OK in 42489ms (Views: 137.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare%21" for 127.0.0.1 at 2018-07-05 11:04:09 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (55.8ms)
+Completed 200 OK in 11693ms (Views: 116.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=nakamura&param2=pedrobortolli&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:04:41 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"nakamura", "param2"=>"pedrobortolli", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (42.6ms)
+Completed 200 OK in 11512ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=nakamura&param2=pedrobortolli&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:05:31 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"nakamura", "param2"=>"pedrobortolli", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (43.7ms)
+Completed 200 OK in 10557ms (Views: 103.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=nakamura&param2=pedrobortolli&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:07:24 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"nakamura", "param2"=>"pedrobortolli", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (56.4ms)
+Completed 200 OK in 11119ms (Views: 120.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=nakamura&param2=pedrobortolli&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:09:58 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"nakamura", "param2"=>"pedrobortolli", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (59.4ms)
+Completed 200 OK in 12320ms (Views: 160.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=nakamura&param2=pedrobortolli&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:11:07 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"nakamura", "param2"=>"pedrobortolli", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (49.4ms)
+Completed 200 OK in 11902ms (Views: 110.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=nakamura&param2=pedrobortolli&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:15:01 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"nakamura", "param2"=>"pedrobortolli", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (43.1ms)
+Completed 200 OK in 15285ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=nakamura&param2=pedrobortolli&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:16:19 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"nakamura", "param2"=>"pedrobortolli", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (42.2ms)
+Completed 200 OK in 11136ms (Views: 101.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=nakamura&param2=pedrobortolli&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:18:15 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"nakamura", "param2"=>"pedrobortolli", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (50.1ms)
+Completed 200 OK in 11148ms (Views: 64.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=nakamura&param2=pedrobortolli&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:18:50 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"nakamura", "param2"=>"pedrobortolli", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (46.2ms)
+Completed 200 OK in 10763ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:19:32 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (56.1ms)
+Completed 200 OK in 10817ms (Views: 72.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:20:38 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (52.6ms)
+Completed 200 OK in 10958ms (Views: 112.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:21:42 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (55.5ms)
+Completed 200 OK in 11267ms (Views: 115.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:23:31 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (66.1ms)
+Completed 200 OK in 10867ms (Views: 127.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:23:58 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (49.1ms)
+Completed 200 OK in 11047ms (Views: 108.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:24:24 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (51.3ms)
+Completed 200 OK in 10917ms (Views: 120.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:32:33 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (50.9ms)
+Completed 200 OK in 14224ms (Views: 109.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:33:47 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (49.5ms)
+Completed 200 OK in 16371ms (Views: 119.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:38:50 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (95.5ms)
+Completed 200 OK in 11183ms (Views: 161.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 11:43:12 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (110.9ms)
+Completed 200 OK in 22082ms (Views: 412.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=tourist&param2=petr&commit=Compare!" for 127.0.0.1 at 2018-07-05 23:12:44 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"tourist", "param2"=>"petr", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (50.7ms)
+Completed 200 OK in 12317ms (Views: 134.8ms | ActiveRecord: 0.0ms)
+
+
