@@ -8079,3 +8079,58 @@ Processing by PagesController#result as HTML
 Completed 200 OK in 17504ms (Views: 67.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-07-09 20:24:44 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 171ms (Views: 162.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-07-09 20:24:46 -0300
+Processing by PagesController#search as HTML
+  Rendering pages/search.html.erb within layouts/application
+  Rendered pages/search.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 27ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=pedrobortolli&param2=pedroteosousa&commit=Compare%21" for 127.0.0.1 at 2018-07-09 20:24:51 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"pedrobortolli", "param2"=>"pedroteosousa", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 32538ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+lib/parser.rb:188:in `block (2 levels) in merge_contests'
+lib/parser.rb:182:in `each'
+lib/parser.rb:182:in `block in merge_contests'
+lib/parser.rb:175:in `each'
+lib/parser.rb:175:in `merge_contests'
+lib/parser.rb:232:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=pedrobortolli&param2=pedroteosousa&commit=Compare%21" for 127.0.0.1 at 2018-07-09 20:32:56 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"pedrobortolli", "param2"=>"pedroteosousa", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 21522ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `info_handle_1' for #<PagesController:0x007f0edd76ac58>):
+  
+lib/parser.rb:188:in `block (2 levels) in merge_contests'
+lib/parser.rb:182:in `each'
+lib/parser.rb:182:in `block in merge_contests'
+lib/parser.rb:175:in `each'
+lib/parser.rb:175:in `merge_contests'
+lib/parser.rb:232:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=pedrobortolli&param2=pedroteosousa&commit=Compare%21" for 127.0.0.1 at 2018-07-09 20:33:37 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"pedrobortolli", "param2"=>"pedroteosousa", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (48.7ms)
+Completed 200 OK in 22859ms (Views: 66.1ms | ActiveRecord: 0.0ms)
+
+

@@ -185,7 +185,7 @@ module Parser
 						handle2 = contest2['handle']
 						if handle1 != handle2
 							rating2 = contest2['newRating']
-							if handle1 == info['handle1']['handle']
+							if handle1 == info1['user']['handle']
 								contests_merged.push([tme, rating1, rating2])
 								prev1 = rating1
 								prev2 = rating2
