@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'result' => 'pages#result'
   get 'search' => 'pages#search'
   get 'profile' => 'pages#profile'
+  get 'test' => 'pages#test'
   post 'add' => 'pages#add'
   post 'update_handle_to_db' => 'database#update_handle_to_db'
   post 'add_links_to_db' => 'database#add_links_to_db'

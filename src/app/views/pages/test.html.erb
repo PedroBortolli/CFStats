@@ -5,6 +5,19 @@
 		Friends: <%= user.friends %> <br/>
 		Links: <%= user.settings %> <br/>
 		Contests: <%= user.contests %> <br/>
+		Updated at: <%= user.updated_at %> <br/>
 		<br/>
+	<% end %>
+	<br/>
+	============================================================
+	<br/>
+	============================================================
+	<br/>
+	============================================================
+	<br/>
+	<br/>
+	<% for entry in UserInformation.all %>
+		Handle: <%= entry.handle %> <br/>
+		Information: <%= entry.info %> <br/>
 	<% end %>
 </body>

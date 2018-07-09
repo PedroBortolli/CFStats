@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608033716) do
+ActiveRecord::Schema.define(version: 20180709194049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "user_informations", force: :cascade do |t|
+    t.string "handle"
+    t.string "info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "user_settings", force: :cascade do |t|
     t.text "settings"
@@ -23,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180608033716) do
     t.string "friends"
     t.string "contests"
     t.string "handle"
+    t.string "info"
   end
 
   create_table "users", force: :cascade do |t|

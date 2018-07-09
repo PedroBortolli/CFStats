@@ -7035,3 +7035,418 @@ Processing by PagesController#profile as HTML
 Completed 200 OK in 9158ms (Views: 46.6ms | ActiveRecord: 1.9ms)
 
 
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:37:56 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/test"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1571060794837895130)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUserInformations (20180709194049)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1571060794837895130)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1571060794837895130)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUserInformations (20180709194049)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (20.9ms)[0m  [1m[35mCREATE TABLE "user_informations" ("id" bigserial primary key, "handle" character varying, "info" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180709194049"]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1571060794837895130)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-07-09 16:46:11 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 226ms (Views: 216.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:46:15 -0300
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.4ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  [1m[36mUserInformation Load (0.5ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations"[0m
+  Rendered pages/test.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 75ms (Views: 69.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-09 16:46:18 -0300
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 90ms (Views: 86.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-07-09 16:46:19 -0300
+Processing by PagesController#search as HTML
+  Rendering pages/search.html.erb within layouts/application
+  Rendered pages/search.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=pedrobortolli&param2=nakamura&commit=Compare%21" for 127.0.0.1 at 2018-07-09 16:46:22 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"pedrobortolli", "param2"=>"nakamura", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 20770ms (Views: 51.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-09 16:48:20 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 73ms (Views: 37.4ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-07-09 16:48:23 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+PLDhpQpZeMXu0TXlnWnL+rzKuqYC6WpcIjslfddJzS2ANv6MqC5M+saE8SnJ981r/Mpmhdr3p+cydy43vwX9Q==", "user"=>{"login"=>"a", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (lower(username) = 'a' OR lower(email) = 'a') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-07-09 19:48:23.288684"], ["last_sign_in_at", "2018-07-06 04:21:35.689841"], ["sign_in_count", 7], ["updated_at", "2018-07-09 19:48:23.289771"], ["id", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/profile
+Completed 302 Found in 174ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-07-09 16:48:23 -0300
+Processing by PagesController#profile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (0.4ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendering pages/profile.html.erb within layouts/application
+  [1m[36mCACHE UserSetting Load (0.1ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendered pages/profile.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 13463ms (Views: 46.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/add_friends_to_db" for 127.0.0.1 at 2018-07-09 16:49:04 -0300
+Processing by DatabaseController#add_friends_to_db as */*
+  Parameters: {"name"=>"kobus"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (1.3ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "user_settings" SET "friends" = $1, "updated_at" = $2 WHERE "user_settings"."id" = $3[0m  [["friends", "---\n- nakamura\n- tourist\n- Petr\n- Brelf\n- kobus\n"], ["updated_at", "2018-07-09 19:49:07.232675"], ["id", 1]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 2785ms (Views: 1.5ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/retrieve_handle" for 127.0.0.1 at 2018-07-09 16:49:07 -0300
+Processing by PagesController#retrieve_handle as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/retrieve_compare_icon_path" for 127.0.0.1 at 2018-07-09 16:49:07 -0300
+Processing by PagesController#retrieve_compare_icon_path as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/retrieve_cancel_icon_path" for 127.0.0.1 at 2018-07-09 16:49:07 -0300
+Processing by PagesController#retrieve_cancel_icon_path as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-07-09 16:49:15 -0300
+Processing by PagesController#profile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (0.5ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendering pages/profile.html.erb within layouts/application
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendered pages/profile.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 8686ms (Views: 45.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-09 16:49:33 -0300
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 72ms (Views: 67.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:51:08 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.6ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  Rendered pages/test.html.erb within layouts/application (19.6ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `timestamp' for #<UserSetting:0x0055d509ab9170>):
+     5: 		Friends: <%= user.friends %> <br/>
+     6: 		Links: <%= user.settings %> <br/>
+     7: 		Contests: <%= user.contests %> <br/>
+     8: 		Updated at: <%= user.timestamp %> <br/>
+     9: 		<br/>
+    10: 	<% end %>
+    11: 	<br/>
+  
+app/views/pages/test.html.erb:8:in `block in _app_views_pages_test_html_erb__2652503015146453616_47186740257300'
+app/views/pages/test.html.erb:2:in `_app_views_pages_test_html_erb__2652503015146453616_47186740257300'
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:51:08 -0300
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.5ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  Rendered pages/test.html.erb within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `timestamp' for #<UserSetting:0x0055d507d0d8b0>):
+     5: 		Friends: <%= user.friends %> <br/>
+     6: 		Links: <%= user.settings %> <br/>
+     7: 		Contests: <%= user.contests %> <br/>
+     8: 		Updated at: <%= user.timestamp %> <br/>
+     9: 		<br/>
+    10: 	<% end %>
+    11: 	<br/>
+  
+app/views/pages/test.html.erb:8:in `block in _app_views_pages_test_html_erb__2652503015146453616_47186728017380'
+app/views/pages/test.html.erb:2:in `_app_views_pages_test_html_erb__2652503015146453616_47186728017380'
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:51:28 -0300
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.5ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  Rendered pages/test.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `timestamps' for #<UserSetting:0x0055d508adfe70>):
+     5: 		Friends: <%= user.friends %> <br/>
+     6: 		Links: <%= user.settings %> <br/>
+     7: 		Contests: <%= user.contests %> <br/>
+     8: 		Updated at: <%= user.timestamps %> <br/>
+     9: 		<br/>
+    10: 	<% end %>
+    11: 	<br/>
+  
+app/views/pages/test.html.erb:8:in `block in _app_views_pages_test_html_erb__2652503015146453616_47186737682500'
+app/views/pages/test.html.erb:2:in `_app_views_pages_test_html_erb__2652503015146453616_47186737682500'
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:51:29 -0300
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.7ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  Rendered pages/test.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `timestamps' for #<UserSetting:0x0055d509d71098>):
+     5: 		Friends: <%= user.friends %> <br/>
+     6: 		Links: <%= user.settings %> <br/>
+     7: 		Contests: <%= user.contests %> <br/>
+     8: 		Updated at: <%= user.timestamps %> <br/>
+     9: 		<br/>
+    10: 	<% end %>
+    11: 	<br/>
+  
+app/views/pages/test.html.erb:8:in `block in _app_views_pages_test_html_erb__2652503015146453616_47186740538420'
+app/views/pages/test.html.erb:2:in `_app_views_pages_test_html_erb__2652503015146453616_47186740538420'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1571060794837895130)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUpdatedAtToUserInformations (20180709195538)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "user_informations" ADD "updated_at" timestamp[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1571060794837895130)[0m
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:56:40 -0300
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1571060794837895130)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUpdatedAtToUserInformations (20180709195538)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "user_informations" ADD "updated_at" timestamp[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1571060794837895130)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1571060794837895130)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1571060794837895130)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:57:28 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.6ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  Rendered pages/test.html.erb within layouts/application (19.6ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `upated_at' for #<UserSetting:0x0055e62594e510>):
+     5: 		Friends: <%= user.friends %> <br/>
+     6: 		Links: <%= user.settings %> <br/>
+     7: 		Contests: <%= user.contests %> <br/>
+     8: 		Updated at: <%= user.upated_at %> <br/>
+     9: 		<br/>
+    10: 	<% end %>
+    11: 	<br/>
+  
+app/views/pages/test.html.erb:8:in `block in _app_views_pages_test_html_erb__2111643161000440046_47223481615160'
+app/views/pages/test.html.erb:2:in `_app_views_pages_test_html_erb__2111643161000440046_47223481615160'
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:57:39 -0300
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.5ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  [1m[36mUserInformation Load (0.5ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations"[0m
+  Rendered pages/test.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 261ms (Views: 254.7ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-07-09 16:58:10 -0300
+Processing by PagesController#profile as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (1.1ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:58:10 -0300
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (1.1ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  [1m[36mUserInformation Load (1.0ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations"[0m
+  Rendered pages/test.html.erb within layouts/application (54.0ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 119ms (Views: 99.1ms | ActiveRecord: 15.0ms)
+
+
+  Rendering pages/profile.html.erb within layouts/application
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[36mCACHE UserSetting Load (0.0ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  Rendered pages/profile.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 7578ms (Views: 43.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:58:18 -0300
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.4ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  [1m[36mUserInformation Load (0.4ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations"[0m
+  Rendered pages/test.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 26ms (Views: 22.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/remove_friends_from_db" for 127.0.0.1 at 2018-07-09 16:58:31 -0300
+Processing by DatabaseController#remove_friends_from_db as */*
+  Parameters: {"name"=>"kobus"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserSetting Load (0.7ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" WHERE "user_settings"."username" = $1[0m  [["username", "a"]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "user_settings" SET "friends" = $1, "updated_at" = $2 WHERE "user_settings"."id" = $3[0m  [["friends", "---\n- nakamura\n- tourist\n- Petr\n- Brelf\n"], ["updated_at", "2018-07-09 19:58:33.224666"], ["id", 1]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 1613ms (Views: 1.4ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2018-07-09 16:58:34 -0300
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.7ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  [1m[36mUserInformation Load (0.5ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations"[0m
+  Rendered pages/test.html.erb within layouts/application (4.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 1.7ms)
+
+
