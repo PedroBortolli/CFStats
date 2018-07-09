@@ -4,23 +4,24 @@ module Parser
 	include Api
 
 	# Calls CF API and stores basic user information
-	def build_user_info (handle, id, info)
+	def build_user_info (handle, info)
 		result = get_user_info(handle)
 		handle_info = result['result'][0]
-		puts(handle_info)
-		info['handle'+id.to_s] = handle_info
-		if info['handle'+id.to_s].key?('rating') and info['handle'+id.to_s]['rating'] >= 3000
-			info['handle'+id.to_s]['first_letter'+id.to_s] =  'legendary-user-first-letter'
+		info['user'] = handle_info
+		if info['user'].key?('rating') and info['user']['rating'] >= 3000
+			info['user']['first_letter'] =  'legendary-user-first-letter'
 		else
-			if !info['handle'+id.to_s].key?('rating')
-				info['handle'+id.to_s]['rating'] = "Unrated"
+			if !info['user'].key?('rating')
+				info['user']['rating'] = "Unrated"
 			end
-			info['handle'+id.to_s]['first_letter'+id.to_s] =  color(info['handle'+id.to_s]['rating'])   
+			info['user']['first_letter'] =  color(info['user']['rating'])   
 		end
+		#puts("First letter => ", info['first_letter'])
+		#puts("Rating => ", info['rating'])
 	end
 
 	# Calls CF API and stores all contests from a user
-	def build_contests (handle, id, info)
+	def build_contests (handle, info)
 		contests = get_user_contests(handle)
 		worst_rating = 999999
 		amount_contests = 0
@@ -34,29 +35,29 @@ module Parser
 			amount_contests += 1
 			contest['url'] = "http://codeforces.com/contest/" + contest['contestId'].to_s
 		end
-		info['handle'+id.to_s]['contests'] = contests
+		info['contests'] = contests
 		if worst_rating == 999999
-			info['handle'+id.to_s]['worstRating'] = "- "
+			info['worstRating'] = "- "
 		else
-			info['handle'+id.to_s]['worstRating'] = worst_rating
+			info['worstRating'] = worst_rating
 		end
 		if max_up == -999999
-			info['handle'+id.to_s]['maxUp'] = "-"
+			info['maxUp'] = "-"
 		else
-			info['handle'+id.to_s]['maxUp'] = max_up
+			info['maxUp'] = max_up
 		end
 		if max_down == 999999
-			info['handle'+id.to_s]['maxDown'] = "-"
+			info['maxDown'] = "-"
 		else
-			info['handle'+id.to_s]['maxDown'] = max_down
+			info['maxDown'] = max_down
 		end
 		if amount_contests == 0
-			info['handle'+id.to_s]['maxRating'] = "- "
+			info['maxRating'] = "- "
 		end
 	end
 
 	# Calls CF API and stores all problems that a user solved
-	def build_problems (handle, id, info)
+	def build_problems (handle, info)
 		problems = get_user_problems(handle)
 		acProblems = Array.new
 		seenProblem = Hash.new
@@ -87,25 +88,25 @@ module Parser
 				end
 			end
 		end
-		info['handle'+id.to_s]['unsolvedProblems'] = unsolvedProblems
-		info['handle'+id.to_s]['problemTags'] = problemTags
-		info['handle'+id.to_s]['acProblems'] = acProblems
-		info['handle'+id.to_s]['problemTags'] = info['handle'+id.to_s]['problemTags'].sort_by{|_key, value| -value}.to_h
-		info['handle'+id.to_s]['unsolvedProblems'].sort_by!{|a| a["contestId"].to_i || 0}
+		info['unsolvedProblems'] = unsolvedProblems
+		info['problemTags'] = problemTags
+		info['acProblems'] = acProblems
+		info['problemTags'] = info['problemTags'].sort_by{|_key, value| -value}.to_h
+		info['unsolvedProblems'].sort_by!{|a| a["contestId"].to_i || 0}
 	end
 
 	# Builds all information in common between the two users being compared
-	def build_common (info)
-		info['commonProblems'] = info['handle1']['acProblems'] & info['handle2']['acProblems']
+	def build_common (info1, info2, info)
+		info['commonProblems'] = info1['acProblems'] & info2['acProblems']
 		info['commonProblems'].sort_by!{|a| a["contestId"].to_i || 0}
-		info['handle1']['uniqueProblems'] = info['handle1']['acProblems'] - info['handle2']['acProblems']
-		info['handle2']['uniqueProblems'] = info['handle2']['acProblems'] - info['handle1']['acProblems']
-		info['handle1']['uniqueProblems'].sort_by!{|a| a["contestId"].to_i || 0}
-		info['handle2']['uniqueProblems'].sort_by!{|a| a["contestId"].to_i || 0}
-		if info['handle1']['rating'] == "Unrated" or info['handle2']['rating'] == "Unrated"
+		info1['uniqueProblems'] = info1['acProblems'] - info2['acProblems']
+		info2['uniqueProblems'] = info2['acProblems'] - info1['acProblems']
+		info1['uniqueProblems'].sort_by!{|a| a["contestId"].to_i || 0}
+		info2['uniqueProblems'].sort_by!{|a| a["contestId"].to_i || 0}
+		if info1['rating'] == "Unrated" or info2['rating'] == "Unrated"
 			info['ratingDifference'] = "?"
 		else
-			info['ratingDifference'] = info['handle1']['rating'] - info['handle2']['rating']
+			info['ratingDifference'] = info1['user']['rating'] - info2['user']['rating']
 		end
 
 		commonContests = Array.new
@@ -114,8 +115,8 @@ module Parser
 		aux2 = Hash.new{Hash.new}
 		user1_wins = 0
 		user2_wins = 0
-		info['handle1']['contests'].each do |contest_user1|
-			info['handle2']['contests'].each do |contest_user2|
+		info1['contests'].each do |contest_user1|
+			info2['contests'].each do |contest_user2|
 				if contest_user1['contestId'] == contest_user2['contestId']
 					if !seenContests.key?(contest_user1['contestId'])
 						seenContests.store(contest_user1['contestId'], 1)
@@ -138,18 +139,18 @@ module Parser
 				end
 			end
 		end
-		info['handle1']['winsOver'] = user1_wins
-		info['handle2']['winsOver'] = user2_wins
+		info['handle_1_wins'] = user1_wins
+		info['handle_2_wins'] = user2_wins
 		info['commonContests'] = commonContests
-		aux = info['handle1']['contests'] + info['handle2']['contests']
+		aux = info1['contests'] + info2['contests']
 		info['contests'] = aux.sort{|a,b| a['ratingUpdateTimeSeconds'] <=> b['ratingUpdateTimeSeconds']}
 	end
 
 	# Builds solved problems and attempted contests from a user
 	def build_solved_problems_and_attempted_contests (handle)
-		profile_info = build_result(handle, nil)
-		ac_problems = profile_info['handle1']['acProblems']
-		unsolved_problems = profile_info['handle1']['unsolvedProblems']
+		profile_info = build_result(handle)
+		ac_problems = profile_info['acProblems']
+		unsolved_problems = profile_info['unsolvedProblems']
 		problems_solved = Hash.new
 		contests_attempted = Hash.new
 
@@ -166,7 +167,7 @@ module Parser
 	end
 
 	# Merges all contests from both user to create a timeline of both users' ratings over time
-	def merge_contests (info)
+	def merge_contests (info1, info2, info)
 		seen = Hash.new
 		contests_merged = Array.new
 		prev1 = nil
@@ -198,7 +199,7 @@ module Parser
 					end
 				end
 				if !ok
-					if handle1 == info['handle1']['handle']
+					if handle1 == info1['user']['handle']
 						contests_merged.push([tme, rating1, prev2])
 						prev1 = rating1
 					else
@@ -212,19 +213,24 @@ module Parser
 		info['contestsMerged'] = contests_merged
 	end
 
-	# Calls all the functions above and stores them to the hash "Info" to be returned
-	def build_result (handle1, handle2)
+	# Calls all the functions above and stores them to the hash "Info" to be returned for a single handle
+	def build_result (handle)
 		info = Hash.new
-		build_user_info(handle1, 1, info)
-		build_problems(handle1, 1, info)
-		build_contests(handle1, 1, info)
-		if (handle2 != nil)
-			build_user_info(handle2, 2, info)
-			build_problems(handle2, 2, info)
-			build_contests(handle2, 2, info)
-			build_common(info)
-			merge_contests(info)
-		end
+		build_user_info(handle, info)
+		build_problems(handle, info)
+		build_contests(handle, info)
+		#puts("Retornando => ", info['rating'])
 		return info
 	end
+
+	# Sets the comparison between two info hashes, i.e. the comparison between two handles
+	def build_comparison (info1, info2)
+		info = Hash.new
+		puts("Rating => " + info1['rating'].to_s)	
+		puts("Rating => " + info2['rating'].to_s)
+		build_common(info1, info2, info)
+		merge_contests(info1, info2, info)
+		return info
+	end
+
 end

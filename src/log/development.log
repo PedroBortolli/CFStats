@@ -7450,3 +7450,632 @@ Processing by PagesController#test as HTML
 Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 1.7ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-07-09 17:12:38 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 243ms (Views: 228.6ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2018-07-09 17:12:44 -0300
+Processing by PagesController#test as HTML
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.6ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  [1m[36mUserInformation Load (0.5ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations"[0m
+  Rendered pages/test.html.erb within layouts/application (19.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 69.6ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2018-07-09 17:13:01 -0300
+Processing by PagesController#test as HTML
+  [1m[36mUserInformation Load (0.4ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations" WHERE "user_informations"."handle" = $1[0m  [["handle", "PedroBortolli"]]
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.3ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  [1m[36mUserInformation Load (0.3ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations"[0m
+  Rendered pages/test.html.erb within layouts/application (22.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 88ms (Views: 73.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2018-07-09 17:15:02 -0300
+Processing by PagesController#test as HTML
+  [1m[36mUserInformation Load (0.4ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations" WHERE "user_informations"."handle" = $1[0m  [["handle", "PedroBortolli"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "user_informations" ("handle", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["handle", "PedroBortolli"], ["info", "---\n:Eae: Men\n"], ["created_at", "2018-07-09 20:15:02.145848"], ["updated_at", "2018-07-09 20:15:02.145848"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.3ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  [1m[36mUserInformation Load (0.4ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations"[0m
+  Rendered pages/test.html.erb within layouts/application (26.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 97ms (Views: 63.6ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2018-07-09 17:15:11 -0300
+Processing by PagesController#test as HTML
+  [1m[36mUserInformation Load (0.6ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations" WHERE "user_informations"."handle" = $1[0m  [["handle", "PedroBortolli"]]
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.6ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  [1m[36mUserInformation Load (0.5ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations"[0m
+  Rendered pages/test.html.erb within layouts/application (6.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 34.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/test" for 127.0.0.1 at 2018-07-09 17:15:37 -0300
+Processing by PagesController#test as HTML
+  [1m[36mUserInformation Load (0.6ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations" WHERE "user_informations"."handle" = $1[0m  [["handle", "PedroBortolli"]]
+  Rendering pages/test.html.erb within layouts/application
+  [1m[36mUserSetting Load (0.5ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings"[0m
+  [1m[36mUserInformation Load (0.4ms)[0m  [1m[34mSELECT "user_informations".* FROM "user_informations"[0m
+  Rendered pages/test.html.erb within layouts/application (4.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 29ms (Views: 24.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-09 19:20:27 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 226ms (Views: 216.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2018-07-09 19:20:29 -0300
+Processing by PagesController#search as HTML
+  Rendering pages/search.html.erb within layouts/application
+  Rendered pages/search.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:20:31 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 3633ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `id' for #<PagesController:0x0055baa5c7d570>):
+  
+lib/parser.rb:18:in `build_user_info'
+lib/parser.rb:218:in `build_result'
+app/controllers/pages_controller.rb:71:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:21:15 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7978ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:108:in `build_common'
+lib/parser.rb:227:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:24:17 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7174ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:109:in `build_common'
+lib/parser.rb:228:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:25:09 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 10158ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:109:in `build_common'
+lib/parser.rb:228:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:26:10 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7531ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:109:in `build_common'
+lib/parser.rb:236:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:28:46 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 10198ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:109:in `build_common'
+lib/parser.rb:240:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:29:30 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7585ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:110:in `build_common'
+lib/parser.rb:241:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:29:56 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7189ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:110:in `build_common'
+lib/parser.rb:242:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:30:26 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 4101ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `sort_by!' for false:FalseClass):
+  
+lib/parser.rb:102:in `build_common'
+lib/parser.rb:242:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:31:16 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7147ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:110:in `build_common'
+lib/parser.rb:242:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:32:08 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7578ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:110:in `build_common'
+lib/parser.rb:242:in `build_comparison'
+app/controllers/pages_controller.rb:73:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:33:33 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7796ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:110:in `build_common'
+lib/parser.rb:242:in `build_comparison'
+app/controllers/pages_controller.rb:74:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:34:16 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7144ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:110:in `build_common'
+lib/parser.rb:242:in `build_comparison'
+app/controllers/pages_controller.rb:74:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:35:59 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 9720ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:110:in `build_common'
+lib/parser.rb:242:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:36:43 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 8071ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:110:in `build_common'
+lib/parser.rb:242:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:37:22 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7838ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:110:in `build_common'
+lib/parser.rb:242:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:37:49 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7203ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:109:in `build_common'
+lib/parser.rb:241:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:38:47 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 8422ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:109:in `build_common'
+lib/parser.rb:241:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:39:17 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7501ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:109:in `build_common'
+lib/parser.rb:241:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:40:03 -0300
+  
+SyntaxError (/home/pedrobortolli/Desktop/Codes/ruby_rails/CFStats/src/lib/parser.rb:230: syntax error, unexpected tIDENTIFIER, expecting ')'
+		puts("Rating => ", info2['rating'])
+		    ^):
+  
+lib/parser.rb:230: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/pages_controller.rb:5:in `<class:PagesController>'
+app/controllers/pages_controller.rb:1:in `<top (required)>'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:40:18 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7910ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:109:in `build_common'
+lib/parser.rb:231:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:40:43 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 7944ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:109:in `build_common'
+lib/parser.rb:231:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:43:18 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 8244ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:112:in `build_common'
+lib/parser.rb:234:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:44:24 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 8170ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+lib/parser.rb:109:in `build_common'
+lib/parser.rb:231:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:45:36 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 8946ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]=' for nil:NilClass):
+  
+lib/parser.rb:142:in `build_common'
+lib/parser.rb:231:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:53:40 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 9929ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+lib/parser.rb:202:in `block in merge_contests'
+lib/parser.rb:175:in `each'
+lib/parser.rb:175:in `merge_contests'
+lib/parser.rb:232:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:55:07 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+Completed 500 Internal Server Error in 12828ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+lib/parser.rb:202:in `block in merge_contests'
+lib/parser.rb:175:in `each'
+lib/parser.rb:175:in `merge_contests'
+lib/parser.rb:232:in `build_comparison'
+app/controllers/pages_controller.rb:75:in `result'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:55:34 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (21.8ms)
+Completed 500 Internal Server Error in 8032ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2: 	<!-- Head of comparison -->
+    3: 	<div class="row big-head" style="background-color: #ddffff; width: 100vw; height: 55vh; margin: 0px;">
+    4: 		<div class="split" style="width: 25vw; float: right;">
+    5: 			<h2 class = "<%= color(@info['handle1']['rating']) %>">
+    6: 				<span class = "<%= @info['handle1']['first_letter1'] %>"><%= @info['handle1']['handle'][0] %></span><%= @info['handle1']['handle'][1..-1] %></h2>
+    7: 			<img src=<%= @info['handle1']['titlePhoto'] %> style="width: auto; max-height: 20vh">
+    8: 			<p>Current rating: <b><%= @info['handle1']['rating'] %></b></p>
+  
+app/views/pages/result.html.erb:5:in `_app_views_pages_result_html_erb___1550567398811956588_47130069103360'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:57:41 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (25.2ms)
+Completed 500 Internal Server Error in 18146ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2: 	<!-- Head of comparison -->
+    3: 	<div class="row big-head" style="background-color: #ddffff; width: 100vw; height: 55vh; margin: 0px;">
+    4: 		<div class="split" style="width: 25vw; float: right;">
+    5: 			<h2 class = "<%= color(@info1['user']['rating']) %>">
+    6: 				<span class = "<%= @info1['first_letter1'] %>"><%= @info1['handle'][0] %></span><%= @info1['handle'][1..-1] %></h2>
+    7: 			<img src=<%= @info1['titlePhoto'] %> style="width: auto; max-height: 20vh">
+    8: 			<p>Current rating: <b><%= @info1['user']['rating'] %></b></p>
+  
+app/views/pages/result.html.erb:5:in `_app_views_pages_result_html_erb___1550567398811956588_69917373777780'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 19:59:58 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (24.4ms)
+Completed 500 Internal Server Error in 8422ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2: 	<!-- Head of comparison -->
+    3: 	<div class="row big-head" style="background-color: #ddffff; width: 100vw; height: 55vh; margin: 0px;">
+    4: 		<div class="split" style="width: 25vw; float: right;">
+    5: 			<h2 class = "<%= color(@info_handle_1['user']['rating']) %>">
+    6: 				<span class = "<%= @info_handle_1['first_letter1'] %>"><%= @info_handle_1['handle'][0] %></span><%= @info_handle_1['handle'][1..-1] %></h2>
+    7: 			<img src=<%= @info_handle_1['titlePhoto'] %> style="width: auto; max-height: 20vh">
+    8: 			<p>Current rating: <b><%= @info_handle_1['user']['rating'] %></b></p>
+  
+app/views/pages/result.html.erb:5:in `_app_views_pages_result_html_erb___1550567398811956588_69917373433460'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 20:00:50 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (22.3ms)
+Completed 500 Internal Server Error in 10213ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    3: 	<div class="row big-head" style="background-color: #ddffff; width: 100vw; height: 55vh; margin: 0px;">
+    4: 		<div class="split" style="width: 25vw; float: right;">
+    5: 			<h2 class = "<%= color(@info_handle_1['user']['rating']) %>">
+    6: 				<span class = "<%= @info_handle_1['first_letter1'] %>"><%= @info_handle_1['handle'][0] %></span><%= @info_handle_1['handle'][1..-1] %></h2>
+    7: 			<img src=<%= @info_handle_1['titlePhoto'] %> style="width: auto; max-height: 20vh">
+    8: 			<p>Current rating: <b><%= @info_handle_1['user']['rating'] %></b></p>
+    9: 			<p><i>(min: <%= @info_handle_1['worstRating'] %>)&emsp;(max: <%= @info_handle_1['maxRating'] %>)</i></p>
+  
+app/views/pages/result.html.erb:6:in `_app_views_pages_result_html_erb___1550567398811956588_47130061312720'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 20:05:56 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (14.1ms)
+Completed 500 Internal Server Error in 50478ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    21: 
+    22: 
+    23: 		<div class="split" style="position: absolute; width: 25vw; right: 0vw">
+    24: 			<h2 class = "<%= color(@info['handle2']['rating']) %>">
+    25: 				<span class = "<%= @info['handle2']['first_letter2'] %>" ><%= @info['handle2']['handle'][0] %></span><%= @info['handle2']['handle'][1..-1] %></h2>
+    26: 			<img src=<%= @info['handle2']['titlePhoto'] %> style="width: auto; max-height: 20vh">
+    27: 			<p>Current rating: <b><%= @info['handle2']['rating'] %></b></p>
+  
+app/views/pages/result.html.erb:24:in `_app_views_pages_result_html_erb___1550567398811956588_69917358981940'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 20:15:20 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (24.8ms)
+Completed 500 Internal Server Error in 8969ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `<' for nil:NilClass):
+    21: 
+    22: 
+    23: 		<div class="split" style="position: absolute; width: 25vw; right: 0vw">
+    24: 			<h2 class = "<%= color(@info_handle_2['rating']) %>">
+    25: 				<span class = "<%= @info_handle_2['first_letter2'] %>" ><%= @info_handle_2['handle'][0] %></span><%= @info_handle_2['handle'][1..-1] %></h2>
+    26: 			<img src=<%= @info_handle_2['titlePhoto'] %> style="width: auto; max-height: 20vh">
+    27: 			<p>Current rating: <b><%= @info_handle_2['rating'] %></b></p>
+  
+app/helpers/pages_helper.rb:5:in `color'
+app/views/pages/result.html.erb:24:in `_app_views_pages_result_html_erb___1550567398811956588_69917351261080'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 20:15:56 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (22.4ms)
+Completed 500 Internal Server Error in 13172ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `<' for nil:NilClass):
+    21: 
+    22: 
+    23: 		<div class="split" style="position: absolute; width: 25vw; right: 0vw">
+    24: 			<h2 class = "<%= color(@info_handle_2['rating']) %>">
+    25: 				<span class = "<%= @info_handle_2['user']['first_letter'] %>" ><%= @info_handle_2['user']['handle'][0] %></span><%= @info_handle_2['user']['handle'][1..-1] %></h2>
+    26: 			<img src=<%= @info_handle_2['titlePhoto'] %> style="width: auto; max-height: 20vh">
+    27: 			<p>Current rating: <b><%= @info_handle_2['rating'] %></b></p>
+  
+app/helpers/pages_helper.rb:5:in `color'
+app/views/pages/result.html.erb:24:in `_app_views_pages_result_html_erb___1550567398811956588_69917350768300'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 20:17:12 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 8540ms (Views: 52.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/style=%22width:" for 127.0.0.1 at 2018-07-09 20:17:21 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style=%22width:"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/style=%22width:" for 127.0.0.1 at 2018-07-09 20:17:22 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style=%22width:"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 20:17:58 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 8167ms (Views: 43.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/result?utf8=%E2%9C%93&param1=naoseicodar&param2=numseicodar&commit=Compare%21" for 127.0.0.1 at 2018-07-09 20:18:17 -0300
+Processing by PagesController#result as HTML
+  Parameters: {"utf8"=>"✓", "param1"=>"naoseicodar", "param2"=>"numseicodar", "commit"=>"Compare!"}
+  Rendering pages/result.html.erb within layouts/application
+  Rendered pages/result.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 17504ms (Views: 67.4ms | ActiveRecord: 0.0ms)
+
+
