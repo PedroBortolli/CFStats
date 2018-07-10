@@ -4,11 +4,15 @@ module Updater
 
 	# Makes an API request to Codeforces to update a handle information
 	def update_user_info (handle)
+		puts("Updating info for user  =>  " + handle.to_s)
+		start = Time.now
 		@info_handle = build_result(handle)
 		db_entry = UserInformation.where(handle: handle.downcase)[0]
 		db_entry.info = @info_handle
 		db_entry.updates = db_entry.updates + 1
 		db_entry.save
+		finish = Time.now
+		puts("		handle  " + handle.to_s + "  updated in  " + (finish-start).to_s + " seconds")
 	end
 
 	# Checks whether information for user exists or not and sets it up
@@ -34,6 +38,20 @@ module Updater
 		@info_handle_2['updatedAt'] = UserInformation.where(handle: handle2.downcase)[0].updated_at
 		@info = build_comparison(@info_handle_1, @info_handle_2)
 		return @info, @info_handle_1, @info_handle_2
+	end
+
+	def update_multiple
+		db = UserInformation.all
+		cont = 0
+		max_handles = 25
+		for db_entry in db
+			update_user_info(db_entry.handle)
+			# Aborts update if max_handles has been exceeded
+			cont += 1
+			if cont == max_handles
+				break
+			end
+		end
 	end
 
 end
