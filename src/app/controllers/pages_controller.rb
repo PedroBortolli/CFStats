@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
 	include Parser
 	include Api
+	include Updater
 	include ActionView::Helpers::AssetUrlHelper
 
 	def index
@@ -68,18 +69,13 @@ class PagesController < ApplicationController
 			render html: "Please provide 2 valid Codeforces handles!"
 			return
 		end
-		@info_handle_1 = build_result(handle1)
-		@info_handle_2 = build_result(handle2)
-		@info = build_comparison(@info_handle_1, @info_handle_2)
+		# The function below belongs to the Updater module
+		@info, @info_handle_1, @info_handle_2 = set_up_result(handle1, handle2)
 	end
 
 	def test
-		db_entry = UserInformation.where(handle: "PedroBortolli")[0]
-		if db_entry == nil
-			puts("Tem nao. Bora criar :)")
-			UserInformation.create(:handle => "PedroBortolli", :info => {"Eae": "Men"})
-		else
-			puts("Opa, tem sim hein :D")
+		for db_entry in UserInformation.all
+			db_entry.delete
 		end
 	end
 

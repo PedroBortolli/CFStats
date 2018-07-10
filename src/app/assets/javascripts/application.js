@@ -218,7 +218,6 @@ function check_if_problem_solved(info) {
 }
 
 function check_if_contest_attempted(info) {
-message("add", "contests_notice", "Contest <b>" + info + "</b> successfully added")
 	$.ajax({
 		method: "POST",
 		url: "/retrieve_attempted",
@@ -528,4 +527,22 @@ function filter(id, name) {
 function compare(handle1, handle2) {
 	var url = "/result?&param1=" + handle1 + "&param2=" + handle2 + "&commit=Compare%21"
 	window.open(url);
+}
+
+//update two first handles, two last ones are the handles being compared
+function update_info(handle_to_update_1, handle_to_update_2, handle1, handle2) {
+	console.log("Bora :)")
+	console.log(handle_to_update_1)
+	console.log(handle_to_update_2)
+	console.log(handle1)
+	console.log(handle2)
+	$.ajax({
+		method: "POST",
+		url: "/update_handle_info",
+		data: {handle1: handle_to_update_1, handle2: handle_to_update_2},
+		success: function(status) {
+			var url = "/result?&param1=" + handle1 + "&param2=" + handle2 + "&commit=Compare%21"
+			window.location.replace(url);
+		}
+	});
 }

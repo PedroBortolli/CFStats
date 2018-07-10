@@ -1,8 +1,20 @@
 class DatabaseController < ApplicationController
 	skip_before_action :verify_authenticity_token
-	before_action :authenticate_user!, :except => [:index, :search, :about, :result, :test]
+	before_action :authenticate_user!, :except => [:index, :search, :about, :result, :test, :update_handle_info]
 
 	include Api
+	include Updater
+
+	# Updates handle informations (of /result page) and stores them in database
+	def update_handle_info
+		handle1 = params[:handle1]
+		update_user_info(handle1)
+		handle2 = params[:handle2]
+		puts("handle2 => " + handle2.to_s)
+		if (handle2 != "")
+			update_user_info(handle2)
+		end
+	end
 
 	# Updates (or creates if it doesn't exist) CF handle passed by parameter in database
 	def update_handle_to_db
@@ -158,4 +170,5 @@ class DatabaseController < ApplicationController
 		end
 		render plain: @return.inspect
 	end
+
 end

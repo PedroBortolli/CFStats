@@ -16,8 +16,6 @@ module Parser
 			end
 			info['user']['first_letter'] =  color(info['user']['rating'])   
 		end
-		#puts("First letter => ", info['first_letter'])
-		#puts("Rating => ", info['rating'])
 	end
 
 	# Calls CF API and stores all contests from a user
@@ -219,15 +217,12 @@ module Parser
 		build_user_info(handle, info)
 		build_problems(handle, info)
 		build_contests(handle, info)
-		#puts("Retornando => ", info['rating'])
 		return info
 	end
 
 	# Sets the comparison between two info hashes, i.e. the comparison between two handles
 	def build_comparison (info1, info2)
 		info = Hash.new
-		puts("Rating => " + info1['rating'].to_s)	
-		puts("Rating => " + info2['rating'].to_s)
 		build_common(info1, info2, info)
 		merge_contests(info1, info2, info)
 		return info
