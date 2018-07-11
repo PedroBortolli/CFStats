@@ -32,6 +32,10 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
+  #Secret key for Google Cloud
+  config.secret_key = '9b027e5b232730967bc246233355e2efc3beb06dd6cca2783e77bc2f111b3ddbf8d54d632580156724d529ef1478d46239c83044f8491b781efae972eb26d976'
+  #End secret key
+
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
