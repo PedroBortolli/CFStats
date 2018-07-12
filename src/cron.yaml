@@ -1,0 +1,4 @@
+cron:
+- description: "Update handles info"
+  url: /cron_update
+  schedule: every 5 minutes
