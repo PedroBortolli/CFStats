@@ -531,11 +531,6 @@ function compare(handle1, handle2) {
 
 //update two first handles, two last ones are the handles being compared
 function update_info(handle_to_update_1, handle_to_update_2, handle1, handle2) {
-	console.log("Bora :)")
-	console.log(handle_to_update_1)
-	console.log(handle_to_update_2)
-	console.log(handle1)
-	console.log(handle2)
 	$.ajax({
 		method: "POST",
 		url: "/update_handle_info",

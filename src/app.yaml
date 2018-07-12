@@ -1,0 +1,19 @@
+# How to start your application
+entrypoint: bundle exec rackup --port $PORT
+# Use App Engine flexible environment
+env: flex
+# Use the supported Ruby runtime
+runtime: ruby
+
+# App Engine flexible environment will load the configuration
+# values from the Runtime Configuration Service defined by
+# flex-env-config and create a .env file used by your
+# application to determine environment values.
+runtime_config:
+  dotenv_config: flex-env-config
+
+env_variables:
+  SECRET_KEY_BASE: 16ec692c67c3afbdcd4434197869f1b8803a9ce4429b763ef7997d59e4d33ba3bdec143231f2e7ea451bb9af8b6f89bc84ab91f06b7c69e8e600af80d281027b
+
+beta_settings:
+  cloud_sql_instances: cfstatistics:southamerica-east1:cfstats-db

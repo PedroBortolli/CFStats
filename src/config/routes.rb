@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   post 'retrieve_compare_icon_path' => 'pages#retrieve_compare_icon_path'
   post 'retrieve_cancel_icon_path' => 'pages#retrieve_cancel_icon_path'
   post 'update_handle_info' => 'database#update_handle_info'
+  post 'cron_update' => 'database#cron_update'
 end

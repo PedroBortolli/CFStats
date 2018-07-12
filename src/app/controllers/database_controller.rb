@@ -5,6 +5,11 @@ class DatabaseController < ApplicationController
 	include Api
 	include Updater
 
+	def cron_update
+		update_multiple
+	end
+
+
 	# Updates handle informations (of /result page) and stores them in database
 	def update_handle_info
 		handle1 = params[:handle1]
