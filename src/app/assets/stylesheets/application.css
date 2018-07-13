@@ -116,6 +116,18 @@ html,body
   }
 }
 
+.big-screen {
+  background-color: #ddffff; height: 35vw; padding-top: 2%; margin: 0px;
+}
+
+.middle-screen {
+  height: 120vw; background-color: #ddffff; margin: 0px;
+}
+
+.small-screen {
+  background-color: #ddffff;
+}
+
 @media (min-width: 501px) and (max-width: 1200px) {
   .big-screen {
     display:none;
