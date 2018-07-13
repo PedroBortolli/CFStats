@@ -531,6 +531,7 @@ function compare(handle1, handle2) {
 
 //update two first handles, two last ones are the handles being compared
 function update_info(handle_to_update_1, handle_to_update_2, handle1, handle2) {
+	document.getElementById('loadingDiv').style = 'display: unset'
 	$.ajax({
 		method: "POST",
 		url: "/update_handle_info",
