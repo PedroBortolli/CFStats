@@ -15,26 +15,46 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-     <div class = "w3-container w3-pale-blue", style = "font-size: 22px">
-      <div style = "float: center;">
-        <%= link_to (image_tag("logo.png", :style => "max-width: 100%; max-height: 100%; height: auto")), root_path %>
-      </div>
-      <div style = "float: right;">
-      <% if user_signed_in? %>
-        <%= link_to "#{current_user.username.to_s}", profile_path %>
-        &nbsp;
-        <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
-      <% else %>
-        <%= link_to('Login', new_user_session_path)  %>
-        &nbsp;
-        <%= link_to('Sign up', new_user_registration_path) %>
-      <% end %>
-      </div>
-    </div>
+    
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-custom">
+      <div class="container-fluid d-inline-flex">
+
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <!--<a class="navbar-brand justify-cotent-start" href="#home"><%= image_tag "logo.png", size:"250x50" %></a>-->
+        </button>
+
+        <a class="navbar-brand justify-cotent-start" href="/"><%= image_tag "logo.png", size:"250x50" %></a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="nav navbar-nav ml-auto" style="float: left">
+
+            <form action="/result" accept-charset="UTF-8" method="get" class="form-inline my-2 my-lg-0">
+              <input name="utf8" type="hidden" value="✓">
+              <input class="form-control mr-sm-2" type="text" name="param1" id="param1" placeholder="CF Handle 1" style="width: 150px; margin: 0 auto; float: none;">
+              <input class="form-control mr-sm-2" type="text" name="param2" id="param2" placeholder="CF Handle 2" style="width: 150px; margin: 0 auto; float: none;">
+              <input type="submit" name="commit" value="Compare!" class="btn btn-outline-primary my-2 my-sm-0" data-distable-with="Compare!">
+              &nbsp;
+              <label><input type="radio" name="param3" id="param3">&nbsp;<font class="btn-outline-primary">Force update</font></label>
+            </form>
+          </ul>
+
+            <ul class="nav navbar-nav ml-auto" style="float: right">            
+            <% if user_signed_in? %>
+              <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+              <li class="nav-item"><a class="nav-link" rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a></li>
+            <% else %>
+              <li class="nav-item"><a class="nav-link" href="/users/sign_in">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="/users/sign_up">Register</a></li>
+            <% end %>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
  

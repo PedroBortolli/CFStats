@@ -69,8 +69,13 @@ class PagesController < ApplicationController
 			render html: "Please provide 2 valid Codeforces handles!"
 			return
 		end
+		if params[:param3] == "on"
+			force = true
+		else
+			force = false
+		end
 		# The function below belongs to the Updater module
-		@info, @info_handle_1, @info_handle_2 = set_up_result(handle1, handle2)
+		@info, @info_handle_1, @info_handle_2 = set_up_result(handle1, handle2, force)
 	end
 
 	def test

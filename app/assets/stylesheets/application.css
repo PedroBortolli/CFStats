@@ -207,3 +207,9 @@ img:hover {
   opacity: 0.8;
   filter: alpha(opacity=40); /* For IE8 and earlier */
 }
+
+.navbar-custom {
+  border-radius: 0px;
+  z-index: 16;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0, .4);
+}
