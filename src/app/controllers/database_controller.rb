@@ -1,6 +1,6 @@
 class DatabaseController < ApplicationController
 	skip_before_action :verify_authenticity_token
-	before_action :authenticate_user!, :except => [:index, :search, :about, :result, :test, :update_handle_info]
+	before_action :authenticate_user!, :except => [:index, :search, :about, :result, :test, :update_handle_info, :cron_update]
 
 	include Api
 	include Updater
