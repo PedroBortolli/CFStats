@@ -40,6 +40,8 @@
 
 	<div class="row small-head" style="background-color: #ddffff; width: 100vw; height: 70vh; margin: 0px;">
 		<div class="split" style="width: 50vw; float: right;">
+			<i><font size="2" style="text-align: center">Last updated at <%= @info_handle_1['updatedAt'] %></font></i>
+			<%= image_tag("update.png", size: "16x16", title: "Update info", onclick: "update_info('#{@info_handle_1['user']['handle']}', '', '#{@info_handle_1['user']['handle']}', '#{@info_handle_2['user']['handle']}')") %>
 			<h2 class = "<%= color(@info_handle_1['user']['rating']) %>" style="font-size: 5vw">
 				<span class = "<%= @info_handle_1['user']['first_letter'] %>"><%= @info_handle_1['user']['handle'][0] %></span><%= @info_handle_1['user']['handle'][1..-1] %></h2>
 			<p>Current rating: <b><%= @info_handle_1['user']['rating'] %></b></p>
@@ -48,6 +50,8 @@
 			<p>Max rating decrease: <b><%= @info_handle_1['maxDown'] %></b></p>
 		</div>
 		<div class="split" style="position: absolute; width: 50vw; right: 0vw">
+			<i><font size="2" style="text-align: center">Last updated at <%= @info_handle_2['updatedAt'] %></font></i>
+			<%= image_tag("update.png", size: "16x16", title: "Update info", onclick: "update_info('#{@info_handle_2['user']['handle']}', '', '#{@info_handle_1['user']['handle']}', '#{@info_handle_2['user']['handle']}')") %>
 			<h2 class = "<%= color(@info_handle_2['user']['rating']) %>" style="font-size: 5vw">
 				<span class = "<%= @info_handle_2['user']['first_letter'] %>" ><%= @info_handle_2['user']['handle'][0] %></span><%= @info_handle_2['user']['handle'][1..-1] %></h2>
 			<p>Current rating: <b><%= @info_handle_2['user']['rating'] %></b></p>
@@ -407,7 +411,7 @@
 		-->
 
 		<div class="centered" style="height: 90%; width: 24.7vw">
-			You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
+			Both solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
 			<br/>
 			<%= text_field_tag :search19, nil, placeholder: "Search problem", onkeyup: "filter('19', 'list19')" %>
 			<br/>
@@ -482,7 +486,7 @@
 		-->
 
 		<div class="centered" style="height: 55vw; width: 50%;">
-			You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
+			Both solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
 			<br/>
 			<%= text_field_tag :search23, nil, placeholder: "Search problem", onkeyup: "filter('23', 'list23')" %>
 			<br/>
@@ -557,7 +561,7 @@
 		-->
 
 		<div class="centered" style="width: 100vw; height: 60vh;">
-			You solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
+			Both solved <b><%= @info['commonProblems'].length.to_s %></b> problems in common!</button>
 			<br/>
 			<%= text_field_tag :search27, nil, placeholder: "Search problem", onkeyup: "filter('27', 'list27')" %>
 			<br/>
