@@ -51,11 +51,12 @@ module Updater
 		oldest_entry = UserInformation.all[0].updated_at.to_i
 		current_time = Time.now.to_i
 		time_elapsed_since_update = current_time-oldest_entry
+		update_time = 24*60*60 - 100
 		puts("Time elapsed since last DB update  =>  " + time_elapsed_since_update.to_s + "  seconds")
 		# Only allows an entire DB update every 24 hours (100 seconds margin)
-		if time_elapsed_since_update < 24*60*60 - 100
+		if time_elapsed_since_update < update_time
 			puts("		that's too soon to try to update the entire DB again")
-			return
+			return "Too soon to update the entire DB again..."
 		end
 		for db_entry in db
 			update_user_info(db_entry.handle)
@@ -65,6 +66,7 @@ module Updater
 				break
 			end
 		end
+		return "DB succesfully updated!"
 	end
 
 end

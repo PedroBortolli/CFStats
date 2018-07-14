@@ -200,7 +200,7 @@ img:hover {
   width:100%;
   height:100%;
   background-color:#666;
-  background-image:url('loading.gif');
+  background-image:asset-data-url("loading.gif");
   background-repeat:no-repeat;
   background-position:center;
   z-index:10000000;

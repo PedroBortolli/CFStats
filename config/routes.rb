@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'search' => 'pages#search'
   get 'profile' => 'pages#profile'
   get 'test' => 'pages#test'
-  get 'cron_update' => 'database#cron_update'
+  get 'Gt9s3KOWHFBiVZPk2ABR8jHJIa5DSWhm' => 'database#cron_update'
   post 'add' => 'pages#add'
   post 'update_handle_to_db' => 'database#update_handle_to_db'
   post 'add_links_to_db' => 'database#add_links_to_db'
