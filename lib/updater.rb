@@ -48,6 +48,15 @@ module Updater
 		db = UserInformation.all
 		cont = 0
 		max_handles = 25
+		oldest_entry = UserInformation.all[0].updated_at.to_i
+		current_time = Time.now.to_i
+		time_elapsed_since_update = current_time-oldest_entry
+		puts("Time elapsed since last DB update  =>  " + time_elapsed_since_update.to_s + "  seconds")
+		# Only allows an entire DB update every 24 hours (100 seconds margin)
+		if time_elapsed_since_update < 24*60*60 - 100
+			puts("		that's too soon to try to update the entire DB again")
+			return
+		end
 		for db_entry in db
 			update_user_info(db_entry.handle)
 			# Aborts update if max_handles has been exceeded
