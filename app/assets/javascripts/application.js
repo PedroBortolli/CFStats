@@ -542,3 +542,16 @@ function update_info(handle_to_update_1, handle_to_update_2, handle1, handle2) {
 		}
 	});
 }
+
+function update_single_handle(handle) {
+	document.getElementById('loadingDiv').style = 'display: unset'
+	$.ajax({
+		method: "POST",
+		url: "/update_handle_info",
+		data: {handle1: handle, handle2: ""},
+		success: function(status) {
+			var url = "/profile"
+			window.location.replace(url);
+		}
+	});
+}

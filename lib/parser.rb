@@ -146,7 +146,13 @@ module Parser
 
 	# Builds solved problems and attempted contests from a user
 	def build_solved_problems_and_attempted_contests (handle)
-		profile_info = build_result(handle)
+		entry = UserInformation.where(handle: handle.downcase)[0]
+		if entry != nil
+			profile_info = entry.info
+		else
+			profile_info = build_result(handle)
+			UserInformation.create(:handle => handle.downcase, :info => profile_info, :updates => 1)
+		end
 		ac_problems = profile_info['acProblems']
 		unsolved_problems = profile_info['unsolvedProblems']
 		problems_solved = Hash.new
