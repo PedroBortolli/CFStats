@@ -17,11 +17,13 @@
 		</div>
 
 
-		<div class="split" style="text-align: center; width: 50vw; padding-left: 0; padding-top: 0;">
-			<h5>Rating comparison</h5>
+		<div class="split" style="text-align: center; width: 50vw; padding-left: 0; padding-top: 10;">
+			<i><font size="2" style="text-align: center">Update both users</font></i>
+			<%= image_tag("update.png", size: "16x16", title: "Update info", onclick: "update_info('#{@info_handle_1['user']['handle']}', '#{@info_handle_2['user']['handle']}', '#{@info_handle_1['user']['handle']}', '#{@info_handle_2['user']['handle']}')") %>
+			<br/><br/>
+			<h5>Current rating difference: <b><%= @info['ratingDifference'] %></b></h5>
 			<div id="tagchart1" class="centered" style="padding-top: -5%; width: 100%; height: 80%;">
-			</div>
-			<p>Current rating difference: <b><%= @info['ratingDifference'] %></b></p>
+			</div>	
 		</div>
 
 
@@ -61,11 +63,13 @@
 		</div>
 	</div>
 
-	<div class="small-head" style="background-color: #ddffff; width: 100vw; height: 100vh;position: relative; text-align: center; padding-left: 0; padding-top: 0;">
-		<h5>Rating comparison</h5>
+	<div class="small-head" style="background-color: #ddffff; width: 100vw; height: 100vh;position: relative; text-align: center; padding-left: 0; padding-top: 10;">
+		<i><font size="2" style="text-align: center">Update both users</font></i>
+		<%= image_tag("update.png", size: "16x16", title: "Update info", onclick: "update_info('#{@info_handle_1['user']['handle']}', '#{@info_handle_2['user']['handle']}', '#{@info_handle_1['user']['handle']}', '#{@info_handle_2['user']['handle']}')") %>
+		<br/><br/>
+		<h5>Current rating difference: <b><%= @info['ratingDifference'] %></b></h5>
 		<div id="tagchart2" style="width: 100%; height: 80%;">
 		</div>
-		<p>Current rating difference: <b><%= @info['ratingDifference'] %></b></p>
 	</div>
 
 	<!-- Handle1 stats -->
