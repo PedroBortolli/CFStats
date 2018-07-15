@@ -1,4 +1,4 @@
 cron:
-- description: "Update handles info"
+- description: "Update the entire DB"
   url: /cron_update
-  schedule: every 5 minutes
+  schedule: every 10 minutes
