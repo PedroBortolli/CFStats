@@ -20,7 +20,6 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'appengine'
-gem 'sqlite3'
 gem 'devise'
 gem 'jquery-rails'
 gem 'gon'

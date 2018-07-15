@@ -79,9 +79,6 @@ class PagesController < ApplicationController
 	end
 
 	def test
-		for db_entry in UserInformation.all
-			db_entry.delete
-		end
 	end
 
 end

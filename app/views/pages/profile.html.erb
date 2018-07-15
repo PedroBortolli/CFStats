@@ -4,6 +4,9 @@
 
 <body class = "background centered">
 
+	<!-- Loading gif -->
+	<div id="loadingDiv" style="display: none;"></div>
+
 	<br/>
 	<br/>
 
@@ -51,10 +54,16 @@
 		<div id = "handles" style="display: none;">
 		</div>
 
-		<input type="text" class="form-control form-control text-center" style="width: 250px; margin: 0 auto; float: none;" id="update_handle_form" autofocus="true" placeholder="Update Codeforces handle">
+		<input type="text" class="form-control form-control text-center" style="width: 250px; margin: 0 auto; float: none;" id="update_handle_form" autofocus="true" placeholder="Change Codeforces handle">
 
+		<i><font size="2" style="text-align: center">Click to update your handle solved/attempted problems/contests!</font></i>
+		<%= image_tag("update.png", size: "16x16", title: "Update info", onclick: "update_single_handle('#{handle}')") %>
+		
 		<br/>
 		<div id = "handles_notice"><br/></div>
+
+		
+
 
 		<br/>
 

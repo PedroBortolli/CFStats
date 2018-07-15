@@ -6,7 +6,7 @@ class DatabaseController < ApplicationController
 	include Updater
 
 	def cron_update
-		update_multiple
+		@content = update_multiple
 	end
 
 
