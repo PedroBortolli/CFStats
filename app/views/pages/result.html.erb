@@ -1,4 +1,5 @@
 <body>
+	<script>google.charts.load('current', {'packages':['corechart']});</script>
 	<!-- Loading gif -->
 	<div id="loadingDiv" style="display: none;">
 	</div>
@@ -83,7 +84,6 @@
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
 		      	// Load google charts
-		      	google.charts.load('current', {'packages':['corechart']});
 		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart3");});
 		    </script> 
 		</div>
@@ -137,7 +137,6 @@
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
 		      	// Load google charts
-		      	google.charts.load('current', {'packages':['corechart']});
 		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart30");});
 		    </script> 
 		</div>
@@ -192,7 +191,6 @@
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
 		      	// Load google charts
-		      	google.charts.load('current', {'packages':['corechart']});
 		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart4");});
 		    </script> 
 		</div>
@@ -247,7 +245,6 @@
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
 		      	// Load google charts
-		      	google.charts.load('current', {'packages':['corechart']});
 		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart5");});
 		    </script> 
 		</div>
@@ -301,7 +298,6 @@
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
 		      	// Load google charts
-		      	google.charts.load('current', {'packages':['corechart']});
 		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart40");});
 		    </script> 
 		</div>
@@ -355,7 +351,6 @@
 		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		    <script type="text/javascript">
 		      	// Load google charts
-		      	google.charts.load('current', {'packages':['corechart']});
 		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart6");});
 		    </script> 
 		</div>
@@ -631,10 +626,8 @@
     // Load google charts
 	window.addEventListener('DOMContentLoaded', 
 		function(){
-			google.charts.load('current', {'packages':['corechart']});
 	      	google.charts.setOnLoadCallback(function(){drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart1", "<%= @info_handle_1['user']['handle'] %>", "<%= @info_handle_2['user']['handle'] %>");});
 			
-			google.charts.load('current', {'packages':['corechart']});
 			google.charts.setOnLoadCallback(function(){drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart2", "<%= @info_handle_1['user']['handle'] %>", "<%= @info_handle_2['user']['handle'] %>");});
 		}
 	);
