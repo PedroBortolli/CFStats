@@ -1,5 +1,4 @@
 <body>
-	<script>google.charts.load('current', {'packages':['corechart']});</script>
 	<!-- Loading gif -->
 	<div id="loadingDiv" style="display: none;"></div>
 	<!-- Head of comparison -->
@@ -80,11 +79,6 @@
 		<div class="centered" style="height: 90%; width: 24.7vw">
 			<br/>
 			<div id="tagchart3"></div>
-		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		    <script type="text/javascript">
-		      	// Load google charts
-		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart3");});
-		    </script> 
 		</div>
 
 		<div class="centered" style="height: 90%; width: 24.7vw">
@@ -133,11 +127,6 @@
 		</div>
 		<div class="centered" style="height: 55vw; width: 50%;">
 			<div id="tagchart30"></div>
-		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		    <script type="text/javascript">
-		      	// Load google charts
-		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart30");});
-		    </script> 
 		</div>
 
 		<div class="centered" style=" height: 55vw; width: 50%;">
@@ -187,11 +176,6 @@
 		<div class="centered" style="width: 100vw;">
 			<br/>
 			<div id="tagchart4"></div>
-		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		    <script type="text/javascript">
-		      	// Load google charts
-		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart4");});
-		    </script> 
 		</div>
 
 		<div class="centered" style="width: 100vw; height: 60vh;">
@@ -241,11 +225,6 @@
 		</div>
 		<div class="centered" style="height: 90%; width: 24.7vw">
 			<div id="tagchart5"></div>
-		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		    <script type="text/javascript">
-		      	// Load google charts
-		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart5");});
-		    </script> 
 		</div>
 
 		<div class="centered" style="height: 90%; width: 24.7vw">
@@ -294,11 +273,6 @@
 		</div>
 		<div class="centered" style="height: 55vw; width: 50%;">
 			<div id="tagchart40"></div>
-		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		    <script type="text/javascript">
-		      	// Load google charts
-		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart40");});
-		    </script> 
 		</div>
 
 		<div class="centered" style="height: 55vw; width: 50%;">
@@ -347,11 +321,6 @@
 		</div>
 		<div class="centered" style="width: 100vw">
 			<div id="tagchart6"></div>
-		    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		    <script type="text/javascript">
-		      	// Load google charts
-		      	google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart6");});
-		    </script> 
 		</div>
 
 		<div class="centered" style="width: 100vw; height: 60vh;">
@@ -625,9 +594,17 @@
     // Load google charts
 	window.addEventListener('DOMContentLoaded', 
 		function(){
+			google.charts.load('current', {'packages':['corechart']});
 	      	google.charts.setOnLoadCallback(function(){drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart1", "<%= @info_handle_1['user']['handle'] %>", "<%= @info_handle_2['user']['handle'] %>");});
 			
 			google.charts.setOnLoadCallback(function(){drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart2", "<%= @info_handle_1['user']['handle'] %>", "<%= @info_handle_2['user']['handle'] %>");});
+
+		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart3");});
+		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart30");});
+		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart4");});
+		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart5");});
+		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart40");});
+		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart6");});
 		}
 	);
 
