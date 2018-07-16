@@ -51,12 +51,15 @@ class PagesController < ApplicationController
 		render html: path
 	end
 
+	# About page
 	def about
 	end
 
+	# Search page
 	def search
 	end
 
+	# Add
 	def add
 	end
 
@@ -69,15 +72,15 @@ class PagesController < ApplicationController
 			render html: "Please provide 2 valid Codeforces handles!"
 			return
 		end
+		force = false
 		if params[:param3] == "on"
 			force = true
-		else
-			force = false
 		end
 		# The function below belongs to the Updater module
 		@info, @info_handle_1, @info_handle_2 = set_up_result(handle1, handle2, force)
 	end
 
+	# Test
 	def test
 	end
 

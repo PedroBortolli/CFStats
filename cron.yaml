@@ -1,4 +1,0 @@
-cron:
-- description: "Update the entire DB"
-  url: /cron_update
-  schedule: every 10 minutes

@@ -101,7 +101,7 @@ module Parser
 		info2['uniqueProblems'] = info2['acProblems'] - info1['acProblems']
 		info1['uniqueProblems'].sort_by!{|a| a["contestId"].to_i || 0}
 		info2['uniqueProblems'].sort_by!{|a| a["contestId"].to_i || 0}
-		if info1['rating'] == "Unrated" or info2['rating'] == "Unrated"
+		if info1['user']['rating'] == "Unrated" or info2['user']['rating'] == "Unrated"
 			info['ratingDifference'] = "?"
 		else
 			info['ratingDifference'] = info1['user']['rating'] - info2['user']['rating']

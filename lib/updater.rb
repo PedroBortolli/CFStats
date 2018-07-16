@@ -12,7 +12,7 @@ module Updater
 		db_entry.updates = db_entry.updates + 1
 		db_entry.save
 		finish = Time.now
-		puts("		handle  " + handle.to_s + "  updated in  " + (finish-start).to_s + " seconds")
+		puts("		Handle  " + handle.to_s + "  updated in  " + (finish-start).to_s + " seconds")
 	end
 
 	# Checks whether information for user exists or not and sets it up
@@ -44,26 +44,34 @@ module Updater
 		return @info, @info_handle_1, @info_handle_2
 	end
 
+	# Updates multiple users in the database
 	def update_multiple
 		db = UserInformation.all
-		cont = 0
-		max_handles = 25
-		oldest_entry = UserInformation.all[0].updated_at.to_i
+		updated_users_count = 0
+		max_handles_to_update = 100
+
+		# Returns if DB is empty
+		if db.length == 0
+			return "DB is empty"
+		end
+
+		oldest_entry = db[0].updated_at.to_i
 		current_time = Time.now.to_i
 		time_elapsed_since_update = current_time-oldest_entry
-		#update_time = 24*60*60 - 100
-		update_time = 10*60 - 30
+		update_time = 3*60*60 - 100
 		puts("Time elapsed since last DB update  =>  " + time_elapsed_since_update.to_s + "  seconds")
-		# Only allows an entire DB update every 24 hours (100 seconds margin)
+
+		# Only allows an entire DB update every 3 hours (100 seconds margin)
 		if time_elapsed_since_update < update_time
-			puts("		that's too soon to try to update the entire DB again")
+			puts("		That's too soon to try to update the entire DB again")
 			return "Too soon to update the entire DB again..."
 		end
 		for db_entry in db
 			update_user_info(db_entry.handle)
+
 			# Aborts update if max_handles has been exceeded
-			cont += 1
-			if cont == max_handles
+			updated_users_count += 1
+			if updated_users_count == max_handles_to_update
 				break
 			end
 		end
