@@ -54,6 +54,12 @@
 
 .legendary-user-first-letter{color:black}.user-red{color:red}.user-orange{color:#FF8C00}.user-violet{color:#a0a}.user-blue{color:blue}.user-cyan{color:#03A89E}.user-green{color:green}.user-gray{color:gray}
 
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
 
 .row:nth-child(1) {
   background-color: #aaa;
