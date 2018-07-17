@@ -8,6 +8,8 @@ class PagesController < ApplicationController
 	include ActionView::Helpers::AssetUrlHelper
 
 	def index
+		puts("ooooaoaoaos")
+		puts(ENV["MAILER_EMAIL"])
 	end
 
 	# Builds all information about user logged into the website
