@@ -1,0 +1,30 @@
+2018-07-17T21:44:38.234255+00:00 app[web.1]: * Listening on tcp://0.0.0.0:27552
+2018-07-17T21:44:38.234657+00:00 app[web.1]: Use Ctrl-C to stop
+2018-07-17T21:44:38.484863+00:00 heroku[web.1]: State changed from starting to up
+2018-07-17T21:44:40.235058+00:00 heroku[router]: at=info method=GET path="/" host=cfstatistics.herokuapp.com request_id=c6e3d0de-a153-465a-878b-234c6048dd5c fwd="189.62.16.18" dyno=web.1 connect=1ms service=61ms status=200 bytes=5469 protocol=https
+2018-07-17T21:44:40.178050+00:00 app[web.1]: I, [2018-07-17T21:44:40.177906 #4]  INFO -- : [c6e3d0de-a153-465a-878b-234c6048dd5c] Started GET "/" for 189.62.16.18 at 2018-07-17 21:44:40 +0000
+2018-07-17T21:44:40.198377+00:00 app[web.1]: I, [2018-07-17T21:44:40.198128 #4]  INFO -- : [c6e3d0de-a153-465a-878b-234c6048dd5c] Processing by PagesController#index as HTML
+2018-07-17T21:44:40.222195+00:00 app[web.1]: I, [2018-07-17T21:44:40.222054 #4]  INFO -- : [c6e3d0de-a153-465a-878b-234c6048dd5c]   Rendering pages/index.html.erb within layouts/application
+2018-07-17T21:44:40.223075+00:00 app[web.1]: I, [2018-07-17T21:44:40.222975 #4]  INFO -- : [c6e3d0de-a153-465a-878b-234c6048dd5c]   Rendered pages/index.html.erb within layouts/application (0.7ms)
+2018-07-17T21:44:40.231852+00:00 app[web.1]: I, [2018-07-17T21:44:40.231752 #4]  INFO -- : [c6e3d0de-a153-465a-878b-234c6048dd5c] Completed 200 OK in 32ms (Views: 12.6ms)
+2018-07-17T21:44:43.953672+00:00 app[web.1]: I, [2018-07-17T21:44:43.953554 #4]  INFO -- : [522575a8-4487-447f-98fb-abda1092d5af] Started GET "/users/sign_in" for 189.62.16.18 at 2018-07-17 21:44:43 +0000
+2018-07-17T21:44:43.956259+00:00 app[web.1]: I, [2018-07-17T21:44:43.956149 #4]  INFO -- : [522575a8-4487-447f-98fb-abda1092d5af] Processing by Users::SessionsController#new as HTML
+2018-07-17T21:44:44.047786+00:00 app[web.1]: I, [2018-07-17T21:44:44.047644 #4]  INFO -- : [522575a8-4487-447f-98fb-abda1092d5af] Completed 500 Internal Server Error in 91ms (ActiveRecord: 38.4ms)
+2018-07-17T21:44:44.053447+00:00 app[web.1]: F, [2018-07-17T21:44:44.053338 #4] FATAL -- : [522575a8-4487-447f-98fb-abda1092d5af]   
+2018-07-17T21:44:44.053579+00:00 app[web.1]: F, [2018-07-17T21:44:44.053454 #4] FATAL -- : [522575a8-4487-447f-98fb-abda1092d5af] ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "users" does not exist
+2018-07-17T21:44:44.053584+00:00 app[web.1]: LINE 8:                WHERE a.attrelid = '"users"'::regclass
+2018-07-17T21:44:44.053585+00:00 app[web.1]:                                           ^
+2018-07-17T21:44:44.053588+00:00 app[web.1]: :               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+2018-07-17T21:44:44.053590+00:00 app[web.1]:                      pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+2018-07-17T21:44:44.053591+00:00 app[web.1]:                      c.collname, col_description(a.attrelid, a.attnum) AS comment
+2018-07-17T21:44:44.053593+00:00 app[web.1]:                 FROM pg_attribute a
+2018-07-17T21:44:44.053594+00:00 app[web.1]:                 LEFT JOIN pg_attrdef d ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+2018-07-17T21:44:44.053596+00:00 app[web.1]:                 LEFT JOIN pg_type t ON a.atttypid = t.oid
+2018-07-17T21:44:44.053600+00:00 app[web.1]:                 LEFT JOIN pg_collation c ON a.attcollation = c.oid AND a.attcollation <> t.typcollation
+2018-07-17T21:44:44.053602+00:00 app[web.1]:                WHERE a.attrelid = '"users"'::regclass
+2018-07-17T21:44:44.053603+00:00 app[web.1]:                  AND a.attnum > 0 AND NOT a.attisdropped
+2018-07-17T21:44:44.053605+00:00 app[web.1]:                ORDER BY a.attnum
+2018-07-17T21:44:44.053607+00:00 app[web.1]: ):
+2018-07-17T21:44:44.053857+00:00 app[web.1]: F, [2018-07-17T21:44:44.053573 #4] FATAL -- : [522575a8-4487-447f-98fb-abda1092d5af]   
+2018-07-17T21:44:44.053860+00:00 app[web.1]: F, [2018-07-17T21:44:44.053660 #4] FATAL -- : [522575a8-4487-447f-98fb-abda1092d5af] app/controllers/users/sessions_controller.rb:7:in `new'
+2018-07-17T21:44:44.057259+00:00 heroku[router]: at=info method=GET path="/users/sign_in" host=cfstatistics.herokuapp.com request_id=522575a8-4487-447f-98fb-abda1092d5af fwd="189.62.16.18" dyno=web.1 connect=1ms service=106ms status=500 bytes=1827 protocol=https
