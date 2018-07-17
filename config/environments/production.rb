@@ -11,8 +11,8 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :user_name            => "cfstatistics.team@gmail.com",
-    :password             => 'MidibuiadoCFAdmin$37',
+    :user_name            => ENV["MAILER_EMAIL"],
+    :password             => ENV["MAILER_PASSWORD"],
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
