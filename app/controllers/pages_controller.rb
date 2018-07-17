@@ -10,6 +10,7 @@ class PagesController < ApplicationController
 	def index
 		puts("ooooaoaoaos")
 		puts(ENV["MAILER_EMAIL"])
+		puts(ENV["MAILER_PASSWORD"])
 	end
 
 	# Builds all information about user logged into the website
