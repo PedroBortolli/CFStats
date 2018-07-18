@@ -500,7 +500,7 @@ function drawChart2(data, parent_div, handle1, handle2) {
                 color: '#AC0000'
             }
         },
-        chartArea: {'width': '80%', 'height': '70%'},
+        chartArea: {'width': '80%', 'height': '70%', 'top': '0'},
 		legend: {'position': 'bottom', 'alignment': 'center'}
     });
 }
