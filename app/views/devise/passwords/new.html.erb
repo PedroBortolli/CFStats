@@ -5,13 +5,13 @@
 	<h2>Forgot your password?</h2>
 	<p>Don't worry! We can send you a link to create a new password to your registered email!</p>
 	<br/>
+	<%= devise_error_messages! %>
 	<br/>
 
 	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-	  <%= devise_error_messages! %>
 
 	  <div class="field">
-	    <%= f.text_field :username, class: 'form-control form-control text-center', style: 'width: 250px; margin: 0 auto; float: none;', placeholder: 'Insert username registered', autofocus: true %>
+	    <%= f.email_field :email, class: 'form-control form-control text-center', style: 'width: 250px; margin: 0 auto; float: none;', placeholder: 'Insert email registered', autofocus: true, autocomplete: "email" %>
 	  </div>
 
 	  <div class="actions">
