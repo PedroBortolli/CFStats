@@ -10,9 +10,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @username = sign_up_params[:username]
+    possible_user = User.where(username: @username)[0]
+    if possible_user != nil
+      redirect_to request.referrer, flash: {error: "Username already taken"}
+    else
+      super
+    end
+  end
 
   # GET /resource/edit
   # def edit
