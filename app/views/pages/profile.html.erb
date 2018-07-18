@@ -8,6 +8,12 @@
 	<div id="loadingDiv" style="display: none;"></div>
 
 	<br/>
+	<div style="float: right">
+	<font size="4"> <a href="/users/edit">Change password</a></font>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
+
+	<br/>
 	<br/>
 
 	<% handle = "" %>
@@ -17,6 +23,9 @@
 	<% end %>
 
 	<% if UserSetting.where(username: current_user.username).length == 0 %>
+
+		<div style="position: relative; top: 30%; transform: translateY(-50%);">
+
 		<h3>This is your first login, welcome!</h3>
 		<br/>
 		<h3>Please insert your Codeforces handle below:</h3>
@@ -36,9 +45,9 @@
 			<% end %>
 		</div>
 		<i>Don't worry! You can change your handle later...</i>
+		</div>
 
 	<% else %>
-	
 
 		<% if user_signed_in? %>
 			<h4>Hello, <%= current_user.username %>! Your current saved CF handle is:</h4>

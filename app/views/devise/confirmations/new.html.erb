@@ -1,18 +1,28 @@
 <body class = "background centered">
-<h2>Resend confirmation instructions</h2>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<div style="position: relative; top: 37%; transform: translateY(-50%);">
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
+	<h2>Resend confirmation instructions</h2>
+	<p>We can send you another email with the instructions</p>
+	<br/>
+	<br/>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
+	<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+	  <%= devise_error_messages! %>
 
-<%= render "devise/shared/links" %>
+	  <div class="field">
+	    <%= f.text_field :username, class: 'form-control form-control text-center', style: 'width: 250px; margin: 0 auto; float: none;', placeholder: 'Insert username registered', autofocus: true %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit "Resend confirmation instructions", class: 'btn btn-primary' %>
+	  </div>
+	<% end %>
+
+	<br/>
+	<br/>
+
+	<%= render "devise/shared/links" %>
+
+</div>
 </body>

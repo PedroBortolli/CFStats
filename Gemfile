@@ -23,6 +23,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'js_assets'
 gem 'rest-client'
+gem 'figaro'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

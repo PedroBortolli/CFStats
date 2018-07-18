@@ -82,6 +82,9 @@ class PagesController < ApplicationController
 
 	# Test
 	def test
+		for user in User.all
+			puts(user.login, user.email)
+		end
 	end
 
 end

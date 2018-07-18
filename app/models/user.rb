@@ -9,7 +9,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true, presence: true, uniqueness: { case_sensitive: false }
 
   def self.find_first_by_auth_conditions(warden_conditions)
