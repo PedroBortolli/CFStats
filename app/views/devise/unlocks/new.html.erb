@@ -1,4 +1,9 @@
+<body class = "background centered">
+
+<div style="position: relative; top: 37%; transform: translateY(-50%);">
 <h2>Resend unlock instructions</h2>
+<br/>
+<br/>
 
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
@@ -13,4 +18,10 @@
   </div>
 <% end %>
 
+<br/>
+<br/>
+
 <%= render "devise/shared/links" %>
+
+</div>
+</body>
