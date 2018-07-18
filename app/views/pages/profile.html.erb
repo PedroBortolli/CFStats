@@ -95,8 +95,8 @@
 									<%= friend %>
 								</a>
 								&nbsp;
-								<%= image_tag("compare.png", size: "16x16", onclick: "compare('#{handle}', '#{friend}')") %>
-								<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_friend('#{friend}')") %>
+								<%= image_tag("compare.png", size: "16x16", onclick: "compare('#{handle}', '#{friend}')", title: "Compare!") %>
+								<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_friend('#{friend}')",  title: "Remove") %>
 							</div>
 						<% end %>
 					<% end %>
