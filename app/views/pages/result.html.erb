@@ -126,7 +126,7 @@
 			<h4 style="text-align: center"><%= @info_handle_1['user']['handle'] %>'s stats</h4>
 		</div>
 		<div class="centered" style="height: 55vw; width: 50%;">
-			<div id="tagchart30"></div>
+			<div id="tagchart7"></div>
 		</div>
 
 		<div class="centered" style=" height: 55vw; width: 50%;">
@@ -272,7 +272,7 @@
 			<h4 style="text-align: center"><%= @info_handle_2['user']['handle'] %>'s stats</h4>
 		</div>
 		<div class="centered" style="height: 55vw; width: 50%;">
-			<div id="tagchart40"></div>
+			<div id="tagchart8"></div>
 		</div>
 
 		<div class="centered" style="height: 55vw; width: 50%;">
@@ -600,10 +600,10 @@
 			google.charts.setOnLoadCallback(function(){drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart2", "<%= @info_handle_1['user']['handle'] %>", "<%= @info_handle_2['user']['handle'] %>");});
 
 		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart3");});
-		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart30");});
+		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart7");});
 		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart4");});
 		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart5");});
-		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart40");});
+		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart8");});
 		    google.charts.setOnLoadCallback(function(){drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart6");});
 		}
 	);
@@ -615,6 +615,13 @@
 	        drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart2", "<%= @info_handle_1['user']['handle'] %>", "<%= @info_handle_2['user']['handle'] %>");
 
 	        drawChart2(<%= @info['contestsMerged'].to_json.html_safe %>, "tagchart1", "<%= @info_handle_1['user']['handle'] %>", "<%= @info_handle_2['user']['handle'] %>");
+
+	        drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart3");
+	        drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart7");
+	        drawChart(<%= @info_handle_1['problemTags'].to_json.html_safe %>, "tagchart4");
+	        drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart5");
+	        drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart8");
+	        drawChart(<%= @info_handle_2['problemTags'].to_json.html_safe %>, "tagchart6");
 	    }, 100);
 	});
 </script>
