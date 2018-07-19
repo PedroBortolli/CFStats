@@ -46,7 +46,7 @@
 			<h2 class = "ellipsis <%= color(@info_handle_1['user']['rating']) %>" style="font-size: 5vw">
 				<span class = "<%= @info_handle_1['user']['first_letter'] %>"><%= @info_handle_1['user']['handle'][0] %></span><%= @info_handle_1['user']['handle'][1..-1] %></h2>
 			<p>Current rating: <b><%= @info_handle_1['user']['rating'] %></b></p>
-			<p><i>(min: <%= @info_handle_1['worstRating'] %>)&emsp;(max: <%= @info_handle_1['maxRating'] %>)</i></p>
+			<p><i>(min: <%= @info_handle_1['worstRating'] %>)&emsp;(max: <%= @info_handle_1['user']['maxRating'] %>)</i></p>
 			<p>Max rating increase: <b><%= @info_handle_1['maxUp'] %></b></p>
 			<p>Max rating decrease: <b><%= @info_handle_1['maxDown'] %></b></p>
 		</div>
@@ -56,7 +56,7 @@
 			<h2 class = "ellipsis <%= color(@info_handle_2['user']['rating']) %>" style="font-size: 5vw">
 				<span class = "<%= @info_handle_2['user']['first_letter'] %>" ><%= @info_handle_2['user']['handle'][0] %></span><%= @info_handle_2['user']['handle'][1..-1] %></h2>
 			<p>Current rating: <b><%= @info_handle_2['user']['rating'] %></b></p>
-			<p><i>(min: <%= @info_handle_2['worstRating'] %>)&emsp;(max: <%= @info_handle_2['maxRating'] %>)</i></p>
+			<p><i>(min: <%= @info_handle_2['worstRating'] %>)&emsp;(max: <%= @info_handle_2['user']['maxRating'] %>)</i></p>
 			<p>Max rating increase: <b><%= @info_handle_2['maxUp'] %></b></p>
 			<p>Max rating decrease: <b><%= @info_handle_2['maxDown'] %></b></p>
 		</div>
