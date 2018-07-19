@@ -2,13 +2,13 @@
 	<!-- Loading gif -->
 	<div id="loadingDiv" style="display: none;"></div>
 	<!-- Head of comparison -->
-	<div class="row big-head" style="background-color: #ddffff; width: 100vw; height: 55vh; margin: 0px;">
+	<div class="row big-head" style="background-color: #ddffff; width: 100vw; height: 58vh; margin: 0px;">
 		<div class="split" style="width: 25vw; float: right;">
 			<i><font size="2" style="text-align: center">Last updated at <%= @info_handle_1['updatedAt'] %></font></i>
 			<%= image_tag("update.png", size: "16x16", title: "Update info", onclick: "update_info('#{@info_handle_1['user']['handle']}', '', '#{@info_handle_1['user']['handle']}', '#{@info_handle_2['user']['handle']}')") %>
 			<h2 class = "ellipsis <%= color(@info_handle_1['user']['rating']) %>">
 				<span class = "<%= @info_handle_1['user']['first_letter'] %>"><%= @info_handle_1['user']['handle'][0] %></span><%= @info_handle_1['user']['handle'][1..-1] %></h2>
-			<img src=<%= @info_handle_1['user']['titlePhoto'] %> style="width: auto; max-height: 20vh">
+			<img src=<%= @info_handle_1['user']['titlePhoto'] %> style="width: auto; height: 20vh">
 			<p>Current rating: <b><%= @info_handle_1['user']['rating'] %></b></p>
 			<p><i>(min: <%= @info_handle_1['worstRating'] %>)&emsp;(max: <%= @info_handle_1['user']['maxRating'] %>)</i></p>
 			<p>Max rating increase: <b><%= @info_handle_1['maxUp'] %></b></p>
@@ -31,7 +31,7 @@
 			<%= image_tag("update.png", size: "16x16", title: "Update info", onclick: "update_info('#{@info_handle_2['user']['handle']}', '', '#{@info_handle_1['user']['handle']}', '#{@info_handle_2['user']['handle']}')") %>
 			<h2 class = "ellipsis <%= color(@info_handle_2['user']['rating']) %>">
 				<span class = "<%= @info_handle_2['user']['first_letter'] %>" ><%= @info_handle_2['user']['handle'][0] %></span><%= @info_handle_2['user']['handle'][1..-1] %></h2>
-			<img src=<%= @info_handle_2['user']['titlePhoto'] %> style="width: auto; max-height: 20vh">
+			<img src=<%= @info_handle_2['user']['titlePhoto'] %> style="width: auto; height: 20vh">
 			<p>Current rating: <b><%= @info_handle_2['user']['rating'] %></b></p>
 			<p><i>(min: <%= @info_handle_2['worstRating'] %>)&emsp;(max: <%= @info_handle_2['user']['maxRating'] %>)</i></p>
 			<p>Max rating increase: <b><%= @info_handle_2['maxUp'] %></b></p>
