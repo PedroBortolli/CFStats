@@ -408,7 +408,7 @@ function drawChart2(data, parent_div, handle1, handle2) {
     chart.draw(datatable, {
     	backgroundColor: 'transparent',
         width: document.getElementById(parent_div).clientWidth,
-        height: 0.95 * document.getElementById(parent_div).clientHeight,
+        height: document.getElementById(parent_div).clientHeight,
         isStacked: true,
         vAxis: {
             viewWindow: {
