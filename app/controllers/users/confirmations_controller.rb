@@ -7,9 +7,32 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # POST /resource/confirmation
-  # def create
-  #   super
-  # end
+  def create
+
+    if params[:user][:email] == ""
+      flash[:notice] = "Email cant be blank."
+      flash[:success] = ""
+      redirect_to request.referrer
+    else
+      @user = User.where(:email => params[:user][:email]).first
+      if @user
+        if @user.confirmed_at.nil?
+          @user.send_confirmation_instructions.deliver
+          flash[:success] = "You will soon receive an email with instructions on how to confirm your email address. Check your spam if you can't find it."
+          flash[:notice] = ""
+          redirect_to "/users/sign_in"
+        else
+          flash[:notice] = "This email has already been confirmed. Try logging in."
+          flash[:success] = ""
+          redirect_to request.referrer
+        end
+      else
+        flash[:notice] = "This email isn't registered."
+        flash[:success] = ""
+        redirect_to request.referrer
+      end
+    end
+  end
 
   # GET /resource/confirmation?confirmation_token=abcdef
     def show
@@ -25,11 +48,10 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
     end
 
 
-  # protected
+  protected
 
   # The path used after resending confirmation instructions.
     def after_resending_confirmation_instructions_path_for(resource_name)
-      puts("aehooooooooooooooooooooooooooo")
       set_flash_message(:success, :send_instructions) if is_flashing_format?
       flash[:notice] = ""
       super(resource_name)

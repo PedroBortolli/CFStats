@@ -57,7 +57,7 @@ Devise.setup do |config|
   config.authentication_keys = [ :login ]
   config.scoped_views = true
   config.reset_password_keys = [ :email ]
-  config.confirmation_keys = [ :login ]
+  config.confirmation_keys = [ :email ]
 
 
   # Configure which authentication keys should be case-insensitive.
