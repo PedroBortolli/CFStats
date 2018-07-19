@@ -6,7 +6,7 @@
   <br/>
   <font color="green"><%= flash[:success] %></font>
   <% flash.each do |name, msg| %>
-    <% if name != 'success' and msg != 'signed_up_but_unconfirmed' %>
+    <% if name != 'success' %>
       <font color="red"><%= content_tag :div, msg, id: "flash_#{name}" %></font>
     <% end %>
   <% end %>

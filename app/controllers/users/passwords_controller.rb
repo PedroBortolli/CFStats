@@ -28,7 +28,9 @@ class Users::PasswordsController < Devise::PasswordsController
   # end
 
   # The path used after sending reset password instructions
-  # def after_sending_reset_password_instructions_path_for(resource_name)
-  #   super(resource_name)
-  # end
+    def after_sending_reset_password_instructions_path_for(resource_name)
+      set_flash_message(:success, :send_instructions) if is_flashing_format?
+      flash[:notice] = ""
+      super(resource_name)
+    end
 end
