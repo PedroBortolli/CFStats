@@ -484,7 +484,7 @@ function drawChart2(data, parent_div, handle1, handle2) {
 	
 	var big = 0;
 	var small = 10000;
-	
+
 	for (var i = 0; i < data.length; i++) {
 		var secs = Number(data[i][0]);
 		var date = new Date(secs*1000);
@@ -509,9 +509,9 @@ function drawChart2(data, parent_div, handle1, handle2) {
 
 		datatable.addRow([date, data[i][1], data[i][2], 1200, 200, 200, 300, 200, 200, 100, 200, 400, 2000]);
 	}
-	
+
 	var chart = new google.visualization.ComboChart(document.getElementById(parent_div));
-	
+
 	chart.draw(datatable, {
 		backgroundColor: 'transparent',
 		width: document.getElementById(parent_div).clientWidth,
@@ -607,7 +607,7 @@ function drawChart2(data, parent_div, handle1, handle2) {
 				color: '#AC0000'
 			}
 		},
-		chartArea: {'width': '80%', 'height': '70%', 'top': '0'},
+		chartArea: {'width': '80%', 'height': '70%', 'top': '1%'},
 		legend: {'position': 'bottom', 'alignment': 'center'}
 	});
 }
