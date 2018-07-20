@@ -59,6 +59,7 @@ $(document).ready(function() {
 		if (key == 13) {
 			var info = $('#add_links_form').val();
 			message("add", "links_notice", "Searching problem <b>" + info + "</b> on Codeforces...")
+			message("add", "links_notice1", "Searching problem <b>" + info + "</b> on Codeforces...")
 			$.ajax({
 				method: "POST",
 				url: "/add_links_to_db",
@@ -69,8 +70,35 @@ $(document).ready(function() {
 					}
 					else {
 						message("add", "links_notice", "Problem <b>" + info + "</b> doesn't exist or has already been added")
+						message("add", "links_notice1", "Problem <b>" + info + "</b> doesn't exist or has already been added")
 					}
 					reset_form("add_links_form")
+				}
+			}); 
+		};
+	});
+
+
+	$('#add_links_form1').focus();
+	$('#add_links_form1').keypress(function(event) {
+		var key = (event.keyCode ? event.keyCode : event.which);
+		if (key == 13) {
+			var info = $('#add_links_form1').val();
+			message("add", "links_notice1", "Searching problem <b>" + info + "</b> on Codeforces...")
+			message("add", "links_notice", "Searching problem <b>" + info + "</b> on Codeforces...")
+			$.ajax({
+				method: "POST",
+				url: "/add_links_to_db",
+				data: {name: cf_like(info)},
+				success: function(status) {
+					if (status == "true") {
+						check_if_problem_solved(info)
+					}
+					else {
+						message("add", "links_notice1", "Problem <b>" + info + "</b> doesn't exist or has already been added")
+						message("add", "links_notice", "Searching problem <b>" + info + "</b> on Codeforces...")
+					}
+					reset_form("add_links_form1")
 				}
 			}); 
 		};
@@ -88,9 +116,12 @@ function try_remove_link(info) {
 				if (status == "true") {
 					remove_url(info);
 					message("add", "links_notice", "Problem <b>" + info + "</b> removed")
+					message("add", "links_notice1", "Problem <b>" + info + "</b> removed")
 				}
 				else {
 					message("add", "links_notice", "Nothing to remove")
+
+					message("add", "links_notice1", "Nothing to remove")
 				}
 			}
 		});
@@ -104,7 +135,8 @@ $(document).ready(function() {
 		var key = (event.keyCode ? event.keyCode : event.which);
 		if (key == 13) {
 			var info = $('#add_friends_form').val();
-			message("add", "friends_notice", "Searching handle <b>" + info + "</b> on Codeforces...")
+			message("add", "friends_notice", "Searching handle <b>" + info + "</b> on Codeforces...");
+			message("add", "friends_notice1", "Searching handle <b>" + info + "</b> on Codeforces...");
 			$.ajax({
 				method: "POST",
 				url: "/add_friends_to_db",
@@ -112,6 +144,7 @@ $(document).ready(function() {
 				success: function(status) {
 					if (status == "false") {
 						message("add", "friends_notice", "Handle doesn't exist")
+						message("add", "friends_notice1", "Handle doesn't exist")
 					}
 					else {
 						$.ajax({
@@ -120,10 +153,44 @@ $(document).ready(function() {
 							success: function(handle) {
 								add_friend(handle, status);
 								message("add", "friends_notice", "Handle <b>" + status + "</b> added as friend")
+								message("add", "friends_notice1", "Handle <b>" + status + "</b> added as friend")
 							}
 						})
 					}
 					reset_form("add_friends_form")
+				}
+			}); 
+		};
+	});
+
+	$('#add_friends_form1').focus();
+	$('#add_friends_form1').keypress(function(event) {
+		var key = (event.keyCode ? event.keyCode : event.which);
+		if (key == 13) {
+			var info = $('#add_friends_form1').val();
+			message("add", "friends_notice1", "Searching handle <b>" + info + "</b> on Codeforces...");
+			message("add", "friends_notice", "Searching handle <b>" + info + "</b> on Codeforces...");
+			$.ajax({
+				method: "POST",
+				url: "/add_friends_to_db",
+				data: {name: info},
+				success: function(status) {
+					if (status == "false") {
+						message("add", "friends_notice1", "Handle doesn't exist");
+						message("add", "friends_notice", "Handle doesn't exist");
+					}
+					else {
+						$.ajax({
+							method: "POST",
+							url: "/retrieve_handle",
+							success: function(handle) {
+								add_friend(handle, status);
+								message("add", "friends_notice1", "Handle <b>" + status + "</b> added as friend");
+								message("add", "friends_notice", "Handle <b>" + status + "</b> added as friend");
+							}
+						})
+					}
+					reset_form("add_friends_form1")
 				}
 			}); 
 		};
@@ -134,6 +201,8 @@ function try_remove_friend(info) {
 	var answer = confirm("Do you really want to remove friend " + info + "?");
 	if (answer) {
 		message("add", "friends_notice", "Removing <b>" + info + "</b> from your friend list...")
+		message("add", "friends_notice1", "Removing <b>" + info + "</b> from your friend list...")
+
 		$.ajax({
 			method: "POST",
 			url: "/remove_friends_from_db",
@@ -141,10 +210,14 @@ function try_remove_friend(info) {
 			success: function(status) {
 				if (status == "false") {
 					message("add", "friends_notice", "Nothing to remove")
+					message("add", "friends_notice1", "Nothing to remove")
+
 				}
 				else {
 					remove_friend(status);
 					message("add", "friends_notice", "Removed <b>" + status + "</b> from your friend list")
+					message("add", "friends_notice1", "Removed <b>" + status + "</b> from your friend list")
+
 				}
 			}
 		});
@@ -158,6 +231,7 @@ $(document).ready(function() {
 		if (key == 13) {
 			var info = $('#add_contests_form').val();
 			message("add", "contests_notice", "Searching contest <b>" + info + "</b> on Codeforces...")
+			message("add", "contests_notice1", "Searching contest <b>" + info + "</b> on Codeforces...")
 			$.ajax({
 				method: "POST",
 				url: "/add_contest_to_db",
@@ -168,8 +242,34 @@ $(document).ready(function() {
 					}
 					else {
 						message("add", "contests_notice", "Contest doesn't exist or has already been added")
+						message("add", "contests_notice1", "Contest doesn't exist or has already been added")
 					}
 					reset_form("add_contests_form")
+				}
+			}); 
+		};
+	});
+
+	$('#add_contests_form1').focus();
+	$('#add_contests_form1').keypress(function(event) {
+		var key = (event.keyCode ? event.keyCode : event.which);
+		if (key == 13) {
+			var info = $('#add_contests_form1').val();
+			message("add", "contests_notice1", "Searching contest <b>" + info + "</b> on Codeforces...")
+			message("add", "contests_notice", "Searching contest <b>" + info + "</b> on Codeforces...")
+			$.ajax({
+				method: "POST",
+				url: "/add_contest_to_db",
+				data: {name: info},
+				success: function(status) {
+					if (status == "true") {
+						check_if_contest_attempted(info)
+					}
+					else {
+						message("add", "contests_notice1", "Contest doesn't exist or has already been added")
+						message("add", "contests_notice", "Contest doesn't exist or has already been added")
+					}
+					reset_form("add_contests_form1")
 				}
 			}); 
 		};
@@ -187,9 +287,11 @@ function try_remove_contest(info) {
 				if (status == "true") {
 					remove_contest(info);
 					message("add", "contests_notice", "Contest <b>" + info + "</b> removed")
+					message("add", "contests_notice1", "Contest <b>" + info + "</b> removed")					
 				}
 				else {
 					message("add", "contests_notice", "Nothing to remove")
+					message("add", "contests_notice1", "Contest <b>" + info + "</b> removed")					
 				}
 			}
 		});
@@ -207,10 +309,13 @@ function check_if_problem_solved(info) {
 		success: function(status) {
 			if (String(info) in status) {
 				message("add", "links_notice", "Problem <b>" + info + "</b> added, but you have already solved it")
+				message("add", "links_notice1", "Problem <b>" + info + "</b> added, but you have already solved it")
 				add_url(info, true)
 			}
 			else {
 				message("add", "links_notice", "Problem <b>" + info + "</b> successfully added!")
+				message("add", "links_notice1", "Problem <b>" + info + "</b> successfully added!")
+				
 				add_url(info, false)
 			}
 		}
@@ -237,9 +342,9 @@ function check_if_contest_attempted(info) {
 
 function update_handle(info) {
 	document.getElementById('handles').innerHTML = "<div id =" + info + ">" +
-													"<a target='_blank'" +
-													"href='http://codeforces.com/profile/" + 
-													info + "'>" + info + "</a>" + "</div>"
+	"<a target='_blank'" +
+	"href='http://codeforces.com/profile/" + 
+	info + "'>" + info + "</a>" + "</div>"
 }
 
 function add_url(info, solved) {
@@ -252,19 +357,19 @@ function add_url(info, solved) {
 			var current_html = document.getElementById('links').innerHTML
 			var seen = ""
 			if (solved) seen = "<i>(solved)</i> "
-			var to_add = current_html + "<div id =" + info + ">" + seen +
-						 "<a target='_blank'" + "href='http://codeforces.com/contest/" +
-						 contest + "/problem/" + index + "'>" + info + "</a>"
+				var to_add = current_html + "<div id =" + info + ">" + seen +
+			"<a target='_blank'" + "href='http://codeforces.com/contest/" +
+			contest + "/problem/" + index + "'>" + info + "</a>"
 			to_add = to_add + " <img onclick=\"try_remove_link('" + String(info) + "')\" src='" + cancel_path + "' alt='Cancel' width='16' height='16'>";			 
 			to_add = to_add + "</div>"
 			document.getElementById('links').innerHTML = to_add
+			document.getElementById('links1').innerHTML = to_add
 		}
 	});
 }
 
 function remove_url(info) {
-	info = cf_like(info)
-	document.getElementById(info).remove()
+	$('.' + cf_like(info)).remove()
 }
 
 function add_friend(handle, info) {
@@ -278,11 +383,12 @@ function add_friend(handle, info) {
 				success: function(cancel_path) {
 					var current_html = document.getElementById('friends').innerHTML
 					var to_add = current_html +  "<div id =" + info + ">" + "<a target='_blank'" +
-								 "href='http://codeforces.com/profile/" + info + "'>" + info + "</a>" + "&nbsp;"
+					"href='http://codeforces.com/profile/" + info + "'>" + info + "</a>" + "&nbsp;"
 					to_add = to_add + " <img onclick=\"compare('" + String(handle) + "', '" + String(info) + "')\" src='" + compare_path + "' alt='Compare' width='16' height='16'>";
 					to_add = to_add + " <img onclick=\"try_remove_friend('" + String(info) + "')\" src='" + cancel_path + "' alt='Cancel' width='16' height='16'>";
 					to_add = to_add + "</div>"
 					document.getElementById('friends').innerHTML = to_add
+					document.getElementById('friends1').innerHTML = to_add
 				}
 			});
 		}
@@ -290,7 +396,7 @@ function add_friend(handle, info) {
 }
 
 function remove_friend(info) {
-	document.getElementById(info).remove()
+	$('.' + info).remove()
 }
 
 function add_contest(info, attempted) {
@@ -302,23 +408,24 @@ function add_contest(info, attempted) {
 			var seen = ""
 			var to_add = ""
 			if (attempted) seen = "<i>(attempted)</i> "
-			if (Number(info) > 99999) {
-				to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
-						 "href='https://codeforces.com/gym/" + info + "'>" + info + "</a>"
+				if (Number(info) > 99999) {
+					to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
+					"href='https://codeforces.com/gym/" + info + "'>" + info + "</a>"
+				}
+				else {
+					var to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
+					"href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
+				}
+				to_add = to_add + " <img onclick=\"try_remove_contest('" + String(info) + "')\" src='" + cancel_path + "' alt='Cancel' width='16' height='16'>";
+				to_add = to_add + "</div>"
+				document.getElementById('contests').innerHTML = to_add
+				document.getElementById('contests1').innerHTML = to_add
 			}
-			else {
-				var to_add = current_html + "<div id =" + info + ">" + seen + "<a target='_blank'" +
-						 	 "href='http://codeforces.com/contest/" + info + "'>" + info + "</a>"
-			}
-			to_add = to_add + " <img onclick=\"try_remove_contest('" + String(info) + "')\" src='" + cancel_path + "' alt='Cancel' width='16' height='16'>";
-			to_add = to_add + "</div>"
-			document.getElementById('contests').innerHTML = to_add
-		}
-	});
+		});
 }
 
 function remove_contest(info) {
-	document.getElementById(info).remove()
+	$('.' + info).remove()
 }
 
 function cf_like(info) {
@@ -354,43 +461,43 @@ function drawChart(data, parent_div) {
 	'chartArea': {'width': '80%', 'height': '100%'},
 	'legend': {'position': 'right', 'alignment': 'center'},
 	'sliceVisibilityThreshold': .03
-	};
-	var chart = new google.visualization.PieChart(document.getElementById(parent_div));
-	chart.draw(datatable, options);
+};
+var chart = new google.visualization.PieChart(document.getElementById(parent_div));
+chart.draw(datatable, options);
 }
 
 function drawChart2(data, parent_div, handle1, handle2) {
 	var datatable = new google.visualization.DataTable();
-    datatable.addColumn('date', 'date');
-    datatable.addColumn('number', String(handle1));
-    datatable.addColumn('number', String(handle2));
-    datatable.addColumn('number', 'Newbie');
-    datatable.addColumn('number', 'Pupil');
-    datatable.addColumn('number', 'Specialist');
-    datatable.addColumn('number', 'Expert');
-    datatable.addColumn('number', 'Candidate Master');
-    datatable.addColumn('number', 'Master');
-    datatable.addColumn('number', 'International Master');
-    datatable.addColumn('number', 'Grandmaster');
-    datatable.addColumn('number', 'International Grandmaster');
-    datatable.addColumn('number', 'Legendary Grandmaster');
-    
-    var big = 0;
-    var small = 10000;
-    
-    for (var i = 0; i < data.length; i++) {
-    	var secs = Number(data[i][0]);
+	datatable.addColumn('date', 'date');
+	datatable.addColumn('number', String(handle1));
+	datatable.addColumn('number', String(handle2));
+	datatable.addColumn('number', 'Newbie');
+	datatable.addColumn('number', 'Pupil');
+	datatable.addColumn('number', 'Specialist');
+	datatable.addColumn('number', 'Expert');
+	datatable.addColumn('number', 'Candidate Master');
+	datatable.addColumn('number', 'Master');
+	datatable.addColumn('number', 'International Master');
+	datatable.addColumn('number', 'Grandmaster');
+	datatable.addColumn('number', 'International Grandmaster');
+	datatable.addColumn('number', 'Legendary Grandmaster');
+	
+	var big = 0;
+	var small = 10000;
+	
+	for (var i = 0; i < data.length; i++) {
+		var secs = Number(data[i][0]);
 		var date = new Date(secs*1000);
 
 		if (data[i][1] == null) {
 			if (data[i][2] != null) {
-        		small = Math.min(small, data[i][2]);
-        		big = Math.max(big, data[i][2]);
+				small = Math.min(small, data[i][2]);
+				big = Math.max(big, data[i][2]);
 			}
 		} else {
 			if (data[i][2] == null) {
-        		small = Math.min(small, data[i][1]);
-        		big = Math.max(big, data[i][1]);
+				small = Math.min(small, data[i][1]);
+				big = Math.max(big, data[i][1]);
 			} else {
 				small = Math.min(small, data[i][1]);
 				small = Math.min(small, data[i][2]);
@@ -400,109 +507,109 @@ function drawChart2(data, parent_div, handle1, handle2) {
 			}
 		}
 
-        datatable.addRow([date, data[i][1], data[i][2], 1200, 200, 200, 300, 200, 200, 100, 200, 400, 2000]);
-    }
-    
-    var chart = new google.visualization.ComboChart(document.getElementById(parent_div));
-    
-    chart.draw(datatable, {
-    	backgroundColor: 'transparent',
-        width: document.getElementById(parent_div).clientWidth,
-        height: document.getElementById(parent_div).clientHeight,
-        isStacked: true,
-        vAxis: {
-            viewWindow: {
-            	min: Math.min(1000, small - 0.1 * Math.abs(small)),
-            	max: Math.max(2000, 1.1 * big)
-            },
-            ticks: [1200,1400,1600,1900,2100,
-              			2300,2400,2600,3000],
-            textStyle: {
-            		fontSize: 10
-            },
-        	format: ''
-        },
-        series: {
-            0: {
-                type: 'line'
-            },
-            1: {
-                type: 'line'
-            },
-            2: {
-                lineWidth: 0,
-                type: 'area',
-                visibleInLegend: false,
-                enableInteractivity: false,
-                color: '#bfbfbf'
-            },
-            3: {
-                lineWidth: 0,
-                type: 'area',
-                visibleInLegend: false,
-                enableInteractivity: false,
-                color: '#00ff55'
-            },
-            4: {
-                lineWidth: 0,
-                type: 'area',
-                visibleInLegend: false,
-                enableInteractivity: false,
-                color: '#66d9ff'
-            },
-            5: {
-                lineWidth: 0,
-                type: 'area',
-                visibleInLegend: false,
-                enableInteractivity: false,
-                color: '#3722f6'
-            },
-            6: {
-                lineWidth: 0,
-                type: 'area',
-                visibleInLegend: false,
-                enableInteractivity: false,
-                color: '#cc33ff'
-            },
-            7: {
-                lineWidth: 0,
-                type: 'area',
-                visibleInLegend: false,
-                enableInteractivity: false,
-                color: '#ffff66'
-            },
-            8: {
-                lineWidth: 0,
-                type: 'area',
-                visibleInLegend: false,
-                enableInteractivity: false,
-                color: '#ff6600'
-            },
-            9: {
-                lineWidth: 0,
-                type: 'area',
-                visibleInLegend: false,
-                enableInteractivity: false,
-                color: '#ff6666'
-            },
-            10: {
-                lineWidth: 0,
-                type: 'area',
-                visibleInLegend: false,
-                enableInteractivity: false,
-                color: '#e60000'
-            },
-            11: {
-                lineWidth: 0,
-                type: 'area',
-                visibleInLegend: false,
-                enableInteractivity: false,
-                color: '#AC0000'
-            }
-        },
-        chartArea: {'width': '80%', 'height': '70%', 'top': '0'},
+		datatable.addRow([date, data[i][1], data[i][2], 1200, 200, 200, 300, 200, 200, 100, 200, 400, 2000]);
+	}
+	
+	var chart = new google.visualization.ComboChart(document.getElementById(parent_div));
+	
+	chart.draw(datatable, {
+		backgroundColor: 'transparent',
+		width: document.getElementById(parent_div).clientWidth,
+		height: document.getElementById(parent_div).clientHeight,
+		isStacked: true,
+		vAxis: {
+			viewWindow: {
+				min: Math.min(1000, small - 0.1 * Math.abs(small)),
+				max: Math.max(2000, 1.1 * big)
+			},
+			ticks: [1200,1400,1600,1900,2100,
+			2300,2400,2600,3000],
+			textStyle: {
+				fontSize: 10
+			},
+			format: ''
+		},
+		series: {
+			0: {
+				type: 'line'
+			},
+			1: {
+				type: 'line'
+			},
+			2: {
+				lineWidth: 0,
+				type: 'area',
+				visibleInLegend: false,
+				enableInteractivity: false,
+				color: '#bfbfbf'
+			},
+			3: {
+				lineWidth: 0,
+				type: 'area',
+				visibleInLegend: false,
+				enableInteractivity: false,
+				color: '#00ff55'
+			},
+			4: {
+				lineWidth: 0,
+				type: 'area',
+				visibleInLegend: false,
+				enableInteractivity: false,
+				color: '#66d9ff'
+			},
+			5: {
+				lineWidth: 0,
+				type: 'area',
+				visibleInLegend: false,
+				enableInteractivity: false,
+				color: '#3722f6'
+			},
+			6: {
+				lineWidth: 0,
+				type: 'area',
+				visibleInLegend: false,
+				enableInteractivity: false,
+				color: '#cc33ff'
+			},
+			7: {
+				lineWidth: 0,
+				type: 'area',
+				visibleInLegend: false,
+				enableInteractivity: false,
+				color: '#ffff66'
+			},
+			8: {
+				lineWidth: 0,
+				type: 'area',
+				visibleInLegend: false,
+				enableInteractivity: false,
+				color: '#ff6600'
+			},
+			9: {
+				lineWidth: 0,
+				type: 'area',
+				visibleInLegend: false,
+				enableInteractivity: false,
+				color: '#ff6666'
+			},
+			10: {
+				lineWidth: 0,
+				type: 'area',
+				visibleInLegend: false,
+				enableInteractivity: false,
+				color: '#e60000'
+			},
+			11: {
+				lineWidth: 0,
+				type: 'area',
+				visibleInLegend: false,
+				enableInteractivity: false,
+				color: '#AC0000'
+			}
+		},
+		chartArea: {'width': '80%', 'height': '70%', 'top': '0'},
 		legend: {'position': 'bottom', 'alignment': 'center'}
-    });
+	});
 }
 
 function filter(id, name) {

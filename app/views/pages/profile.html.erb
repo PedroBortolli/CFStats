@@ -1,48 +1,56 @@
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
+	.card {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+		margin: auto;
+		display: inline-block;
+		padding: 10px;
+		background-color: #d0ffff;
+	}
 
-		.card {
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-			margin: auto;
-			display: inline-block;
-			padding: 10px;
-			background-color: #d0ffff;
-		}
+	.box {
 
-		.box {
-			/*background-color: blue;*/
-			width: calc(90vw/3);
-			float: left;
-			height: 80%;
-			margin: 5px;
+		height: 80%;
+		margin: 5px;
+	}
+
+	.wrapper {
+		margin: 0 auto; display: inline-block;
+	}
+
+	@media (min-width: 601px) {
+		.small {
+			display:none;
 		}
-	</style>
+	}
+
+	@media (max-width: 600px) {
+		.big {
+			display:none;
+		}
+	}
+
+</style>
 </head>
 
 <body class = "background centered" style="color: #000099">
-
 	<!-- Loading gif -->
 	<div id="loadingDiv" style="display: none;"></div>
-
 	<br/>
 	<div style="float: right">
-	<font size="4"> <a href="/users/edit">Change password</a></font>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<font size="4"> <a href="/users/edit">Change password</a></font>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	</div>
-
 	<br/>
 	<br/>
-
 	<% handle = "" %>
-
 	<% for user in UserSetting.where(username: current_user.username) %>	
-		<% handle = user.handle %>
+	<% handle = user.handle %>
 	<% end %>
-
 	<% if UserSetting.where(username: current_user.username).length == 0 %>
 
-		<div style="position: relative; top: 30%; transform: translateY(-50%);">
+	<div style="position: relative; top: 30%; transform: translateY(-50%);">
 
 		<font color="green"><h3>Welcome! Let's set everything up for you...</h3></font>
 		<br/>
@@ -55,127 +63,196 @@
 		<br/>
 		<div id = "handles" style="display: none;">
 			<% for user in UserSetting.where(username: current_user.username) %>	
-				<div id = "<%= user.handle %>">
-					<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
-						<%= handle %>
-					</a>
-				</div>
-			<% end %>
-		</div>
-		<i>Don't worry! You can change your handle later...</i>
-		</div>
-
-	<% else %>
-		<div class="card">
-			<% if user_signed_in? %>
-				<h4>Hello, <%= current_user.username %>! Your current saved CF handle is:</h4>
-				<div id = "<%= user.handle %>">
-				<h4>
+			<div id = "<%= user.handle %>">
 				<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
 					<%= handle %>
 				</a>
-				</h4>
 			</div>
 			<% end %>
-
-			<div id = "handles" style="display: none;">
-			</div>
-
-			<input type="text" class="form-control form-control text-center" style="width: 250px; margin: 0 auto; float: none;" id="update_handle_form" autofocus="true" placeholder="Change Codeforces handle">
-
-			<i><font size="2" style="text-align: center">Click to update your handle solved/attempted problems/contests!</font></i>
-			<%= image_tag("update.png", size: "16x16", title: "Update info", onclick: "update_single_handle('#{handle}')") %>
 		</div>
-		<br/>
-		<div id = "handles_notice"><br/></div>
+		<i>Don't worry! You can change your handle later...</i>
+	</div>
+	<% else %>
+	<div class="card">
+		<% if user_signed_in? %>
+		<h4>Hello, <%= current_user.username %>! Your current saved CF handle is:</h4>
+		<div id = "<%= user.handle %>">
+			<h4>
+				<a target='_blank' href='http://codeforces.com/profile/<%= user.handle %>'>
+					<%= handle %>
+				</a>
+			</h4>
+		</div>
+		<% end %>
 
-		<br/>
-		<br/>
+		<div id = "handles" style="display: none;">
+		</div>
 
-		<div style="margin: 0 auto; display: inline-block;">
-			<div class="card box" style="">
-				<!-- <div class="box" style=""> -->
-					<h3>Friends</h3>
+		<input type="text" class="form-control form-control text-center" style="width: 250px; margin: 0 auto; float: none;" id="update_handle_form" autofocus="true" placeholder="Change Codeforces handle">
 
-					<input type="text" class="form-control form-control text-center" style="width:80%; margin: 0 auto; float: none;" id="add_friends_form" placeholder="Add friend">
-					<%= text_field_tag :search11, nil, class:"form-control form-control text-center", style:"width: 80%; margin: 0 auto; float: none;", placeholder:"Search friend", onkeyup: "filter('11', 'friends')" %>
+		<i><font size="2" style="text-align: center">Click to update your handle solved/attempted problems/contests!</font></i>
+		<%= image_tag("update.png", size: "16x16", title: "Update info", onclick: "update_single_handle('#{handle}')") %>
+	</div>
+	<br/>
+	<div id = "handles_notice"><br/></div>
+	<br/>
+	<br/>
+	<div class="wrapper big">
+		<div class="card box" style="width: calc(90vw/3); float: left;">
+			<h3>Friends</h3>
 
-					<div id = "friends_notice"><br/></div>
-					
-					<br/>
-					<div id = "friends" class="border" style="margin: 0 auto; background-color: #ffffff; height: 18vh; overflow: auto;">
-						<% for user in UserSetting.where(username: current_user.username) %>
-							<% for friend in user.friends %>
-								<div id = "<%= friend %>">
-									<a target='_blank' href='http://codeforces.com/profile/<%= friend %>'>
-										<%= friend %>
-									</a>
-									&nbsp;
-									<%= image_tag("compare.png", size: "16x16", onclick: "compare('#{handle}', '#{friend}')", title: "Compare!") %>
-									<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_friend('#{friend}')",  title: "Remove") %>
-								</div>
-							<% end %>
-						<% end %>
-					</div>
-				<!-- </div> -->
-			</div>
-			<div class="card box"">
-				<!-- <div class="" > -->
-					<h3>Problems</h3>
-					<input type="text" class="form-control form-control text-center" style="width: 80%; margin: 0 auto; float: none;" id="add_links_form" placeholder="Add problem URL"> 
-					<%= text_field_tag :search12, nil, class:"form-control form-control text-center", style:"width: 80%; margin: 0 auto; float: none;", placeholder: "Search problem", onkeyup: "filter('12', 'links')" %>
-					<div id = "links_notice"><br/></div>
-					<br/>
-					<div id = "links" class="border" style="background-color: #ffffff; height: 18vh; overflow: auto;">
-						<% for user in UserSetting.where(username: current_user.username) %>
-							<% for link in user.settings %>
-								<div id = "<%= link %>">
-									<div>
-									<% if @problems_solved.key?(link) %>
-										<i>(solved)</i>
-									<% end %>
-									<a target='_blank' href='http://codeforces.com/contest/<%= link[0, link.length-1] %>/problem/<%= link[link.length-1] %>'>
-										<%= link %>
-									</a>
-									<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_link('#{link}')") %>
-									</div>
-								</div>
-							<% end %>
-						<% end %>
-					</div>
-				<!-- </div> -->
-			</div>
-			<div class="card  box">
-				<!-- <div class="box" style=""> -->
-					<h3> Contests </h3>
-					<input type="text" class="form-control form-control text-center" style="width: 80%; margin: 0 auto; float: none;" id="add_contests_form" placeholder="Add contest URL"> 
-					<%= text_field_tag :search13, nil, class:"form-control form-control text-center", style:"width: 80%; margin: 0 auto; float: none;", placeholder: "Search contest", onkeyup: "filter('13', 'contests')" %>
-					<div id = "contests_notice"><br/></div>
-					<br/>
-					<div id = "contests" class="border" style="background-color: #ffffff; height: 18vh; overflow: auto;">
-						<% for user in UserSetting.where(username: current_user.username) %>
-							<% for contest in user.contests %>
-								<div id = "<%= contest %>">
-									<% if @contests_attempted.key?(contest) %>
-										<i>(attempted)</i>
-									<% end %>
-									<% base = "" %>
-									<% if contest.to_i > 99999 %>
-										<% base = "gym" %>
-									<% else %>
-										<% base = "contest" %>
-									<% end %>
-									<a target='_blank' href='http://codeforces.com/<%= base %>/<%= contest %>'>
-										<%= contest %>
-									</a>
-									<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_contest('#{contest}')") %>
-								</div>
-							<% end %>
-						<% end %>
-					</div>
-				<!-- </div> -->
+			<input type="text" class="form-control form-control text-center" style="width:80%; margin: 0 auto; float: none;" id="add_friends_form" placeholder="Add friend">
+			<%= text_field_tag :search11, nil, class:"form-control form-control text-center", style:"width: 80%; margin: 0 auto; float: none;", placeholder:"Search friend", onkeyup: "filter('11', 'friends')" %>
+
+			<div id = "friends_notice"><br/></div>
+
+			<br/>
+			<div id = "friends" class="border" style="margin: 0 auto; background-color: #ffffff; height: 18vh; overflow: auto;">
+				<% for user in UserSetting.where(username: current_user.username) %>
+				<% for friend in user.friends %>
+				<div class = "<%= friend %>">
+					<a target='_blank' href='http://codeforces.com/profile/<%= friend %>'>
+						<%= friend %>
+					</a>
+					&nbsp;
+					<%= image_tag("compare.png", size: "16x16", onclick: "compare('#{handle}', '#{friend}')", title: "Compare!") %>
+					<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_friend('#{friend}')",  title: "Remove") %>
+				</div>
+				<% end %>
+				<% end %>
 			</div>
 		</div>
+		<div class="card box" style="width: calc(90vw/3); float: left;">
+			<h3>Problems</h3>
+			<input type="text" class="form-control form-control text-center" style="width: 80%; margin: 0 auto; float: none;" id="add_links_form" placeholder="Add problem ID"> 
+			<%= text_field_tag :search12, nil, class:"form-control form-control text-center", style:"width: 80%; margin: 0 auto; float: none;", placeholder: "Search problem", onkeyup: "filter('12', 'links')" %>
+			<div id = "links_notice"><br/></div>
+			<br/>
+			<div id = "links" class="border" style="background-color: #ffffff; height: 18vh; overflow: auto;">
+				<% for user in UserSetting.where(username: current_user.username) %>
+				<% for link in user.settings %>
+				<div class = "<%= link %>">
+					<div>
+						<% if @problems_solved.key?(link) %>
+						<i>(solved)</i>
+						<% end %>
+						<a target='_blank' href='http://codeforces.com/contest/<%= link[0, link.length-1] %>/problem/<%= link[link.length-1] %>'>
+							<%= link %>
+						</a>
+						<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_link('#{link}')") %>
+					</div>
+				</div>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class="card box" style="width: calc(90vw/3); float: left;">
+			<h3> Contests </h3>
+			<input type="text" class="form-control form-control text-center" style="width: 80%; margin: 0 auto; float: none;" id="add_contests_form" placeholder="Add contest ID"> 
+			<%= text_field_tag :search13, nil, class:"form-control form-control text-center", style:"width: 80%; margin: 0 auto; float: none;", placeholder: "Search contest", onkeyup: "filter('13', 'contests')" %>
+			<div id = "contests_notice"><br/></div>
+			<br/>
+			<div id = "contests" class="border" style="background-color: #ffffff; height: 18vh; overflow: auto;">
+				<% for user in UserSetting.where(username: current_user.username) %>
+				<% for contest in user.contests %>
+				<div class = "<%= contest %>">
+					<% if @contests_attempted.key?(contest) %>
+					<i>(attempted)</i>
+					<% end %>
+					<% base = "" %>
+					<% if contest.to_i > 99999 %>
+					<% base = "gym" %>
+					<% else %>
+					<% base = "contest" %>
+					<% end %>
+					<a target='_blank' href='http://codeforces.com/<%= base %>/<%= contest %>'>
+						<%= contest %>
+					</a>
+					<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_contest('#{contest}')") %>
+				</div>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrapper small">
+		<div class="card box" style="width: 80vw">
+			<h3>Friends</h3>
+
+			<input type="text" class="form-control form-control text-center" style="width:80%; margin: 0 auto; float: none;" id="add_friends_form1" placeholder="Add friend">
+			<%= text_field_tag :search11, nil, class:"form-control form-control text-center", style:"width: 80%; margin: 0 auto; float: none;", placeholder:"Search friend", onkeyup: "filter('11', 'friends')" %>
+
+			<div id = "friends_notice1"><br/></div>
+
+			<br/>
+			<div id = "friends1" class="border" style="margin: 0 auto; background-color: #ffffff; height: 18vh; overflow: auto;">
+				<% for user in UserSetting.where(username: current_user.username) %>
+				<% for friend in user.friends %>
+				<div class = "<%= friend %>">
+					<a target='_blank' href='http://codeforces.com/profile/<%= friend %>'>
+						<%= friend %>
+					</a>
+					&nbsp;
+					<%= image_tag("compare.png", size: "16x16", onclick: "compare('#{handle}', '#{friend}')", title: "Compare!") %>
+					<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_friend('#{friend}')",  title: "Remove") %>
+				</div>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class="card box" style="width: 80vw">
+			<h3>Problems</h3>
+			<input type="text" class="form-control form-control text-center" style="width: 80%; margin: 0 auto; float: none;" id="add_links_form1" placeholder="Add problem ID"> 
+			<%= text_field_tag :search12, nil, class:"form-control form-control text-center", style:"width: 80%; margin: 0 auto; float: none;", placeholder: "Search problem", onkeyup: "filter('12', 'links')" %>
+			<div id = "links_notice1"><br/></div>
+			<br/>
+			<div id = "links1" class="border" style="background-color: #ffffff; height: 18vh; overflow: auto;">
+				<% for user in UserSetting.where(username: current_user.username) %>
+				<% for link in user.settings %>
+				<div class = "<%= link %>">
+					<div>
+						<% if @problems_solved.key?(link) %>
+						<i>(solved)</i>
+						<% end %>
+						<a target='_blank' href='http://codeforces.com/contest/<%= link[0, link.length-1] %>/problem/<%= link[link.length-1] %>'>
+							<%= link %>
+						</a>
+						<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_link('#{link}')") %>
+					</div>
+				</div>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class="card box" style="width: 80vw">
+			<h3> Contests </h3>
+			<input type="text" class="form-control form-control text-center" style="width: 80%; margin: 0 auto; float: none;" id="add_contests_form1" placeholder="Add contest ID"> 
+			<%= text_field_tag :search13, nil, class:"form-control form-control text-center", style:"width: 80%; margin: 0 auto; float: none;", placeholder: "Search contest", onkeyup: "filter('13', 'contests')" %>
+			<div id = "contests_notice1"><br/></div>
+			<br/>
+			<div id = "contests1" class="border" style="background-color: #ffffff; height: 18vh; overflow: auto;">
+				<% for user in UserSetting.where(username: current_user.username) %>
+				<% for contest in user.contests %>
+				<div class = "<%= contest %>">
+					<% if @contests_attempted.key?(contest) %>
+					<i>(attempted)</i>
+					<% end %>
+					<% base = "" %>
+					<% if contest.to_i > 99999 %>
+					<% base = "gym" %>
+					<% else %>
+					<% base = "contest" %>
+					<% end %>
+					<a target='_blank' href='http://codeforces.com/<%= base %>/<%= contest %>'>
+						<%= contest %>
+					</a>
+					<%= image_tag("cancel.png", size: "16x16", onclick: "try_remove_contest('#{contest}')") %>
+				</div>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 	<% end %>
-
 </body>
