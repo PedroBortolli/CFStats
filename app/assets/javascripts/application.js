@@ -15,15 +15,6 @@
 //= require jquery
 //= require app_assets
 
-function get_compare_icon_path() {
-	
-}
-
-function ret(x) {
-	console.log("oia o que chegou ==> " + x)
-	return x;
-}
-
 $(document).ready(function() {
 	$('#update_handle_form').focus();
 	$('#update_handle_form').keypress(function(event) {
@@ -143,8 +134,8 @@ $(document).ready(function() {
 				data: {name: info},
 				success: function(status) {
 					if (status == "false") {
-						message("add", "friends_notice", "Handle doesn't exist")
-						message("add", "friends_notice1", "Handle doesn't exist")
+						message("add", "friends_notice", "Handle doesn't exist or has already been added")
+						message("add", "friends_notice1", "Handle doesn't exist or has already been added")
 					}
 					else {
 						$.ajax({
@@ -176,8 +167,8 @@ $(document).ready(function() {
 				data: {name: info},
 				success: function(status) {
 					if (status == "false") {
-						message("add", "friends_notice1", "Handle doesn't exist");
-						message("add", "friends_notice", "Handle doesn't exist");
+						message("add", "friends_notice1", "Handle doesn't exist or has already been added");
+						message("add", "friends_notice", "Handle doesn't exist or has already been added");
 					}
 					else {
 						$.ajax({
