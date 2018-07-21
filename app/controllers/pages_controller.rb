@@ -8,6 +8,11 @@ class PagesController < ApplicationController
 	include ActionView::Helpers::AssetUrlHelper
 
 	def index
+		if flash[:error] == "wrong_handles"
+			@show_handle_error = true
+		else
+			@show_handle_error = false
+  		end
 	end
 
 	# Builds all information about user logged into the website
@@ -69,7 +74,8 @@ class PagesController < ApplicationController
 		handle1 = params[:param1].to_s.strip
 		handle2 = params[:param2].to_s.strip
 		if !validate(handle1, "handle") or !validate(handle2, "handle")
-			render html: "Please provide 2 valid Codeforces handles!"
+			redirect_to root_path, flash: {error: "wrong_handles"}
+			#render html: "Please provide 2 valid Codeforces handles!"
 			return
 		end
 		force = false

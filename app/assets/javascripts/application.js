@@ -14,6 +14,7 @@
 //= require_tree
 //= require jquery
 //= require app_assets
+//= require sweetalert
 
 $(document).ready(function() {
 	$('#update_handle_form').focus();
