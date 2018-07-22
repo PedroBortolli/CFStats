@@ -113,6 +113,12 @@
 		</div>
 	</div>
 
-
 	</div>
+
 </body>
+
+<script type="text/javascript">
+	<% if @show_handle_error %>
+		sweetAlert('Invalid Codeforces handle(s)');
+	<% end %>
+</script>

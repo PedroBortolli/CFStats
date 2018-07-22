@@ -94,6 +94,7 @@ class DatabaseController < ApplicationController
 	def add_friends_to_db
 		user_exists = false
 		to_add = params[:name].to_s
+		has_friend = true
 		@return = false
 
 		if !validate(to_add, "handle")
@@ -107,15 +108,18 @@ class DatabaseController < ApplicationController
 			user_exists = true
 			all_friends = lines.friends
 			if !(all_friends.include? to_add)
+				has_friend = false
 				lines.friends << to_add
 				lines.save
 			end
 		end
+		@return = to_add
 		if !user_exists
 			new_entry = UserSetting.create(:settings => [to_add.to_s], :username => current_user.username, :friends => [], :contests => [], :handle => "")
+		elsif has_friend
+			@return = false
 		end
-		@return = to_add
-		render plain: @return
+		render plain: @return.inspect
 	end
 
 	# Removes friend passed by parameter from database
