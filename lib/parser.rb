@@ -2,6 +2,7 @@ module Parser
 	
 	include Utility
 	include Api
+	require 'set'
 
 	# Calls CF API and stores basic user information
 	def build_user_info (handle, info)
@@ -65,6 +66,7 @@ module Parser
 			if !seenProblem.key?(submission['problem'])
 				seenProblem.store(submission['problem'], 1)
 				submissionCopy = submission['problem'].clone
+				unsolvedProblems.push(submission['problem'])
 				if submissionCopy['contestId'].to_i < 99999
 					base = "http://www.codeforces.com/problemset/problem/"
 					submissionCopy['url'] = base + submissionCopy['contestId'].to_s + "/" + submissionCopy['index'].to_s
@@ -81,9 +83,12 @@ module Parser
 							problemTags[tag] += 1
 						end
 					end
-				else
-					unsolvedProblems.push(submissionCopy)
 				end
+			end
+		end
+		problems.each do |submission|
+			if submission['verdict'] == 'OK'
+				unsolvedProblems.delete(submission['problem'])
 			end
 		end
 		info['unsolvedProblems'] = unsolvedProblems
