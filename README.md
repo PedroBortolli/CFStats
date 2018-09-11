@@ -203,7 +203,6 @@ Then go to the CFStats cloned directory and run the following commands:
 ``rake db:create``
 
 ``rake db:migrate``
-</p></details>
 
 
 &nbsp;
